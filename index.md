@@ -11,7 +11,7 @@
 - [String](./JAVA/String.md)
 - [StringBuilder](./JAVA/StringBuilder.md)
 - [Thymeleaf](./JAVA/Thymeleaf.md)
-- *~[Plantilla](./JAVA/plantilla)~*
+- *[Plantilla](./JAVA/plantilla)*
 
 # 3. LINUX:
 - [Árbol de directorios](./LINUX/arbol_directorios.jpg)
