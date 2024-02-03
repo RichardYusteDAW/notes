@@ -35,36 +35,36 @@ int f;
 long g;
 short h;
 
-int a, b, c;	//Declaramos varias variables con el mismo tipo;
-int a = 1;		//Se puede declarar y asignar valor en una sola sentencia;
-var a = 1;		//Java 10 reconoce el tipo;
+int a, b, c;    //Declaramos varias variables con el mismo tipo;
+int a = 1;      //Se puede declarar y asignar valor en una sola sentencia;
+var a = 1;      //Java 10 reconoce el tipo;
 ```
 <br><br>
 
 ## 6º CASTEAR VARIABLES:
 ```java
 int a = 1;
-float b = (float)a; 			//Castea de int a float.
-String b = Integer.toString(a);	//Castea de int a String --> También se podría con: String.valueOf(a);
+float b = (float)a;             //Castea de int a float.
+String b = Integer.toString(a); //Castea de int a String --> También se podría con: String.valueOf(a);
 
 
-String c = "1";
-int d = Integer.parseInt(c);	//Castea de String a int.
+String c = "1";			
+int d = Integer.parseInt(c);    //Castea de String a int.
 ```
 <br><br>
 
 ## 7º PALABRAS RESERVADAS:
 ```java
-abstract	continue	for			new			switch
-assert		default		goto		package		synchronized
-boolean		do			if			private		this
-break		double		implements	protected	throw
-byte		else		import		public		throws
-case		enum		instanceof	return		transient
-catch		extends		int			short		try
-char		final		interface	static		void
-class		finally		long		strctfp		volatile
-const		float		native		super		while
+abstract    continue    for         new         switch
+assert      default     goto        package     synchronized
+boolean     do          if          private     this
+break       double      implements  protected   throw
+byte        else        import      public      throws
+case        enum        instanceof  return      transient
+catch       extends     int         short       try
+char        final       interface   static      void
+class       finally     long        strctfp     volatile
+const       float       native      super       while
 ```
 <br><br>
 
@@ -97,11 +97,11 @@ class EntradaSalida {
     }
 }
 
-nextLine()		//Obtiene una nueva línea de entrada.
-nextInt()		//Se salta los espacios dejados en blanco hasta que encuentra un valor de tipo int y devuelve ese valor.
-nextLong()		//Igual con valores de tipo long.
-nextFloat()		//Igual con valores de tipo float.
-nextDouble()	//Igual con valores de tipo double.
+nextLine()      //Obtiene una nueva línea de entrada.
+nextInt()       //Se salta los espacios dejados en blanco hasta que encuentra un valor de tipo int y devuelve ese valor.
+nextLong()      //Igual con valores de tipo long.
+nextFloat()     //Igual con valores de tipo float.
+nextDouble()    //Igual con valores de tipo double.
 ```
 <br><br>
 
@@ -133,20 +133,20 @@ nextDouble()	//Igual con valores de tipo double.
 
 ## 13º OPERADORES RELACIONALES:
 ```java
-==	Devuelve true si los operandos son iguales.
-!=	Devuelve true si los operandos son diferentes.
-<	Devuelve true si el primer operando es menor que el segundo.
->	Devuelve true si el primer operando es mayor que el segundo.
-<=	Devuelve true si el primer operando es menor o igual que el segundo.
->=	Devuelve true si el primer operando es mayor o igual que el segundo.
+==	//Devuelve true si los operandos son iguales.
+!=	//Devuelve true si los operandos son diferentes.
+<	//Devuelve true si el primer operando es menor que el segundo.
+>	//Devuelve true si el primer operando es mayor que el segundo.
+<=	//Devuelve true si el primer operando es menor o igual que el segundo.
+>=	//Devuelve true si el primer operando es mayor o igual que el segundo.
 ```
 <br><br>
 
 ## 14º OPERADORES LOGICOS:
 ```java
-&&	AND lógico.
-||	OR lógico.
-!	NOT lógico.
+&&	//AND lógico.
+||	//OR lógico.
+!	//NOT lógico.
 ```
 <br><br>
 
@@ -295,13 +295,13 @@ int[][] matriz = {
 
 ## 19º COLECCIONES:
 ```java
-.size()				//Número de elementos de la colección.
-.isEmpty()			//TRUE si la colección está vacía.
-.contains(element)	//TRUE si la colección contiene el elemento.
-.add(element)		//Añade elementos a la colección.
-.remove(element)	//Elimina elementos de la colección.
-.toArray()			//Convierte la colección a un array de objetos tipo Object.
-.clear()			//Vacía la colección.
+.size()             //Número de elementos de la colección.
+.isEmpty()          //TRUE si la colección está vacía.
+.contains(element)  //TRUE si la colección contiene el elemento.
+.add(element)       //Añade elementos a la colección.
+.remove(element)    //Elimina elementos de la colección.
+.toArray()          //Convierte la colección a un array de objetos tipo Object.
+.clear()            //Vacía la colección.
 
 //Conjuntos (No admite duplicados):
 HashSet<Integer> conjunto = new HashSet<>();
@@ -315,13 +315,13 @@ List<Integer> lista = List.of(1, 3, 5, 67);
 
 List<Integer> subList(index, index)	//Genera una sublista (una vista parcial de la lista) con los elementos comprendidos entre la posición inicial (from, incluida) y la posición final (to, no incluida).
 
-.get(index)				//Obtiene un elemento partiendo de su posición (index).
-.set(index,element)		//Cambia el elemento almacenado en una posición de la lista (index), por otro (element).
-.add(index,element)		//Inserta un elemento (element) en la lista en una posición concreta (index), desplazando los existentes. Si le pasamos solo el elemento (element) la inserción la hará al final de la lista.
-.remove(index)			//Elimina un elemento indicando su posición (index) en la lista.
-.addAll(index,lista)	//Inserta una colección pasada por parámetro en una posición de la lista, desplazando el resto de elementos.
-.indexOf(element)		//Devuelve la posición (índice) de un elemento en la lista o -1 si el elemento no está en la lista.
-.lastIndexOf(index)		//Devuelve la última ocurrencia del objeto en la lista (dado que la lista si puede almacenar duplicados) o -1 si el elemento no está en la lista.
+.get(index)             //Obtiene un elemento partiendo de su posición (index).
+.set(index,element)     //Cambia el elemento almacenado en una posición de la lista (index), por otro (element).
+.add(index,element)     //Inserta un elemento (element) en la lista en una posición concreta (index), desplazando los existentes. Si le pasamos solo el elemento (element) la inserción la hará al final de la lista.
+.remove(index)          //Elimina un elemento indicando su posición (index) en la lista.
+.addAll(index,lista)    //Inserta una colección pasada por parámetro en una posición de la lista, desplazando el resto de elementos.
+.indexOf(element)       //Devuelve la posición (índice) de un elemento en la lista o -1 si el elemento no está en la lista.
+.lastIndexOf(index)     //Devuelve la última ocurrencia del objeto en la lista (dado que la lista si puede almacenar duplicados) o -1 si el elemento no está en la lista.
 
 
 //Mapas (clave/valor):
@@ -330,14 +330,14 @@ Map<String, Integer> diccionario = Map.of("edad", 18, "año", 2022);
 
 Set<String> keys = diccionario.keySet(); //Devuelve un conjunto con las claves contenidas en el map.
 
-.put(key,value)			//Asocia el valor (value) con la clave (key) en el map. Si la clave no existe en el map crea un nuevo par clave-valor. Si ya existe, reemplazará el valor.
-.get(key)				//Obtiene el valor asociado a una clave (key) ya almacenada en el mapa. Si no existe la clave, retornará null.
-.remove(key)			//Elimina la clave (key) y el valor (value) asociado. Retorna el valor asociado a la clave, o null, si la clave no existe.
-.containsKey(key)		//Devuelve true si el map tiene almacenada la clave (key).
-.containsValue(value)	//Devuelve true si el map tiene almacenada el valor (value).
-.size()					//Devuelve el número de pares clave-valor almacenado en el map.
-.isEmpty()				//Devuelve true si el map está vacío.
-.clear()				//Vacía el map.		
+.put(key,value)         //Asocia el valor (value) con la clave (key) en el map. Si la clave no existe en el map crea un nuevo par clave-valor. Si ya existe, reemplazará el valor.
+.get(key)               //Obtiene el valor asociado a una clave (key) ya almacenada en el mapa. Si no existe la clave, retornará null.
+.remove(key)            //Elimina la clave (key) y el valor (value) asociado. Retorna el valor asociado a la clave, o null, si la clave no existe.
+.containsKey(key)       //Devuelve true si el map tiene almacenada la clave (key).
+.containsValue(value)   //Devuelve true si el map tiene almacenada el valor (value).
+.size()                 //Devuelve el número de pares clave-valor almacenado en el map.
+.isEmpty()              //Devuelve true si el map está vacío.
+.clear()                //Vacía el map.		
 ```
 <br><br>
 

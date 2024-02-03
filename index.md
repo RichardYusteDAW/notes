@@ -24,6 +24,6 @@
     - [Eventos](./LLM/JS/Eventos.md)
 
 # 5. MySQL:
-- relations: [table mapping](./MySQL/table_mapping/table_mapping.md)
+- Table mapping: [table mapping](./MySQL/table_mapping/table_mapping.md)
 - DDL: [DDL](./MySQL/DDL.md)
 - DML: [DML](./MySQL/DML.md)
