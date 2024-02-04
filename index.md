@@ -18,7 +18,7 @@
 - [Comandos](./LINUX/Comandos_Linux.pdf)
 
 # 4. LLM:
-- CSS: [CSS](./LLM/CSS/EtiquetasCSS3.pdf)
+- CSS: [CSS](./LLM/CSS/css.md)
 - HTML: [HTML](./LLM/HTML/EtiquetasHTML5.pdf)
 - JAVASCRIPT: 
     - [Eventos](./LLM/JS/Eventos.md)
