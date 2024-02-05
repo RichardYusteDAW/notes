@@ -10,7 +10,7 @@
 ###	1. Añadir dependencias:
 - **Thymeleaf:** sistema de `plantillas` para entornos web.
 - **Spring web:** iniciador de aplicaciones web (Utiliza `Tomcat` como servidor web embebido).
-- **Spring Boot DevTools:** conjunto de `herramientas` para facilitar el desarrollo de aplicaciones
+- **Spring Boot DevTools:** conjunto de `herramientas` para facilitar el desarrollo de aplicaciones.
 
 
 ### 2. Modificar puerto:
@@ -75,11 +75,11 @@ public class ProductController {
 - Los estilos están en: `/resources/static/css`
 - Las imágenes están en: `/resources/static/img`
 
-### 7. Deshabilitar la página de error WhiteLabel de Spring Boot:
+### 6. Deshabilitar la página de error WhiteLabel de Spring Boot:
 - `server.error.whitelabel.enabled=false`
 - Creamos nuestra propia página de error: `/resources/templates/error.html`
 
-### 8. Creamos products.html:
+### 7. Creamos products.html:
 ```java
 <!DOCTYPE html>
 <html lang="es">
@@ -102,7 +102,7 @@ public class ProductController {
 </html>
 ```
 
-### 9. Creamos product.html:
+### 8. Creamos product.html:
 ```java
 <!DOCTYPE html>
 <html lang="es">

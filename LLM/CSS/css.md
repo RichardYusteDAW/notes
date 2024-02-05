@@ -62,8 +62,7 @@ p > span { ... }
 /* Todos los elementos "h1" cuyo hermano adyacente (mismo padre) sea un “h2" */
 h1 + h2 { ... }
 
-/* Todos los elementos "h1" cuyo hermano (mismo padre) sea el elemento “h2" y no es
-necesario que sea adyacente a este, pero sí que sea posterior*/
+/* Todos los elementos "h1" cuyo hermano (mismo padre) sea el elemento “h2" y no es necesario que sea adyacente a este, pero sí que sea posterior*/
 h1 ~ h2 { ... }
 ```
 
@@ -100,15 +99,15 @@ a[class*="exter"] { color: blue; }
 ### C. Pseudo selectores:
 #### - Pseudo-clases
 ```css
-:active {}    /*estilos a enlaces que está pinchando el usuario.*/
-:checked {}   /*estilos a elementos de tipo checkbox o radio que esté marcado.*/
-:focus {}     /*estilos a campos donde esté el foco y no solo el puntero.*/
-:hover {}     /*estilos a enlaces posicionado el puntero del ratón.*/
-:link {}      /*estilos a enlaces que aún NO han sido visitados.*/
-:valid {}     /*estilos a campos válidos (normalmente formularios).*/
-:invalid {}   /*estilos a campos inválidos (normalmente formularios).*/
-:visited {}   /*estilos a enlaces que SÍ han sido visitados.*/
-:target {}    /*estilos al objetivo de un enlace.*/
+:active {}              /*estilos a enlaces que está pinchando el usuario.*/
+:checked {}             /*estilos a elementos de tipo checkbox o radio que esté marcado.*/
+:focus {}               /*estilos a campos donde esté el foco y no solo el puntero.*/
+:hover {}               /*estilos a enlaces posicionado el puntero del ratón.*/
+:link {}                /*estilos a enlaces que aún NO han sido visitados.*/
+:valid {}               /*estilos a campos válidos (normalmente formularios).*/
+:invalid {}             /*estilos a campos inválidos (normalmente formularios).*/
+:visited {}             /*estilos a enlaces que SÍ han sido visitados.*/
+:target {}              /*estilos al objetivo de un enlace.*/
 
 :first-child {}         /*Selecciona el primer hijo de un elemento.*/
 :last-child {}          /*Selecciona el último hijo de un elemento.*/
@@ -123,11 +122,11 @@ a[class*="exter"] { color: blue; }
 
 #### - Pseudo-elementos
 ```css
-::first-line {}   /*Selecciona la primera línea de un bloque de texto.*/
-::first-letter {} /*Selecciona la primera letra de un bloque de texto.*/
-::before {}       /*Inserta contenido antes del contenido de un elemento.*/
-::after {}        /*Inserta contenido después del contenido de un elemento.*/
-::selection {}    /*Selecciona la porción de un elemento que ha sido seleccionada por el usuario.*/
+::first-line {}         /*Selecciona la primera línea de un bloque de texto.*/
+::first-letter {}       /*Selecciona la primera letra de un bloque de texto.*/
+::before {}             /*Inserta contenido antes del contenido de un elemento.*/
+::after {}              /*Inserta contenido después del contenido de un elemento.*/
+::selection {}          /*Selecciona la porción de un elemento que ha sido seleccionada por el usuario.*/
 
 /***before, after y selection llevan: {content: “”}*/
 ```
@@ -177,13 +176,13 @@ div{
 div{
     outline: 1px solid red;    /*Contorno: línea exterior (ancho estilo color)*/
 
-    border: 1px solid red;    /*medida color estilo*/
+    border: 1px solid red;     /*medida color estilo*/
     border-top: 1px;
     border-right: 1px;
     border-bottom: 1px;
     border-left: 1px;
 
-    border-width: 1px;       /*medida ó (thin medium thick)*/
+    border-width: 1px;         /*medida ó (thin medium thick)*/
     border-top-width: 10px;
     border-right-width: 1em;
     border-bottom-width: thick;
@@ -195,7 +194,7 @@ div{
     border-bottom-color: #00FF00;
     border-left-color: #CCC;
 
-    border-style: none;     /*none hidden dotted dashed solid double groove ridge inset outset*/
+    border-style: none;        /*none hidden dotted dashed solid double groove ridge inset outset*/
     border-top-style: dashed;
     border-right-style: double;
     border-bottom-style: dotted;
@@ -305,7 +304,7 @@ div{
 `sticky`: El elemento se comporta como relative hasta que alcanza un punto de desplazamiento específico, momento en el cual se convierte en fixed.
 ```css
 div{
-    position: static    /*Posicionamiento (static | relative | absolute | fixed)*/
+    position: static;   /*Posicionamiento (static | relative | absolute | fixed)*/
     
     top: 10px;
     right: 10px;
@@ -315,7 +314,7 @@ div{
     float: left;        /*Posicionamiento float (left | right | none)*/
     clear: both;        /*Despejar los elementos flotantes adyacentes (left | right | both | none)*/
 
-    /*Block permite margen y padding, inline solo horizontalmente. Para eso utilizamos inline-block*/
+    /* Block permite margen y padding, inline solo horizontalmente. Para eso utilizamos inline-block */
     display: inline;    /*visualización de un elemento (inline | block | none | list-item | run-in | inline-block | table | inline-table | table-row-group | table-header-group | table-footer-group | table-row | table-column-group | table-column | table-cell | table-caption)*/
     visibility: hidden; /*Visibilidad de un elemento (visible | hidden | collapse)*/
     overflow: scroll;   /*Parte sobrante de un elemento (visible | hidden | scroll | auto)*/

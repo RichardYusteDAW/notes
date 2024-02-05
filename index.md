@@ -1,6 +1,5 @@
 # 1. GIT:
 - [git](./GIT/git.md)
-- [Test](./GIT/test.md)
 
 # 2. JAVA:
 - [Java](./JAVA/java.md)
@@ -27,3 +26,6 @@
 - Table mapping: [table mapping](./MySQL/table_mapping/table_mapping.md)
 - DDL: [DDL](./MySQL/DDL.md)
 - DML: [DML](./MySQL/DML.md)
+
+# 5. Testing:
+- Testing: [Testing](./TESTING/test.md)
