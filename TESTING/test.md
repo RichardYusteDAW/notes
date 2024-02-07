@@ -70,19 +70,20 @@ assertAll(
 
 ### - Anotaciones JUnit:
 ```java
-@Test           //Indica que el método es un caso de prueba.
-@DisplayName    //Proporciona un nombre descriptivo para el caso de prueba o la clase de prueba.
-@BeforeAll      //Se ejecuta antes de todos los métodos de prueba. (debe ser estático en pruebas NO anidadas).
-@AfterAll       //Se ejecuta después de todos los métodos de prueba (debe ser estático en pruebas NO anidadas).
-@BeforeEach     //Se ejecuta antes de cada método de prueba.
-@AfterEach      //Se ejecuta después de cada método de prueba.
-@Disabled       //Desactiva un método de prueba o una clase de prueba.
-@Nested         //Permite la creación de clases de prueba anidadas para estructurar mejor los casos de prueba.
+@Test           // Indica que el método es un caso de prueba.
+@DisplayName    // Proporciona un nombre descriptivo para el caso de prueba o la clase de prueba.
+@BeforeAll      // Se ejecuta antes de todos los métodos de prueba. (debe ser estático en pruebas NO anidadas).
+@AfterAll       // Se ejecuta después de todos los métodos de prueba (debe ser estático en pruebas NO anidadas).
+@BeforeEach     // Se ejecuta antes de cada método de prueba.
+@AfterEach      // Se ejecuta después de cada método de prueba.
+@Disabled       // Desactiva un método de prueba o una clase de prueba.
+@Nested         // Permite la creación de clases de prueba anidadas para estructurar mejor los casos de prueba.
 ```
 <br>
 
 ```java
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.*; // Importar todas las anotaciones de JUnit
+import static org.junit.jupiter.api.Assertions.*; // Importar todas las aserciones de JUnit
 
 class EjemploPruebas {
 
@@ -116,20 +117,95 @@ class EjemploPruebas {
         @Test
         void pruebaAnidada2() {/*Código de una prueba anidada2*/}
     }
+    
+}
+```
+<br>
+
+### - Test Parametrizados:
+#### @ValueSource:
+```java
+import org.junit.jupiter.params.ParameterizedTest;
+
+@ParameterizedTest /*Indica que el método es un caso de prueba parametrizado.*/
+@DisplayName("Prueba Parametrizada") /*Proporciona un nombre descriptivo para el caso de prueba.*/
+
+/*Proporciona un conjunto de valores para el caso de prueba.*/
+@ValueSource(ints = {1, 2, 3, 4, 5})
+@ValueSource(floats = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f})
+@ValueSource(doubles = {1.0, 2.0, 3.0, 4.0, 5.0})
+@ValueSource(strings = {"Java", "JUnit", "Maven"})
+@ValueSource(chars = {'a', 'b', 'c', 'd', 'e'})
+@ValueSource(booleans = {true, false})
+@ValueSource(classes = {String.class, Integer.class, Double.class})
+
+void pruebaParametrizada(int valor) {
+    assertTrue(valor > 0);
+}
+
+void pruebaParametrizada(String valor) {
+    assertTrue(valor.length() > 0);
+    assertTrue(valor.contains("a"));
+}
+```
+#### @NullSource && @EmptySource && @NullAndEmptySource:
+```java
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
+import org.junit.jupiter.params.provider.NullSource;
+import org.junit.jupiter.params.provider.EmptySource;
+
+@ParameterizedTest (name="\"{0}\"")
+@DisplayName("Prueba Parametrizada")
+@NullSource /*Proporciona un valor NULL para el caso de prueba.*/
+@EmptySource /*Proporciona un valor vacío para el caso de prueba.*/
+@NullAndEmptySource /*Proporciona un valor nulo y un valor vacío para el caso de prueba.*/
+
+void pruebaParametrizada(String valor) {
+    assertTrue(valor == null);
+    assertTrue(valor.isEmpty());
+    assertTrue(valor == null || valor.isEmpty());
 }
 ```
 
+#### @CsvSource:
+```java
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
+@ParameterizedTest(name="{0} + {1} = {2}")
+@DisplayName("Prueba Parametrizada")
+@CsvSource({"1, 1, 2", "2, 3, 5", "3, 4, 7", "4, 5, 9", "5, 6, 11"}) /*Los valores solo pueden ser de tipo primitive o String.*/
 
+void pruebaParametrizada(int a, int b, int resultado) {
+    assertEquals(resultado, a + b);
+}
+```
 
+#### @MethodSource:
+```java
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+import java.util.stream.Stream;
 
+@ParameterizedTest(name="[{index}] {0} + {1} = {2}")
+@DisplayName("Prueba Parametrizada")
+@MethodSource("valores") /*Proporciona un método que devuelve un Stream, Iterable, Iterator, o array de argumentos para el caso de prueba.*/
+void pruebaParametrizada(int a, int b, int resultado) {
+    assertEquals(resultado, a + b);
+}
 
-
-
-
-
-
-
+static Stream<Arguments> valores() {
+    return Stream.of(
+        Arguments.of(1, 1, 2),
+        Arguments.of(2, 3, 5),
+        Arguments.of(3, 4, 7),
+        Arguments.of(4, 5, 9),
+        Arguments.of(5, 6, 11)
+    );
+}
+```
 <br><br><br>
 
 ## *[volver al índice](../index.md)*
