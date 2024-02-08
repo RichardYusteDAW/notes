@@ -57,7 +57,7 @@ String.format("%tD", fecha)	//2023-11-05
 %tA     //Día de la semana en formato completo.
 %tB     //Mes en formato completo.
 %tC     //Año con cuatro dígitos.
-%tD     //Fecha en formato dd/MM/yyyy.
+%tD     //Fecha en formato MM/dd/yyyy.
 %tE     //Día de la semana en formato abreviado.
 %tF     //Fecha y hora en formato dd/MM/yyyy HH:mm:ss.
 %tH     //Hora en formato de 24 horas.
@@ -68,20 +68,18 @@ String.format("%tD", fecha)	//2023-11-05
 %tY     //Año con dos dígitos.
 
 //FLAGS:
--:      //Alineación a la izquierda.
-.:      //Mostrarán decimales.
-+:      //Mostrará el signo del número, incluso si es positivo.
-0:      //Espacios vacíos se rellenarán con ceros.
-,:      //Mostrarán los separadores de miles.
-#:      //Mostrarán los ceros a la izquierda de los números enteros.
-"'":    //Los caracteres se mostrarán entre comillas simples.
+-       //Alineación a la izquierda.
+.       //Mostrarán decimales.
++       //Mostrará el signo del número, incluso si es positivo.
+0       //Espacios vacíos se rellenarán con ceros.
+,       //Mostrarán los separadores de miles.
+"'"     //Los caracteres se mostrarán entre comillas simples.
 
 String.format("%-10d", 10)      //10
 String.format("%.2f", 10.5)     //10.50
 String.format("%+d", 10)        //+10
-String.format("%010d", 10)      //0000000010
+String.format("%07d", 10)       //0000010
 String.format("%,d", 1000000)   //1,000,000
-String.format("%#d", 10)        //00010
 String.format("'%s'", "Hola")   //'Hola'
 ```
 

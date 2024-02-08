@@ -18,10 +18,11 @@ resources >> application.properties >> `server.port = 8081`
 
 ### 3. Necesitamos un MainController dentro de ./controller para gestionar las rutas:
 ```java
-package com.fpmislata.practica.controller;
-
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping; //Anotación de Spring que proporciona un mapeo directo entre las solicitudes HTTP y los métodos de controlador.
+import org.springframework.ui.Model;                         //Interfaz de Spring utilizada para añadir atributos al modelo que se pasará a la vista.
+import org.springframework.web.bind.annotation.GetMapping;   //Anotación de Spring que proporciona un mapeo directo entre las solicitudes HTTP y los métodos de controlador.
+import org.springframework.web.bind.annotation.PostMapping;  //Anotación de Spring que se utiliza para mapear solicitudes HTTP POST a métodos de controlador.
+import org.springframework.web.bind.annotation.RequestParam; //Anotación de Spring que se utiliza para vincular parámetros de solicitud a parámetros de método en un controlador.
 
 @Controller
 public class MainController {
@@ -31,23 +32,39 @@ public class MainController {
         return "index";    
     }
 
-    @GetMapping("/about")
-    public void about() {
-        return "about";
+    @GetMapping("/contact")
+    public String contact() {
+        return "contact";
     }
 
+    @PostMapping("/contact")
+    public String procesarFormularioContacto(Model model,
+            @RequestParam("nombre") String nombre,
+            @RequestParam("email") String email,
+            @RequestParam("asunto") String asunto,
+            @RequestParam("mensaje") String mensaje) {
+
+        model.addAttribute("nombre", nombre);
+        model.addAttribute("email", email);
+        model.addAttribute("asunto", asunto);
+        model.addAttribute("mensaje", mensaje);
+
+        return "confirmation";
+    }
+    @GetMapping("/about")
+    public String about() {
+        return "about";
+    }
 }
 ```
 
 ### 4. Rutas con parámetros variables (/productos/{id}):
 ```java
-package com.fpmislata.practica.controller;
-
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model; //Interfaz de Spring utilizada para añadir atributos al modelo que se pasará a la vista.
+import org.springframework.ui.Model; 
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable; //Anotación de Spring que se utiliza para vincular variables de plantilla en la URL de una petición a parámetros de método en un controlador.
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PathVariable;   //Anotación de Spring que se utiliza para vincular variables de plantilla en la URL de una petición a parámetros de método en un controlador.
+import org.springframework.web.bind.annotation.RequestMapping; //Anotación de Spring que se utiliza para mapear solicitudes web a métodos de controlador específicos.
 
 @RequestMapping("/products")
 @Controller
@@ -56,17 +73,15 @@ public class ProductController {
 
     @GetMapping
     public String getAll(Model model) {
-        model.addAttribute("products", productService.getAll();
+        model.addAttribute("products", productService.getAll());
         return "products";
     }
 
     @GetMapping("/{id}")
-    public void getById(@PathVariable("id") int id, Model model) {
+    public String getById(@PathVariable("id") int id, Model model) {
         model.addAttribute("product", productService.getById(id));
         return "product";
     }
-
-    
 }
 ```
 
@@ -122,6 +137,37 @@ public class ProductController {
         <p>Precio: <span th:text="${product.price}"></span></p>
     </div>
     <a href="/products">Volver a productos</a>
+</body>
+</html>
+```
+
+### 9. Creamos contact.html (formulario):
+```java
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+</head>
+
+<body>
+    <form action="/contact" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="asunto">Asunto:</label>
+        <input type="text" id="asunto" name="asunto" required>
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+        <button type="submit">Enviar</button>
+    </form>
 </body>
 </html>
 ```

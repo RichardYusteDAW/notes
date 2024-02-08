@@ -20,12 +20,12 @@ git --version
 	lga = !"git lg --all"
 
 git config --global user.name "Usuario"
-git config --global user.mail "user@hotmail.com"
+git config --global user.email "user@hotmail.com"
 git config --list
 
-~/directory/.git/conf           #Archivo de configuración local de tu usuario.
+~/directory/.git/config         #Archivo de configuración local de tu usuario.
 git config --local user.name "Usuario"
-git config --local user.mail "user@hotmail.com"
+git config --local user.email "user@hotmail.com"
 git config --local --list
 ```
 <br>
@@ -74,10 +74,10 @@ git clone "https://github.com/usuario/repositorio.git"
 ```bash
 git clone "git@github.com:usuario/repositorio.git"
 	#Si no poseees clave SSH:
-	ssh-keygen -t ed25519 -C "user@hotmail.com"
+	ssh-keygen -t ed25519 -C "user@hotmail.com" -f ruta/nombre
 		#A veces hay que añadir la clave en Windows manualmente:
 		eval $(ssh-agent -s)
-		ssh-add /c/Users/usuario/.ssh/id_rsa -f ruta/nombre
+		ssh-add /c/Users/usuario/.ssh/id_rsa
 ```
 ### Subir y descargar código:
 ```bash

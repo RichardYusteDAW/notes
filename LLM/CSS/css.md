@@ -362,21 +362,21 @@ Operadores lógicos:
 
 ```css
 /*Estilos para dispositivos al imprimir con un ancho de pantalla entre 600px y 900px*/
-@media print (min-width: 600px) and (max-width: 900px) {
+@media print and (min-width: 600px) and (max-width: 900px) {
     body {
         background-color: lightyellow;
     }
 }
 
 /*Estilos para dispositivos con una resolución de pantalla entre 300dpi y 600dpi*/
-@media screen (min-resolution: 300dpi) and (max-resolution: 600dpi){
+@media screen and (min-resolution: 300dpi) and (max-resolution: 600dpi){
     body {
         background-color: lightpink;
     }
 }
 
 /*Estilos para dispositivos con una relación de aspecto de 16:9 y orientación horizontal o aspecto de 4:3 y orientación vertical*/
-@media all (min-aspect-ratio: 16/9) and (orientation: landscape), screen (min-aspect-ratio: 4/3) and (orientation: portrait){
+@media all and (min-aspect-ratio: 16/9) and (orientation: landscape), screen and (min-aspect-ratio: 4/3) and (orientation: portrait){
     body {
         background-color: lightgreen;
     }
