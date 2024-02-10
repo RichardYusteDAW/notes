@@ -14,7 +14,7 @@
 
 # 3. LINUX:
 - [Árbol de directorios](./LINUX/arbol_directorios.jpg)
-- [Comandos](./LINUX/Comandos_Linux.pdf)
+- [Comandos](./LINUX/Comandos_linux.md)
 
 # 4. LLM:
 - CSS: [CSS](./LLM/CSS/css.md)
