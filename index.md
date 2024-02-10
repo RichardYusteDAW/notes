@@ -18,7 +18,7 @@
 
 # 4. LLM:
 - CSS: [CSS](./LLM/CSS/css.md)
-- HTML: [HTML](./LLM/HTML/EtiquetasHTML5.pdf)
+- HTML: [HTML](./LLM/HTML/html.md)
 - JAVASCRIPT: 
     - [Eventos](./LLM/JS/Eventos.md)
 
