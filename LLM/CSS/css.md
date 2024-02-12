@@ -382,6 +382,37 @@ Operadores lógicos:
     }
 }
 ```
+<br>
+
+## 15. Variables
+### Globales:
+```css
+:root {
+    --color: #007bff; /* Azul */
+    --espaciado: 8px; /* Espaciado estándar */
+    --fuente: 'Roboto', sans-serif; /* Fuente Roboto */
+}
+
+body {
+    color: var(--color);
+    font-family: var(--fuente);
+    padding: var(--espaciado);
+}
+```
+### Locales:
+```css
+.contenedor {
+    --color: #007bff; /* Azul */
+    --espaciado: 8px; /* Espaciado estándar */
+    --fuente: 'Roboto', sans-serif; /* Fuente Roboto */
+}
+
+.contenedor {
+    color: var(--color);
+    font-family: var(--fuente);
+    padding: var(--espaciado);
+}
+```
 <br><br><br>
 
 ## *[volver al índice](../../index.md)*
