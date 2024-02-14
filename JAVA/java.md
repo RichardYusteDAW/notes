@@ -457,6 +457,146 @@ class Coche{ //La clase Coche está compuesta por otra clase (Motor).
 	}
 }
 ```
+<br><br>
+
+## 25º ENUMERADOS:
+```java
+enum MarcasCoche {
+	SEAT, FORD, RENAULT, PEUGEOT, CITROEN
+}
+
+class Main {
+	public static void main(String[] args) {
+		System.out.println(MarcasCoche.SEAT);
+	}
+}
+```
+### ENUMERADOS CON PROPIEDADES:
+```java
+enum MarcasCoche {
+	SEAT("Ibiza"), 
+	FORD("Fiesta"), 
+	RENAULT("Clio"), 
+	PEUGEOT("208"), 
+	CITROEN("C3");
+	
+	private String modelo;
+	
+	MarcasCoche(String modelo){
+		this.modelo = modelo;
+	}
+	
+	public String getModelo(){
+		return modelo;
+	}
+}
+
+class Main {
+	public static void main(String[] args) {
+		System.out.println(MarcasCoche.SEAT.getModelo());
+	}
+}
+```
+<br><br>
+
+## 26º LIBRERIAS:
+```java
+import java.util.Scanner; //Importa la clase Scanner de la librería java.util.
+import java.util.*;       //Importa todas las clases de la librería java.util.
+```
+Las utlizamos de la siguiente manera:
+```java
+Scanner reader = new Scanner(System.in);
+java.util.Scanner scanner = new java.util.Scanner(System.in); //Si no importamos la librería.
+```
+<br><br>
+
+## 27º CLASES ABSTRACTAS:
+```java
+abstract class Vehiculo { //Clase abstracta que no se puede instanciar.
+	abstract void acelerar(); //Método abstracto que no tiene cuerpo.
+
+	void frenar() { //Método normal.
+		System.out.println("Frenando el vehículo");
+	}
+}
+
+class Coche extends Vehiculo { //Si heredamos de una clase abstracta, estamos obligados a implementar sus métodos abstractos.
+	void acelerar() {
+		System.out.println("Acelerando el coche");
+	}
+
+	void frenar() { //Sobreescribimos el método frenar aunque no sea obligatorio.
+		System.out.println("Frenando el coche");
+	}
+}
+```
+<br><br>
+
+## 28º INTERFACES:
+```java
+interface Vehiculo { //Las interfaces no se pueden instanciar.
+	void acelerar(); //Los métodos de una interfaz no tienen cuerpo.
+	void frenar();
+}
+
+class Coche implements Vehiculo { //Si implementamos una interfaz, estamos obligados a implementar sus métodos.
+	public void acelerar() {
+		System.out.println("Acelerando el coche");
+	}
+	
+	public void frenar() { 
+		System.out.println("Frenando el coche");
+	}
+}
+```
+<br><br>
+
+## 29º INYECCIÓN DE DEPENDENCIAS:
+```java
+class Motor{
+	//...
+}
+
+class Coche{ 
+	private Motor motor; //No se instancia la clase Motor.
+	
+	Coche(Motor motor){ //Se inyecta la dependencia Motor.
+		this.motor = motor;
+	}
+}
+
+class Main {
+	public static void main(String[] args) {
+		Motor motor = new Motor();
+		Coche coche = new Coche(motor);
+	}
+}
+```
+<br><br>
+
+## 30º INVERSIÓN DE CONTROL:
+```java
+class Motor{
+	//...
+}
+
+class Coche{ 
+	private Motor motor; //No se instancia la clase Motor.
+	
+	Coche(){ //Se inyecta la dependencia Motor a través de un contenedor IoC.
+		this.motor = CocheIoCContainer.getMotor();
+	}
+}
+
+class CocheIoCContainer{
+	private static Motor motor = new Motor();
+
+	public static Coche getCoche(){
+		return new Coche(motor);
+	}
+}
+```
 <br><br><br>
 
 ## *[volver al índice](../index.md)*
