@@ -4,8 +4,10 @@
 <br>
 
 ## Comprobar version:
+```bash
 git --version
-<br><br>
+```
+<br>
 
 ## Configuración:
 ```bash
@@ -31,7 +33,7 @@ git config --local --list
 <br>
 
 
-## WORKING DIR >>>>> STAGING AREA >>>>> REPOSITORIO LOCAL:
+## WORKING DIR >>> STAGING AREA >>> LOCAL REPOSITORY:
 ```bash
 .git/                           #Directorio que contiene el Repositorio Local.
 .gitignore                      #Archivo que especifica qué archivos queremos que Git ignore.
@@ -48,8 +50,8 @@ git log                         #Lista los commits.
 
 git diff                        #Muestra los cambios realizados en el WORKING DIR.
 git diff <file>                 #Muestra los cambios realizados en el archivo.
-git diff --staged               #Muestra los cambios realizados en el STAGING.
 git diff <ref>                  #Muestra los cambios realizados en un commit o etiqueta.
+git diff --staged               #Muestra los cambios realizados en el STAGING.
 
 git reset --soft <hash>         #Elmina todos los commits posteriores y los cambios se conservan en el STAGING AREA.
 git reset --mixed <hash>        #Elmina todos los commits posteriores y los cambios se conservan en el WORKING DIRECTORY.
@@ -90,25 +92,25 @@ git fetch origin main           #Obtiene los cambios del repo remoto pero no act
 	
 ## Ramas:
 ```bash
-git branch $rama                #Creamos una rama nueva.
-git branch -d $rama             #Elimina la rama en local.
+git branch <$rama>              #Creamos una rama nueva.
+git branch -d <$rama>           #Elimina la rama en local.
 git branch -a                   #Lista todas las ramas.
-git branch -m $rama             #Renombra la rama, pero si existe una rama con ese nombre avisará.
-git branch -M $rama             #Renombra la rama, pero si existe una rama con ese nombre la sobrescribirá (git branch -m -f).
+git branch -m <$rama>           #Renombra la rama, pero si existe una rama con ese nombre avisará.
+git branch -M <$rama>           #Renombra la rama, pero si existe una rama con ese nombre la sobrescribirá (git branch -m -f).
 
-git checkout $rama              #Nos cambiamos de rama.
-git switch $rama                #Nos cambiamos de rama.
-git checkout -b $rama           #Crea una rama nueva y nos cambiamos a ella.
+git checkout <$rama>            #Nos cambiamos de rama.
+git switch <$rama>              #Nos cambiamos de rama.
+git checkout -b <$rama>         #Crea una rama nueva y nos cambiamos a ella.
 
-git push -u origin $rama        #Publica la rama nueva (--set-upstream).
-git push origin -d $rama        #Elimina la rama en remoto.
+git push -u origin <$rama>      #Publica la rama nueva (--set-upstream).
+git push origin -d <$rama>      #Elimina la rama en remoto.
 
-git merge $rama                 #Une el codigo de la nueva rama a la main.
-git merge --squash $rama        #Une toda una rama en un solo commit.
+git merge <$rama>               #Une el codigo de la nueva rama a la main.
+git merge --squash <$rama>      #Une toda una rama en un solo commit.
 git merge --abort               #Aborta la fusión en caso de conflictos.
 git branch --merged             #Lista todas las ramas x unir.
 
-git rebase $rama                #Rebasa la rama indicada.
+git rebase <$rama>              #Rebasa la rama indicada.
 git rebase --abort              #Aborta el rebase en caso de conflictos.
 --continue                      #Para continuar con el commit o con rebase en caso de conflictos.
 
@@ -120,17 +122,17 @@ git cherry-pick	<hash>          #Añade al siguiente commit un commit ya existen
 ```bash
 git tag                         #Muestra todas las etiquetas.
 git tag -l "Inici*"             #Muestra todas las etiquetas que empiecen por Inici.
-git tag	$tag                    #Crea una nueva etiqueta.
-git tag $tag <hash>             #Crea una nueva etiqueta en el commit concreto.
-git tag	$tag -f                 #Permite poner el nombre a la etiqueta aunque ya exista.
-git show $tag                   #Muestra la info del commit.
+git tag	<$tag>                  #Crea una nueva etiqueta.
+git tag <$tag> <hash>           #Crea una nueva etiqueta en el commit concreto.
+git tag	<$tag> -f               #Permite poner el nombre a la etiqueta aunque ya exista.
+git show <$tag>                 #Muestra la info del commit.
 
-git tag	-a $tag                 #Crea una nueva etiqueta con anotación (editor de texto).
-git tag	-a $tag -m "mensaje"    #Crea una nueva etiqueta con anotación (sin editor de texto).
-git tag	-d $tag                 #Elimina la etiqueta.
-git push origin --delete $tag   #Elimina la etiqueta del remoto.
+git tag	-a <$tag>               #Crea una nueva etiqueta con anotación (editor de texto).
+git tag	-a <$tag> -m "mensaje"  #Crea una nueva etiqueta con anotación (sin editor de texto).
+git tag	-d <$tag>               #Elimina la etiqueta.
+git push origin --delete <$tag> #Elimina la etiqueta del remoto.
 
-git push origin $tag            #Publica una etiqueta en el remoto.
+git push origin <$tag>          #Publica una etiqueta en el remoto.
 git push --tags                 #Publica todas las etiquetas en el remoto.
 ```
 <br>
@@ -138,12 +140,14 @@ git push --tags                 #Publica todas las etiquetas en el remoto.
 
 ## Stash:
 ```bash
+git stash                       #Guarda el working directory o el staging area en el stash.
+git stash push -m "mensaje"     #Guarda los cambios y les asigna un mensaje descriptivo.
 git stash list                  #Muestra todos los stash (stash@{0},stash@{1},stash@{2})
-git stash                       #Guarda el working directory en el stash.
-git stash show	[index]         #Muestra los cambios guardados. Con -p muestra todos los detalles.
-git stash apply	[index]         #Recupera los cambios.
-git stash pop [index]           #Recupera los cambios y los elimina del stash.
-git stash drop [index]          #Elimina el stash.
+git stash show <index>          #Muestra los cambios guardados. Con -p muestra todos los detalles.
+git stash apply	<index>         #Recupera los cambios.
+git stash pop <index>           #Recupera los cambios y los elimina del stash.
+git stash drop <index>          #Elimina el stash.
+git stash clear                 #Elimina todas las entradas del stash.
 ```
 <br>
 
