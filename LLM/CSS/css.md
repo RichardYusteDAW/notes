@@ -385,7 +385,7 @@ Operadores lógicos:
 <br>
 
 ## 15. Variables
-### Globales:
+### A. Globales:
 ```css
 :root {
     --color: #007bff; /* Azul */
@@ -399,7 +399,7 @@ body {
     padding: var(--espaciado);
 }
 ```
-### Locales:
+### B. Locales:
 ```css
 .contenedor {
     --color: #007bff; /* Azul */
@@ -411,6 +411,82 @@ body {
     color: var(--color);
     font-family: var(--fuente);
     padding: var(--espaciado);
+}
+```
+<br>
+
+## 16. Animaciones
+### A. From-To:
+```css
+@keyframes fromTo { 
+    from { 
+        background-color: red;
+        color: white;
+    }
+    to { 
+        background-color: yellow; 
+        color: black;
+    }
+}
+```
+### B. Porcentajes:
+```css
+@keyframes porcentajes {
+    0% { background-color: red; }
+    25% { background-color: yellow; }
+    50% { background-color: blue; }
+    75% { background-color: green; }
+    100% { background-color: red; }
+}
+```
+### C. Transform:
+```css
+@keyframes withTransform {
+    0% { 
+        transform: scale(1);                 /*Rotate(grados)*/
+        transform: rotate(0deg);             /*Scale(factor)*/
+        transform: translate(0, 0);          /*Translate(x, y)*/
+        transform: skewX(0deg);              /*SkewX(grados)*/
+        transform: skewY(0deg);              /*SkewY(grados)*/
+    }
+    50% { 
+        transform: scale(1.5); 
+        transform: rotate(180deg);
+        transform: translate(50px, 50px);
+        transform: skew(30deg, 30deg);       /*Skew(gradosX, gradosY)*/
+
+        /*Se puede hacer en una sola línea*/
+        transform: scale(1.5) rotate(180deg) translate(50px, 50px) skew(30deg, 30deg);
+    }
+    100% { 
+        transform: matrix(1, 0, 0, 1, 0, 0); /* Matrix(scaleX, skewY, skewX, scaleY, translateX, translateY) */
+    }
+}
+```
+### D. Transition:
+```css
+div {
+    transition-property: background-color;  /* Propiedad a animar */
+    transition-duration: 2s;                /* Duración de la transición */
+    transition-timing-function: ease-in;    /* Función de temporización */
+    transition-delay: 0s;                   /* Retraso antes de iniciar la transición */
+    
+    /*Se puede hacer en una sola línea*/
+    transition: background-color 2s ease-in 0s, color 1s linear 0s;
+}
+```
+
+### E. Uso:
+```css
+div {
+    animation-name: withTransform;           /* Nombre de la animación */
+    animation-duration: 4s;                  /* Duración de la animación */
+    animation-timing-function: ease-in-out;  /* Función de temporización (ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(n,n,n,n)) */
+    animation-delay: 2s;                     /* Retraso de la animación */
+    animation-iteration-count: infinite;     /* Número de repeticiones (n | infinite) */
+    animation-direction: alternate;          /* Dirección de la animación (normal | reverse | alternate | alternate-reverse) */
+    animation-fill-mode: forwards;           /* Estado final de la animación (none | forwards | backwards | both) */
+    animation-play-state: running;           /* Estado de la animación (running | paused) */
 }
 ```
 <br><br><br>
