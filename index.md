@@ -2,7 +2,8 @@
 - [git](./GIT/git.md)
 
 # 2. JAVA:
-- [Java](./JAVA/java.md)
+- [Bean](./JAVA/Bean.md)
+- [Java](./JAVA/Java.md)
 - [Math](./JAVA/Math.md)
 - [Maven](./JAVA/Maven.md)
 - [Random](./JAVA/Random.md)
