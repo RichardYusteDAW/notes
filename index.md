@@ -22,6 +22,7 @@
 - HTML: [HTML](./LLM/HTML/html.md)
 - JAVASCRIPT: 
     - [Eventos](./LLM/JS/Eventos.md)
+- BOOTSTRAP: [BOOTSTRAP](./LLM/BOOTSTRAP/bootstrap.md)
 
 # 5. MySQL:
 - Table mapping: [table mapping](./MySQL/table_mapping/table_mapping.md)
