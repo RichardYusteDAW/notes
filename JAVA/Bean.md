@@ -7,7 +7,7 @@ Un bean en JAVA es un objeto que posee:
  - Es serializable (utiliza la interfaz `java.io.Serializable`).
 
  Un bean en Spring es un objeto que:
-  - No necesita un contructor vacío.
+  - No necesita un constructor vacío.
   - Tiene getters y setters
   - No es necesario que sea serializable.
 
@@ -33,14 +33,19 @@ Para definir un bean en el archivo de configuración XML de Spring, necesitas es
 Ejemplo de un archivo `applicationContext.xml`:
  - **xmlns:** Define el espacio de nombres XML para los beans de Spring. Es necesario para que el archivo XML sea interpretado correctamente como una configuración de Spring.
  - **xmlns:xsi:** Especifica el espacio de nombres XML Schema instance, necesario para utilizar atributos como xsi:schemaLocation.
+ - **xmlns:context:** Proporciona el espacio de nombres para las anotaciones de Spring.
  - **xsi:schemaLocation:** Proporciona la ubicación del XML Schema que define la estructura permitida del documento XML. Esto permite la validación del archivo de configuración XML de Spring.
 
 ```xml
 <!-- Raíz del documento de configuración de Spring -->
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd"
+>
     
     <!-- Definición de un bean individual -->
     <bean id="miBean" class="com.ejemplo.MiClase" scope="prototype"> 
@@ -95,12 +100,45 @@ public class Principal {
 
     <!-- Definición de un bean con una dependencia inyectada -->
     <bean id="miBean" class="com.ejemplo.MiClase">
-        <property name="mensaje" value="Hola Mundo desde Spring!"/>
-        
-        <property name="dependencia" ref="dependenciaClase"/> <!-- Inyección de la dependencia -->
+        <constructor-arg name="dependencia" ref="dependenciaClase"/> <!-- Inyección de la dependencia en el Constructor -->
+        <property name="dependencia" ref="dependenciaClase"/>        <!-- Inyección de la dependencia en el Setter -->
+        <property name="mensaje" value="Hola Mundo desde Spring!"/>  <!-- Inyección de un valor primitivo -->
     </bean>
 
 </beans>
+```
+
+### E. Init y Destroy:
+```xml
+<beans xmlns="http://www.springframework.org/schema/beans">
+
+    <bean id="miBean" class="com.ejemplo.MiClase" init-method="inicializar" destroy-method="destruir">
+        <property name="mensaje" value="Hola Mundo desde Spring!"/>
+    </bean>
+</beans>
+```
+```java
+package com.ejemplo;
+
+public class MiClase {
+    private String mensaje;
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void inicializar() {
+        System.out.println("Bean inicializado");
+    }
+
+    public void destruir() {
+        System.out.println("Bean destruido");
+    }
+}
 ```
 <br>
 
@@ -115,20 +153,31 @@ Para usar anotaciones, primero necesitas habilitar el escaneo de componentes med
 ```
 - Una configuración basada en Java:
 ```java
-@Configuration
-@ComponentScan("com.ejemplo")
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration                // Esta anotación indica que esta clase es una clase de configuración de Spring
+@ComponentScan("com.ejemplo") // Esta anotación habilita el escaneo de componentes en el paquete especificado
 public class AppConfig {
+
+    @Bean                    // Esta anotación indica que el método es un método de configuración de Spring que devuelve un objeto que debe registrarse como un bean en el contenedor de Spring.
+    public MiClase miBean() {
+        return new MiClase();
+    }
 }
 ```
+SpringBoot ya incluye las anotaciones `@Configuration` y `@ComponentScan` por defecto, usando `@SpringBootApplication` en la clase principal.
 
 ### B. Definir un bean con anotaciones:
 Usa la anotación `@Component` (o sus especializaciones `@Service`, `@Repository`, `@Controller`) en tus clases Java para definirlas como beans.
 
 ```java
 package com.ejemplo;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component("miBean") //Si no se especifica nombre el id será el nombre de la clase (MiClase).
+@Component("miBean") // Si no se especifica nombre el id será el nombre de la clase (MiClase).
+@Scope("prototype")  // Si se necesita cambiar el scope del bean.
 public class MiClase {
     private String mensaje = "Hola Mundo desde Spring con Anotaciones!";
 
@@ -174,7 +223,7 @@ public class ServicioEjemploSegundo implements ServicioEjemplo {
 }
 ```
 
-- Innyectamos `ServicioEjemplo` en `MiClase` usando `@Autowired`:
+- Inyectamos `ServicioEjemplo` en `MiClase` usando `@Autowired`:
 ```java
 package com.ejemplo;
 import org.springframework.stereotype.Component;
@@ -196,3 +245,37 @@ public class MiClase {
     }
 }
 ```
+
+### E. Init y Destroy:
+```java
+package com.ejemplo;
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import org.springframework.stereotype.Component;
+
+@Component("miBean")
+public class MiClase {
+    private String mensaje;
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    @PostConstruct
+    public void inicializar() {
+        System.out.println("Bean inicializado");
+    }
+
+    @PreDestroy
+    public void destruir() {
+        System.out.println("Bean destruido");
+    }
+}
+```
+<br><br><br>
+
+## *[volver al índice](../index.md)*
