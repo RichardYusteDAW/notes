@@ -29,6 +29,7 @@
 - Table mapping: [table mapping](./MySQL/table_mapping/table_mapping.md)
 - DDL: [DDL](./MySQL/DDL.md)
 - DML: [DML](./MySQL/DML.md)
+- DCL: [DCL](./MySQL/DCL.md)
 
 # 5. Testing:
 - Testing: [Testing](./TESTING/test.md)

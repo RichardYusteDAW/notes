@@ -1,4 +1,5 @@
 # DML (Data Manipulation Language)
+
 ## INSERTAR DATOS EN UNA TABLA
 ```sql
 INSERT INTO nombre_tabla (columna1, columna2, columna3, ...) VALUES (valor1, valor2, valor3, ...);
