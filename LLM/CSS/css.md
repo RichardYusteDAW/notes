@@ -323,6 +323,66 @@ div{
 ```
 <br>
 
+### - Display:
+
+#### A. none:
+- Hace que el elemento **NO SE MUESTRE** en absoluto.
+- El elemento y sus hijos **NO OCUPARÁN ESPACIO** en el diseño, como si no existieran.
+
+#### B. block:
+- Hace que el elemento ocupe **TODO EL ANCHO DISPONIBLE**, independientemente de su contenido.
+- Siempre comienza en una nueva línea.
+- Puede tener márgenes y rellenos.
+- Ejemplos: div, p, h1, h2, h3, h4, h5, h6, ol, ul, li, table, form.
+
+#### C. inline:
+- Hace que el elemento **OCUPE SOLO EL ANCHO DE SU CONTENIDO**.
+- No puede tener márgenes verticales pero sí rellenos.
+- No puede tener un ancho o alto especificado.
+- Ejemplos: span, a, strong, em, img, input, select, textarea.
+
+#### D. inline-block:
+- Combina las características de los elementos block e inline.
+- Hace que el elemento **OCUPE SOLO EL ANCHO DE SU CONTENIDO** (inline).
+- Puede tener márgenes y rellenos (block).
+- Puede tener un ancho y alto especificado (block).
+- Ejemplos: button, input, select, textarea.
+
+#### E. flex:
+- Hace que el elemento se comporte como un contenedor flexible.
+- Los elementos hijos pueden ser flexibles o no.
+- Los elementos hijos se pueden alinear horizontal y verticalmente.
+  Aquí tienes la información transformada en dos tablas, una para las propiedades aplicables a contenedores flex y otra para las propiedades aplicables a los items dentro de esos contenedores:
+
+##### - Container:
+| Propiedad         | Opciones                                                           | Definición                                                                            |
+|-------------------|--------------------------------------------------------------------|---------------------------------------------------------------------------------------|
+| `flex-direction`  | row, row-reverse, column, column-reverse                           | Define la dirección de los flex-items dentro del contenedor.                          |
+| `flex-wrap`       | nowrap, wrap, wrap-reverse                                         | Define si los flex-items se ajustan a una sola línea o se envuelven en varias líneas. |
+| `justify-content` | flex-start, flex-end, center, space-between, space-around          | Alinea los flex-items en el eje principal.                                            |
+| `align-items`     | flex-start, flex-end, center, baseline, stretch                    | Alinea los flex-items en el eje secundario o transversal.                             |
+| `align-content`   | flex-start, flex-end, center, space-between, space-around, stretch | Alinea las líneas de flex-items cuando hay varias líneas.                             |
+
+##### - Items:
+| Propiedad      | Opciones                                              | Definición                                                         |
+|----------------|-------------------------------------------------------|--------------------------------------------------------------------|
+| `order`        | n                                                     | Define el orden de los flex-items.                                 |
+| `flex-grow`    | n                                                     | Define la capacidad de crecimiento de los flex-items.              |
+| `flex-shrink`  | n                                                     | Define la capacidad de encogimiento de los flex-items.             |
+| `flex-basis`   | tamaño                                                | Define el tamaño inicial de los flex-items.                        |
+| `flex`         | número número tamaño                                  | Define `flex-grow`, `flex-shrink` y `flex-basis` en una sola línea.|
+| `align-self`   | auto, flex-start, flex-end, center, baseline, stretch | Alinea un flex-item específico en el eje transversal.              |
+
+#### F. grid:
+- Hace que el elemento se comporte como un contenedor de cuadrícula.
+- Los elementos hijos se pueden colocar en filas y columnas.
+
+#### G. table:
+- Hace que el elemento se comporte como una tabla de HTML.
+- Los elementos hijos se comportan como celdas de tabla.
+<br><br>
+
+
 ## 13. Reglas @ (At-rules)
 `@import`: Se utiliza para importar estilos desde otros archivos CSS.  
 `@media`: Permite aplicar estilos condicionales dependiendo de las características del dispositivo, como su tamaño de pantalla o resolución.  
