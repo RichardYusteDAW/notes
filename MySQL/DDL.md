@@ -2,7 +2,7 @@
 
 ## Crear nuevas tablas o bases de datos:
 ```sql 
-CREATE {DATABASE | SCHEMA} [IF NOT EXISTS] nombre_base_datos CHARACTER SET utf8 COLLATE utf8_general_ci`;
+CREATE {DATABASE | SCHEMA} [IF NOT EXISTS] nombre_base_datos CHARACTER SET `utf8` COLLATE `utf8_general_ci`;
 ```
 |                        |                                                                                   |
 |------------------------|-----------------------------------------------------------------------------------|
