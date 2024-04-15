@@ -7,14 +7,16 @@
 - [Excepciones](./JAVA/Excepciones.md)
 - [Java](./JAVA/Java.md)
 - [JDBC](./JAVA/JDBC.md)
-- [Math](./JAVA/Math.md)
 - [Maven](./JAVA/Maven.md)
-- [Random](./JAVA/Random.md)
 - [Spring_Boot](./JAVA/Spring_Boot.md)
-- [String](./JAVA/String.md)
-- [StringBuilder](./JAVA/StringBuilder.md)
 - [Thymeleaf](./JAVA/Thymeleaf.md)
-- *[Plantilla](./JAVA/plantilla)*
+- Librerías:
+  - [Math](./JAVA/Math.md)
+  - [Random](./JAVA/Random.md)
+  - [String](./JAVA/String.md)
+  - [StringBuilder](./JAVA/StringBuilder.md)
+
+- Plantilla: *[Plantilla](./JAVA/plantilla)*
 
 # 3. LINUX:
 - [Árbol de directorios](./LINUX/arbol_directorios.jpg)
