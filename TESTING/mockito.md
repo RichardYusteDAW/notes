@@ -1,5 +1,5 @@
 # Mockito:
-## Instalar liberías de testing:
+## Instalar librerías de Mockito:
 #### IntelliJ: 
 Alt+Insert >> Add dependency >> org.mockito:mockito-junit-jupiter
 
@@ -39,6 +39,7 @@ class CarServiceTest {
 
 ```java
 @Nested
+@ExtendWith(MockitoExtension.class)
 class CarServiceTest {
 
     @Test

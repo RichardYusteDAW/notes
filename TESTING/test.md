@@ -1,5 +1,5 @@
 # Testing:
-## Instalar liberías de testing:
+## Instalar librerías de testing:
 #### IntelliJ: 
 Alt+Insert >> Add dependency >> org.junit.jupiter:junit-jupiter
 
@@ -64,11 +64,11 @@ assertArrayEquals(new int[]{1, 2, 3}, new int[]{1, 2, 3}); // Verifica que ambos
 //assertAll
 assertAll(
     () -> assertFalse(1 > 0),           // Esta prueba fallará y ...
-    () -> assertTrue(1 > 0)             // la seguiente intrucción también se comprobará.
+    () -> assertTrue(1 > 0)             // la siguiente intrucción también se comprobará.
 )
 
 //assertThrows
-assertThrows(ResourceNotFoundException.class, () -> movieService.findById("ABC")); // Verifica que se lanza una excepción de tipo ResourceNotFoundException al ejecutar el método movieService.findById(1L).
+assertThrows(ResourceNotFoundException.class, () -> movieService.findById("ABC")); // Verifica que se lanza una excepción de tipo ResourceNotFoundException al ejecutar el método movieService.findById("ABC").
 ```
 
 ### - Anotaciones JUnit:
@@ -130,10 +130,10 @@ class EjemploPruebas {
 ```java
 import org.junit.jupiter.params.ParameterizedTest;
 
-@ParameterizedTest /*Indica que el método es un caso de prueba parametrizado.*/
-@DisplayName("Prueba Parametrizada") /*Proporciona un nombre descriptivo para el caso de prueba.*/
+@ParameterizedTest                   //Indica que el método es un caso de prueba parametrizado.
+@DisplayName("Prueba Parametrizada") //Proporciona un nombre descriptivo para el caso de prueba.
 
-/*Proporciona un conjunto de valores para el caso de prueba.*/
+//Proporciona un conjunto de valores para el caso de prueba:
 @ValueSource(ints = {1, 2, 3, 4, 5})
 @ValueSource(floats = {1.0f, 2.0f, 3.0f, 4.0f, 5.0f})
 @ValueSource(doubles = {1.0, 2.0, 3.0, 4.0, 5.0})
@@ -160,9 +160,10 @@ import org.junit.jupiter.params.provider.EmptySource;
 
 @ParameterizedTest (name="\"{0}\"")
 @DisplayName("Prueba Parametrizada")
-@NullSource /*Proporciona un valor NULL para el caso de prueba.*/
-@EmptySource /*Proporciona un valor vacío para el caso de prueba.*/
-@NullAndEmptySource /*Proporciona un valor nulo y un valor vacío para el caso de prueba.*/
+@NullSource         //Proporciona un valor NULL para el caso de prueba.
+@EmptySource        //Proporciona un valor vacío para el caso de prueba.
+@NullAndEmptySource //Proporciona un valor nulo y un valor vacío para el caso de prueba.
+@ValueSource(strings = {"Java", null, ""}) //Proporciona un conjunto de valores para el caso de prueba.
 
 void pruebaParametrizada(String valor) {
     assertTrue(valor == null);
@@ -178,7 +179,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 @ParameterizedTest(name="{0} + {1} = {2}")
 @DisplayName("Prueba Parametrizada")
-@CsvSource({"1, 1, 2", "2, 3, 5", "3, 4, 7", "4, 5, 9", "5, 6, 11"}) /*Los valores solo pueden ser de tipo primitive o String.*/
+@CsvSource({"1, 1, 2", "2, 3, 5", "3, 4, 7", "4, 5, 9", "5, 6, 11"}) //Los valores solo pueden ser de tipo primitive o String.
 
 void pruebaParametrizada(int a, int b, int resultado) {
     assertEquals(resultado, a + b);
@@ -194,7 +195,7 @@ import java.util.stream.Stream;
 
 @ParameterizedTest(name="[{index}] {0} + {1} = {2}")
 @DisplayName("Prueba Parametrizada")
-@MethodSource("valores") /*Proporciona un método que devuelve un Stream, Iterable, Iterator, o array de argumentos para el caso de prueba.*/
+@MethodSource("valores") //Proporciona un método que devuelve un Stream, Iterable, Iterator, o array de argumentos para el caso de prueba.
 void pruebaParametrizada(int a, int b, int resultado) {
     assertEquals(resultado, a + b);
 }
