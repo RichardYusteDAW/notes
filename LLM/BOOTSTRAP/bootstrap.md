@@ -185,6 +185,7 @@ Sección de contenido con imagen de fondo.
     </div>
 </div>
 ```
+<br>
 
 ## 6. Formularios
 ### 6.1. Labels e Inputs
@@ -226,9 +227,6 @@ Sección de contenido con imagen de fondo.
     </div>
 </form>
 ```
+<br><br><br>
 
-
-
-
-
-
+## *[volver al índice](../../index.md)*
