@@ -39,6 +39,7 @@
 
 # 6. Testing:
 - Testing: [Testing](./TESTING/test.md)
+- Mockito: [Mockito](./TESTING/mockito.md)
 
 # 7. UML:
 - UML: [UML](./UML/uml.md)

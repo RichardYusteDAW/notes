@@ -66,6 +66,9 @@ assertAll(
     () -> assertFalse(1 > 0),           // Esta prueba fallará y ...
     () -> assertTrue(1 > 0)             // la seguiente intrucción también se comprobará.
 )
+
+//assertThrows
+assertThrows(ResourceNotFoundException.class, () -> movieService.findById("ABC")); // Verifica que se lanza una excepción de tipo ResourceNotFoundException al ejecutar el método movieService.findById(1L).
 ```
 
 ### - Anotaciones JUnit:
