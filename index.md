@@ -1,4 +1,4 @@
-# 1. GIT:
+ # 1. GIT:
 - [git](./GIT/git.md)
 - [gitFlow](./GIT/gitFlow.md)
 
@@ -15,6 +15,10 @@
   - [Random](./JAVA/Random.md)
   - [String](./JAVA/String.md)
   - [StringBuilder](./JAVA/StringBuilder.md)
+- Testing:
+  - [Testing](./JAVA/testing/test.md)
+  - [Mockito](./JAVA/testing/mockito.md)
+  - [Bases de datos incrustadas](./JAVA/testing/embeddedDB.md)
 
 - Plantilla: *[Plantilla](./JAVA/plantilla)*
 
@@ -23,23 +27,22 @@
 - [Comandos](./LINUX/Comandos_linux.md)
 
 # 4. LLM:
-- CSS: [CSS](./LLM/CSS/css.md)
-- HTML: [HTML](./LLM/HTML/html.md)
+- [HTML](./LLM/HTML/html.md)
+- STYLES: 
+  - [CSS](./LLM/STYLES/CSS/css.md)
+  - [BOOTSTRAP](./LLM/STYLES/BOOTSTRAP/bootstrap.md)
 - JAVASCRIPT: 
     - [Eventos](./LLM/JS/Eventos.md)
-- BOOTSTRAP: [BOOTSTRAP](./LLM/BOOTSTRAP/bootstrap.md)
 
 # 5. MySQL:
-- DDL: [DDL](./MySQL/DDL.md)
-- DML: [DML](./MySQL/DML.md)
-- DCL: [DCL](./MySQL/DCL.md)
-- Table mapping: [table mapping](./MySQL/table_mapping/table_mapping.md)
+- SQL(Structured Query Language):
+  - [DDL](./MySQL/DDL.md): Data Definition Language
+  - [DML](./MySQL/DML.md): Data Manipulation Language
+  - [DCL](./MySQL/DCL.md): Data Control Language
+- Table mapping: [Table mapping](./MySQL/table_mapping/table_mapping.md)
 - MySQL Server: [MySQL Server](./MySQL/MySQL_server.md)
-- Tipos de fichero: [fileTypes](./MySQL/fileTypes.pdf)
+- Copias de seguridad lógicas (Scripts): [BackUp](./MySQL/BackUp.md)
+- Tipos de fichero: [FileTypes](./MySQL/fileTypes.pdf)
 
-# 6. Testing:
-- Testing: [Testing](./TESTING/test.md)
-- Mockito: [Mockito](./TESTING/mockito.md)
-
-# 7. UML:
+# 6. UML:
 - UML: [UML](./UML/uml.md)

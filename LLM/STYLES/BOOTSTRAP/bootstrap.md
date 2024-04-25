@@ -229,4 +229,4 @@ Sección de contenido con imagen de fondo.
 ```
 <br><br><br>
 
-## *[volver al índice](../../index.md)*
+## *[volver al índice](../../../index.md)*

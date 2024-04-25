@@ -42,7 +42,7 @@ public class AppPropertiesReader {
 
     // Atributos
     private final Properties properties = new Properties();
-    public static AppPropertiesReader instance;
+    private static AppPropertiesReader instance;
     
     // Constructor
     private AppPropertiesReader() {

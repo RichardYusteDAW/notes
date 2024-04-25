@@ -3,7 +3,7 @@
 #### IntelliJ: 
 Alt+Insert >> Add dependency >> org.junit.jupiter:junit-jupiter
 
-Para aplicar cambios: `Ctrl+Maj+O` || Load Maven Changes 
+Para aplicar cambios: `Ctrl+Shift+O` || Load Maven Changes 
 	
 #### VSC: 
 Maven >> Dependencies >> JUnit5
@@ -212,4 +212,4 @@ static Stream<Arguments> valores() {
 ```
 <br><br><br>
 
-## *[volver al índice](../index.md)*
+## *[volver al índice](../../index.md)*
