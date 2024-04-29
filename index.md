@@ -39,6 +39,7 @@
   - [DDL](./MySQL/DDL.md): Data Definition Language
   - [DML](./MySQL/DML.md): Data Manipulation Language
   - [DCL](./MySQL/DCL.md): Data Control Language
+  - [PL](./MySQL/PL.md): Procedural Language
 - Table mapping: [Table mapping](./MySQL/table_mapping/table_mapping.md)
 - MySQL Server: [MySQL Server](./MySQL/MySQL_server.md)
 - Copias de seguridad lógicas (Scripts): [BackUp](./MySQL/BackUp.md)
