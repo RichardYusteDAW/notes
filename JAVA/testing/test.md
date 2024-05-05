@@ -1,11 +1,11 @@
 # Testing:
-## Instalar librerías de testing:
-#### IntelliJ: 
+## 1. Instalar librerías de testing:
+### A. IntelliJ: 
 Alt+Insert >> Add dependency >> org.junit.jupiter:junit-jupiter
 
 Para aplicar cambios: `Ctrl+Shift+O` || Load Maven Changes 
 	
-#### VSC: 
+### B. VSC: 
 Maven >> Dependencies >> JUnit5
 ```	
 <dependencies>
@@ -16,8 +16,9 @@ Maven >> Dependencies >> JUnit5
     </dependency>
 </dependencies>
 ```
+<br>
 
-## Métodos de testing:
+## 2. Métodos de testing:
 ```java
 @Test
 @DisplayName("Este es mi test")
@@ -208,6 +209,27 @@ static Stream<Arguments> valores() {
         Arguments.of(4, 5, 9),
         Arguments.of(5, 6, 11)
     );
+}
+```
+<br>
+
+## 3. Estructura de un test:
+- `ARRANGE` (Preparar): Preparar el entorno de pruebas (configurar datos, inicializar objetos, preparar mocks...).
+- `ACT` (Actuar): Llamar al método que se va a probar.
+- `ASSERT` (Afirmar): Verificar que el resultado es el esperado.
+```java
+@Test
+void sumarTest() {
+    //ARRANGE
+    int a = 3;
+    int b = 2;
+    int esperado = 5;
+
+    //ACT
+    int resultado = DebugCalculadora.sumar(a, b);
+
+    //ASSERT
+    assertEquals(esperado, resultado);
 }
 ```
 <br><br><br>
