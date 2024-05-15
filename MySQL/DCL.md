@@ -72,7 +72,6 @@ DROP USER 'usuario'@'localhost';
 ALTER USER IF EXISTS 'usuario@localhost' ACCOUNT LOCK;                        --Bloquear cuenta.
 ALTER USER IF EXISTS 'usuario@localhost' IDENTIFIED BY 'nueva_contraseña';    --Cambiar contraseña.
 
-
 RENAME USER 'nombre_usuario@localhost' TO 'nuevo_usuario@localhost'; --Cambiar nombre de usuario.
 ```
 <br>

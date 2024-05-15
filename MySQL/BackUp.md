@@ -5,7 +5,7 @@
 ```mysqldump -u usuario -p 1234 base_datos tabla1 tabla2 > /ruta/backup.sql```
 
 #### - Exportar una o varias bases de datos completas
-```mysqldump -u usuario -p 1234 base_datos > /ruta/backup.sql```	
+```mysqldump -u usuario -p 1234 base_datos > /ruta/backup.sql```  
 ```mysqldump -u usuario -p 1234 --databases base_datos1 base_datos2 > /ruta/backup.sql```
 
 #### - Exportar todas las bases de datos
@@ -25,7 +25,7 @@
 <br><br>
 
 ### 3. Exportar con phpMyAdmin
-![phpMyAdmin](./img/phpMyAdmin.jpg)
+![phpMyAdmin](./img/phpmyadmin.jpg)
 1. Seleccionar la base de datos
 2. Ir a la pestaña "Exportar"
 3. Seleccionar la opción de exportación  
