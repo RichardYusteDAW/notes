@@ -46,3 +46,6 @@ copy/paste                                             #Copiar y pegar el conten
 
 ### 2. Importar con Workbench o phpMyAdmin
 Se puede apreciar en la imagen de ambas la pestalla `Data Import/Restore` o `Import` respectivamente.
+<br><br><br>
+
+## *[volver al índice](../index.md)*

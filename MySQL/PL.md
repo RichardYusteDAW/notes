@@ -39,10 +39,10 @@ END;
 - **%ROWTYPE** se utiliza para declarar un registro con la misma estructura que una fila en una tabla.
 ```sql
 DECLARE
-    v_empleado empleados%ROWTYPE;
+    v_empl empleados%ROWTYPE;
 BEGIN
-    SELECT * INTO v_empleado FROM empleados WHERE id = 101;
-    DBMS_OUTPUT.PUT_LINE('ID: ' || v_empleado.id || ', Nombre: ' || v_empleado.nombre || ', Salario: ' || v_empleado.salario);
+    SELECT * INTO v_empl FROM empleados WHERE id = 101;
+    DBMS_OUTPUT.PUT_LINE('ID: ' || v_empl.id || ', Nombre: ' || v_empl.nombre || ', Salario: ' || v_empl.salario);
 END;
 ```
 <br>
@@ -213,21 +213,69 @@ END;
 
 ## 10. CURSORS
 Un **cursor** es un objeto (puntero) que apunta a un conjunto de resultados devueltos por una consulta SQL.
-```sql
-DECLARE
-    CURSOR c_cursor IS
-    SELECT columna1, columna2 FROM tabla WHERE condicion;
 
-    v_variable1 tabla.columna1%TYPE;
-    v_variable2 tabla.columna2%TYPE;
+```sql
+/* IMPLICIT CURSOR */
+-- No se vea el cursor. Es manejado automáticamente por PL/SQL en sentencias como INSERT, UPDATE, DELETE y SELECT dentro de un FOR LOOP.
+DECLARE
+    v_empl empleados%ROWTYPE;
 BEGIN
-    OPEN c_cursor;
-    LOOP
-        FETCH c_cursor INTO v_variable1, v_variable2;
-        EXIT WHEN c_cursor%NOTFOUND;
-        DBMS_OUTPUT.PUT_LINE(v_variable1 || ' ' || v_variable2);
+    FOR v_empl IN (SELECT * FROM empleados) LOOP
+        DBMS_OUTPUT.PUT_LINE('ID: ' || v_empl.id || ', Nombre: ' || v_empl.nombre || ', Salario: ' || v_empl.salario);
     END LOOP;
-    CLOSE c_cursor;
+END;
+
+
+/* EXPLICIT CURSOR */
+-- Sí se ve el cursor. Se abre, se recorre y se cierra manualmente.
+DECLARE
+    CURSOR c_empleados IS SELECT * FROM empleados;
+
+    v_empl empleados%ROWTYPE;
+BEGIN
+    OPEN c_empleados;
+    LOOP
+        FETCH c_empleados INTO v_empl;
+        EXIT WHEN c_empleados%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE('ID: ' || v_empl.id || ', Nombre: ' || v_empl.nombre || ', Salario: ' || v_empl.salario);
+    END LOOP;
+    CLOSE c_empleados;
+END;
+
+
+/* CURSOR FOR LOOP */
+-- De forma simplificada.
+DECLARE
+    CURSOR c_empleados IS SELECT * FROM empleados;
+
+    v_empl empleados%ROWTYPE;
+BEGIN
+    FOR v_empl IN c_empleados LOOP
+        DBMS_OUTPUT.PUT_LINE('ID: ' || v_empl.id || ', Nombre: ' || v_empl.nombre || ', Salario: ' || v_empl.salario);
+    END LOOP;
+END;
+
+
+/* PARAMETERIZED CURSOR */
+-- Con parámetros.
+DECLARE
+    CURSOR c_empleados (p_salario NUMBER) IS SELECT * FROM empleados WHERE salario > p_salario;
+
+    v_empl empleados%ROWTYPE;
+BEGIN
+    FOR v_empl IN c_empleados(1000) LOOP
+        DBMS_OUTPUT.PUT_LINE('ID: ' || v_empl.id || ', Nombre: ' || v_empl.nombre || ', Salario: ' || v_empl.salario);
+    END LOOP;
+END;
+
+
+/* REF CURSOR */
+-- Se utiliza para devolver un conjunto de resultados de un procedimiento.
+CREATE OR REPLACE PROCEDURE get_empleados (p_salario NUMBER, p_empleados OUT SYS_REFCURSOR)
+IS
+BEGIN
+    OPEN p_empleados FOR
+    SELECT * FROM empleados WHERE salario > p_salario;
 END;
 ```
 <br>
@@ -245,6 +293,20 @@ FOR EACH ROW
 BEGIN
     INSERT INTO auditoria_salarios (empleado_id, salario_anterior, salario_nuevo, fecha_cambio)
     VALUES (:OLD.empleado_id, :OLD.salario, :NEW.salario, SYSDATE);
+END;
+
+/* Con 2 acciones */
+CREATE OR REPLACE TRIGGER salario_empleado_cambio
+AFTER INSERT OR UPDATE ON empleados
+FOR EACH ROW
+BEGIN
+    IF INSERTING THEN
+        INSERT INTO auditoria_salarios (empleado_id, salario_anterior, salario_nuevo, fecha_cambio)
+        VALUES (:NEW.empleado_id, NULL, :NEW.salario, SYSDATE);
+    ELSIF UPDATING THEN
+        INSERT INTO auditoria_salarios (empleado_id, salario_anterior, salario_nuevo, fecha_cambio)
+        VALUES (:NEW.empleado_id, :OLD.salario, :NEW.salario, SYSDATE);
+    END IF;
 END;
 ```
 <br><br><br>
