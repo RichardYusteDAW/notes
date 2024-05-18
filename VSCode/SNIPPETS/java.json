@@ -1,0 +1,29 @@
+{
+    "method": {
+        "prefix": "met",
+        "body": [
+            "public static ${1|String,int,float,int[],int[][]|} function_name(${2|String,int,float,int[],int[][]|} param_name) {",
+            "\t${3:body}",
+            "}"
+        ],
+        "description": "Create static Method"
+    },
+    "test": {
+        "prefix": "test",
+        "body": [
+            "@Test",
+            "@DisplayName(\"Test ${1}\")",
+            "public void test${2}() {",
+            "",
+            "    // Arrange",
+            "    ${3}",
+            "",
+            "    // Act",
+            "",
+            "    // Assert",
+            "",
+            "}"
+        ],
+        "description": "Create test method"
+    }
+}

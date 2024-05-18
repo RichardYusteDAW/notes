@@ -47,3 +47,7 @@
 
 # 6. UML:
 - UML: [UML](./UML/uml.md)
+
+# 7. VSCode:
+- [VSCode](./VSCode/VSCode.md)
+- [Snippets](./VSCode/Snippets)
