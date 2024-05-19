@@ -223,15 +223,125 @@ void sumarTest() {
     //ARRANGE
     int a = 3;
     int b = 2;
-    int esperado = 5;
+    int expected = 5; //Resultado esperado
 
     //ACT
-    int resultado = DebugCalculadora.sumar(a, b);
+    int result = DebugCalculadora.sumar(a, b); //Llamada al método a probar
 
     //ASSERT
-    assertEquals(esperado, resultado);
+    assertEquals(esperado, resultado); //Verificar que el resultado es el esperado
 }
 ```
+
+## 3.1. Estructura por capas:
+### 3.1.1. Entity:
+```java
+/* Testear los constructores. */
+    // Arrange
+    // Act
+        Se crea la Entity a través de su constructor.
+    // Assert
+        Se llama a los getters correspondientes.
+
+/* Testear los setters. */
+    // Arrange
+        Se crea la Entity a través de su constructor.
+    // Act
+        Se setean los atributos con nuevos valores.
+    // Assert
+        Se llama a los getters correspondientes.
+
+/* Testear los métodos. */
+    // Arrange
+        Se crea la Entity a través de su constructor.
+    // Act
+        Se llama a los métodos de la Entity.
+    // Assert
+        Se verifica que el resultado sea el esperado.
+```
+
+### 3.1.2. Service and Repository:
+```java
+@ExtendWith(MockitoExtension.class)
+class ServiceOrRepositoryTest {
+    @Mock
+    Se crean los mocks necesarios a través de las INTERFACES.
+
+    @InjectMocks
+    Se inyectan los mocks en la clase Service o Repository a través de su IMPLEMENTACIÓN.
+
+    /* Check Exception */
+        // Arrange
+            when(mock.method()).thenReturn(value);
+        // Act && Assert
+            assertThrows(Exception.class, () -> serviceOrRepository.method());
+    
+    /* Check Void Method */
+        // Arrange
+            when(mock.method()).thenReturn(value);
+        // Act
+            Se llama al método.
+        // Assert
+            verify(mock.method()); // Verifica que los métodos mock han sido llamados.
+    
+    /* Check Method */
+        // Arrange
+            expected = Se prepara el valor esperado.
+            when(mock.method()).thenReturn(value);
+        // Act
+            result = Se llama al método.
+        // Assert
+            verify(mock.method()); // Verifica que los métodos mock han sido llamados.
+            assertEquals(expected,  result);
+}
+```
+
+### 3.1.3. Dao:
+```java
+class DaoTest {
+    Se crean la implementación del DAO desde la interfaz.
+    private static Connection connection;
+
+    @BeforeAll
+    public static void setUp() throws SQLException {
+        connection = DBConnection.getInstance().getConnection();
+        DBConnection.getInstance().executeScript("script.sql");
+        connection.setAutoCommit(false);
+    }
+
+    @AfterEach
+    void tearDown() throws SQLException {
+        connection.rollback();
+    }
+
+    @Test
+    void methodTest() throws SQLException{
+        /* Check Void Method */
+            // Arrange
+                String sql = Se prepara la sentencia SQL.
+                PreparedStatement ps = connection.prepareStatement(sql);
+                ps.setString(1, value);
+                rs = ps.executeQuery(); 
+
+                assertFalse(rs.next()); // Verificamos el estado actual de la base de datos.
+            // Act
+                Se llama al método.
+                rs = ps.executeQuery(); // Volvemos a ejecutar la sentencia SQL.
+            // Assert
+                assertTrue(rs.next()); // Verificamos el estado actual de la base de datos.
+                assertEquals(value, rs.getString(1)); // Verificamos que el valor sea el esperado.
+
+        /* Check Method */
+            // Arrange
+                expected = Se prepara el valor esperado.
+            // Act
+                result = Se llama al método.
+            // Assert
+                assertEquals(expected,  result);
+    }
+}
+```
+
 <br><br><br>
 
 ## *[volver al índice](../../index.md)*
