@@ -1,8 +1,11 @@
- # 1. GIT:
+# 1. AWS:
+- [AWS](./AWS/aws.md)
+
+# 2. GIT:
 - [git](./GIT/git.md)
 - [gitFlow](./GIT/gitFlow.md)
 
-# 2. JAVA:
+# 3. JAVA:
 - [Bean](./JAVA/Bean.md)
 - [Excepciones](./JAVA/Excepciones.md)
 - [Java](./JAVA/Java.md)
@@ -22,11 +25,11 @@
 
 - Plantilla: *[Plantilla](./JAVA/plantilla)*
 
-# 3. LINUX:
+# 4. LINUX:
 - [Árbol de directorios](./LINUX/arbol_directorios.jpg)
 - [Comandos](./LINUX/Comandos_linux.md)
 
-# 4. LLM:
+# 5. LLM:
 - [HTML](./LLM/HTML/html.md)
 - STYLES: 
   - [CSS](./LLM/STYLES/CSS/css.md)
@@ -34,7 +37,7 @@
 - JAVASCRIPT: 
     - [Eventos](./LLM/JS/Eventos.md)
 
-# 5. MySQL:
+# 6. MySQL:
 - SQL(Structured Query Language):
   - [DDL](./MySQL/DDL.md): Data Definition Language
   - [DML](./MySQL/DML.md): Data Manipulation Language
@@ -45,9 +48,9 @@
 - Copias de seguridad lógicas (Scripts): [BackUp](./MySQL/BackUp.md)
 - Tipos de fichero: [FileTypes](./MySQL/fileTypes.pdf)
 
-# 6. UML:
+# 7. UML:
 - UML: [UML](./UML/uml.md)
 
-# 7. VSCode:
+# 8. VSCode:
 - [VSCode](./VSCode/VSCode.md)
 - [Snippets](./VSCode/Snippets/java.json)
