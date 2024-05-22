@@ -50,4 +50,4 @@
 
 # 7. VSCode:
 - [VSCode](./VSCode/VSCode.md)
-- [Snippets](./VSCode/Snippets)
+- [Snippets](./VSCode/Snippets/java.json)

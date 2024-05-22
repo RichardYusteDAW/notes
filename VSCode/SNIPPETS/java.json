@@ -8,22 +8,41 @@
         ],
         "description": "Create static Method"
     },
-    "test": {
+    "JUnit Test": {
         "prefix": "test",
         "body": [
             "@Test",
-            "@DisplayName(\"Test ${1}\")",
-            "public void test${2}() {",
-            "",
-            "    // Arrange",
+            "@DisplayName(\"${1:Test Name}\")",
+            "public void test${2:MethodName}() {\n",
+            "\t// Arrange",
             "    ${3}",
-            "",
-            "    // Act",
-            "",
-            "    // Assert",
-            "",
+            "\t// Act\n",
+            "\t// Assert",
             "}"
         ],
-        "description": "Create test method"
+        "description": "Snippet for creating a JUnit test method"
+    },
+    "JUnit Nested Test": {
+        "prefix": "nested",
+        "body": [
+            "@Nested",
+            "class ${1:NestedTestClassName} {\n",
+            "\t@Test",
+            "\t@DisplayName(\"${2:Test Name 1}\")",
+            "\tpublic void test${3:MethodName1}() {\n",
+            "\t\t// Arrange\n",
+            "\t\t// Act\n",
+            "\t\t// Assert\n",
+            "\t}\n",
+            "\t@Test",
+            "\t@DisplayName(\"${4:Test Name 2}\")",
+            "\tpublic void test${5:MethodName2}() {\n",
+            "\t\t// Arrange\n",
+            "\t\t// Act\n",
+            "\t\t// Assert\n",
+            "\t}\n",
+            "}"
+        ],
+        "description": "Snippet for creating a nested JUnit test method with two test methods"
     }
 }
