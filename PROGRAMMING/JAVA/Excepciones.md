@@ -161,8 +161,6 @@ try {
     // Código que se ejecuta si se lanza la excepción 1 o la excepción 2.
 }
 ```
-
-
 <br><br><br>
 
-## *[volver al índice](../index.md)*
+## *[volver al índice](../../index.md)*

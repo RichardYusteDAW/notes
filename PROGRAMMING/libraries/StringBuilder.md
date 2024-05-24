@@ -32,4 +32,4 @@ sb.substring(1, 5)                      //olp
 ```
 <br><br><br>
 
-## *[volver al índice](../index.md)*
+## *[volver al índice](../../index.md)*

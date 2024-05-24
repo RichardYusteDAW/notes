@@ -92,4 +92,4 @@ static String resetColor = "\u001B[0m";
 ```
 <br><br><br>
 
-## *[volver al índice](../index.md)*
+## *[volver al índice](../../index.md)*

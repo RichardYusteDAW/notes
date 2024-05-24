@@ -56,3 +56,6 @@ echo  '<html><h1>¡Hola desde tu servidor web!</h1></html>' > /var/www/html/inde
 ## 3. Conexión por escritorio remoto
 - Laboratorio -> AWS Details -> Download PEM file
 - Instancia -> Estado de la instancia -> Seguridad -> Obtener la constraseña de Windows -> Cargar el archivo PEM
+<br><br><br>
+
+## *[volver al índice](../index.md)*

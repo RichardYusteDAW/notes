@@ -1,43 +1,18 @@
-# 1. AWS:
-- [AWS](./AWS/aws.md)
-
-# 2. GIT:
+# 1. GIT:
 - [git](./GIT/git.md)
 - [gitFlow](./GIT/gitFlow.md)
+<br><br>
 
-# 3. JAVA:
-- [Bean](./JAVA/Bean.md)
-- [Excepciones](./JAVA/Excepciones.md)
-- [Java](./JAVA/Java.md)
-- [JDBC](./JAVA/JDBC.md)
-- [Maven](./JAVA/Maven.md)
-- [Spring_Boot](./JAVA/Spring_Boot.md)
-- [Thymeleaf](./JAVA/Thymeleaf.md)
-- Librerías:
-  - [Math](./JAVA/Math.md)
-  - [Random](./JAVA/Random.md)
-  - [String](./JAVA/String.md)
-  - [StringBuilder](./JAVA/StringBuilder.md)
-- Testing:
-  - [Testing](./JAVA/testing/test.md)
-  - [Mockito](./JAVA/testing/mockito.md)
-  - [Bases de datos incrustadas](./JAVA/testing/embeddedDB.md)
-
-- Plantilla: *[Plantilla](./JAVA/plantilla)*
-
-# 4. LINUX:
-- [Árbol de directorios](./LINUX/arbol_directorios.jpg)
-- [Comandos](./LINUX/Comandos_linux.md)
-
-# 5. LLM:
+# 2. LLM:
 - [HTML](./LLM/HTML/html.md)
 - STYLES: 
   - [CSS](./LLM/STYLES/CSS/css.md)
   - [BOOTSTRAP](./LLM/STYLES/BOOTSTRAP/bootstrap.md)
 - JAVASCRIPT: 
     - [Eventos](./LLM/JS/Eventos.md)
+<br><br>
 
-# 6. MySQL:
+# 3. MySQL:
 - SQL(Structured Query Language):
   - [DDL](./MySQL/DDL.md): Data Definition Language
   - [DML](./MySQL/DML.md): Data Manipulation Language
@@ -47,10 +22,43 @@
 - MySQL Server: [MySQL Server](./MySQL/MySQL_server.md)
 - Copias de seguridad lógicas (Scripts): [BackUp](./MySQL/BackUp.md)
 - Tipos de fichero: [FileTypes](./MySQL/fileTypes.pdf)
+<br><br>
 
-# 7. UML:
-- UML: [UML](./UML/uml.md)
+# 4. PROGRAMMING:
+- Template: *[Template](./PROGRAMMING/template)*
+ ## 4.1. JAVA:
+ - [Bean](./PROGRAMMING/JAVA/Bean.md)
+ - [Excepciones](./PROGRAMMING/JAVA/Excepciones.md)
+ - [Java](./PROGRAMMING/JAVA/Java.md)
+ - [JDBC](./PROGRAMMING/JAVA/JDBC.md)
+ - [Maven](./PROGRAMMING/JAVA/Maven.md)
+ - [Spring_Boot](./PROGRAMMING/JAVA/Spring_Boot.md)
+ - [Thymeleaf](./PROGRAMMING/JAVA/Thymeleaf.md)
 
-# 8. VSCode:
+ ## 4.2. LIBRARIES:
+ - [Math](./PROGRAMMING/libraries/Math.md)
+ - [Random](./PROGRAMMING/libraries/Random.md)
+ - [String](./PROGRAMMING/libraries/String.md)
+ - [StringBuilder](./PROGRAMMING/libraries/StringBuilder.md)
+
+ ## 4.3. TESTING:
+ - [Testing](./PROGRAMMING/testing/test.md)
+ - [Mockito](./PROGRAMMING/testing/mockito.md)
+ - [Bases de datos incrustadas](./PROGRAMMING/testing/embeddedDB.md)
+ 
+ ## 4.4. UML:
+ - [UML](./PROGRAMMING/UML/uml.md)
+<br><br>
+
+# 5. SYSTEMS:
+ ## 5.1. LINUX:
+ - [Árbol de directorios](./Systems/LINUX/arbol_directorios.jpg)
+ - [Comandos](./Systems/LINUX/Comandos_linux.md)
+
+ ## 5.2. AWS: 
+ - [AWS](./Systems/aws.md)
+<br><br>
+
+# 6. VSCode:
 - [VSCode](./VSCode/VSCode.md)
 - [Snippets](./VSCode/Snippets/java.json)

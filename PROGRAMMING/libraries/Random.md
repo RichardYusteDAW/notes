@@ -16,4 +16,4 @@ long numeroLargo = new Random().nextLong();
 ```
 <br><br><br>
 
-## *[volver al índice](../index.md)*
+## *[volver al índice](../../index.md)*

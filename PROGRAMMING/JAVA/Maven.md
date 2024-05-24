@@ -16,7 +16,6 @@ mvn clean package   #Limpia el proyecto y luego ejecuta 'package'.
 mvn validate        #Verifica si el proyecto es correcto y toda la información necesaria está disponible.
 mvn deploy          #Copia el paquete final al repositorio remoto.
 ```
-<br>
 <br><br><br>
 
-## *[volver al índice](../index.md)*
+## *[volver al índice](../../index.md)*
