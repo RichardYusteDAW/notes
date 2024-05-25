@@ -1,0 +1,34 @@
+{
+    "editor.formatOnSave": true,
+    "editor.inlineSuggest.showToolbar": "onHover",
+    "editor.minimap.enabled": false,
+    "files.autoGuessEncoding": true,
+    "files.autoSave": "onWindowChange",
+    "java.format.comments.enabled": false,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "workbench.settings.applyToAllProfiles": [
+        "java.project.encoding"
+    ],
+    "workbench.tree.enableStickyScroll": true,
+    "[sql]": {
+        "editor.formatOnSave": false // Desactivar el formateo automático para archivos SQL
+    },
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": true,
+        "scminput": false
+    },
+    "redhat.telemetry.enabled": true,
+    "liveServer.settings.donotVerifyTags": true,
+    "workbench.editorAssociations": {
+        "*.jar": "default"
+    },
+    "workbench.iconTheme": "vscode-great-icons",
+    "workbench.colorTheme": "Monokai Night",
+    "workbench.editor.enablePreview": false,
+    "git-graph.referenceLabels.alignment": "Branches (on the left) & Tags (on the right)",
+    "git.autofetch": true,
+    "git.openRepositoryInParentFolders": "always"
+}

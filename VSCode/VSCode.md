@@ -1,6 +1,24 @@
 # VISUAL STUDIO CODE
 
 ## 1. Extensions
+### 1.1. Guardar
+- Con PowerShell o Bash:
+```
+code --list-extensions > extensions.txt
+```
+### 1.2. Instalar
+- Con PowerShell:
+```powershell
+cat extensions.txt | % { code --install-extension $_ }
+# Forma larga:
+# Get-Content extensions.txt | ForEach-Object { code --install-extension $_ }
+```
+
+- Con Bash:
+```bash
+cat extensions.txt | xargs -L 1 code --install-extension
+```
+<br><br>
 
 ## 2. Snippets
 - Los snippets son fragmentos de código que se pueden insertar en el editor mediante una combinación de teclas.

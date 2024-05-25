@@ -57,8 +57,13 @@
 
  ## 5.2. AWS: 
  - [AWS](./Systems/aws.md)
+
+  ## 5.3. WINDOWS SERVER:
+  - [Windows Server](./Systems/winServer.md)
 <br><br>
 
 # 6. VSCode:
 - [VSCode](./VSCode/VSCode.md)
-- [Snippets](./VSCode/Snippets/java.json)
+- [Extensions](./VSCode/extensions.txt)
+- [Settings](./VSCode/settings.json)
+- [Snippets](./VSCode/snippets/java.json)

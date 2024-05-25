@@ -1,10 +1,10 @@
 # AWS
 
-## 1. Instancia EC2
+## 1. Instancia EC2 ☁️
 - Panel de administración de AWS -> Servicios -> Informátca -> EC2
 - Selecionar la región
 
-### 1.1. Crear una instancia
+### 1.1. Crear una instancia 🖥️
 - Click en "Launch Instance"
   - **Nombre y etiquetas:** Asignar un nombre a la instancia.
   - **Imagen de máquina:** Seleccionar una imagen de máquina (Amazon Linux, macOS, Ubuntu, Windows, Red Hat, SUSE, etc.)
@@ -32,7 +32,7 @@ systemctl iniciar httpd
 echo  '<html><h1>¡Hola desde tu servidor web!</h1></html>' > /var/www/html/index.html
 ```
 
-### 1.2. Monitorear la instancia
+### 1.2. Monitorear la instancia 📡
 - Acciones -> Monitorear y solucionar problemas -> Obtener registro del sistema.
 - Acciones -> Monitorear y solucionar problemas -> Obtener captura de pantalla de la instancia.
 <br>
@@ -46,14 +46,16 @@ echo  '<html><h1>¡Hola desde tu servidor web!</h1></html>' > /var/www/html/inde
 - Acciones -> Configuración de la instancia -> Cambiar protección de terminación.
 <br>
 
-### 1.5. Cambiar el tamaño del volumen EBS
+### 1.5. Cambiar el tamaño del volumen EBS 💾
 - Detener la instancia
 - Acciones -> Configuración de la instancia -> Cambiar el tamaño del volumen.
+<br><br>
 
-## 2. Quotas
+## 2. Quotas 📊
 - Panel de administración de AWS -> Servicie Quotas
+<br><br>
 
-## 3. Conexión por escritorio remoto
+## 3. Conexión por escritorio remoto 💻
 - Laboratorio -> AWS Details -> Download PEM file
 - Instancia -> Estado de la instancia -> Seguridad -> Obtener la constraseña de Windows -> Cargar el archivo PEM
 <br><br><br>
