@@ -1,6 +1,7 @@
 # 1. GIT:
 - [git](./GIT/git.md)
 - [gitFlow](./GIT/gitFlow.md)
+- [gitHub Actions](./GIT/gitHubActions.md)
 <br><br>
 
 # 2. LLM:
