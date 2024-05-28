@@ -40,4 +40,4 @@ onmouseup	//cuando se levanta el botón del ratón tras presionarlo.
 ```
 <br><br><br>
 
-## *[volver al índice](../../index.md)*
+## *[volver al índice](../index.md)*

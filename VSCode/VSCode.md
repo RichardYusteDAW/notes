@@ -18,7 +18,8 @@ cat extensions.txt | % { code --install-extension $_ }
 ```bash
 cat extensions.txt | xargs -L 1 code --install-extension
 ```
-<br><br>
+---
+<br>
 
 ## 2. Snippets
 - Los snippets son fragmentos de código que se pueden insertar en el editor mediante una combinación de teclas.
@@ -47,6 +48,23 @@ cat extensions.txt | xargs -L 1 code --install-extension
 - `${1:variable|valor1,valor2,valor3}`: Selecciona la variable 1 y muestra los valores que puede tomar.
 - `${1|valor1,valor2,valor3}`: Muestra los valores que puede tomar la variable 1.
 - `${1:variable}${2:variable}`: Selecciona la variable 1 y luego la variable 2.
+---
+<br>
+
+## 3. Atajos de teclado
+|  Acción                           |  Shortcout                   |
+|---------------------------------  |------------------------------|
+|  Abrir terminal                   |  `Ctrl + Ñ`                  |
+|  Abrir paleta de comandos         |  `Ctrl + Shift + P`          |
+|  Puntero múltiple                 |  `Ctrl + Alt + Arriba/Abajo` |
+|  Selección múltiple               |  `Alt + Click`               |
+|  Selecionar todas las ocurrencias |  `Ctrl + Shift + L`          |
+|  Comentar línea                   |  `Ctrl + /`                  |
+|  Comentar bloque                  |  `Ctrl + K + C`              |
+|  Descomentar bloque               |  `Ctrl + K + U`              |
+|  Mover entre palabras             |  `Ctrl + Flechas`            |
+|  Mover al principio de la línea   |  `Home`                      |
+|  Mover al final de la línea       |  `End`                       |
 
 
 <br><br><br>

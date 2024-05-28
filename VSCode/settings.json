@@ -12,7 +12,7 @@
     ],
     "workbench.tree.enableStickyScroll": true,
     "[sql]": {
-        "editor.formatOnSave": false // Desactivar el formateo automático para archivos SQL
+        "editor.formatOnSave": false
     },
     "github.copilot.enable": {
         "*": true,

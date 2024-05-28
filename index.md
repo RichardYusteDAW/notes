@@ -2,18 +2,48 @@
 - [git](./GIT/git.md)
 - [gitFlow](./GIT/gitFlow.md)
 - [gitHub Actions](./GIT/gitHubActions.md)
-<br><br>
+---
+<br>
 
-# 2. LLM:
+# 2. JAVA:
+- Template: *[Template](./JAVA/template)*
+ ## 2.1. CONCEPTOS:
+ - [Bean](./JAVA/concepts/Bean.md)
+ - [Excepciones](./JAVA/concepts/Excepciones.md)
+ - [Java](./JAVA/concepts/Java.md)
+ - [JDBC](./JAVA/concepts/JDBC.md)
+ - [Maven](./JAVA/concepts/Maven.md)
+ - [Spring_Boot](./JAVA/concepts/Spring_Boot.md)
+ - [Thymeleaf](./JAVA/concepts/Thymeleaf.md)
+
+ ## 2.2. LIBRARIES:
+ - [Math](./JAVA/libraries/Math.md)
+ - [Random](./JAVA/libraries/Random.md)
+ - [String](./JAVA/libraries/String.md)
+ - [StringBuilder](./JAVA/libraries/StringBuilder.md)
+
+ ## 2.3. TESTING:
+ - [Testing](./JAVA/testing/test.md)
+ - [Mockito](./JAVA/testing/mockito.md)
+ - [Bases de datos incrustadas](./JAVA/testing/embeddedDB.md)
+---
+<br>
+
+# 3. JAVASCRIPT: 
+- [Conceptos](./JAVASCRIPT/js.md)
+- [Eventos](./JAVASCRIPT/eventos.md)
+---
+<br>
+
+# 4. LLM:
 - [HTML](./LLM/HTML/html.md)
 - STYLES: 
   - [CSS](./LLM/STYLES/CSS/css.md)
   - [BOOTSTRAP](./LLM/STYLES/BOOTSTRAP/bootstrap.md)
-- JAVASCRIPT: 
-    - [Eventos](./LLM/JS/Eventos.md)
-<br><br>
+---
+<br>
 
-# 3. MySQL:
+# 5. MySQL:
 - SQL(Structured Query Language):
   - [DDL](./MySQL/DDL.md): Data Definition Language
   - [DML](./MySQL/DML.md): Data Manipulation Language
@@ -23,47 +53,33 @@
 - MySQL Server: [MySQL Server](./MySQL/MySQL_server.md)
 - Copias de seguridad lógicas (Scripts): [BackUp](./MySQL/BackUp.md)
 - Tipos de fichero: [FileTypes](./MySQL/fileTypes.pdf)
-<br><br>
+---
+<br>
 
-# 4. PROGRAMMING:
-- Template: *[Template](./PROGRAMMING/template)*
- ## 4.1. JAVA:
- - [Bean](./PROGRAMMING/JAVA/Bean.md)
- - [Excepciones](./PROGRAMMING/JAVA/Excepciones.md)
- - [Java](./PROGRAMMING/JAVA/Java.md)
- - [JDBC](./PROGRAMMING/JAVA/JDBC.md)
- - [Maven](./PROGRAMMING/JAVA/Maven.md)
- - [Spring_Boot](./PROGRAMMING/JAVA/Spring_Boot.md)
- - [Thymeleaf](./PROGRAMMING/JAVA/Thymeleaf.md)
+# 6. NODEJS:
+- [NodeJS](./NODEJS/nodejs.md)
+---
+<br>
 
- ## 4.2. LIBRARIES:
- - [Math](./PROGRAMMING/libraries/Math.md)
- - [Random](./PROGRAMMING/libraries/Random.md)
- - [String](./PROGRAMMING/libraries/String.md)
- - [StringBuilder](./PROGRAMMING/libraries/StringBuilder.md)
-
- ## 4.3. TESTING:
- - [Testing](./PROGRAMMING/testing/test.md)
- - [Mockito](./PROGRAMMING/testing/mockito.md)
- - [Bases de datos incrustadas](./PROGRAMMING/testing/embeddedDB.md)
- 
- ## 4.4. UML:
- - [UML](./PROGRAMMING/UML/uml.md)
-<br><br>
-
-# 5. SYSTEMS:
- ## 5.1. LINUX:
+# 7. SYSTEMS:
+ ## 7.1. LINUX:
  - [Árbol de directorios](./Systems/LINUX/arbol_directorios.jpg)
  - [Comandos](./Systems/LINUX/Comandos_linux.md)
 
- ## 5.2. AWS: 
+ ## 7.2. AWS: 
  - [AWS](./Systems/aws.md)
 
-  ## 5.3. WINDOWS SERVER:
+  ## 7.3. WINDOWS SERVER:
   - [Windows Server](./Systems/winServer.md)
-<br><br>
+---
+<br>
 
-# 6. VSCode:
+ # 8. UML:
+ - [UML](./UML/uml.md)
+---
+<br>
+
+# 9. VSCode:
 - [VSCode](./VSCode/VSCode.md)
 - [Extensions](./VSCode/extensions.txt)
 - [Settings](./VSCode/settings.json)
