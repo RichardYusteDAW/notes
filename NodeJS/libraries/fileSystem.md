@@ -1,0 +1,101 @@
+# FileSystem
+
+## 1. Web Site
+[FileSystem](https://nodejs.org/api/fs.html)
+
+---
+<br>
+
+## 2. Instalar módulo
+No se instala, ya viene con NodeJS.
+
+---
+<br>
+
+## 3. Importar módulo
+```javascript
+const fs = require('fs');
+```
+---
+<br>
+
+## 4. Métodos
+### 4.1. Crear directorio
+```javascript
+fs.mkdir('path/to/directory', { recursive: true }, (err) => {
+    if (err) throw err;
+});
+```
+
+### 4.2. Eliminar directorio
+```javascript
+fs.rm('path/to/directory', { recursive: true }, (err) => {
+    if (err) throw err;
+});
+```
+
+### 4.3. Crear archivo sin contenido.
+```javascript
+fs.writeFile('path/to/file.txt', "", (err) => {
+    if (err) throw err;
+});
+```
+
+### 4.4. Crear archivo y escribir contenido.
+```javascript
+let content = 'This is the content of the file';
+
+fs.writeFile('path/to/file.txt', content, (err) => {
+    if (err) throw err;
+});
+```
+
+### 4.5. Leer archivo
+```javascript
+fs.readFile('path/to/file.txt', 'utf8', (err, data) => {
+    if (err) throw err;
+    console.log(data);
+});
+```
+
+### 4.6. Agregar contenido a un archivo
+```javascript
+fs.appendFile('path/to/file.txt', 'content', (err) => {
+    if (err) throw err;
+});
+```
+
+### 4.7. Eliminar archivo
+```javascript
+fs.unlink('path/to/file.txt', (err) => {
+    if (err) throw err;
+});
+```
+
+### 4.8. Mover archivo
+```javascript
+fs.rename('path/to/file.txt', 'path/to/newfile.txt', (err) => {
+    if (err) throw err;
+});
+```
+
+### 4.9. Copiar archivo
+```javascript
+fs.copyFile('path/to/file.txt', 'path/to/newfile.txt', (err) => {
+    if (err) throw err;
+});
+```
+
+### 4.10. Verificar si un archivo o directorio existe
+```javascript
+fs.access('path/to/file.txt', fs.constants.F_OK, (err) => {
+    if (err) {
+        console.log('File does not exist');
+    } else {
+        console.log('File exists');
+    }
+});
+```
+<br><br><br>
+
+## *[volver al índice](../../index.md)*

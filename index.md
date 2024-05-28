@@ -6,32 +6,32 @@
 <br>
 
 # 2. JAVA:
-- Template: *[Template](./JAVA/template)*
+- Template: *[Template](./Java/template)*
  ## 2.1. CONCEPTOS:
- - [Bean](./JAVA/concepts/Bean.md)
- - [Excepciones](./JAVA/concepts/Excepciones.md)
- - [Java](./JAVA/concepts/Java.md)
- - [JDBC](./JAVA/concepts/JDBC.md)
- - [Maven](./JAVA/concepts/Maven.md)
- - [Spring_Boot](./JAVA/concepts/Spring_Boot.md)
- - [Thymeleaf](./JAVA/concepts/Thymeleaf.md)
+ - [Bean](./Java/concepts/Bean.md)
+ - [Excepciones](./Java/concepts/Excepciones.md)
+ - [Java](./Java/concepts/Java.md)
+ - [JDBC](./Java/concepts/JDBC.md)
+ - [Maven](./Java/concepts/Maven.md)
+ - [Spring_Boot](./Java/concepts/Spring_Boot.md)
+ - [Thymeleaf](./Java/concepts/Thymeleaf.md)
 
  ## 2.2. LIBRARIES:
- - [Math](./JAVA/libraries/Math.md)
- - [Random](./JAVA/libraries/Random.md)
- - [String](./JAVA/libraries/String.md)
- - [StringBuilder](./JAVA/libraries/StringBuilder.md)
+ - [Math](./Java/libraries/Math.md)
+ - [Random](./Java/libraries/Random.md)
+ - [String](./Java/libraries/String.md)
+ - [StringBuilder](./Java/libraries/StringBuilder.md)
 
  ## 2.3. TESTING:
- - [Testing](./JAVA/testing/test.md)
- - [Mockito](./JAVA/testing/mockito.md)
- - [Bases de datos incrustadas](./JAVA/testing/embeddedDB.md)
+ - [Testing](./Java/testing/test.md)
+ - [Mockito](./Java/testing/mockito.md)
+ - [Bases de datos incrustadas](./Java/testing/embeddedDB.md)
 ---
 <br>
 
 # 3. JAVASCRIPT: 
-- [Conceptos](./JAVASCRIPT/js.md)
-- [Eventos](./JAVASCRIPT/eventos.md)
+- [Conceptos](./JavaScript/js.md)
+- [Eventos](./JavaScript/eventos.md)
 ---
 <br>
 
@@ -57,7 +57,11 @@
 <br>
 
 # 6. NODEJS:
-- [NodeJS](./NODEJS/nodejs.md)
+- [NodeJS](./NodeJS/node.md)
+- Libraries:
+  - [Colors](./NodeJS/libraries/colors.md)
+  - [FileSystem](./NodeJS/libraries/fileSystem.md)
+  - [Yargs](./NodeJS/libraries/yargs.md)
 ---
 <br>
 
