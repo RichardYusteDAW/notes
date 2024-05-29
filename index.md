@@ -66,15 +66,12 @@
 <br>
 
 # 7. SYSTEMS:
- ## 7.1. LINUX:
- - [Árbol de directorios](./Systems/LINUX/arbol_directorios.jpg)
- - [Comandos](./Systems/LINUX/Comandos_linux.md)
-
- ## 7.2. AWS: 
- - [AWS](./Systems/aws.md)
-
-  ## 7.3. WINDOWS SERVER:
-  - [Windows Server](./Systems/winServer.md)
+- [AWS](./Systems/aws.md)
+- [Windows Server](./Systems/winServer.md)
+- [Ubuntu Server](./Systems/ubuntuServer.md)
+- Linux:
+  - [Árbol de directorios](./Systems/LINUX/arbol_directorios.jpg)
+  - [Comandos](./Systems/LINUX/Comandos_linux.md)
 ---
 <br>
 

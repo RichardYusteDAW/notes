@@ -33,31 +33,126 @@ echo  '<html><h1>¡Hola desde tu servidor web!</h1></html>' > /var/www/html/inde
 ```
 
 ### 1.2. Monitorear la instancia 📡
+```	
 - Acciones -> Monitorear y solucionar problemas -> Obtener registro del sistema.
 - Acciones -> Monitorear y solucionar problemas -> Obtener captura de pantalla de la instancia.
+```
 <br>
 
 ### 1.3. Cambiar el tipo de la instancia
+```
 - Detener la instancia
 - Acciones -> Configuracón de la instancia -> Cambiar el tipo de instancia.
+```
 <br>
 
 ### 1.4.Habilitar y deshabilitar la protección de terminación
+```
 - Acciones -> Configuración de la instancia -> Cambiar protección de terminación.
+```
 <br>
 
 ### 1.5. Cambiar el tamaño del volumen EBS 💾
+```
 - Detener la instancia
 - Acciones -> Configuración de la instancia -> Cambiar el tamaño del volumen.
-<br><br>
+```
+---
+<br>
 
 ## 2. Quotas 📊
+```
 - Panel de administración de AWS -> Servicie Quotas
-<br><br>
+```
+---
+<br>
 
 ## 3. Conexión por escritorio remoto 💻
+```
 - Laboratorio -> AWS Details -> Download PEM file
 - Instancia -> Estado de la instancia -> Seguridad -> Obtener la constraseña de Windows -> Cargar el archivo PEM
+```
+---
+<br>
+
+## 4. Desplegar una aplicación web 
+## 4.1. VPC (Virtual Private Cloud) 🌐
+VPC (Virtual Private Cloud) es un servicio que permite a los usuarios crear una red virtual en la nube de AWS.
+```
+- Servicios -> VPC -> Crear VPC
+    -> Recuros -> VPC y más                # Los recursos de VPC incluyen subredes, tablas de rutas, grupos de seguridad, ACL de red, etc.
+    -> Nombre: ProyectoDAW-VPC
+    -> Dirección IPv4: 10.0.0.0/16         # Rango de direcciones IPv4 para la VPC
+    -> Sin bloque de IPv6
+    -> Tenencia: Predeterminado            # Especifica si el hardware es dedicado o compartido.
+    -> Número de zonas de disponibilidad: 2
+    -> Cantidad de subredes públicas: 2
+    -> Cantidad de subredes privadas: 2
+    -> Gateway NAT: Crear Ninguno          # Dispositivo que permite a las instancias en una subred privada conectarse a Internet.
+    -> Puntos de enlace: Gateway de S3     # Dispositivo que permite a las instancias en una subred privada conectarse a un servicio de AWS.
+    -> Habilitar nombres de host DNS
+    -> Habilitar DNS resolución de DNS
+```
+
+## 4.2. Crear base de datos 🗃️
+RDS (Relational Database Service) es un servicio de base de datos relacional que facilita la configuración, operación y escalabilidad de las bases de datos relacionales en la nube de AWS.
+```
+- Servicios -> RDS -> Crear base de datos
+    -> Creación estándar                                  # Puede ser estándar o sencilla.
+    -> Motor de base de datos: MySQL
+    -> Versión de MySQL: 8.0.35
+    -> Plantilla de uso: Capa gratuita                    # Puede ser de producción o de desarrollo.
+    -> Nombre de la base de datos: FilmarketDB
+    -> Nombre del usuario maestro: root
+    -> Administración de credenciales: Autoadministrado   # Puede ser autoadministrado o AWS Secrets Manager.
+    -> Contraseña: 12345678
+    -> Configuración de la instancia: T3.micro
+    -> Tipo de almacenamiento: GP2
+    -> Capacidad de almacenamiento: 20 GB
+    -> Habilitar el almacenamiento automático
+    -> Umbral de almacenamiento máximo: 1000 GB
+    -> Recurso de computación: No se conecte a un recurso EC2
+    -> VPC: ProyectoDAW-VPC
+    -> Acceso público: No
+    -> Grupo de seguridad: Elegir existente
+    -> Zona de disponibilidad: Sin preferencia
+    -> Entidad de certificación: Predeterminado
+    -> Puerto de la base de datos: 3306
+    -> Autenticación de contraseña: Sí
+    -> Crear
+```	
+
+## 4.3. Crear API (Elastic Beanstalk)
+Elastic Beanstalk es un servicio que permite a los desarrolladores implementar y administrar aplicaciones web y servicios en la nube.  
+<a href="http://filmarket-env.eba-prz7xmbv.us-east-1.elasticbeanstalk.com/" target="_blank">www.filmarket.com</a>
+
+```
+- Servicios -> Elastic Beanstalk -> Crear aplicación
+    -> Nivel de entorno: Web
+    -> Nombre de la aplicación: Filmarket
+    -> Nombre del entorno: Filmarket-env
+    -> Plataforma administrada: Java
+    -> Ramificación de la plataforma: Corretto 17 running on 64bit Amazon 2023
+    -> Versión de la plataforma: 4.2.4
+    -> Cargar el código de la aplicación
+    -> Etiqueta de la versión: v1.0
+    -> SIGUIENTE
+
+    -> Rol de servicio: Usar un rol de servicio existente
+      -> Rol: LabRole
+      -> Par de claves: vockey
+      -> Perfil de la instancia: LabInstanceProfile
+    -> SIGUIENTE
+    
+    -> Nube virtual privada (VPC): ProyectoDAW-VPC
+    -> Dirección IP pública: Activado
+    -> Subredes de instancia: 10.0.0.0/20 y 10.0.16.0/20
+    -> Subredes de base de datos: 10.0.0.0/20 y 10.0.16.0/20
+    -> SIGUIENTE
+    -> SIGUIENTE
+    -> SIGUIENTE
+    -> ENVIAR
+```
 <br><br><br>
 
 ## *[volver al índice](../index.md)*
