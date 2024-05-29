@@ -60,7 +60,9 @@
 - [NodeJS](./NodeJS/node.md)
 - Libraries:
   - [Colors](./NodeJS/libraries/colors.md)
+  - [Inquirer](./NodeJS/libraries/inquirer.md)
   - [FileSystem](./NodeJS/libraries/fileSystem.md)
+  - [ReadLine](./NodeJS/libraries/readline.md)
   - [Yargs](./NodeJS/libraries/yargs.md)
 ---
 <br>
