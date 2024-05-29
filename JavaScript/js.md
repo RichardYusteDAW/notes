@@ -8,11 +8,11 @@
 ```javascript
 var x = 1;
 if (true) {
-  var x = 2;      // Esta es la misma variable x, redeclarada.
-  // x = 2;       // Esta es la misma variable x, reasignada.
-  console.log(x); // 2
+    var x = 2;      // Esta es la misma variable x, redeclarada.
+    // x = 2;       // Esta es la misma variable x, reasignada.
+    console.log(x); // 2
 }
-console.log(x);   // 2
+console.log(x);     // 2
 ```
 
 `let`
@@ -22,12 +22,12 @@ console.log(x);   // 2
 ```javascript
 let x = 1;
 if (true) {
-  let x = 2;      // Esta es una nueva variable x, solo accesible dentro del bloque.
-  // x = 2;       // Esta es la misma variable x, reasignada.
-  console.log(x); // 2
+    let x = 2;      // Esta es una nueva variable x, solo accesible dentro del bloque.
+    // x = 2;       // Esta es la misma variable x, reasignada.
+    console.log(x); // 2
 }
-// let x = 3;     // Error: Identifier 'x' has already been declared.
-console.log(x);   // 1
+// let x = 3;      // Error: Identifier 'x' has already been declared.
+console.log(x);    // 1
 ```
 
 `const`
@@ -37,9 +37,9 @@ console.log(x);   // 1
 ```javascript
 const x = 1;
 if (true) {
-  const x = 2;    // Esta es una nueva variable x, solo accesible dentro del bloque.
-  // x = 2;       // Error: Assignment to constant variable.
-  console.log(x); // 2
+    const x = 2;    // Esta es una nueva variable x, solo accesible dentro del bloque.
+    // x = 2;       // Error: Assignment to constant variable.
+    console.log(x); // 2
 }
 // const x = 3;   // Error: Identifier 'x' has already been declared.
 console.log(x);   // 1
@@ -60,7 +60,104 @@ let multiLinea = `
 ---
 <br>
 
-## 3. Destructuring
+## 3. Comentarios
+```javascript
+// Comentario de una línea
+
+/*
+  Comentario
+  de
+  varias
+  líneas
+*/
+```
+---
+<br>
+
+## 4. Operador ternario
+```javascript
+let edad = 25;
+let mensaje = edad >= 18 ? "Eres mayor de edad." : "Eres menor de edad.";
+console.log(mensaje); // "Eres mayor de edad."
+```
+---
+<br>
+
+## 5. Arrays
+```javascript	
+let articulos = ["zapatillas","camisa","calcetines","chaqueta"];
+let articulos = new array("zapatillas","camisa","calcetines","chaqueta");
+
+document.write(articulos.length);   // Muestra el tamaño del array.
+document.write(articulos[1]);       // Muestra el segundo campo del array.
+articulos.push("balón");				    // Agrega un campo al FINAL del array.
+articulos.pop();						        // Elimina el ÚLTIMO campo del array.
+articulos.push("balón","raqueta");	// Agrega VARIOS campos al FINAL del array.
+articulos.unshift("balón");				  // Agrega un campo al INICIO del array.
+articulos.shift();						      // Elimina el PRIMER campo del array.
+articulos.unshift("balón,raqueta");	// Agrega VARIOS campos al INICIO del array.
+```
+---
+<br>
+
+## 6. Métodos para recorrer arrays
+```javascript
+let colores = ["rojo", "verde", "azul", "amarillo", "naranja"];
+```
+### 6.1. forEach()
+Ejecuta una función por cada elemento del array.
+```javascript
+colores.forEach((color, index) => {
+    console.log(`${index + 1}. ${color}`);
+});
+```
+
+### 6.2. map()
+Crea un nuevo array con los resultados de la función aplicada a cada elemento del array.
+```javascript
+let coloresMayusculas = colores.map((color) => color.toUpperCase());
+console.log(coloresMayusculas); // ["ROJO", "VERDE", "AZUL", "AMARILLO", "NARANJA"]
+```
+
+### 6.3. filter()
+Crea un nuevo array con los elementos que cumplen la condición.
+```javascript
+let coloresCortos = colores.filter((color) => color.length <= 4);
+console.log(coloresCortos); // ["rojo", "azul"]
+```
+
+### 6.4. find()
+Devuelve el primer elemento que cumple la condición.
+```javascript
+let color = colores.find((color) => color === "verde");
+console.log(color); // "verde"
+```
+
+### 6.5. reduce()
+Aplica una función acumuladora a cada elemento del array, de izquierda a derecha, para reducirlo a un único valor.
+```javascript
+let numeros = [1, 2, 3, 4, 5];
+let suma = numeros.reduce((total, num) => total + num, 0);
+console.log(suma); // 15
+```
+---
+<br>
+
+## 7. Objetos
+```javascript
+let persona = {
+    nombre: "Ana",
+    edad: 25,
+    ciudad: "Madrid"
+};
+
+persona.nombre   = "María";    // Añade el campo "nombre" al objeto y si ya existe lo sobreescribe.
+persona.[nombre] = "María";    // Añade el campo "nombre" al objeto y si ya existe lo sobreescribe.
+```
+---
+<br>
+
+## 8. Destructuring
 ```javascript
 // Destructuring de arrays
    let colores = ["rojo", "verde", "azul"];
@@ -84,7 +181,8 @@ let multiLinea = `
 ---
 <br>
 
-## 4. Spread operator
+## 9. Spread operator
+Se utiliza para expandir elementos de un array u objeto en otro array u objeto.
 ```javascript
 // Spread operator en arrays
     let colores = ["rojo", "verde", "azul"];
@@ -99,7 +197,38 @@ let multiLinea = `
 ---
 <br>
 
-## 5. Arrow functions
+## 10. Rest parameter
+Permite a una función aceptar un número indefinido de argumentos como un array.
+```javascript
+function sumar(...numeros) {
+    return numeros.reduce((total, num) => total + num, 0);
+}
+
+console.log(sumar(1, 2, 3, 4, 5)); // 15
+```
+---
+<br>
+
+## 11. For...in & For...of
+- **For...in**: Itera sobre las propiedades de un objeto.
+- **For...of**: Itera sobre los elementos de cualquier objeto iterable(array, string, map, set, etc.).
+```javascript
+// For...in
+    let colores = ["rojo", "verde", "azul"];
+    for (let index in colores) {
+        console.log(colores[index]);
+    }
+
+// For...of
+    let colores = ["rojo", "verde", "azul"];
+    for (let color of colores) {
+        console.log(color);
+    }
+```
+---
+<br>
+
+## 12. Arrow functions
 ```javascript
 // Función tradicional
     function sumar(a, b) {
@@ -112,7 +241,7 @@ let multiLinea = `
 ---
 <br>
 
-## 6. Synchronous vs Asynchronous
+## 13. Synchronous vs Asynchronous
 - **Synchronous**: El código se ejecuta en secuencia, línea por línea, asegurando que cada operación se complete antes de que comience la siguiente.
 - **Asynchronous**: El código asíncrono permite que ciertas operaciones se inicien y se completen en el futuro, sin bloquear la ejecución del código que sigue.
 ```javascript
@@ -152,10 +281,11 @@ console.log("Segundo");
   6. Se repite el proceso hasta que la cola de eventos esté vacía.
 
 ![Event Loop](./img/eventLoop.png)
+
 ---
 <br>
 
-## 7. Callbacks
+## 14. Callbacks
 - Un callback es una función que se pasa como argumento a otra función y se ejecuta después de que ésta termine su ejecución.
 - Se utilizan para ejecutar código después de que se haya completado una tarea asíncrona.
 - Se pasan sin paréntesis.
@@ -174,7 +304,7 @@ saludar("Ana", age); // "Hola Ana, tienes 25 años."
 ---
 <br>
 
-## 8. Promesas
+## 15. Promesas
 - Una promesa es un objeto que representa la finalización o el fracaso de una operación asíncrona.
 - Se resuelve con un valor o se rechaza con un error.
 - `resolve` y `reject` son sustitutos de return y throw.
@@ -195,7 +325,7 @@ promesa
 ---
 <br>
 
-## 9. Async/await
+## 16. Async/await
 - `async` declara una función asíncrona y la convierte en una promesa.
 - `await` pausa la ejecución de la función asíncrona hasta que la promesa se resuelva.
 ```javascript
@@ -214,9 +344,6 @@ obtenerDatos()
   .then((json) => console.log("Datos obtenidos.", json))
   .catch((error) => console.error(error));
 ```
-
-
-
 <br><br><br>
 
 ## *[volver al índice](../index.md)*
