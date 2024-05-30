@@ -76,7 +76,7 @@ echo  '<html><h1>¡Hola desde tu servidor web!</h1></html>' > /var/www/html/inde
 <br>
 
 ## 4. Desplegar una aplicación web 
-## 4.1. VPC (Virtual Private Cloud) 🌐
+### 4.1. VPC (Virtual Private Cloud) 🌐
 VPC (Virtual Private Cloud) es un servicio que permite a los usuarios crear una red virtual en la nube de AWS.
 ```
 - Servicios -> VPC -> Crear VPC
@@ -94,7 +94,7 @@ VPC (Virtual Private Cloud) es un servicio que permite a los usuarios crear una 
     -> Habilitar DNS resolución de DNS
 ```
 
-## 4.2. Crear base de datos 🗃️
+### 4.2. Crear base de datos 🗃️
 RDS (Relational Database Service) es un servicio de base de datos relacional que facilita la configuración, operación y escalabilidad de las bases de datos relacionales en la nube de AWS.
 ```
 - Servicios -> RDS -> Crear base de datos
@@ -113,7 +113,7 @@ RDS (Relational Database Service) es un servicio de base de datos relacional que
     -> Umbral de almacenamiento máximo: 1000 GB
     -> Recurso de computación: No se conecte a un recurso EC2
     -> VPC: ProyectoDAW-VPC
-    -> Acceso público: No
+    -> Acceso público: Sí                                 # Sí, si necesita acceder a la base de datos desde el exterior.
     -> Grupo de seguridad: Elegir existente
     -> Zona de disponibilidad: Sin preferencia
     -> Entidad de certificación: Predeterminado
@@ -122,37 +122,80 @@ RDS (Relational Database Service) es un servicio de base de datos relacional que
     -> Crear
 ```	
 
-## 4.3. Crear API (Elastic Beanstalk)
+### 4.3. Elastic Beanstalk
+#### 4.3.1. Crear API
 Elastic Beanstalk es un servicio que permite a los desarrolladores implementar y administrar aplicaciones web y servicios en la nube.  
 <a href="http://filmarket-env.eba-prz7xmbv.us-east-1.elasticbeanstalk.com/" target="_blank">www.filmarket.com</a>
 
 ```
 - Servicios -> Elastic Beanstalk -> Crear aplicación
-    -> Nivel de entorno: Web
-    -> Nombre de la aplicación: Filmarket
-    -> Nombre del entorno: Filmarket-env
-    -> Plataforma administrada: Java
-    -> Ramificación de la plataforma: Corretto 17 running on 64bit Amazon 2023
-    -> Versión de la plataforma: 4.2.4
-    -> Cargar el código de la aplicación
-    -> Etiqueta de la versión: v1.0
-    -> SIGUIENTE
+    -> CONFIGURACIÓN DEL ENTORNO
+      -> Nivel de entorno: Web
+      -> Nombre de la aplicación: Filmarket
+      -> Nombre del entorno: Filmarket-env
+      -> Plataforma administrada: Java
+      -> Ramificación de la plataforma: Corretto 17 running on 64bit Amazon 2023
+      -> Versión de la plataforma: 4.2.4
+      -> Cargar el código de la aplicación
+      -> Etiqueta de la versión: v1.0
+      -> SIGUIENTE
 
-    -> Rol de servicio: Usar un rol de servicio existente
-      -> Rol: LabRole
-      -> Par de claves: vockey
-      -> Perfil de la instancia: LabInstanceProfile
-    -> SIGUIENTE
+    -> CONFIGURACIÓN DEL ACCESO AL SERVICIO
+      -> Rol de servicio: Usar un rol de servicio existente
+        -> Rol: LabRole
+        -> Par de claves: vockey
+        -> Perfil de la instancia: LabInstanceProfile
+      -> SIGUIENTE
     
-    -> Nube virtual privada (VPC): ProyectoDAW-VPC
-    -> Dirección IP pública: Activado
-    -> Subredes de instancia: 10.0.0.0/20 y 10.0.16.0/20
-    -> Subredes de base de datos: 10.0.0.0/20 y 10.0.16.0/20
-    -> SIGUIENTE
-    -> SIGUIENTE
-    -> SIGUIENTE
-    -> ENVIAR
+    -> CONFIGURACIÓN DE REDES, BASE DE DATOS Y ETIQUETAS
+      -> Nube virtual privada (VPC): ProyectoDAW-VPC
+      -> Dirección IP pública: Activado
+      -> Subredes de instancia: 10.0.0.0/20 y 10.0.16.0/20
+      -> Subredes de base de datos: 10.0.0.0/20 y 10.0.16.0/20
+      -> SIGUIENTE
+    
+    -> CONFIGURACIÓN DEL ESCALADO Y DEL TRÁFICO DE LAS INSTANCIAS
+      -> SIGUIENTE
+
+    -> CONFIGURACIÓN DE ACTUALIZACIONES, MONITOREO Y REGISTROS
+      -> Propiedades del entorno
+        -> Agregar propiedad al entorno: SERVER_PORT=5000
+        -> URL de la aplicación: http://filmarket-env.eba-prz7xmbv.us-east-1.elasticbeanstalk.com/
+      -> SIGUIENTE
+    
+    -> REVISIÓN
+      -> ENVIAR
 ```
+
+#### 4.3.2. Modificar API
+```
+- Servicios -> Elastic Beanstalk 
+  -> Entorno (en el panel de la izquierda) -> Configuración
+    -> Acceso al servicio
+    -> Redes y bases de datos
+    -> Escalado y tráfico de instancias
+    -> Actualizaciones, monitoreo y registro
+```
+---
+<br>
+
+## 5. Subir archivos a nuestra instancia EC2
+**SSH address:** EC2 -> Instances -> Connect -> SSH client -> Copy ssh address (ec2-user): ec2-user@ec2-44-218-160-205.compute-1.amazonaws.com  
+**PPK file:** Descargar el archivo PPK desde la página del laboratorio de AWS
+
+- Desde Putty:
+  - Host Name: ssh address
+  - Connection -> SSH -> Auth -> Credentials -> PPK file -> Browse -> Select PPK file
+  - Escalamos privilegios: `sudo su`
+  - Modificamos los permisos de la carpeta: `chmod 777 var/app/current/uploads/`
+
+- Desde WinSCP:
+  - Nombre o IP del servidor: ssh address
+  - Avanzado... -> Avanzado -> Autenticación -> SSH -> Autenticación -> Seleccionar archivo PPK -> Aceptar
+  - Conectar
+  - Arrastrar y soltar los archivos en la carpeta `/var/app/current/uploads/`
+---
+
 <br><br><br>
 
 ## *[volver al índice](../index.md)*
