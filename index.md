@@ -1,7 +1,7 @@
 # 1. GIT:
-- [git](./GIT/git.md)
-- [gitFlow](./GIT/gitFlow.md)
-- [gitHub Actions](./GIT/gitHubActions.md)
+- [git](./Git/git.md)
+- [gitFlow](./Git/gitFlow.md)
+- [gitHub Actions](./Git/gitHubActions.md)
 ---
 <br>
 
