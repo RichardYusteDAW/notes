@@ -1,0 +1,20 @@
+{
+    "CSS Sectioned Template": {
+        "prefix": "tag",
+        "body": [
+            "${1:tag} {",
+            "    /* Box Positioning */",
+            "    ",
+            "    /* Box Model */",
+            "    ",
+            "    /* Typography */",
+            "    ",
+            "    /* Animations */",
+            "    ",
+            "    /* Miscellanea */",
+            "    ",
+            "}"
+        ],
+        "description": "Inserts a CSS rule template with organized section comments."
+    }
+}

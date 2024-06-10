@@ -41,12 +41,17 @@ sudo apt-get install tightvncserver
 
 5. Iniciar y detener TightVNC:
 - Al iniciar TightVNC por primera vez creará el archivo de configuración `~/.vnc/xstartup` y el directorio `~/.vnc/` donde se guardará el archivo de configuración y el archivo de PID.
+- Es posible que la primera vez que se inicia haya que hacerlo como superusuario, ya que necesita crear el archivo de configuración y el directorio por defecto, que está en `/root/.vnc/`.
 ```bash
 vncserver             # Iniciar TightVNC (Si hubiera más de un puerto, se especifica con vncserver :2, vncserver :3, etc.)
 vncserver -kill :1    # Detener TightVNC (Si hubiera más de un puerto, se especifica con vncserver -kill :2, vncserver -kill :3, etc.)
 ```
+6. Password de TightVNC:
+- Al iniciar TightVNC por primera vez, se pedirá que se cree una contraseña para acceder al servidor VNC.
+- La contraseña se guardará en el archivo `~/.vnc/passwd`.
+- Si deseamos cambiar la contraseña, podemos hacerlo con el comando `vncpasswd`.
 
-6. Configurar TightVNC para que inicie el entorno de escritorio Xfce automáticamente:
+7. Configurar TightVNC para que inicie el entorno de escritorio Xfce automáticamente:
 ```bash
 nano ~/.vnc/xstartup
 
@@ -54,7 +59,7 @@ nano ~/.vnc/xstartup
 startxfce4
 ```
 
-7. Configurar TightVNC para que inicie automáticamente al arrancar el sistema:
+8. Configurar TightVNC para que inicie automáticamente al arrancar el sistema:
 ```bash
 sudo nano /etc/systemd/system/vncserver.service
 

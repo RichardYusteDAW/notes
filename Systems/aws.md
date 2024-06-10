@@ -187,13 +187,14 @@ Elastic Beanstalk es un servicio que permite a los desarrolladores implementar y
   - Host Name: ssh address
   - Connection -> SSH -> Auth -> Credentials -> PPK file -> Browse -> Select PPK file
   - Escalamos privilegios: `sudo su`
-  - Modificamos los permisos de la carpeta: `chmod 777 var/app/current/uploads/`
+  - Creamos un directorio fuera de /var/app/current: `mkdir /var/app/uploads/`
+  - Modificamos los permisos de la carpeta: `chmod 777 /var/app/uploads/`
 
 - Desde WinSCP:
   - Nombre o IP del servidor: ssh address
   - Avanzado... -> Avanzado -> Autenticación -> SSH -> Autenticación -> Seleccionar archivo PPK -> Aceptar
   - Conectar
-  - Arrastrar y soltar los archivos en la carpeta `/var/app/current/uploads/`
+  - Arrastrar y soltar los archivos en la carpeta `/var/app/uploads/`
 ---
 
 <br><br><br>

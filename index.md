@@ -86,4 +86,6 @@
 - [VSCode](./VSCode/VSCode.md)
 - [Extensions](./VSCode/extensions.txt)
 - [Settings](./VSCode/settings.json)
-- [Snippets](./VSCode/snippets/java.json)
+- Snippets:
+  - [Java](./VSCode/snippets/java.json)
+  - [CSS](./VSCode/snippets/css.json)
