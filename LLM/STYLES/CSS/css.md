@@ -355,27 +355,66 @@ div{
   Aquí tienes la información transformada en dos tablas, una para las propiedades aplicables a contenedores flex y otra para las propiedades aplicables a los items dentro de esos contenedores:
 
 ##### - Container:
-| Propiedad         | Opciones                                                           | Definición                                                                            |
-|-------------------|--------------------------------------------------------------------|---------------------------------------------------------------------------------------|
-| `flex-direction`  | row, row-reverse, column, column-reverse                           | Define la dirección de los flex-items dentro del contenedor.                          |
-| `flex-wrap`       | nowrap, wrap, wrap-reverse                                         | Define si los flex-items se ajustan a una sola línea o se envuelven en varias líneas. |
-| `justify-content` | flex-start, flex-end, center, space-between, space-around          | Alinea los flex-items en el eje principal.                                            |
-| `align-items`     | flex-start, flex-end, center, baseline, stretch                    | Alinea los flex-items en el eje secundario o transversal.                             |
-| `align-content`   | flex-start, flex-end, center, space-between, space-around, stretch | Alinea las líneas de flex-items cuando hay varias líneas.                             |
+| Propiedad         | Opciones                                                           | Definición                                                                                |
+|-------------------|--------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+| `flex-direction`  |  ----------------------------------------------------------------  | **Define la dirección de los flex-items dentro del contenedor.**                          |
+|                   | row                                                                | Los flex-items se colocan en una fila. (Default)                                          |
+|                   | row-reverse                                                        | Los flex-items se colocan en una fila en sentido inverso.                                 |
+|                   | column                                                             | Los flex-items se colocan en una columna.                                                 |
+|                   | column-reverse                                                     | Los flex-items se colocan en una columna en sentido inverso.                              |
+| `flex-wrap`       |  ----------------------------------------------------------------  | **Define si los flex-items se ajustan a una sola línea o se envuelven en varias líneas.** |
+|                   | nowrap                                                             | Los flex-items se ajustan a una sola línea. (Default)                                     |
+|                   | wrap                                                               | Los flex-items se envuelven en varias líneas.                                             |
+|                   | wrap-reverse                                                       | Los flex-items se envuelven en varias líneas en sentido inverso.                          |
+| `justify-content` |  ----------------------------------------------------------------  | **Alinea los flex-items en el eje principal.**                                            |
+|                   | flex-start                                                         | Alinea los flex-items al principio del contenedor. (Default)                              |
+|                   | flex-end                                                           | Alinea los flex-items al final del contenedor.                                            |
+|                   | center                                                             | Alinea los flex-items en el centro del contenedor.                                        |
+|                   | space-between                                                      | Alinea los flex-items con el primer flex-item al principio y el último al final.          |
+|                   | space-around                                                       | Alinea los flex-items con el mismo espacio alrededor de cada uno.                         |
+| `align-items`     |  ----------------------------------------------------------------  | **Alinea los flex-items en el eje secundario o transversal.**                             |
+|                   | flex-start, flex-end, center                                       | Igual que los anteriores.                                                                 |
+|                   | baseline                                                           | Alinea los flex-items en la línea base del contenedor.                                    |
+|                   | stretch                                                            | Estira los flex-items para que ocupen todo el contenedor.                                 |
+| `align-content`   |  --------------------------------                                  | **Alinea las líneas de flex-items cuando hay varias líneas.**                             |
+|                   | flex-start, flex-end, center, space-between, space-around, stretch | Igual que los anteriores.                                                                 |
+
 
 ##### - Items:
-| Propiedad      | Opciones                                              | Definición                                                         |
-|----------------|-------------------------------------------------------|--------------------------------------------------------------------|
-| `order`        | n                                                     | Define el orden de los flex-items.                                 |
-| `flex-grow`    | n                                                     | Define la capacidad de crecimiento de los flex-items.              |
-| `flex-shrink`  | n                                                     | Define la capacidad de encogimiento de los flex-items.             |
-| `flex-basis`   | tamaño                                                | Define el tamaño inicial de los flex-items.                        |
-| `flex`         | número número tamaño                                  | Define `flex-grow`, `flex-shrink` y `flex-basis` en una sola línea.|
-| `align-self`   | auto, flex-start, flex-end, center, baseline, stretch | Alinea un flex-item específico en el eje transversal.              |
+| Propiedad     | Opciones                                               | Definición                                                          |
+|---------------|--------------------------------------------------------|---------------------------------------------------------------------|
+| `order`       | n       (Default: 0)                                   | Define el orden de los flex-items.                                  |
+| `flex-grow`   | n       (Default: 0, no se expanden)                   | Define la capacidad de crecimiento de los flex-items.               |
+| `flex-shrink` | n       (Default: 1, se encogen)                       | Define la capacidad de encogimiento de los flex-items.              |
+| `flex-basis`  | tamaño  (Default: auto, tamaño del contenido)          | Define el tamaño inicial de los flex-items.                         |
+| `flex`        | número número tamaño  (Default: 0 1 auto)              | Define `flex-grow`, `flex-shrink` y `flex-basis` en una sola línea. |
+| `align-self`  | auto, flex-start, flex-end, center, baseline, stretch  | Alinea un flex-item específico en el eje transversal.               |
 
 #### F. grid:
 - Hace que el elemento se comporte como un contenedor de cuadrícula.
 - Los elementos hijos se pueden colocar en filas y columnas.
+
+##### - Container:
+| Propiedad               | Opciones                    | Definición                                              |
+|-------------------------|-----------------------------|---------------------------------------------------------|
+| `grid-template-columns` | tamaño tamaño tamaño ...    | Define el tamaño de las columnas de la cuadrícula.      |
+| `grid-template-rows`    | tamaño tamaño tamaño ...    | Define el tamaño de las filas de la cuadrícula.         |
+| `grid-template-areas`   | "nombre nombre nombre ..."  | Define el nombre de las áreas de la cuadrícula.         |
+| `grid-template`         | columnas / filas            | Define las columnas y filas de la cuadrícula.           |
+| `gap`                   | tamaño tamaño               | Define el espacio entre las filas y columnas.           |
+| `justify-items`         | start, end, center, stretch | Alinea los elementos en el eje principal.               |
+| `align-items`           | start, end, center, stretch | Alinea los elementos en el eje secundario.              |
+| `justify-content`       | start, end, center, stretch | Alinea las columnas en el eje principal.                |
+| `align-content`         | start, end, center, stretch | Alinea las filas en el eje secundario.                  |
+
+##### - Items:
+| Propiedad               | Opciones                    | Definición                                              |
+|-------------------------|-----------------------------|---------------------------------------------------------|
+| `grid-column`           | número / número             | Define las columnas en las que se colocará el elemento. |
+| `grid-row`              | número / número             | Define las filas en las que se colocará el elemento.    |
+| `grid-area`             | nombre                      | Define el área en la que se colocará el elemento.       |
+| `justify-self`          | start, end, center, stretch | Alinea un elemento específico en el eje principal.      |
+| `align-self`            | start, end, center, stretch | Alinea un elemento específico en el eje secundario.     |
 
 #### G. table:
 - Hace que el elemento se comporte como una tabla de HTML.
