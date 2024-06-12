@@ -38,7 +38,11 @@
 # 4. LLM:
 - [HTML](./LLM/HTML/html.md)
 - STYLES: 
-  - [CSS](./LLM/STYLES/CSS/css.md)
+  - CSS:
+    - [CSS](./LLM/STYLES/CSS/css.md)
+    - [FlexBox](./LLM/STYLES/CSS/flex.md)
+    - [Grid](./LLM/STYLES/CSS/grid.md)
+    - [Centrar Div](./LLM/STYLES/CSS/centrarDiv.md)
   - [BOOTSTRAP](./LLM/STYLES/BOOTSTRAP/bootstrap.md)
 ---
 <br>
