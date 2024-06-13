@@ -1,4 +1,5 @@
 # FileSystem
+El módulo `fs` proporciona una API para interactuar con el sistema de archivos en un entorno de Node.js. Este módulo proporciona una forma de trabajar con archivos y directorios a través de una API basada en promesas o devoluciones de llamada.
 
 ## 1. Web Site
 [FileSystem](https://nodejs.org/api/fs.html)

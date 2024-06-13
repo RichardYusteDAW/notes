@@ -64,8 +64,10 @@
 - [NodeJS](./NodeJS/node.md)
 - Libraries:
   - [Colors](./NodeJS/libraries/colors.md)
+  - [DotEnv](./NodeJS/libraries/dotenv.md)
   - [Inquirer](./NodeJS/libraries/inquirer.md)
   - [FileSystem](./NodeJS/libraries/fileSystem.md)
+  - [Express](./NodeJS/libraries/express.md)
   - [ReadLine](./NodeJS/libraries/readline.md)
   - [Yargs](./NodeJS/libraries/yargs.md)
 ---
