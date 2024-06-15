@@ -55,6 +55,10 @@ app.get('/file', (req, res) => {
 app.get('*', (req, res) => {
     res.sendFile(__dirname + '/404.html');   //Muestra archivo de error
 });
+
+app.get('/json', (req, res) => {
+    res.json({message: 'Hello World!'});     //Muestra JSON
+});
 ```
 - Se pueden solicitar parámetros de ruta, consulta y cuerpo.
 ```javascript
@@ -104,76 +108,52 @@ app.get('/status', (req, res) => {
 });
 ```
 ---
-<br>
 
-## 5. Handlebars
-- Handlebars es un motor de plantillas que permite crear plantillas HTML reutilizables.
-- Se utiliza para renderizar plantillas HTML con datos.
-
-### 5.1. Instalar módulo
-`npm i hbs`
-
-### 5.2. Web Site
-[Handlebars](https://github.com/pillarjs/hbs)
-
-### 5.3. Importar módulo
-- No es necesario importarlo, ya que se maneja a través de un adaptador (express-handlebars).
-- `view engine` es el motor de plantillas que se utilizará para renderizar las vistas.
-- `hbs` indica a Express que se utilizará Handlebars.
+## 5. Express como clase
 ```javascript
-app.set('view engine', 'hbs');
-```
+const express = require('express');
 
-### 5.4. Crear vista
-- Se crea un archivo `.hbs` en la carpeta `views` en la raíz del proyecto.
-- Se utilizan `{{}}` para insertar variables
-- `{{#if}}` para condicionales.
-- `{{#each}}` para bucles.
-- `{{>}}` para incluir parciales.
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home</title>
-</head>
-<body>
-    <h1>{{title}}</h1>            <!-- Variable -->
-    {{#if show}}                  <!-- Condicional -->
-        <p>{{message}}</p>
-    {{#else}}
-        <p>Message not found</p>
-    {{/if}}
-
-    <ul>
-        {{#each items}}          <!-- Bucle -->
-            <li>{{this}}</li>    <!-- this sustituye a items[i] -->
-        {{/each}}
-    </ul>
+class Server {
     
-        {{> footer}}            <!-- Incluir parcial -->
-</body>
-</html>
-```
+    constructor() {
+        this.app = express();
+        this.port = process.env.PORT || 3000;
 
-### 5.5. Renderizar vista
-- Se utiliza `res.render` para renderizar la vista.
-- Se envían los datos a la vista como un objeto.
-```javascript
-app.get('/home', (req, res) => {
-    res.render('home.hbs', {
-        title: 'Home',
-        show: true,
-        message: 'Welcome to the home page',
-        items: ['Item 1', 'Item 2', 'Item 3']
-    });
-});
-```
+        this.middlewares();
+        this.routes();
+    }
 
-### 5.6. Partials
-- Se utilizan para reutilizar fragmentos de código en varias vistas.
-- Se crea un archivo `.hbs` en la carpeta `views/partials` en la raíz del proyecto.
-- Se incluye en la vista principal con `{{> partialName}}`.
----
+    middlewares() {
+        this.app.use(express.static('public'));
+    }
+
+    routes() {
+        this.app.get('/', (req, res) => {
+            res.status(200).json({message: 'Hello World!'});
+        });
+
+        this.app.put('/user/:id', (req, res) => {
+            res.status(200).json({message: 'User ID: ' + req.params.id});
+        });
+
+        this.app.post('/user', (req, res) => {
+            res.status(200).json({message: 'User ID: ' + req.body.id});
+        });
+
+        this.app.delete('/user', (req, res) => {
+            res.status(200).json({message: 'User ID: ' + req.query.id});
+        });
+    }
+
+    listen() {
+        this.app.listen(this.port, () => {
+            console.log('Server running on port ' + this.port);
+        });
+    }
+}
+```	
+
+
 <br><br><br>
 
-## *[volver al índice](../../index.md)*
+## *[volver al índice](../../../index.md)*

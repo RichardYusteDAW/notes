@@ -62,14 +62,18 @@
 
 # 6. NODEJS:
 - [NodeJS](./NodeJS/node.md)
+- [Code Status](./NodeJS/codeStatus.png)
 - Libraries:
   - [Colors](./NodeJS/libraries/colors.md)
   - [DotEnv](./NodeJS/libraries/dotenv.md)
   - [Inquirer](./NodeJS/libraries/inquirer.md)
   - [FileSystem](./NodeJS/libraries/fileSystem.md)
-  - [Express](./NodeJS/libraries/express.md)
   - [ReadLine](./NodeJS/libraries/readline.md)
   - [Yargs](./NodeJS/libraries/yargs.md)
+  - Express
+    - [Express](./NodeJS/libraries/express/express.md)
+    - [Cors](./NodeJS/libraries/express/cors.md)
+    - [Handlebars](./NodeJS/libraries/express/handlebars.md)
 ---
 <br>
 
