@@ -2,19 +2,19 @@
 Handlebars es un motor de plantillas que permite crear plantillas HTML reutilizables.  
 Se utiliza para renderizar plantillas HTML con datos.
 
-## 5.1. Web Site
+## 5.1. Web Site 🌐
 [Handlebars](https://github.com/pillarjs/hbs)
 
 ---
 <br>
 
-## 5.2. Instalar módulo
+## 5.2. Instalar módulo 🔧
 `npm i hbs`
 
 ---
 <br>
 
-## 5.3. Importar módulo
+## 5.3. Importar módulo 📥
 - No es necesario importarlo, ya que se maneja a través de un adaptador (express-handlebars).
 - `view engine` es el motor de plantillas que se utilizará para renderizar las vistas.
 - `hbs` indica a Express que se utilizará Handlebars.
@@ -24,7 +24,7 @@ app.set('view engine', 'hbs');
 ---
 <br>
 
-## 5.4. Crear vista
+## 5.4. Crear vista 🖥️
 - Se crea un archivo `.hbs` en la carpeta `views` en la raíz del proyecto.
 - Se utilizan `{{}}` para insertar variables
 - `{{#if}}` para condicionales.
@@ -57,7 +57,7 @@ app.set('view engine', 'hbs');
 ---
 <br>
 
-## 5.5. Renderizar vista
+## 5.5. Renderizar vista 🎨
 - Se utiliza `res.render` para renderizar la vista.
 - Se envían los datos a la vista como un objeto.
 ```javascript
@@ -73,7 +73,7 @@ app.get('/home', (req, res) => {
 ---
 <br>
 
-## 5.6. Partials
+## 5.6. Partials 🧩
 - Se utilizan para reutilizar fragmentos de código en varias vistas.
 - Se crea un archivo `.hbs` en la carpeta `views/partials` en la raíz del proyecto.
 - Se incluye en la vista principal con `{{> partialName}}`.

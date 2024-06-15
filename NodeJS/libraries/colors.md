@@ -1,19 +1,19 @@
 # Colors
 Es un módulo que permite darle color a los textos en la consola.
 
-## 1. Web Site
+## 1. Web Site 🌐
 [Colors](https://www.npmjs.com/package/colors)
 
 ---
 <br>
 
-## 2. Instalar módulo
+## 2. Instalar módulo 🔧
 `npm install colors`
 
 ---
 <br>
 
-## 3. Importar módulo
+## 3. Importar módulo 📥
 ```javascript
 const colors = require('colors');
 ```

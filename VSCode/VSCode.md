@@ -59,6 +59,8 @@ cat extensions.txt | xargs -L 1 code --install-extension
 |  Puntero múltiple                 |  `Ctrl + Alt + Arriba/Abajo` |
 |  Selección múltiple               |  `Alt + Click`               |
 |  Selecionar todas las ocurrencias |  `Ctrl + Shift + L`          |
+|  Seleccionar letra por letra      |  `Shift + Flechas`           |
+|  Seleccionar palabra              |  `Ctrl + Shift + Flechas`    |
 |  Comentar línea                   |  `Ctrl + /`                  |
 |  Comentar bloque                  |  `Ctrl + K + C`              |
 |  Descomentar bloque               |  `Ctrl + K + U`              |

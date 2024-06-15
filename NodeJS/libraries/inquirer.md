@@ -1,13 +1,13 @@
 # Inquirer
 Inquirer es una librería de Node.js que nos permite hacer preguntas interactivas en la terminal. Es muy útil para hacer scripts interactivos o para hacer CLI (Command Line Interface) más amigables.
 
-## 1. Web Site
+## 1. Web Site 🌐
 [Inquirer](https://www.npmjs.com/package/inquirer)
 
 ---
 <br>
 
-## 2. Instalación
+## 2. Instalación 🔧
 Para instalar Inquirer, ejecuta el siguiente comando:
 ```
 npm install inquirer
@@ -15,14 +15,14 @@ npm install inquirer
 ---
 <br>
 
-## 3. Importar módulo
+## 3. Importar módulo 📥
 ```javascript
 const inquirer = require('inquirer');
 ```
 ---
 <br>
 
-## 4. Crear preguntas
+## 4. Crear preguntas 🛠️
 1. Crear un array de objetos con las preguntas que queremos hacer.
 - **type**: 
     - input: Pregunta abierta.
@@ -99,7 +99,7 @@ inquirer.prompt(questions)
 ---
 <br>
 
-## 5. Respuestas
+## 5. Respuestas 📝
 Las respuestas se almacenan en un objeto con el nombre de la variable que le dimos a cada pregunta.
 ```javascript
 // input

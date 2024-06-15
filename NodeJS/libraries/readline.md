@@ -1,26 +1,26 @@
 # Readline
 Es un módulo que permite leer datos de un stream (como un proceso de entrada estándar) línea por línea. Es útil para leer la entrada del usuario desde la línea de comandos.
 
-## 1. Web Site
+## 1. Web Site 🌐
 [Readline](https://nodejs.org/api/readline.html)
 
 ---
 <br>
 
-## 2. Instalar módulo
+## 2. Instalar módulo 🔧
 No se instala, ya viene con NodeJS.
 
 ---
 <br>
 
-## 3. Importar módulo
+## 3. Importar módulo 📥
 ```javascript
 const readline = require('readline');
 ```
 ---
 <br>
 
-## 4. Crear interfaz
+## 4. Crear interfaz 🖥️
 ```javascript
 const rl = readline.createInterface({
     input: process.stdin,
@@ -30,7 +30,7 @@ const rl = readline.createInterface({
 ---
 <br>
 
-### 5. Métodos de la interfaz
+## 5. Métodos de la interfaz 🛠️
 - **question**: Muestra un mensaje al usuario y espera a que introduzca una respuesta.
 - **close**: Cierra la interfaz.
 - **on**: Escucha eventos (line, close, etc.).

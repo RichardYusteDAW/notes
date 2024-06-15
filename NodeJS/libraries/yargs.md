@@ -1,19 +1,19 @@
 # Yargs
 Es un módulo que permite crear interfaces de línea de comandos interactivas, analizando argumentos y opciones pasadas por el usuario.
 
-## 1. Web Site
+## 1. Web Site 🌐
 [Yargs](https://yargs.js.org/docs/)
 
 ---
 <br>
 
-## 2. Instalar módulo
+## 2. Instalar módulo 🔧
 `npm install yargs`
 
 ---
 <br>
 
-## 3. Importar módulo y opciones
+## 3. Importar módulo y opciones 📥
 - **option**: Define una opción que puede ser pasada por el usuario.
   - **alias**: Define un alias para la opción.
   - **demandOption**: Indica si la opción es obligatoria (required).

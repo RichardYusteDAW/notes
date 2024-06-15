@@ -1,19 +1,19 @@
 # Express
 Express es un framework para Node.js que facilita la creación de aplicaciones web y APIs. Proporciona herramientas para manejar rutas, solicitudes y respuestas de manera simple y eficiente.
 
-## 1. Web Site
+## 1. Web Site 🌐
 [Express](https://expressjs.com/)
 
 ---
 <br>
 
-## 2. Instalar módulo
+## 2. Instalar módulo 🔧
 `npm install express`
 
 ---
 <br>
 
-## 3. Importar módulo
+## 3. Importar módulo 📥
 ```javascript
 const express = require('express');
 const app = express();
@@ -22,7 +22,7 @@ const app = express();
 ---
 <br>
 
-## 4. Métodos
+## 4. Métodos 🛠️
 
 ### 4.1. Listen
 - Se utiliza para iniciar el servidor en un puerto específico.
@@ -109,9 +109,10 @@ app.get('/status', (req, res) => {
 ```
 ---
 
-## 5. Express como clase
+## 5. Express como clase 🏗️
 ```javascript
 const express = require('express');
+const cors = require('cors');
 
 class Server {
     
@@ -124,6 +125,10 @@ class Server {
     }
 
     middlewares() {
+        // CORS
+        this.app.use(cors());
+
+        // Public folder
         this.app.use(express.static('public'));
     }
 
@@ -143,6 +148,9 @@ class Server {
         this.app.delete('/user', (req, res) => {
             res.status(200).json({message: 'User ID: ' + req.query.id});
         });
+
+        // Si utilizamos Router
+        this.app.use('/user', require('../routes/user'));
     }
 
     listen() {
@@ -152,7 +160,6 @@ class Server {
     }
 }
 ```	
-
 
 <br><br><br>
 
