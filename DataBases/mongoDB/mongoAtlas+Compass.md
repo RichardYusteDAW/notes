@@ -29,33 +29,13 @@
 <br>
 
 ## 3. Conectar a la base de datos 📥
-### 3.1. MongoDB Compass:  
 Obtener la URI de conexión:  
 `All Clusters > Connect > Compass` [mongodb+srv://<user>:<password>@cluster0.8vdu96f.mongodb.net/<database>](mongodb+srv://<user>:<password>@cluster0.8vdu96f.mongodb.net/<database>)
 
 Conectar a la base de datos desde MongoDB Compass:  
 `New Connection > Connect`
 
-### 3.2. Node.js:
-```javascript
-const { MongoClient } = require('mongodb');
-
-const uri = 'mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<database>?retryWrites=true&w=majority';
-
-const client = new MongoClient(uri);
-
-async function connect() {
-    try {
-        await client.connect();
-        console.log('Conectado a la base de datos');
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-connect();
-```
 ---
 <br><br><br>
 
-## *[volver al índice](../../../index.md)*
+## *[volver al índice](../../index.md)*

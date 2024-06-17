@@ -1,11 +1,30 @@
-# 1. GIT:
+# 1. GIT: ![Git](./_img/git.png)
 - [git](./Git/git.md)
 - [gitFlow](./Git/gitFlow.md)
 - [gitHub Actions](./Git/gitHubActions.md)
 ---
 <br>
 
-# 2. JAVA:
+# 2. DataBases: ![DataBases](./_img/db.png)
+## 2.1. MySQL: ![MySQL](./_img/mysql.png)
+- SQL(Structured Query Language):
+  - [DDL](./DataBases/MySQL/DDL.md): Data Definition Language
+  - [DML](./DataBases/MySQL/DML.md): Data Manipulation Language
+  - [DCL](./DataBases/MySQL/DCL.md): Data Control Language
+  - [PL](./DataBases/MySQL/PL.md): Procedural Language
+- Table mapping: [Table mapping](./DataBases/MySQL/table_mapping/table_mapping.md)
+- MySQL Server: [MySQL Server](./DataBases/MySQL/MySQL_server.md)
+- Copias de seguridad lógicas (Scripts): [BackUp](./DataBases/MySQL/BackUp.md)
+- Tipos de fichero: [FileTypes](./DataBases/MySQL/fileTypes.pdf)
+
+## 2.2. MongoDB: ![MongoDB](./_img/mongo.png)
+- [MongoDB](./DataBases/mongoDB/mongoDB.md)
+- [Mongo Atlas y Mongo Compass](./DataBases/mongoDB/mongoAtlas+Compass.md)
+
+---
+<br>
+
+# 2. JAVA: ![Java](./_img/java.png)
 - Template: *[Template](./Java/_template)*
  ## 2.1. CONCEPTS:
  - [Bean](./Java/concepts/Bean.md)
@@ -29,13 +48,13 @@
 ---
 <br>
 
-# 3. JAVASCRIPT: 
+# 3. JAVASCRIPT: ![JavaScript](./_img/js.png)
 - [Conceptos](./JavaScript/js.md)
 - [Eventos](./JavaScript/eventos.md)
 ---
 <br>
 
-# 4. LLM:
+# 4. LLM: ![LLM](./_img/llm.png)
 - [HTML](./LLM/HTML/html.md)
 - STYLES: 
   - CSS:
@@ -47,20 +66,8 @@
 ---
 <br>
 
-# 5. MySQL:
-- SQL(Structured Query Language):
-  - [DDL](./MySQL/DDL.md): Data Definition Language
-  - [DML](./MySQL/DML.md): Data Manipulation Language
-  - [DCL](./MySQL/DCL.md): Data Control Language
-  - [PL](./MySQL/PL.md): Procedural Language
-- Table mapping: [Table mapping](./MySQL/table_mapping/table_mapping.md)
-- MySQL Server: [MySQL Server](./MySQL/MySQL_server.md)
-- Copias de seguridad lógicas (Scripts): [BackUp](./MySQL/BackUp.md)
-- Tipos de fichero: [FileTypes](./MySQL/fileTypes.pdf)
----
-<br>
 
-# 6. NODEJS:
+# 6. NODEJS: ![NodeJS](./_img/node.png)
 - Template: *[Template](./NodeJS/_template)*
 
 ## 6.1. CONCEPTS:
@@ -68,25 +75,24 @@
 - [Code Status](./NodeJS/codeStatus.png)
 
 ## 6.2. LIBRARIES:
+- [BCryptjs](./NodeJS/libraries/bcryptjs.md)
 - [Colors](./NodeJS/libraries/colors.md)
 - [DotEnv](./NodeJS/libraries/dotenv.md)
 - [Inquirer](./NodeJS/libraries/inquirer.md)
 - [FileSystem](./NodeJS/libraries/fileSystem.md)
+- [Mongoose](./NodeJS/libraries/mongoose.md)
 - [ReadLine](./NodeJS/libraries/readline.md)
 - [Yargs](./NodeJS/libraries/yargs.md)
 - Express:
   - [Express](./NodeJS/libraries/express/express.md)
+  - [Express-validator](./NodeJS/libraries/express/express-validator.md)
   - [Cors](./NodeJS/libraries/express/cors.md)
   - [Handlebars](./NodeJS/libraries/express/handlebars.md)
   - [Router](./NodeJS/libraries/express/router.md)
-- MongoDB:
-  - [MongoDB](./NodeJS/libraries/mongoDB/mongoDB.md)
-  - [Mongo Atlas y Mongo Compass](./NodeJS/libraries/mongoDB/mongoAtlas+Compass.md)
-  - [Mongoose](./NodeJS/libraries/mongoDB/mongoose.md)
 ---
 <br>
 
-# 7. SYSTEMS:
+# 7. SYSTEMS: ![Systems](./_img/systems.png)
 - [AWS](./Systems/aws.md)
 - [Windows Server](./Systems/winServer.md)
 - [Ubuntu Server](./Systems/ubuntuServer.md)
@@ -101,7 +107,7 @@
 ---
 <br>
 
-# 9. VSCode:
+# 9. VSCode: ![VSCode](./_img/vsc.png)
 - [VSCode](./VSCode/VSCode.md)
 - [Extensions](./VSCode/extensions.txt)
 - [Settings](./VSCode/settings.json)

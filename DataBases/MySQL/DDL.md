@@ -141,4 +141,4 @@ SET('valor1', 'valor2', ...)    --Puede tener 64 valores. Permite seleccionar va
 ```
 <br><br><br>
 
-## *[volver al índice](../index.md)*
+## *[volver al índice](../../index.md)*

@@ -322,6 +322,21 @@ promesa
     .then((mensaje) => console.log(mensaje))
     .catch((error) => console.error(error));
 ```
+- Es posible llamar a varias promesas en paralelo y esperar a que todas se resuelvan.
+- Se reduce el tiempo de espera total al tiempo de espera de la promesa más larga.
+```javascript
+let promesa1 = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("Primera promesa"), 1000);
+});
+
+let promesa2 = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("Segunda promesa"), 2000);
+});
+
+Promise.all([promesa1, promesa2])
+    .then((resultados) => console.log(resultados))
+    .catch((error) => console.error(error));
+```
 ---
 <br>
 

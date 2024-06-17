@@ -104,4 +104,4 @@ REVOKE 'rol' FROM 'usuario@localhost';
 ```
 <br><br>
 
-## *[volver al índice](../index.md)*
+## *[volver al índice](../../index.md)*
