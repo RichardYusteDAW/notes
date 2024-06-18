@@ -1,34 +1,37 @@
 {
-    "editor.formatOnSave": true,
-    "editor.inlineSuggest.showToolbar": "onHover",
-    "editor.minimap.enabled": false,
-    "files.autoGuessEncoding": true,
-    "files.autoSave": "onWindowChange",
-    "java.format.comments.enabled": false,
-    "liveServer.settings.donotShowInfoMsg": true,
-    "terminal.integrated.defaultProfile.windows": "Git Bash",
-    "workbench.settings.applyToAllProfiles": [
-        "java.project.encoding"
-    ],
-    "workbench.tree.enableStickyScroll": true,
-    "[sql]": {
-        "editor.formatOnSave": false
-    },
+    "editor.formatOnSave": true, // Formatear el código al guardar
+    "editor.inlineSuggest.showToolbar": "onHover", // Mostrar la barra de sugerencias en el hover
+    "editor.linkedEditing": true, // Habilitar la edición vinculada
+    "editor.minimap.enabled": false, // Desactivar el minimapa
+    "files.autoGuessEncoding": true, // Adivinar la codificación de los archivos
+    "files.autoSave": "onWindowChange", // Guardar los archivos al cambiar de ventana
+    "git.autofetch": true, // Realizar un fetch automático al abrir un repositorio
+    "git.openRepositoryInParentFolders": "always", // Abrir el repositorio en la carpeta padre
+    "git-graph.referenceLabels.alignment": "Branches (on the left) & Tags (on the right)", // Alinear las etiquetas de referencia
+    "github.copilot.editor.enableAutoCompletions": true,
     "github.copilot.enable": {
         "*": true,
         "plaintext": true,
         "markdown": true,
         "scminput": false
-    },
-    "redhat.telemetry.enabled": true,
-    "liveServer.settings.donotVerifyTags": true,
+    }, // Habilitar GitHub Copilot
+    "java.format.comments.enabled": false, // Desactivar el formateo de comentarios
+    "liveServer.settings.donotShowInfoMsg": true, // No mostrar mensajes de información
+    "liveServer.settings.donotVerifyTags": true, // No verificar las etiquetas
+    "terminal.integrated.defaultProfile.windows": "Git Bash", // Perfil por defecto de la terminal
+    "workbench.settings.applyToAllProfiles": [
+        "java.project.encoding"
+    ], // Aplicar la configuración a todos los perfiles en Java
+    "workbench.tree.enableStickyScroll": true, // Activar el scroll pegajoso
+    "[sql]": {
+        "editor.formatOnSave": false
+    }, // Desactivar el formateo automático para archivos SQL
+    "redhat.telemetry.enabled": true, // Habilitar la telemetría de Red Hat
+    "security.workspace.trust.untrustedFiles": "open", // Abrir los archivos no confiables
     "workbench.editorAssociations": {
         "*.jar": "default"
-    },
-    "workbench.iconTheme": "vscode-great-icons",
-    "workbench.colorTheme": "Monokai Night",
-    "workbench.editor.enablePreview": false,
-    "git-graph.referenceLabels.alignment": "Branches (on the left) & Tags (on the right)",
-    "git.autofetch": true,
-    "git.openRepositoryInParentFolders": "always"
+    }, // Asociar los archivos JAR al editor por defecto
+    "workbench.iconTheme": "vscode-great-icons", // Tema de iconos
+    "workbench.colorTheme": "Monokai Night", // Tema de color
+    "workbench.editor.enablePreview": false // Desactivar la vista previa
 }
