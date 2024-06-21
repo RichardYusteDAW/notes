@@ -242,36 +242,46 @@ console.log(sumar(1, 2, 3, 4, 5)); // 15
 <br>
 
 ## 13. Synchronous vs Asynchronous
-- **Synchronous**: El código se ejecuta en secuencia, línea por línea, asegurando que cada operación se complete antes de que comience la siguiente.
-- **Asynchronous**: El código asíncrono permite que ciertas operaciones se inicien y se completen en el futuro, sin bloquear la ejecución del código que sigue.
 ```javascript
-// Synchronous
+/* Synchronous: El código se ejecuta en secuencia, línea por línea,
+asegurando que cada operación se complete antes de que comience la siguiente.*/
 console.log("Primero");
 console.log("Segundo");
 console.log("Tercero");
 
-// Asynchronous
+/* Asynchronous: El código asíncrono permite que ciertas operaciones se inicien 
+y se completen en el futuro, sin bloquear la ejecución del código que sigue. */
 console.log("Primero");
 setTimeout(() => console.log("Tercero"), 1000);
 console.log("Segundo");
 ```
+| **Synchronous**                                                                | **Asynchronous**                                                                                       |
+|--------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| Operaciones aritméticas                                                        | Timers (`setTimeout`, `setInterval`)                                                                   |
+| Operaciones de asignación                                                      | Operaciones de I/O (como acceso a archivos en Node.js)                                                 |
+| Operaciones lógicas                                                            | Solicitudes de red (`fetch`, `XMLHttpRequest`, AJAX)                                                   |
+| Acceso a propiedades de objetos                                                | Eventos de DOM (`addEventListener`, `onclick`, `onchange`)                                             |
+| Manipulación de arrays (`map`, `filter`, `reduce`)                             | Promesas (`Promise`, `then`, `catch`, `finally`)                                                       |
+| Manipulación de strings (`split`, `replace`, `substring`)                      | Funciones `async/await`                                                                                |
+| Operaciones en estructuras de control (`for`, `while`, `if-else`)              | APIs del navegador que son asincrónicas (como `Geolocation API`, `WebSocket`, `IndexedDB`)             |
+| Funciones de fechas sincrónicas (`Date.now`, `Date.prototype.getFullYear`)     | Operaciones de base de datos en entornos que soportan I/O asincrónico (Node.js con `mongodb`, `mysql`) |
+| Llamadas a funciones sincrónicas que no implican operaciones de I/O ni eventos | Animaciones (`requestAnimationFrame`)                                                                  |
+|                                                                                |                                                                                                        |
+
 
 - **¿Cuando se utiliza el código asíncrono?**
   - En operaciones que implican espera, como cargar datos desde una red o acceder a recursos lentos.
-  - Para mejorar la eficiencia de la aplicación, permitiendo que múltiples operaciones sucedan al mismo tiempo sin detener la ejecución principal.
-
+  - Para mejorar la eficiencia de la aplicación, permitiendo que múltiples operaciones sucedan al mismo tiempo sin detener la ejecución principal.<br><br>
 - **¿Cómo se maneja el código asíncrono?**
   - Callbacks
   - Promesas
-  - Async/await
-
+  - Async/await<br><br>
 - **Event Loop:**
   - JavaScript tiene un modelo de concurrencia basado en un "event loop", que permite realizar operaciones de alta intensidad o larga duración sin bloquear el hilo principal.
     - **Event Loop**: Supervisa la pila de ejecución, la cola de tareas pendientes y la cola de callbacks. Mueve los callbacks listos de la cola de callbacks a la pila de ejecución cuando esta última está vacía.
-    - **Pila de Callbacks**: También conocida como cola de mensajes, es donde se almacenan los callbacks de operaciones asíncronas hasta que se puedan ejecutar. Los callbacks se ejecutan en el orden en que se completaron, asegurando que el código no se ejecute antes de que se complete la operación a la que está vinculado.
+    - **Pila de Callbacks**: También conocida como cola de mensajes, es donde se almacenan los callbacks DE OPERARICONES ASÍNCRONAS hasta que se puedan ejecutar. Los callbacks se ejecutan en el orden en que se completaron, asegurando que el código no se ejecute antes de que se complete la operación a la que está vinculado.
     - **Heap**: Espacio de memoria compartido donde se almacenan los objetos y variables.
-    - **Web APIs**: Conjunto de funciones y métodos que permiten realizar operaciones asíncronas, como temporizadores, eventos de usuario, peticiones HTTP, etc.
-
+    - **Web APIs**: Conjunto de funciones y métodos que permiten realizar operaciones asíncronas, como temporizadores, eventos de usuario, peticiones HTTP, etc.<br><br>
 - **Secuencia de eventos**:
   1. Se ejecuta el código sincrónico sin interrupciones.
   2. Las APIs gestionan las operaciones asíncronas en segundo plano (fetch, setTimeout, etc.)
@@ -286,9 +296,8 @@ console.log("Segundo");
 <br>
 
 ## 14. Callbacks
-- Un callback es una función que se pasa como argumento a otra función y se ejecuta después de que ésta termine su ejecución.
+- Un callback es una función que se pasa (sin paréntesis) como argumento a otra función y se ejecuta después de que ésta termine su ejecución.
 - Se utilizan para ejecutar código después de que se haya completado una tarea asíncrona.
-- Se pasan sin paréntesis.
 ```javascript
 function saludar(nombre, callback) {
     let edad = callback(1996, 2021);
@@ -342,7 +351,7 @@ Promise.all([promesa1, promesa2])
 
 ## 16. Async/await
 - `async` declara una función asíncrona y la convierte en una promesa.
-- `await` pausa la ejecución de la función asíncrona hasta que la promesa se resuelva.
+- `await` pausa la ejecución de la función asíncrona hasta que la promesa se resuelva, pero no detiene la ejecución del hilo principal.
 ```javascript
 // let obtenerDatos = async () => {}
 async function obtenerDatos() {
