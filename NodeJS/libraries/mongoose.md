@@ -20,7 +20,7 @@ const mongoose = require('mongoose');
 ---
 <br>
 
-## 4. Conexión a la base de datos 🔗
+## 4. Conexión a la DB 🔗
 ### 4.1. Conexión
 ```javascript
 const mongoose = require('mongoose');
@@ -118,27 +118,36 @@ const userSchema = new Schema({
         },
         select: false // Not shown in queries by default.
     },
+    groups: [{ type: Schema.Types.ObjectId, ref: 'Group' }],
     extras: {
         type: Schema.Types.Mixed, // Any type of data.
         required: false
     }
 });
 
-const User = model('User', userSchema);
+// Rewrites the 'toJSON' method to remove the '_id' and '__v' fields.
+userSchema.methods.toJSON = function() {
+    const { __v, _id, ...obj } = this.toObject();
+    return obj;
+}
+
+// Exports the model.
+ module.exports = model('User', userSchema);
 ```	
-- **type**: Tipo de dato.
-- **required**: Indica si el campo es obligatorio. (Puede tener un mensaje de error personalizado. Puede ser una función que devuelva un booleano.)
-- **unique**: Indica si el campo debe ser único.
-- **index**: Mejora la velocidad de las consultas.
-- **trim**: Elimina los espacios en blanco al principio y al final.
 - **default**: Valor por defecto.
-- **min**: Valor mínimo.
-- **max**: Valor máximo.
-- **select**: Indica si el campo se muestra en las consultas.
 - **enum**: Valores posibles.
+- **index**: Mejora la velocidad de las consultas.
+- **max**: Valor máximo.
+- **min**: Valor mínimo.
 - **ref**: Referencia a otro modelo.
+- **required**: Indica si el campo es obligatorio. (Puede tener un mensaje de error personalizado. Puede ser una función que devuelva un booleano.)
+- **select**: Indica si el campo se muestra en las consultas.
+- **trim**: Elimina los espacios en blanco al principio y al final.
+- **type**: Tipo de dato.
+- **unique**: Indica si el campo debe ser único.
 - **validate**: Validación personalizada.
 - **Mixed**: Cualquier tipo de dato.
+- **ObjectId**: Identificador único de un documento.
 ---
 <br>
 

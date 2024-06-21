@@ -55,6 +55,22 @@
   module.exports = { modulo1, modulo2 };
   export { modulo1, modulo2 }; // New way (ES6)
   ```
+
+### 3.3. Exportar con index.js
+#### 3.3.1. Crear un archivo index.js
+```javascript
+const modulo1 = require('../path/modulo1'); // This module exports funcion1 and funcion2
+const modulo2 = require('../path/modulo2'); // This module exports funcion3
+const modulo3 = require('../path/modulo3'); // This module exports funcion4 and funcion5
+
+module.exports = { ...modulo1, ...modulo2, ...modulo3 };
+```
+
+#### 3.3.2. Importar módulos
+```javascript
+const { funcion1, funcion2, funcion3, funcion4, funcion5 } = require('../path'); // Old way
+import { funcion1, funcion2, funcion3, funcion4, funcion5 } from '../path';      // New way (ES6)
+```
 ---
 <br><br><br>
 

@@ -113,7 +113,11 @@ check('body field', 'error message').custom((value, { req }) => {
 ---
 <br>
 
-### 6.2. Manuales 
+### 6.2. Manuales
+- `validationResult`: Es un método de express-validator que devuelve un objeto con los errores de validación de los middleware anteriores.
+  - `request`: Recibe un objeto con los errores de validación.
+  - `response`: Envía una respuesta con los errores de validación.
+  - `next`: Continúa con el siguiente middleware o con el controlador si ya no hay más middleware.
 ```javascript
 const { validationResult } = require('express-validator');
 

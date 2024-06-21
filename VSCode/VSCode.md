@@ -61,7 +61,6 @@ cat extensions.txt | xargs -L 1 code --install-extension
 |  Selecionar todas las ocurrencias |  `Ctrl + Shift + L`          |
 |  Seleccionar letra por letra      |  `Shift + Flechas`           |
 |  Seleccionar palabra              |  `Ctrl + Shift + Flechas`    |
-|  Comentar línea                   |  `Ctrl + /`                  |
 |  Comentar bloque                  |  `Ctrl + K + C`              |
 |  Descomentar bloque               |  `Ctrl + K + U`              |
 |  Mover entre palabras             |  `Ctrl + Flechas`            |
