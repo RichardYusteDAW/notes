@@ -66,7 +66,6 @@ app.use('/users', userRouter); // A partir de este punto, todas las rutas de use
 <br>
 
 ## 7. Usar rutas en la aplicación 🚀
-```javascript
 - Las rutas se pueden montar en un archivo `router.js` y luego importarlo en `app.js`.
 ```javascript
 // router.js

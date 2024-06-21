@@ -90,6 +90,7 @@
   - [Cors](./NodeJS/libraries/express/cors.md)
   - [Handlebars](./NodeJS/libraries/express/handlebars.md)
   - [Router](./NodeJS/libraries/express/router.md)
+  - [Socket.io](./NodeJS/libraries/express/socket-io.md)
 ---
 <br>
 
