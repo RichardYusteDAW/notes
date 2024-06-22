@@ -52,21 +52,38 @@ cat extensions.txt | xargs -L 1 code --install-extension
 <br>
 
 ## 3. Atajos de teclado
-|  Acción                           |  Shortcout                   |
-|---------------------------------  |------------------------------|
-|  Abrir terminal                   |  `Ctrl + Ñ`                  |
-|  Abrir paleta de comandos         |  `Ctrl + Shift + P`          |
-|  Puntero múltiple                 |  `Ctrl + Alt + Arriba/Abajo` |
-|  Selección múltiple               |  `Alt + Click`               |
-|  Selecionar todas las ocurrencias |  `Ctrl + Shift + L`          |
-|  Seleccionar letra por letra      |  `Shift + Flechas`           |
-|  Seleccionar palabra              |  `Ctrl + Shift + Flechas`    |
-|  Comentar bloque                  |  `Ctrl + K + C`              |
-|  Descomentar bloque               |  `Ctrl + K + U`              |
-|  Mover entre palabras             |  `Ctrl + Flechas`            |
-|  Mover al principio de la línea   |  `Home`                      |
-|  Mover al final de la línea       |  `End`                       |
-
+|  **Acción**                        | **Shortcout**                |
+|------------------------------------|------------------------------|
+|  Abrir pestana                     |  `Ctrl + Shif + T`           |
+|  Cerrar pestana                    |  `Ctrl + W`                  |
+|  Moverse entre pestañas            |  `Ctrl + Tab`                |
+|  Abrir/Cerrar barra lateral        |  `Ctrl + B`                  |
+|  Abrir/Cerrar terminal             |  `Ctrl + Ñ`                  |
+|  Abrir/Cerrar paleta de comandos   |  `Ctrl + Shift + P`          |
+|  Buscar en archivos                |  `Ctrl + P`                  |
+|  Puntero múltiple                  |  `Ctrl + Alt + Arriba/Abajo` |
+|------------------------------------|------------------------------|
+|  **SELECTOR**                      |  **SELECTOR**                |
+|  Selección múltiple                |  `Alt + Click`               |
+|  Selección múltiple al final       |  `Ctrl + Doble Click`        |
+|  Seleccionar todas las ocurrencias |  `Ctrl + Shift + L`          |
+|  Seleccionar todas las ocurrencias |  `Ctrl + D`                  |
+|  Seleccionar letra por letra       |  `Shift + Flechas`           |
+|  Seleccionar palabra               |  `Ctrl + Shift + Flechas`    |
+|  Seleccionar línea                 |  `Ctrl + L`                  |
+|  Mover entre palabras              |  `Ctrl + Flechas`            |
+|  Mover al principio de la línea    |  `Fn + Inicio`               |
+|  Mover al final de la línea        |  `Fn + Fin`                  |
+|  Ordenar líneas                    |  `Ctrl + Shift + P` -> order |
+|------------------------------------|------------------------------|
+|  **COMENTARIO**                    |  **COMENTARIO**              |
+|  Comentar línea                    |  `Ctrl + K + C`              |
+|  Descomentar línea                 |  `Ctrl + K + U`              |
+|  Comentar/descomentar línea        |  `Ctrl + Ç`                  |
+|  Comentar bloque                   |  `Shift + Alt + A`           |
+|------------------------------------|------------------------------|
+|  **EMMET WRAP**                    |  **EMMET WRAP**              |
+|  div.class>p>span                  |  `Ctrl + Shift + P` -> wrap  |
 
 <br><br><br>
 
