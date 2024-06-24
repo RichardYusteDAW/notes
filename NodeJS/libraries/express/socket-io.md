@@ -1,10 +1,10 @@
 # Socket.io
-Es un módulo que permite la comunicación en tiempo real entre el servidor y el cliente, utilizando WebSockets.
-WebSockets es un protocolo de comunicación bidireccional que permite la comunicación en tiempo real entre el servidor y el cliente.
+Socket.io es una biblioteca que utiliza el protocolo WebSockets.  
+WebSockets  permite la comunicación bidireccional , de baja latencia y basada en eventos entre un cliente y un servidor.
 
 ## 1. Web Site 🌐
 [Socket.io](https://socket.io/docs/)  
-[WebSockets](https://developer.mozilla.org/es/docs/WebSockets)
+[WebSockets](https://developer.mozilla.org/es/docs/Web/API/WebSockets_API)
 
 ---
 <br>
@@ -101,7 +101,7 @@ const chat = (io) => {
     });
 };
 
-module.exports = initSocket;
+module.exports = chat;
 ```
 ---
 <br>
@@ -176,6 +176,15 @@ socket.leave('room');                                 // Abandonar una sala.
 
 socket.disconnect();                                  // Desconectarse del servidor.
 
+// Métodos disponibles en el lado del servidor (io):
+io.on('connection', (socket) => {                     // Escuchar la conexión de un cliente.
+    // ...
+});
+io.on('disconnect', (socket) => {                     // Escuchar la desconexión de un cliente.
+    // ...
+});
+io.emit('event', data);                               // Enviar un evento a todos los clientes.
+io.in('room').emit('event', data);                    // Enviar un evento a todos los clientes de una sala (Se puede utilizar to)
 const namespace = io.of('/chat');                     // Crear un espacio de nombres. El socket solo se conectará a esta ruta.         
 ```
 ## 7. Eventos 📡
