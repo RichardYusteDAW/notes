@@ -16,8 +16,34 @@
 ---
 <br>
 
-## 3. Importación y exportación de módulos 📥
-### 3.1. Importar módulos
+## 3. NPM 📦
+- Node Package Manager es el gestor de paquetes de Node.js y permite instalar, actualizar y eliminar paquetes.
+
+### 3.1. Comandos
+```bash
+npm -v                            # Muestra la versión de npm
+
+npm init                          # Inicializa un proyecto de Node.js
+npm init -y                       # Inicializa un proyecto de Node.js con valores por defecto
+
+npm install                       # Instala todas las dependencias del proyecto
+npm install --production          # Instala solo las dependencias de producción
+
+npm install <package>             # Instala ese paquete
+npm install <package> --save-dev  # Instala el paquete como dependencia de desarrollo (devDependencies)
+npm install -g <package>          # Instala el paquete de forma global (local por defecto)
+
+npm uninstall <package>           # Desinstala el paquete
+npm update <package>              # Actualiza el paquete
+npm list                          # Lista las dependencias del proyecto
+npm list -g                       # Lista las dependencias globales
+npm search <package>              # Busca un paquete
+npm show <package> version        # Muestra la versión de un paquete
+```
+---
+<br>
+
+## 4. Importar módulos 📥
 - Importar un módulo de Node:
   ```javascript
   const fs = require('fs');
@@ -38,8 +64,10 @@
   const { funcion1, funcion2 } = require('./path/modulo');
   import { funcion1, funcion2 } from './path/modulo'; // New way (ES6)
   ```
+  ---
+  <br>
 
-### 3.2. Exportar módulos
+## 5. Exportar módulos 📤
 - Exportar un módulo:
   ```javascript
   module.exports = modulo;
@@ -56,8 +84,8 @@
   export { modulo1, modulo2 }; // New way (ES6)
   ```
 
-### 3.3. Exportar con index.js
-#### 3.3.1. Crear un archivo index.js
+### 5.1. Exportar con index.js
+#### 5.1.1. Crear archivo index.js
 ```javascript
 const modulo1 = require('../path/modulo1'); // This module exports funcion1 and funcion2
 const modulo2 = require('../path/modulo2'); // This module exports funcion3
@@ -66,7 +94,7 @@ const modulo3 = require('../path/modulo3'); // This module exports funcion4 and 
 module.exports = { ...modulo1, ...modulo2, ...modulo3 };
 ```
 
-#### 3.3.2. Importar módulos
+#### 5.1.2. Importar módulos
 ```javascript
 const { funcion1, funcion2, funcion3, funcion4, funcion5 } = require('../path'); // Old way
 import { funcion1, funcion2, funcion3, funcion4, funcion5 } from '../path';      // New way (ES6)
