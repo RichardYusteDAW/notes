@@ -77,6 +77,11 @@ app.get('/home', (req, res) => {
 - Se utilizan para reutilizar fragmentos de código en varias vistas.
 - Se crea un archivo `.hbs` en la carpeta `views/partials` en la raíz del proyecto.
 - Se incluye en la vista principal con `{{> partialName}}`.
+- A veces es necesario registrar los parciales.
+```javascript
+const hbs = require('hbs');
+hbs.registerPartials(__dirname + '/views/partials');
+```
 ---
 <br><br><br>
 
