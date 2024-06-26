@@ -290,77 +290,105 @@
 ![form](./img/form.png)
 ```html
 <form>
-        <fieldset> <!-- Marco-->
-            <legend>Titulo o leyenda (con la etiqueta fieldset)</legend>
+    <fieldset> <!-- Marco-->
+        <legend>Titulo o leyenda (con la etiqueta fieldset)</legend>
 
-            <input type="text" name="nombre" placeholder="Ingrese su nombre" maxlength="50" required>
-            <input type="email" name="correo" placeholder="Correo electrónico" required>
-            <input type="password" name="contrasena" placeholder="Contraseña" minlength="8" required>
-            <br>
+        <input type="text" name="nombre" placeholder="Ingrese su nombre" maxlength="50" required>
+        <input type="email" name="correo" placeholder="Correo electrónico" required>
+        <input type="password" name="contrasena" placeholder="Contraseña" minlength="8" required>
+        <br>
 
-            <input type="checkbox" id="suscripcion" name="suscripcion" checked>
-            <label for="suscripcion">Suscribirse a nuestro boletín</label>
-            <br>
+        <input type="checkbox" id="suscripcion" name="suscripcion" checked>
+        <label for="suscripcion">Suscribirse a nuestro boletín</label>
+        <br>
 
-            <input type="radio" id="opcion1" name="opcion" value="opcion1" checked>
-            <label for="opcion1">Opción 1</label>
-            <input type="radio" id="opcion2" name="opcion" value="opcion2">
-            <label for="opcion2">Opción 2</label>
-            <br>
+        <input type="radio" id="opcion1" name="opcion" value="opcion1" checked>
+        <label for="opcion1">Opción 1</label>
+        <input type="radio" id="opcion2" name="opcion" value="opcion2">
+        <label for="opcion2">Opción 2</label>
+        <br>
 
-            <label for="">Titulo o leyenda (de un desplegable)</label>
-            <select>
-                <optgroup label="Grupo 1">
-                    <option>Elemento 1</option>
-                    <option>Elemento 2</option>
-                </optgroup>
-                <optgroup label="Grupo 2">
-                    <option>Elemento 3</option>
-                    <option>Elemento 4</option>
-                </optgroup>
-            </select>
-            <br>
+        <label for="">Titulo o leyenda (de un desplegable)</label>
+        <select>
+            <optgroup label="Grupo 1">
+                <option>Elemento 1</option>
+                <option>Elemento 2</option>
+            </optgroup>
+            <optgroup label="Grupo 2">
+                <option>Elemento 3</option>
+                <option>Elemento 4</option>
+            </optgroup>
+        </select>
+        <br>
 
-            <textarea row="10" cols="10">Área de texto grande</textarea>
-        </fieldset>
-    </form>
-<!--
-<form> permite utilizar los siguientes atributos:
-    id: " identif"                                                       - Representa el id del formulario para hacer referencia a éste desde CSS o scripts.
-    action: "url"                                                        - Indica la URL donde se enviarán los datos del formulario.
-    method: "POST" o "GET"                                               - Especifica el método HTTP que se empleará para enviar los datos.
-    enctype: "application/x-www-form-urlencoded" o "multipart/form-data" - Tipo de codificación empleada al enviar el formulario.
+        <textarea row="10" cols="10">Área de texto grande</textarea>
 
-<input> permite utilizar los siguientes atributos:
-    alt: "alt"               - Descripción del control.
-    checked: "checked"       - Para los controles checkbox y radiobutton permite indicar qué opción aparece preseleccionada
-    disabled: "disabled "    - El control aparece deshabilitado y su valor no se envía al servidor junto con el resto de datos.
-    maxlength: "número"      - Máximo número de caracteres para los controles de texto y de password.
-    name: "name"             - Nombre que identifica al campo de datos.
-    readonly: "readonly"     - El contenido del control no se puede modificar
-    size: "unidad de medida" - Tamaño visible del control.
-    src: "url"               - Para el control que permite crear botones con imágenes, indica la URL de la imagen que se emplea como botón de formulario
-    value: "texto"           - Valor inicial del control
-    type: "button | checkbox | color | date | datetime-local | email | file | hidden | image | month | number | password | radio | range | reset | search | submit | tel | text | time | url | week" - Indica el tipo de control que se incluye en el formulario
-
-<label> permite utilizar los siguientes atributos:
-    for: "id del elemento" - Indica la ID del control al que se refiere el rótulo.
-<select> permite utilizar los siguientes atributos:
-    size: "número" - Número de filas que se muestran de la lista.
-    multiple: "multiple" - Si se incluye, se permite seleccionar más de un elemento.
-    disabled: "disabled" - El control aparece deshabilitado y su valor no se envía al servidor junto con el resto de datos.
-<option> permite utilizar los siguientes atributos:
-    selected: "selected " - Indica si el elemento aparece seleccionado por defecto al cargarse la página.
-    value: "texto" - El valor que se envía al servidor cuando el usuario elige esa opción.
-    label: "texto" - Permite especificar un rótulo más corto para la opción.
-<optgroup> permite utilizar el siguiente atributo:
-    label: "texto" - Texto que se muestra como título de la agrupación de opciones.
-
-<textarea> permite utilizar los siguientes atributos:
-    row: número de filas.
-    cols: número de columnas.
--->
+        <button type="submit">Enviar</button>
+    </fieldset>
+</form>
 ```
+
+`<form>` permite utilizar los siguientes atributos:
+| Atributo | Valor                                                       | Descripción                                                                                         |
+|----------|-------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| `id`     | "identif"                                                   | Representa el id del formulario para hacer referencia a éste desde CSS o scripts.                   |
+| `action` | "url"                                                       | Indica la URL donde se enviarán los datos del formulario.                                           |
+| `method` | "POST" o "GET"                                              | Especifica el método HTTP que se empleará para enviar los datos.                                    |
+| `enctype`| "application/x-www-form-urlencoded" o "multipart/form-data" | Tipo de codificación empleada al enviar el formulario.                                              |
+<br>
+
+`<input>` permite utilizar los siguientes atributos:
+| Atributo  | Valor                                                      | Descripción                                                                                         |
+|-----------|------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
+| alt       | "alt"                                                      | Descripción del control.                                                                            |
+| checked   | "checked"                                                  | Para los controles checkbox y radiobutton permite indicar qué opción aparece preseleccionada.       |
+| disabled  | "disabled"                                                 | El control aparece deshabilitado y su valor no se envía al servidor junto con el resto de datos.    |
+| maxlength | "número"                                                   | Máximo número de caracteres para los controles de texto y de password.                              |
+| name      | "name"                                                     | Nombre que identifica al campo de datos.                                                            |
+| readonly  | "readonly"                                                 | El contenido del control no se puede modificar.                                                     |
+| size      | "unidad de medida"                                         | Tamaño visible del control.                                                                         |
+| src       | "url"                                                      | Para el control que permite crear botones con imágenes, indica la URL de la imagen que se emplea.   |
+| value     | "texto"                                                    | Valor inicial del control.                                                                          |
+| type      | "button / checkbox / color / date / datetime-local / email / file / hidden / image / month / number / password / radio / range / reset / search / submit / tel / text / time / url / week" | Indica el tipo de control que se incluye en el formulario. |
+<br>
+
+`<button>` permite utilizar los siguientes atributos:
+| Atributo       | Valor                               | Descripción                                                                                                  |
+|----------------|-------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| autofocus      | "autofocus"                         | Especifica que el botón debería enfocarse automáticamente cuando la página carga.                            |
+| disabled       | "disabled"                          | El botón aparece deshabilitado y no se puede interactuar con él.                                             |
+| form           | "id_formulario"                     | Especifica el formulario al que el botón está asociado (útil cuando el botón no está dentro del formulario). |
+| formaction     | "url"                               | Especifica la URL para el envío del formulario cuando el botón es de tipo "submit".                          |
+| formmethod     | "get", "post"                       | Especifica el método HTTP para enviar el formulario, sólo para botones de tipo "submit".                     |
+| formnovalidate | "formnovalidate"                    | Indica que el formulario no debe ser validado al ser enviado.                                                |
+| formtarget     | "_blank", "_self", "_parent", "_top"| Especifica dónde mostrar la respuesta recibida después de enviar el formulario.                              |
+| name           | "name"                              | Nombre que identifica al botón en el envío de formularios.                                                   |
+| title          | "texto"                             | Proporciona información adicional sobre el botón, generalmente mostrada como un tooltip.                     |
+| type           | "button", "submit", "reset"         | Indica el tipo de botón: normal, de envío de formulario o de reseteo de formulario.                          |
+| value          | "texto"                             | Valor que se envía con el formulario si el botón es un botón de envío o un botón de reseteo.                 |
+
+
+
+
+`<label>` permite utilizar los siguientes atributos:
+- for: "id del elemento" - Indica la ID del control al que se refiere el rótulo.
+
+`<select>` permite utilizar los siguientes atributos:
+- size: "número" - Número de filas que se muestran de la lista.
+- multiple: "multiple" - Si se incluye, se permite seleccionar más de un elemento.
+- disabled: "disabled" - El control aparece deshabilitado y su valor no se envía al servidor junto con el resto de datos.
+
+`<option>` permite utilizar los siguientes atributos:
+- selected: "selected " - Indica si el elemento aparece seleccionado por defecto al cargarse la página.
+- value: "texto" - El valor que se envía al servidor cuando el usuario elige esa opción.
+- label: "texto" - Permite especificar un rótulo más corto para la opción.
+
+`<optgroup>` permite utilizar el siguiente atributo:
+- label: "texto" - Texto que se muestra como título de la agrupación de opciones.  
+
+`<textarea>` permite utilizar los siguientes atributos:
+- row: número de filas.
+- cols: número de columnas.
 <br>
 
 ## 9. Etiquetas nuevas de HTML5
