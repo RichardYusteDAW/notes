@@ -100,6 +100,80 @@ const { funcion1, funcion2, funcion3, funcion4, funcion5 } = require('../path');
 import { funcion1, funcion2, funcion3, funcion4, funcion5 } from '../path';      // New way (ES6)
 ```
 ---
+<br>
+
+## 6. TypeScript 📝
+- TypeScript es un superconjunto de JavaScript que añade tipado estático y objetos basados en clases.
+- Permite detectar errores en tiempo de compilación.
+- Se compila a JavaScript para ser ejecutado en cualquier navegador o servidor.
+
+### 6.1. Instalar TypeScript
+```npm install -g typescript```
+
+### 6.2. Iniciar TypeScript
+- Este comando crea un archivo de configuración llamado `tsconfig.json`:  
+```tsc --init```
+```json
+{
+  "compilerOptions": {
+    "target": "es5",                          // Versión de ECMAScript
+    "module": "commonjs",                     // Sistema de módulos.
+    "outDir": "./dist",                       // Directorio de salida de los archivos compilados
+    "strict": true,                           // Habilita todas las opciones de comprobación de TypeScript
+    "moduleResolution": "node",               // Resolución de módulos
+    "esModuleInterop": true,                  // Habilita interoperabilidad entre CommonJS y ES6
+    "skipLibCheck": true,                     // Evita la comprobación de librerías
+    "forceConsistentCasingInFileNames": true  // Obliga a que los nombres de archivo tengan la misma capitalización 
+  }
+}
+```
+
+### 6.3. Compilar TypeScript
+- Este comando compila todos los archivos TypeScript del proyecto y crea el directorio `dist` con los archivos JavaScript:  
+```tsc    # Con la opción --watch (tsc -w) se compila automáticamente al guardar cambios```
+
+### 6.4. Tslint
+- TSLint es una herramienta de análisis estático de código para TypeScript que ayuda a mantener un código limpio y consistente ya que detecta errores y problemas de estilo.
+
+#### 6.4.1. Instalar TSLint
+```npm install tslint --save-dev```
+
+#### 6.4.2. Iniciar TSLint
+- Este comando crea un archivo de configuración llamado `tslint.json`:  
+```./node_modules/.bin/tslint --init```
+```json
+{
+  "defaultSeverity": "error", // Nivel de severidad por defecto
+  "extends": [
+      "tslint:recommended"    // Reglas recomendadas por TSLint
+  ],
+  "jsRules": {},              // Reglas para archivos JavaScript
+  "rules": {
+      "no-console": false     // Deshabilita la regla no-console para que no muestre errores por usar console.log
+  },
+  "rulesDirectory": []        // Directorio de reglas personalizadas
+}
+```
+
+### 6.5. Instalar módulos de terceros
+```npm install @types/<package>```
+
+### 6.6. Tipado de variables
+```typescript
+let a: string = 'Hola';                   // String
+let a: number = 5;                        // Number
+let a: boolean = true;                    // Boolean
+let a: any = 'Hola';                      // Cualquier tipo
+let a: string[] = ['Hola', 'Adiós'];      // Array de strings
+let a: Array<string> = ['Hola', 'Adiós']; // Array de strings
+let a: [string, number] = ['Hola', 5];    // Tupla
+let a: void = undefined;                  // No tiene tipo
+let a: null = null;                       // Null
+let a: undefined = undefined;             // Undefined
+let a: never = undefined;                 // Nunca ocurre
+let a: Application = new Application();   // Clase
+```
+---
 <br><br><br>
 
 ## *[volver al índice](../index.md)*

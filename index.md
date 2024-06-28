@@ -83,6 +83,7 @@
 - [JasonWebToken](./NodeJS/libraries/jwt.md)
 - [Mongoose](./NodeJS/libraries/mongoose.md)
 - [ReadLine](./NodeJS/libraries/readline.md)
+- [Sequelize](./NodeJS/libraries/sequelize.md)
 - [Yargs](./NodeJS/libraries/yargs.md)
 - Express:
   - [Express](./NodeJS/libraries/express/express.md)
