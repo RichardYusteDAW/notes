@@ -26,8 +26,8 @@ if (true) {
     // x = 2;       // Esta es la misma variable x, reasignada.
     console.log(x); // 2
 }
-// let x = 3;      // Error: Identifier 'x' has already been declared.
-console.log(x);    // 1
+// let x = 3;       // Error: Identifier 'x' has already been declared.
+console.log(x);     // 1
 ```
 
 `const`
@@ -41,8 +41,8 @@ if (true) {
     // x = 2;       // Error: Assignment to constant variable.
     console.log(x); // 2
 }
-// const x = 3;   // Error: Identifier 'x' has already been declared.
-console.log(x);   // 1
+// const x = 3;     // Error: Identifier 'x' has already been declared.
+console.log(x);     // 1
 ```
 ---
 <br>
@@ -50,12 +50,12 @@ console.log(x);   // 1
 ## 2. Template literals
 ```javascript
 let nombre = "Ana";
-let saludo = `Hola, ${nombre}!`; // "Hola, Ana!"
+let saludo = `Hola, ${nombre}!`;    // "Hola, Ana!"
 
 let multiLinea = `
   Hola,
   ${nombre}!
-`;                               // "Hola,\nAna!"
+`;                                  // "Hola,\nAna!"
 ```
 ---
 <br>
@@ -78,7 +78,8 @@ let multiLinea = `
 ```javascript
 let edad = 25;
 let mensaje = edad >= 18 ? "Eres mayor de edad." : "Eres menor de edad.";
-console.log(mensaje); // "Eres mayor de edad."
+
+console.log(mensaje);               // "Eres mayor de edad."
 ```
 ---
 <br>
@@ -86,64 +87,156 @@ console.log(mensaje); // "Eres mayor de edad."
 ## 5. Arrays
 ```javascript	
 let articulos = ["zapatillas","camisa","calcetines","chaqueta"];
-let articulos = new array("zapatillas","camisa","calcetines","chaqueta");
+let articulos = new Array("zapatillas","camisa","calcetines","chaqueta");
 
-document.write(articulos.length);   // Muestra el tamaño del array.
-document.write(articulos[1]);       // Muestra el segundo campo del array.
-articulos.push("balón");				    // Agrega un campo al FINAL del array.
-articulos.pop();						        // Elimina el ÚLTIMO campo del array.
-articulos.push("balón","raqueta");	// Agrega VARIOS campos al FINAL del array.
-articulos.unshift("balón");				  // Agrega un campo al INICIO del array.
-articulos.shift();						      // Elimina el PRIMER campo del array.
-articulos.unshift("balón,raqueta");	// Agrega VARIOS campos al INICIO del array.
+articulos.length;                   // Tamaño del array.
+articulos[1];                       // Segundo campo del array.
+articulos.push("balón");            // Agrega un campo al FINAL del array.
+articulos.pop();                    // Elimina el ÚLTIMO campo del array.
+articulos.push("balón","raqueta");  // Agrega VARIOS campos al FINAL del array.
+articulos.unshift("balón");         // Agrega un campo al INICIO del array.
+articulos.shift();                  // Elimina el PRIMER campo del array.
+articulos.unshift("balón,raqueta"); // Agrega VARIOS campos al INICIO del array.
 ```
----
-<br>
+<br><br>
 
-## 6. Métodos para recorrer arrays
+### 5.1. Otros métodos
+```javascript
+let frutas = ["manzana", "pera", "naranja", "plátano", "fresa"];
+```
+
+#### 5.1.1. splice()
+- Añade o elimina elementos de un array.
+```javascript	
+frutas.splice(1, 3, "uva", "sandía");   // Desde el índice 1, elimina 3 elementos y añade "uva" y "sandía".
+
+console.log(frutas);                    // ["manzana", "uva", "sandía", "fresa"]
+```
+
+#### 5.1.2. slice()
+- Copia una parte de un array y devuelve un nuevo array.
+```javascript
+let frutas2 = frutas.slice(1, 3);       // Desde el índice 1 hasta el 3 (sin incluirlo).
+
+console.log(frutas2);                   // ["pera", "naranja"]
+```
+
+#### 5.1.3. indexOf() y lastIndexOf()
+- Devuelve el índice de la primera ocurrencia de un elemento en el array.
+```javascript
+let indice = frutas.indexOf("naranja");
+
+console.log(indice);                    // 2
+
+// lastIndexOf() devuelve el índice de la última ocurrencia de un elemento en el array.
+```
+
+#### 5.1.4. includes()
+- Comprueba si un array contiene un elemento.
+```javascript
+let contienePlatano = frutas.includes("plátano");
+
+console.log(contienePlatano);           // true
+```
+
+#### 5.1.5. reverse()
+- Invierte el orden de los elementos de un array.
+```javascript
+frutas.reverse();
+
+console.log(frutas);                    // ["fresa", "plátano", "naranja", "pera", "manzana"]
+```
+
+#### 5.1.6. join()
+- Une todos los elementos de un array en un string.
+```javascript
+let frutasString = frutas.join(", ");
+
+console.log(frutasString);              // "fresa, plátano, naranja, pera, manzana"
+```
+
+#### 5.1.7. sort()
+- Ordena los elementos de un array alfabéticamente.
+```javascript
+frutas.sort();
+
+console.log(frutas);                    // ["fresa", "manzana", "naranja", "pera", "plátano"]
+```
+
+#### 5.1.8. concat()
+- Combina dos o más arrays.
+```javascript
+let verduras = ["zanahoria", "calabacín", "lechuga"];
+let alimentos = frutas.concat(verduras);
+
+console.log(alimentos);                 // ["fresa", "manzana", "naranja", "pera", "plátano", "zanahoria", "calabacín", "lechuga"]
+```
+
+#### 5.1.9. fill()
+- Rellena los elementos de un array con un valor estático.
+```javascript
+frutas.fill("uva", 2, 4);               // Rellena desde el índice 2 hasta el 4 (sin incluirlo) con "uva".
+
+console.log(frutas);                    // ["manzana", "pera", "uva", "uva", "fresa"]
+```
+<br><br>
+
+### 5.2. Métodos para recorrer arrays
 ```javascript
 let colores = ["rojo", "verde", "azul", "amarillo", "naranja"];
 ```
-### 6.1. forEach()
-Ejecuta una función por cada elemento del array.
+#### 5.2.1. forEach()
+- Ejecuta una función por cada elemento del array.
 ```javascript
 colores.forEach((color, index) => {
     console.log(`${index + 1}. ${color}`);
 });
+// "1. rojo", "2. verde", "3. azul", "4. amarillo", "5. naranja"
 ```
 
-### 6.2. map()
-Crea un nuevo array con los resultados de la función aplicada a cada elemento del array.
+#### 5.2.2. map()
+- Crea un nuevo array con los resultados de la función aplicada a cada elemento del array.
 ```javascript
 let coloresMayusculas = colores.map((color) => color.toUpperCase());
+
 console.log(coloresMayusculas); // ["ROJO", "VERDE", "AZUL", "AMARILLO", "NARANJA"]
 ```
 
-### 6.3. filter()
-Crea un nuevo array con los elementos que cumplen la condición.
+#### 5.2.3. filter()
+- Crea un nuevo array con los elementos que cumplen la condición.
 ```javascript
 let coloresCortos = colores.filter((color) => color.length <= 4);
-console.log(coloresCortos); // ["rojo", "azul"]
+console.log(coloresCortos);     // ["rojo", "azul"]
 ```
 
-### 6.4. find()
-Devuelve el primer elemento que cumple la condición.
+#### 5.2.4. find()
+- Devuelve el primer elemento que cumple la condición.
 ```javascript
 let color = colores.find((color) => color === "verde");
-console.log(color); // "verde"
+
+console.log(color);             // "verde"
 ```
 
-### 6.5. reduce()
-Aplica una función acumuladora a cada elemento del array, de izquierda a derecha, para reducirlo a un único valor.
+#### 5.2.5. reduce()
+- Aplica una función acumuladora a cada elemento del array, de izquierda a derecha, para reducirlo a un único valor.
 ```javascript
 let numeros = [1, 2, 3, 4, 5];
 let suma = numeros.reduce((total, num) => total + num, 0);
-console.log(suma); // 15
+
+console.log(suma);              // 15
+```
+
+#### 5.2.6. some()
+Comprueba si al menos un elemento cumple la condición.
+```javascript
+let contieneAzul = colores.some((color) => color === "azul");
+
+console.log(contieneAzul);      // true
 ```
 ---
 <br>
 
-## 7. Objetos
+## 6. Objetos
 ```javascript
 let persona = {
     nombre: "Ana",
@@ -151,13 +244,13 @@ let persona = {
     ciudad: "Madrid"
 };
 
-persona.nombre   = "María";    // Añade el campo "nombre" al objeto y si ya existe lo sobreescribe.
-persona.[nombre] = "María";    // Añade el campo "nombre" al objeto y si ya existe lo sobreescribe.
+persona.nombre   = "María";     // Añade el campo "nombre" al objeto y si ya existe lo sobreescribe.
+persona["nombre"] = "María";    // Añade el campo "nombre" al objeto y si ya existe lo sobreescribe.
 ```
 ---
 <br>
 
-## 8. Destructuring
+## 7. Destructuring
 ```javascript
 // Destructuring de arrays
    let colores = ["rojo", "verde", "azul"];
@@ -165,9 +258,10 @@ persona.[nombre] = "María";    // Añade el campo "nombre" al objeto y si ya ex
    //let verde = colores[1];
    //let azul = colores[2];
    let [rojo, verde, azul] = colores; 
-   console.log(rojo);   // "rojo"
-   console.log(verde);  // "verde"
-   console.log(azul);   // "azul"
+   
+   console.log(rojo);           // "rojo"
+   console.log(verde);          // "verde"
+   console.log(azul);           // "azul"
 
 
 // Destructuring de objetos
@@ -175,29 +269,32 @@ persona.[nombre] = "María";    // Añade el campo "nombre" al objeto y si ya ex
    //let nombre = persona.nombre;
    //let edad   = persona.edad;
    let { nombre, edad } = persona;
-   console.log(nombre); // "Ana"
-   console.log(edad);   // 25
+   
+   console.log(nombre);         // "Ana"
+   console.log(edad);           // 25
 ```
 ---
 <br>
 
-## 9. Spread operator
+## 8. Spread operator
 Se utiliza para expandir elementos de un array u objeto en otro array u objeto.
 ```javascript
 // Spread operator en arrays
     let colores = ["rojo", "verde", "azul"];
     let colores2 = ["amarillo", "naranja", ...colores];
-    console.log(colores2); // ["amarillo", "naranja", "rojo", "verde", "azul"]
+    
+    console.log(colores2);      // ["amarillo", "naranja", "rojo", "verde", "azul"]
 
 // Spread operator en objetos
     let persona = { nombre: "Ana", edad: 25 };
     let persona2 = { ...persona, ciudad: "Madrid" };
-    console.log(persona2); // { nombre: "Ana", edad: 25, ciudad: "Madrid" }
+    
+    console.log(persona2);      // { nombre: "Ana", edad: 25, ciudad: "Madrid" }
 ```
 ---
 <br>
 
-## 10. Rest parameter
+## 9. Rest parameter
 Permite a una función aceptar un número indefinido de argumentos como un array.
 ```javascript
 function sumar(...numeros) {
@@ -209,7 +306,7 @@ console.log(sumar(1, 2, 3, 4, 5)); // 15
 ---
 <br>
 
-## 11. For...in & For...of
+## 10. For...in & For...of
 - **For...in**: Itera sobre las propiedades de un objeto.
 - **For...of**: Itera sobre los elementos de cualquier objeto iterable(array, string, map, set, etc.).
 ```javascript
@@ -228,7 +325,7 @@ console.log(sumar(1, 2, 3, 4, 5)); // 15
 ---
 <br>
 
-## 12. Arrow functions
+## 11. Arrow functions
 ```javascript
 // Función tradicional
     function sumar(a, b) {
@@ -241,7 +338,7 @@ console.log(sumar(1, 2, 3, 4, 5)); // 15
 ---
 <br>
 
-## 13. Synchronous vs Asynchronous
+## 12. Synchronous vs Asynchronous
 ```javascript
 /* Synchronous: El código se ejecuta en secuencia, línea por línea,
 asegurando que cada operación se complete antes de que comience la siguiente.*/
@@ -255,18 +352,18 @@ console.log("Primero");
 setTimeout(() => console.log("Tercero"), 1000);
 console.log("Segundo");
 ```
-| **Synchronous**                                                                | **Asynchronous**                                                                                       |
-|--------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| Operaciones aritméticas                                                        | Timers (`setTimeout`, `setInterval`)                                                                   |
-| Operaciones de asignación                                                      | Operaciones de I/O (como acceso a archivos en Node.js)                                                 |
-| Operaciones lógicas                                                            | Solicitudes de red (`fetch`, `XMLHttpRequest`, AJAX)                                                   |
-| Acceso a propiedades de objetos                                                | Eventos de DOM (`addEventListener`, `onclick`, `onchange`)                                             |
-| Manipulación de arrays (`map`, `filter`, `reduce`)                             | Promesas (`Promise`, `then`, `catch`, `finally`)                                                       |
-| Manipulación de strings (`split`, `replace`, `substring`)                      | Funciones `async/await`                                                                                |
-| Operaciones en estructuras de control (`for`, `while`, `if-else`)              | APIs del navegador que son asincrónicas (como `Geolocation API`, `WebSocket`, `IndexedDB`)             |
-| Funciones de fechas sincrónicas (`Date.now`, `Date.prototype.getFullYear`)     | Operaciones de base de datos en entornos que soportan I/O asincrónico (Node.js con `mongodb`, `mysql`) |
-| Llamadas a funciones sincrónicas que no implican operaciones de I/O ni eventos | Animaciones (`requestAnimationFrame`)                                                                  |
-|                                                                                |                                                                                                        |
+| **Synchronous**                                                                | **Asynchronous**                                                                            |
+|--------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+| Operaciones aritméticas                                                        | Timers (`setTimeout`, `setInterval`)                                                        |
+| Operaciones de asignación                                                      | Operaciones de I/O (como acceso a archivos en Node.js)                                      |
+| Operaciones lógicas                                                            | Solicitudes de red (`fetch`, `XMLHttpRequest`, AJAX)                                        |
+| Acceso a propiedades de objetos                                                | Eventos de DOM (`addEventListener`, `onclick`, `onchange`)                                  |
+| Manipulación de arrays (`map`, `filter`, `reduce`)                             | Promesas (`Promise`, `then`, `catch`, `finally`)                                            |
+| Manipulación de strings (`split`, `replace`, `substring`)                      | Funciones `async/await`                                                                     |
+| Operaciones en estructuras de control (`for`, `while`, `if-else`)              | APIs del navegador que son asincrónicas (como `Geolocation API`, `WebSocket`, `IndexedDB`)  |
+| Funciones de fechas sincrónicas (`Date.now`, `Date.prototype.getFullYear`)     | Operaciones de DB en entornos que soportan I/O asincrónico (Node.js con `mongodb`, `mysql`) |
+| Llamadas a funciones sincrónicas que no implican operaciones de I/O ni eventos | Animaciones (`requestAnimationFrame`)                                                       |
+|                                                                                |                                                                                             |
 
 
 - **¿Cuando se utiliza el código asíncrono?**
@@ -295,7 +392,7 @@ console.log("Segundo");
 ---
 <br>
 
-## 14. Callbacks
+## 13. Callbacks
 - Un callback es una función que se pasa (sin paréntesis) como argumento a otra función y se ejecuta después de que ésta termine su ejecución.
 - Se utilizan para ejecutar código después de que se haya completado una tarea asíncrona.
 ```javascript
@@ -313,7 +410,7 @@ saludar("Ana", age); // "Hola Ana, tienes 25 años."
 ---
 <br>
 
-## 15. Promesas
+## 14. Promesas
 - Una promesa es un objeto que representa la finalización o el fracaso de una operación asíncrona.
 - Se resuelve con un valor o se rechaza con un error.
 - `resolve` y `reject` son sustitutos de return y throw.
@@ -349,7 +446,7 @@ Promise.all([promesa1, promesa2])
 ---
 <br>
 
-## 16. Async/await
+## 15. Async/await
 - `async` declara una función asíncrona y la convierte en una promesa.
 - `await` pausa la ejecución de la función asíncrona hasta que la promesa se resuelva, pero no detiene la ejecución del hilo principal.
 ```javascript
