@@ -35,14 +35,22 @@ fs.rm('path/to/directory', { recursive: true }, (err) => {
 });
 ```
 
-### 4.3. Crear archivo sin contenido.
+### 4.3. Leer directorio
+```javascript
+fs.readdir('path/to/directory', (err, files) => {
+    if (err) throw err;
+    console.log(files);
+});
+```
+
+### 4.4. Crear archivo sin contenido.
 ```javascript
 fs.writeFile('path/to/file.txt', "", (err) => {
     if (err) throw err;
 });
 ```
 
-### 4.4. Crear archivo y escribir contenido.
+### 4.5. Crear archivo y escribir contenido.
 ```javascript
 let content = 'This is the content of the file';
 
@@ -51,7 +59,7 @@ fs.writeFile('path/to/file.txt', content, (err) => {
 });
 ```
 
-### 4.5. Leer archivo
+### 4.6. Leer archivo
 ```javascript
 fs.readFile('path/to/file.txt', 'utf8', (err, data) => {
     if (err) throw err;
@@ -59,35 +67,35 @@ fs.readFile('path/to/file.txt', 'utf8', (err, data) => {
 });
 ```
 
-### 4.6. Agregar contenido a un archivo
+### 4.7. Agregar contenido a un archivo
 ```javascript
 fs.appendFile('path/to/file.txt', 'content', (err) => {
     if (err) throw err;
 });
 ```
 
-### 4.7. Eliminar archivo
+### 4.8. Eliminar archivo
 ```javascript
 fs.unlink('path/to/file.txt', (err) => {
     if (err) throw err;
 });
 ```
 
-### 4.8. Mover archivo
+### 4.9. Mover archivo
 ```javascript
 fs.rename('path/to/file.txt', 'path/to/newfile.txt', (err) => {
     if (err) throw err;
 });
 ```
 
-### 4.9. Copiar archivo
+### 4.10. Copiar archivo
 ```javascript
 fs.copyFile('path/to/file.txt', 'path/to/newfile.txt', (err) => {
     if (err) throw err;
 });
 ```
 
-### 4.10. Verificar si un archivo o directorio existe
+### 4.11. Verificar si un archivo o directorio existe
 ```javascript
 fs.access('path/to/file.txt', fs.constants.F_OK, (err) => {
     if (err) {
