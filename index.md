@@ -72,6 +72,7 @@
 
 ## 6.1. CONCEPTS:
 - [NodeJS](./NodeJS/node.md)
+- [Learnyounode](./NodeJS/learnyounode.md)
 - [Code Status](./NodeJS/codeStatus.png)
 
 ## 6.2. LIBRARIES:
