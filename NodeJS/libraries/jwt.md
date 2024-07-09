@@ -33,7 +33,7 @@ const jwt = require('jsonwebtoken');
 Se le pueden pasar varias opciones al método `sign` para personalizar el token:
 - **`expiresIn`:** Tiempo de expiración del token.
 - **`issuer`:** Entidad que emite el token.
-- **`audience`:** Destinatario del token.
+- **`audience`:** URL destinataria del token.
 - **`subject`:** Usuario para el que fue emitido el token.
 
 ```javascript
@@ -42,7 +42,7 @@ const secret  = '1234';
 const options = {
     expiresIn: '1h',
     issuer: 'https://example.com',
-    audience: 'https://example.com',
+    audience: 'https://example.com/user/delete',
     subject: 'user'
 };
 
@@ -52,9 +52,22 @@ const token = jwt.sign(payload, secret, options);
 ---
 <br>
 
-## 5. Verificar Token 📏
+## 5. Enviar Token al Cliente 📤
 ```javascript
-const token = req.header('token-name');
+const options = {
+    httpOnly: true,     // No se puede acceder al token desde el navegador
+    secure: false,      // Solo se envía el token si la conexión es segura (https)
+    sameSite: 'Strict', // No se envía el token si la petición es desde otro sitio
+};
+res.cookie('token-name', token, options);
+```
+---
+<br>
+
+## 6. Verificar Token 📏
+```javascript
+const token = req.header('token-name');  // Si el token se envía en el header
+const token = req.cookies['token-name']; // Si el token se envía en una cookie
 
 /* Check if token is provided */
 if (!token) {
@@ -69,8 +82,9 @@ try{
 }
 ```
 ---
+<br>
 
-## 6. Decodificar Token 📖
+## 7. Decodificar Token 📖
 ```javascript
 const token = req.header('token-name');
 const decoded = jwt.decode(token);

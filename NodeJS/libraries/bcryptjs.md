@@ -13,13 +13,20 @@ Es una librería de Node.js que permite cifrar contraseñas de forma segura.
 ---
 <br>
 
-## 3. Uso 📦
+## 3. Uso 🛠️
 ```javascript
 const bcrypt = require('bcryptjs');
 
 const password = 1234;
-const salt = bcrypt.genSaltSync(10); // Número de veces que se aplica el algoritmo de cifrado
+
+// Generar un salt iterando 10 veces
+const salt = bcrypt.genSaltSync(10);
+
+// Generar el hash de la contraseña con el salt
 const hash = bcrypt.hashSync(password, salt);
+
+// Comparar la contraseña
+const compare = bcrypt.compareSync(password, hash);
 ```
 ---
 <br><br><br>
