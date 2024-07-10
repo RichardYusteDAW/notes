@@ -39,6 +39,24 @@ colors.gray('Texto en gris')
 colors.grey('Texto en gris')
 colors.black('Texto en negro')
 ```
+```javascript
+'Texto en arcoiris'.rainbow
+'Texto en cebra'.zebra
+'Texto en zalgo'.zalgo
+'Texto en america'.america
+'Texto en trap'.trap
+'Texto en random'.random
+'Texto en rojo'.red
+'Texto en verde'.green
+'Texto en amarillo'.yellow
+'Texto en azul'.blue
+'Texto en magenta'.magenta
+'Texto en cyan'.cyan
+'Texto en blanco'.white
+'Texto en gris'.gray
+'Texto en gris'.grey
+'Texto en negro'.black
+```
 <br><br><br>
 
 ## *[volver al índice](../../index.md)*
