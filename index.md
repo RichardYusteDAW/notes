@@ -50,7 +50,7 @@
 
 # 3. JAVASCRIPT: ![JavaScript](./_img/js.png)
 - [Conceptos](./JavaScript/js.md)
-- [Eventos](./JavaScript/eventos.md)
+- [DOM](./JavaScript/dom.md)
 ---
 <br>
 

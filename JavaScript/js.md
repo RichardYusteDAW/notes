@@ -1,7 +1,6 @@
 # JavaScript
 
 ## 1. Diferencia entre var, let y const
-
 `var`
 
 - Alcance: Function scope (o global si se declara fuera de una función).
@@ -57,7 +56,6 @@ console.log(x); // 1
 <br>
 
 ## 2. Template literals
-
 ```javascript
 let nombre = "Ana";
 let saludo = `Hola, ${nombre}!`; // "Hola, Ana!"
@@ -73,7 +71,6 @@ let multiLinea = `
 <br>
 
 ## 3. Comentarios
-
 ```javascript
 // Comentario de una línea
 
@@ -89,21 +86,77 @@ let multiLinea = `
 
 <br>
 
-## 4. Operador ternario
+## 4. Operadores
+### 4.1. Aritméticos
+```javascript
+| Operator | Description                       | Example                          |
+|----------|-----------------------------------|----------------------------------|
+| +        | Addition                          | 25 + 5 = 30                      |
+| -        | Subtraction                       | 25 - 5 = 20                      |
+| *        | Multiplication                    | 10 * 20 = 200                    |
+| /        | Division                          | 20 / 2 = 10                      |
+| %        | Modulus                           | 56 % 3 = 2                       |
+| ++       | Increment                         | var a = 10; a++; Now a = 11      |
+| --       | Decrement                         | var a = 10; a--; Now a = 9       |
+```
 
+### 4.2. Incremento y decremento
+```javascript
+| Operator | Description                       | Example                          | Result             |
+|----------|-----------------------------------|----------------------------------|--------------------|
+| var++    | Post Increment                    | var a = 0, b = 10;  a = b++;     | a == 10 and b == 11|
+| ++var    | Pre Increment                     | var a = 0, b = 10;  a = ++b;     | a == 11 and b == 11|
+| var--    | Post Decrement                    | var a = 0, b = 10;  a = b--;     | a == 10 and b == 9 |
+| --var    | Pre Decrement                     | var a = 0, b = 10;  a = --b;     | a == 9  and b == 9 |
+```
+
+### 4.3. Asignación
+```javascript
+| Operator | Example                           | Is equivalent to                 |
+|----------|-----------------------------------|----------------------------------|
+| =        | x = y                             | x = y                            |
+| +=       | x += y                            | x = x + y                        |
+| -=       | x -= y                            | x = x - y                        |
+| *=       | x *= y                            | x = x * y                        |
+| /=       | x /= y                            | x = x / y                        |
+| %=       | x %= y                            | x = x % y                        |
+```
+
+### 4.4. Comparación
+```javascript
+| Operator | Description                       | Example                          |
+|----------|-----------------------------------|----------------------------------|
+| ==       | Equal to                          | 5 == 10  false                   |
+| ===      | Identical (equal and of same type)| 5 === 10 false                   |
+| !=       | Not equal to                      | 5 != 10 true                     |
+| !==      | Not Identical                     | 10 !== 10 false                  |
+| >        | Greater than                      | 10 > 5 true                      |
+| >=       | Greater than or equal to          | 10 >= 5 true                     |
+| <        | Less than                         | 10 < 5 false                     |
+| <=       | Less than or equal to             | 10 <= 5 false                    |
+```
+
+### 4.5 Lógicos o booleanos
+```javascript
+| Operator | Description                       | Example                          |
+|----------|-----------------------------------|----------------------------------|
+| &&       | Returns true if boths are true    | true && false = false            |
+| ||       | Returns true if one is true       | true \|\| false = true           |
+| !        | Returns true if it is false       | !true = false                    |
+```
+
+### 4.6. Ternario
 ```javascript
 let edad = 25;
 let mensaje = edad >= 18 ? "Eres mayor de edad." : "Eres menor de edad.";
 
 console.log(mensaje); // "Eres mayor de edad."
 ```
-
 ---
 
 <br>
 
 ## 5. Arrays
-
 ```javascript
 let articulos = ["zapatillas", "camisa", "calcetines", "chaqueta"];
 let articulos = new Array("zapatillas", "camisa", "calcetines", "chaqueta");
@@ -115,19 +168,17 @@ articulos.pop(); // Elimina el ÚLTIMO campo del array.
 articulos.push("balón", "raqueta"); // Agrega VARIOS campos al FINAL del array.
 articulos.unshift("balón"); // Agrega un campo al INICIO del array.
 articulos.shift(); // Elimina el PRIMER campo del array.
-articulos.unshift("balón,raqueta"); // Agrega VARIOS campos al INICIO del array.
+articulos.unshift("balón", "raqueta"); // Agrega VARIOS campos al INICIO del array.
 ```
 
 <br><br>
 
 ### 5.1. Otros métodos
-
 ```javascript
 let frutas = ["manzana", "pera", "naranja", "plátano", "fresa"];
 ```
 
 #### 5.1.1. concat()
-
 - Combina dos o más arrays.
 
 ```javascript
@@ -138,7 +189,6 @@ console.log(alimentos); // ["fresa", "manzana", "naranja", "pera", "plátano", "
 ```
 
 #### 5.1.2. fill()
-
 - Rellena los elementos de un array con un valor estático.
 
 ```javascript
@@ -148,7 +198,6 @@ console.log(frutas); // ["manzana", "pera", "uva", "uva", "fresa"]
 ```
 
 #### 5.1.3. includes()
-
 - Comprueba si un array contiene un elemento.
 
 ```javascript
@@ -158,7 +207,6 @@ console.log(contienePlatano); // true
 ```
 
 #### 5.1.4. indexOf() y lastIndexOf()
-
 - Devuelve el índice de la primera ocurrencia de un elemento en el array.
 
 ```javascript
@@ -170,7 +218,6 @@ console.log(indice); // 2
 ```
 
 #### 5.1.5. join()
-
 - Une todos los elementos de un array en un string.
 
 ```javascript
@@ -180,7 +227,6 @@ console.log(frutasString); // "fresa, plátano, naranja, pera, manzana"
 ```
 
 #### 5.1.6. reverse()
-
 - Invierte el orden de los elementos de un array.
 
 ```javascript
@@ -190,7 +236,6 @@ console.log(frutas); // ["fresa", "plátano", "naranja", "pera", "manzana"]
 ```
 
 #### 5.1.7. slice()
-
 - Copia una parte de un array y devuelve un nuevo array.
 
 ```javascript
@@ -200,7 +245,6 @@ console.log(frutas2); // ["pera", "naranja"]
 ```
 
 #### 5.1.8. splice()
-
 - Añade o elimina elementos de un array.
 
 ```javascript
@@ -210,7 +254,6 @@ console.log(frutas); // ["manzana", "uva", "sandía", "fresa"]
 ```
 
 #### 5.1.9. split()
-
 - Divide un string en un array de substrings.
 
 ```javascript
@@ -221,7 +264,6 @@ console.log(letras); // ["m", "a", "n", "z", "a", "n", "a"]
 ```
 
 #### 5.1.10. sort()
-
 - Ordena los elementos de un array alfabéticamente.
 
 ```javascript
@@ -233,13 +275,11 @@ console.log(frutas); // ["fresa", "manzana", "naranja", "pera", "plátano"]
 <br><br>
 
 ### 5.2. Métodos para recorrer arrays
-
 ```javascript
 let colores = ["rojo", "verde", "azul", "amarillo", "naranja"];
 ```
 
 #### 5.2.1. forEach()
-
 - Ejecuta una función por cada elemento del array.
 
 ```javascript
@@ -250,7 +290,6 @@ colores.forEach((color, index) => {
 ```
 
 #### 5.2.2. map()
-
 - Crea un nuevo array con los resultados de la función aplicada a cada elemento del array.
 
 ```javascript
@@ -260,7 +299,6 @@ console.log(coloresMayusculas); // ["ROJO", "VERDE", "AZUL", "AMARILLO", "NARANJ
 ```
 
 #### 5.2.3. filter()
-
 - Crea un nuevo array con los elementos que cumplen la condición.
 
 ```javascript
@@ -269,7 +307,6 @@ console.log(coloresCortos); // ["rojo", "azul"]
 ```
 
 #### 5.2.4. find()
-
 - Devuelve el primer elemento que cumple la condición.
 
 ```javascript
@@ -279,7 +316,6 @@ console.log(color); // "verde"
 ```
 
 #### 5.2.5. reduce()
-
 - Aplica una función acumuladora a cada elemento del array, de izquierda a derecha, para reducirlo a un único valor.
 
 ```javascript
@@ -290,7 +326,6 @@ console.log(suma); // 15
 ```
 
 #### 5.2.6. some()
-
 Comprueba si al menos un elemento cumple la condición.
 
 ```javascript
@@ -304,7 +339,6 @@ console.log(contieneAzul); // true
 <br>
 
 ## 6. Objetos
-
 ```javascript
 let persona = {
   nombre: "Ana",
@@ -321,7 +355,6 @@ persona["nombre"] = "María"; // Añade el campo "nombre" al objeto y si ya exis
 <br>
 
 ## 7. Destructuring
-
 ```javascript
 // Destructuring de arrays
 let colores = ["rojo", "verde", "azul"];
@@ -349,7 +382,6 @@ console.log(edad); // 25
 <br>
 
 ## 8. Spread operator
-
 Se utiliza para expandir elementos de un array u objeto en otro array u objeto.
 
 ```javascript
@@ -371,7 +403,6 @@ console.log(persona2); // { nombre: "Ana", edad: 25, ciudad: "Madrid" }
 <br>
 
 ## 9. Rest parameter
-
 Permite a una función aceptar un número indefinido de argumentos como un array.
 
 ```javascript
@@ -387,7 +418,6 @@ console.log(sumar(1, 2, 3, 4, 5)); // 15
 <br>
 
 ## 10. For...in & For...of
-
 - **For...in**: Itera sobre las propiedades de un objeto.
 - **For...of**: Itera sobre los elementos de cualquier objeto iterable(array, string, map, set, etc.).
 
@@ -410,7 +440,6 @@ for (let color of colores) {
 <br>
 
 ## 11. Arrow functions
-
 ```javascript
 // Función tradicional
 function sumar(a, b) {
@@ -426,7 +455,6 @@ let sumar = (a, b) => a + b;
 <br>
 
 ## 12. Synchronous vs Asynchronous
-
 ```javascript
 /* Synchronous: El código se ejecuta en secuencia, línea por línea,
 asegurando que cada operación se complete antes de que comience la siguiente.*/
@@ -482,7 +510,6 @@ console.log("Segundo");
 <br>
 
 ## 13. Callbacks
-
 - Un callback es una función que se pasa (sin paréntesis) como argumento a otra función y se ejecuta después de que ésta termine su ejecución.
 - Se utilizan para ejecutar código después de que se haya completado una tarea asíncrona.
 
@@ -504,7 +531,6 @@ saludar("Ana", age); // "Hola Ana, tienes 25 años."
 <br>
 
 ## 14. Promesas
-
 - Una promesa es un objeto que representa la finalización o el fracaso de una operación asíncrona.
 - Se resuelve con un valor o se rechaza con un error.
 - `resolve` y `reject` son sustitutos de return y throw.
@@ -546,7 +572,6 @@ Promise.all([promesa1, promesa2])
 <br>
 
 ## 15. Async/await
-
 - `async` declara una función asíncrona y la convierte en una promesa.
 - `await` pausa la ejecución de la función asíncrona hasta que la promesa se resuelva, pero no detiene la ejecución del hilo principal.
 
