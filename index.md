@@ -20,43 +20,44 @@
 ## 2.2. MongoDB: ![MongoDB](./_img/mongo.png)
 - [MongoDB](./DataBases/mongoDB/mongoDB.md)
 - [Mongo Atlas y Mongo Compass](./DataBases/mongoDB/mongoAtlas+Compass.md)
+---
 
+<br>
+
+# 3. JAVA: ![Java](./_img/java.png)
+- Template: _[Template](./Java/_template)_
+
+## 3.1. CONCEPTS:
+- [Bean](./Java/concepts/Bean.md)
+- [Excepciones](./Java/concepts/Excepciones.md)
+- [Java](./Java/concepts/Java.md)
+- [JDBC](./Java/concepts/JDBC.md)
+- [Maven](./Java/concepts/Maven.md)
+- [Spring_Boot](./Java/concepts/Spring_Boot.md)
+- [Thymeleaf](./Java/concepts/Thymeleaf.md)
+
+## 3.2. LIBRARIES:
+- [Math](./Java/libraries/Math.md)
+- [Random](./Java/libraries/Random.md)
+- [String](./Java/libraries/String.md)
+- [StringBuilder](./Java/libraries/StringBuilder.md)
+
+## 3.3. TESTING:
+- [Testing](./Java/testing/test.md)
+- [Mockito](./Java/testing/mockito.md)
+- [Bases de datos incrustadas](./Java/testing/embeddedDB.md)
 ---
 <br>
 
-# 2. JAVA: ![Java](./_img/java.png)
-- Template: *[Template](./Java/_template)*
- ## 2.1. CONCEPTS:
- - [Bean](./Java/concepts/Bean.md)
- - [Excepciones](./Java/concepts/Excepciones.md)
- - [Java](./Java/concepts/Java.md)
- - [JDBC](./Java/concepts/JDBC.md)
- - [Maven](./Java/concepts/Maven.md)
- - [Spring_Boot](./Java/concepts/Spring_Boot.md)
- - [Thymeleaf](./Java/concepts/Thymeleaf.md)
-
- ## 2.2. LIBRARIES:
- - [Math](./Java/libraries/Math.md)
- - [Random](./Java/libraries/Random.md)
- - [String](./Java/libraries/String.md)
- - [StringBuilder](./Java/libraries/StringBuilder.md)
-
- ## 2.3. TESTING:
- - [Testing](./Java/testing/test.md)
- - [Mockito](./Java/testing/mockito.md)
- - [Bases de datos incrustadas](./Java/testing/embeddedDB.md)
----
-<br>
-
-# 3. JAVASCRIPT: ![JavaScript](./_img/js.png)
+# 4. JAVASCRIPT: ![JavaScript](./_img/js.png)
 - [Conceptos](./JavaScript/js.md)
 - [DOM](./JavaScript/dom.md)
 ---
 <br>
 
-# 4. LLM: ![LLM](./_img/llm.png)
+# 5. LLM: ![LLM](./_img/llm.png)
 - [HTML](./LLM/HTML/html.md)
-- STYLES: 
+- STYLES:
   - CSS:
     - [CSS](./LLM/STYLES/CSS/css.md)
     - [FlexBox](./LLM/STYLES/CSS/flex.md)
@@ -66,9 +67,8 @@
 ---
 <br>
 
-
 # 6. NODEJS: ![NodeJS](./_img/node.png)
-- Template: *[Template](./NodeJS/_template)*
+- Template: _[Template](./NodeJS/_template)_
 
 ## 6.1. CONCEPTS:
 - [NodeJS](./NodeJS/node.md)
@@ -82,17 +82,18 @@
 - [FileSystem](./NodeJS/libraries/fileSystem.md)
 - [Inquirer](./NodeJS/libraries/inquirer.md)
 - [JasonWebToken](./NodeJS/libraries/jwt.md)
+- [MySQL2](./NodeJS/libraries/mysql2.md)
 - [Mongoose](./NodeJS/libraries/mongoose.md)
 - [ReadLine](./NodeJS/libraries/readline.md)
 - [Sequelize](./NodeJS/libraries/sequelize.md)
 - [Yargs](./NodeJS/libraries/yargs.md)
 - Express:
   - [Express](./NodeJS/libraries/express/express.md)
+  - [Express-session](./NodeJS/libraries/express/express-session.md)
   - [Express-validator](./NodeJS/libraries/express/express-validator.md)
   - [Cors](./NodeJS/libraries/express/cors.md)
   - [Handlebars](./NodeJS/libraries/express/handlebars.md)
   - [Router](./NodeJS/libraries/express/router.md)
-  - [Session](./NodeJS/libraries/express/express-session.md)
   - [Socket.io](./NodeJS/libraries/express/socket-io.md)
 ---
 <br>
@@ -107,12 +108,12 @@
 ---
 <br>
 
- # 8. UML:
- - [UML](./UML/uml.md)
+# 8. UML:
+- [UML](./UML/uml.md)
 ---
 <br>
 
-# 9. VSCode: ![VSCode](./_img/vsc.png)
+# 9. VSCODE:
 - [VSCode](./VSCode/VSCode.md)
 - [Extensions](./VSCode/extensions.txt)
 - [Settings](./VSCode/settings.json)
