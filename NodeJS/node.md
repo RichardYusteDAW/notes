@@ -116,8 +116,9 @@ import { funcion1, funcion2, funcion3, funcion4, funcion5 } from '../path';     
 ```json
 {
   "compilerOptions": {
-    "target": "es5",                          // Versión de ECMAScript
+    "target": "es6",                          // Versión de ECMAScript
     "module": "commonjs",                     // Sistema de módulos.
+    "SourceMap": true,                        // Genera archivos .map para depurar TypeScript
     "outDir": "./dist",                       // Directorio de salida de los archivos compilados
     "strict": true,                           // Habilita todas las opciones de comprobación de TypeScript
     "moduleResolution": "node",               // Resolución de módulos
@@ -132,13 +133,16 @@ import { funcion1, funcion2, funcion3, funcion4, funcion5 } from '../path';     
 - Este comando compila todos los archivos TypeScript del proyecto y crea el directorio `dist` con los archivos JavaScript:  
 ```tsc    # Con la opción --watch (tsc -w) se compila automáticamente al guardar cambios```
 
-### 6.4. Tslint
+### 6.4. Ejecutar TypeScript
+```node dist/index.js```
+
+### 6.5. Tslint
 - TSLint es una herramienta de análisis estático de código para TypeScript que ayuda a mantener un código limpio y consistente ya que detecta errores y problemas de estilo.
 
-#### 6.4.1. Instalar TSLint
+#### 6.5.1. Instalar TSLint
 ```npm install tslint --save-dev```
 
-#### 6.4.2. Iniciar TSLint
+#### 6.5.2. Iniciar TSLint
 - Este comando crea un archivo de configuración llamado `tslint.json`:  
 ```./node_modules/.bin/tslint --init```
 ```json
@@ -155,10 +159,10 @@ import { funcion1, funcion2, funcion3, funcion4, funcion5 } from '../path';     
 }
 ```
 
-### 6.5. Instalar módulos de terceros
+### 6.6. Instalar módulos de terceros
 ```npm install @types/<package>```
 
-### 6.6. Tipado de variables
+### 6.7. Tipado de variables
 ```typescript
 let a: string = 'Hola';                   // String
 let a: number = 5;                        // Number
