@@ -2,7 +2,7 @@
 Es una librería de JavaScript para construir interfaces de usuario. Es mantenido por Facebook y la comunidad de software libre.
 
 ## 1. Web Site 🌐
-[React](https://es.reactjs.org/)
+[https://es.reactjs.org](https://es.reactjs.org)
 
 ---
 <br>
