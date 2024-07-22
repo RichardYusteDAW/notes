@@ -48,29 +48,7 @@ module.exports = {
 ---
 <br>
 
-## 4. Testear un componente 🧪
-```javascript
-import { render, screen } from '@testing-library/react';
-import Component from './Component';
-
-test('Should match with snapshot', () => {
-  const {container} = render(<Component />);
-  expect(container).toMatchSnapshot();
-});
-
-test('Should be the title, () => {
-  render(<Component />);
-  // screen.debug();
-  const title = "Hello, World!";
-  const titleElement = screen.getByText(title);
-
-  expect(titleElement).toBeInTheDocument();
-});
-```
----
-<br>
-
-## 5. Métodos de Testing Library 🧪
+## 4. Métodos de Testing Library 🧪
 - `render`: Renderiza un componente de React.
 - `screen`: Contiene funciones para buscar elementos en el DOM.
 - `fireEvent`: Dispara eventos en los elementos.
@@ -94,6 +72,49 @@ test('Should be the title, () => {
 - `getAllBy`: Busca todos los elementos por un selector.
 - `queryAllBy`: Busca todos los elementos por un selector y devuelve un array vacío si no encuentra ninguno.
 - `findAllBy`: Busca todos los elementos por un selector de forma asíncrona.
+---
+<br>
+
+## 5. Testear un componente 🧪
+```javascript
+import { render, screen } from '@testing-library/react';
+import Component from './Component';
+
+test('Should match with snapshot', () => {
+  const {container} = render(<Component />);
+  expect(container).toMatchSnapshot();
+});
+
+test('Should be the title', () => {
+  render(<Component />);
+  // screen.debug();
+  const title = "Hello, World!";
+  const titleElement = screen.getByText(title);
+
+  expect(titleElement).toBeInTheDocument();
+});
+```
+
+### 5.1. Testear eventos 🧪
+```javascript
+import { render, screen, fireEvent } from '@testing-library/react';
+import Component from './Component';
+
+test('Should update the input value when button is clicked', () => {
+  // Arrange
+  render(<Component />);
+  const input = screen.getByRole('textbox');
+  expect(input.value).toBe('10');
+
+  // Act
+  const button = screen.getByRole('button', { name: 'Increment' }); // Tiene una etiqueta aria-label="Increment"
+  fireEvent.click(button);
+
+  // Assert
+  expect(input.value).toBe('11');
+});
+```
+
 ---
 <br>
 
