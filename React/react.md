@@ -60,7 +60,88 @@ Es una librería de JavaScript para construir interfaces de usuario. Es mantenid
 ---
 <br>
 
-## 5. Componentes 🛠️
+## 5. Cargar React 📥
+### 5.1. En HTML
+- `React`: Librería principal de React.
+- `React DOM`: Librería para manipular el DOM.
+```html
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+        <title>Curso de React</title>
+    </head>
+
+    <body>
+        <div id="root"></div>
+        <script>
+            const divRoot = document.querySelector('#root');
+            const name = 'Richard';
+            const h1Tag = React.createElement('h1', null, `Hello ${name}`);
+            ReactDOM.render(h1Tag, divRoot);
+        </script>
+    </body>
+</html>
+```
+
+### 5.2. En HTML con Babel
+- `Babel`: Compilador de JavaScript que permite usar JSX en el navegador.
+```html
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <title>Curso de React</title>
+    </head>
+
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            const divRoot = document.querySelector('#root');
+            const name = 'Richard';
+            const h1Tag = <h1>Hello {name}</h1>;
+            ReactDOM.render(h1Tag, divRoot);
+        </script>
+    </body>
+</html>
+```
+
+### 5.3 Con módulos
+```html
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Curso de React</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="module" src="main.js"></script>
+    </body>
+</html>
+```
+```javascript
+// main.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import HelloWorld from './HelloWorld';
+import './styles.css';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <React.StrictMode>
+        <HelloWorld name="Richard" message="Esto es un mensaje"/>
+    </React.StrictMode>
+);
+```
+---
+<br>
+
+## 6. Componentes 🛠️
 - Son funciones de JavaScript que devuelven un elemento de React.
 ```javascript
 import React from 'react';
@@ -72,12 +153,11 @@ const HelloWorld = () => {
 export default HelloWorld;
 ```
 
-### 5.1. Props y fragmentos
+### 6.1. Props y fragmentos
 - `Props`: Son argumentos que se pasan a un componente.
-- `Fragment`: Es un componente que no renderiza nada, pero permite agrupar una lista de elementos hijos entre: <></>
+- `Fragment`: Es un componente que no renderiza nada, pero permite agrupar una lista de elementos hijos entre: `<></>`
 ```javascript
-import React from 'react';
-
+// HelloWorld.js
 const HelloWorld = (props) => ( 
     <>
         <h1>Hello {props.name}!</h1>
@@ -88,7 +168,7 @@ const HelloWorld = (props) => (
 export default HelloWorld;
 ```
 
-### 5.2. PropTypes y DefaultProps
+### 6.2. PropTypes y DefaultProps
 - `PropTypes`: Permite definir el tipo de las propiedades.
 - `DefaultProps`: Permite definir valores por defecto para las propiedades.
 
@@ -96,7 +176,7 @@ export default HelloWorld;
 npm install prop-types
 ```
 ```javascript
-import React from 'react';
+// HelloWorld.js
 import PropTypes from 'prop-types';
 
 const HelloWorld = (props) => (
@@ -119,70 +199,7 @@ HelloWorld.defaultProps = {
 ---
 <br>
 
-
-## 6. Cargar React en HTML 📥
-- `React`: Librería principal de React.
-- `React DOM`: Librería para manipular el DOM.
-- `Babel`: Compilador de JavaScript que permite usar JSX en el navegador.
-```html
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        
-        <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-
-        <title>Curso de React</title>
-    </head>
-
-    <body>
-        <div id="root"></div>
-        <script type="text/babel">
-            const divRoot = document.querySelector('#root');
-            const name = 'Richard';
-            const h1Tag = <h1>Hello {name}</h1>;
-            ReactDOM.render(h1Tag, divRoot);
-        </script>
-    </body>
-</html>
-```
----
-<br>
-
-## 7. HTML + React 📥
-```html
-<!-- index.html -->
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Curso de React</title>
-    </head>
-    <body>
-        <div id="root"></div>
-    </body>
-    <script type="module" src="main.js"></script>
-</html>
-```
-```javascript
-// main.js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import HelloWorld from './HelloWorld';
-import './styles.css';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-    <React.StrictMode>
-        <HelloWorld name="Richard" message="Esto es un mensaje"/>
-    </React.StrictMode>
-);
-```
----
-<br>
-
-## 8. Eventos 🎉
+## 7. Eventos 🎉
 | Evento React        | Descripción                                                                                    |
 |---------------------|------------------------------------------------------------------------------------------------|
 | `onBlur`            | Se dispara cuando un elemento pierde el foco.                                                  |
@@ -221,15 +238,31 @@ root.render(
 | `onTouchMove`       | Se activa cuando se mueve un dedo durante un toque en un dispositivo táctil.                   |
 | `onTouchStart`      | Se activa cuando un dedo toca un dispositivo táctil.                                           |
 | `onWheel`           | Se activa cuando se gira la rueda del ratón sobre un elemento.                                 |
+<br>
 
+Ejemplo:
+```javascript
+import React from 'react';
+
+const Button = () => {
+    const handleClick = () => {
+        alert('Hola Mundo!');
+    };
+
+    return <button onClick={handleClick}>Click me!</button>;
+}
+```
 ---
 <br>
 
-## 9. Hooks 🎣
+## 8. Hooks 🎣
 - Son funciones que permiten usar el estado y otras características de React en componentes funcionales.
 
-### 9.1. useState
+### 8.1. useState
 - Permite añadir estado a un componente funcional.
+  - `count`: Estado actual.
+  - `setCount`: Función que actualiza el estado y vuelva a renderizar el componente.
+  - `useState(0)`: Valor inicial del estado.
 ```javascript
 import { useState } from 'react';
 
@@ -245,8 +278,10 @@ const Counter = () => {
 }
 ```
 
-### 9.2. useEffect
-- Permite realizar efectos secundarios en componentes funcionales.
+### 8.2. useEffect
+- Permite realizar efectos secundarios una vez que el componente ha sido renderizado y sujeto a alguna dependencia.
+  - `useEffect(() => {}, [])`: Se ejecuta una sola vez.
+  - `useEffect(() => {}, [count])`: Se ejecuta cada vez que `count` cambia.
 ```javascript
 import { useState, useEffect } from 'react';
 
@@ -255,6 +290,12 @@ const Counter = () => {
 
     useEffect(() => {
         document.title = `Contador: ${count}`;
+
+        // Cleanup
+        return () => {
+            document.title = 'Curso de React';
+        };
+
     }, [count]);
 
     return (
@@ -264,6 +305,39 @@ const Counter = () => {
         </>
     );
 }
+```
+
+### 8.3. React.memo, useMemo y useCallback
+- `React.memo`: Permite memorizar un componente funcional.
+- `useMemo`: Permite memorizar un valor calculado.
+- `useCallback`: Permite memorizar una función.
+```javascript
+import { useState, useMemo, useCallback } from 'react';
+
+const Counter = () => {
+    const [count, setCount] = useState(0);
+
+    // Cada vez que se renderiza el componente, doubleCount seguirá siendo el mismo valor, a no ser que count cambie.
+    const doubleCount = useMemo(() => count * 2, [count]);
+
+    // useCallback para evitar re-creación innecesaria de la función
+    const handleClick = useCallback(() => setCount((prevCount) => prevCount + 1), []);
+
+    return (
+        <>
+            <h1>{count}</h1>
+            <h2>{doubleCount}</h2>
+            <button onClick={handleClick}>Incrementar</button>
+            <MemoizedChildComponent count={doubleCount} />
+        </>
+    );
+}
+
+// Componente hijo memorizado que solo se actualiza si sus props cambian
+const MemoizedChildComponent = React.memo(({ count }) => {
+    console.log('Rendering ChildComponent');
+    return <div>El doble del contador es: {count}</div>;
+});
 ```
 
 
