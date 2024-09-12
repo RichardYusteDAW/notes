@@ -181,6 +181,9 @@ switch (key) {
 	case value3 -> System.out.println("El número es 3");
 	default -> System.out.println("El número no está entre 1 y 10");
 }
+
+//ternarios:
+condicion ? valor_verdadero : valor_falso;
 ```
 <br><br>
 
@@ -302,14 +305,19 @@ int[][] matriz = {
 .remove(element)    //Elimina elementos de la colección.
 .toArray()          //Convierte la colección a un array de objetos tipo Object.
 .clear()            //Vacía la colección.
-
-//Conjuntos (No admite duplicados):
+```
+### CONJUNTOS:
+```java
+// No admiten duplicados
 HashSet<Integer> conjunto = new HashSet<>();
 Set<Integer> conjunto = new HashSet<>();
 
 Set<Integer> conjunto = Set.of(2, 10, 3, 23, 99);
+```	
 
-//Listas (Admite duplicados):
+### LISTAS:
+```java
+// Admiten duplicados
 List<Integer> lista = new ArrayList<>();
 List<Integer> lista = List.of(1, 3, 5, 67);
 
@@ -322,9 +330,11 @@ List<Integer> subList(index, index)	//Genera una sublista (una vista parcial de 
 .addAll(index,lista)    //Inserta una colección pasada por parámetro en una posición de la lista, desplazando el resto de elementos.
 .indexOf(element)       //Devuelve la posición (índice) de un elemento en la lista o -1 si el elemento no está en la lista.
 .lastIndexOf(index)     //Devuelve la última ocurrencia del objeto en la lista (dado que la lista si puede almacenar duplicados) o -1 si el elemento no está en la lista.
+```
 
-
-//Mapas (clave/valor):
+### MAPAS:
+```java
+// Clave/valor
 Map<String, Integer> diccionario = new HashMap<>();
 Map<String, Integer> diccionario = Map.of("edad", 18, "año", 2022);
 
@@ -596,6 +606,77 @@ class CocheIoCContainer{
 		return new Coche(motor);
 	}
 }
+```
+<br><br>
+
+## 31º PROGRAMACIÓN FUNCIONAL:
+### FUNCIONES LAMBDA:
+```java
+(parametros) -> { cuerpo de la función }
+```
+
+### INTERFACES FUNCIONALES:
+```java
+// Son interfaces que tienen un único método abstracto.
+@FunctionalInterface
+interface Operacion {
+	int calcular(int a, int b);
+}
+
+class Main {
+	public static void main(String[] args) {
+		Operacion suma = (a, b) -> a + b;
+		System.out.println(suma.calcular(1, 2));
+	}
+}
+
+// Interfaces funcionales predefinidas:
+Consumer<T>     //Acepta un argumento  -> NO devuelve nada.
+Predicate<T>    //Acepta un argumento  -> devuelve un booleano.
+Function<T, R>  //Acepta un argumento  -> devuelve un resultado.
+Supplier<T>     //NO acepta argumentos -> devuelve un resultado.
+```
+
+### CLASE STREAM:
+- Es una secuencia de elementos que soporta operaciones secuenciales y paralelas
+- Métodos:
+```java
+List<String> lista = Arrays.asList("uno", "dos", "tres", "cuatro", "cinco");
+
+// Intermedios:
+Stream<String> listaFiltrada = lista.stream().filter(s -> s.length() > 3);       //Filter:    Filtra los elementos de la lista.
+Stream<String> listaOrdenada = lista.stream().sorted();                          //Sorted:    Ordena los elementos de la lista.
+Stream<String> listaMapeada = lista.stream().map(s -> s.toUpperCase());          //Map:       Transforma los elementos de la lista.
+Stream<String> listaLimitada = lista.stream().limit(2);                          //Limit:     Limita el número de elementos de la lista.
+Stream<String> listaSaltada = lista.stream().skip(2);                            //Skip:      Salta los primeros elementos de la lista.
+
+// Terminales:
+lista.stream().forEach(s -> System.out.println(s));                            //ForEach:   Ejecuta una acción para cada elemento de la lista.
+List<String> listaFinal = lista.stream().toList();                             //ToList:    Convierte la lista en una lista. 
+String[] array = lista.stream().toArray(String[]::new);                        //ToArray:   Convierte la lista en un array.
+long  cantidad = lista.stream().count();                                       //Count:     Devuelve el número de elementos de la lista.
+Optional<String> listaReducida = lista.stream().reduce((s1, s2) -> s1 + s2);   //Reduce:    Reduce los elementos de la lista a un solo valor.
+Optional<String> primero = lista.stream().findFirst();                         //FindFirst: Devuelve el primer elemento de la lista.
+Optional<String> ultimo = lista.stream().findAny();                            //FindAny:   Devuelve cualquier elemento de la lista.
+boolean existe = lista.stream().anyMatch(s -> s.startsWith("c"));              //AnyMatch:  Devuelve true si algún elemento cumple la condición.
+boolean todos = lista.stream().allMatch(s -> s.length() > 3);                  //AllMatch:  Devuelve true si todos los elementos cumplen la condición.
+boolean ninguno = lista.stream().noneMatch(s -> s.startsWith("c"));            //NoneMatch: Devuelve true si ningún elemento cumple la condición.
+```
+
+### CLASE OPTIONAL:
+- Es un contenedor que puede o no contener un valor.
+- Métodos:
+```java
+Optional<String> optional = Optional.of("Hola");              //Crea un Optional con un valor.
+Optional<String> optional = Optional.ofNullable(null);        //Crea un Optional con un valor que puede ser nulo.
+Optional<String> optional = Optional.empty();                 //Crea un Optional vacío.
+
+boolean presente = optional.isPresent();                      //Devuelve true si el valor está presente.
+optional.ifPresent(s -> System.out.println(s));               //Ejecuta una acción si el valor está presente.
+String valor = optional.orElse("Valor por defecto");          //Devuelve el valor si existe, si no, devuelve el valor por defecto.
+String valor = optional.orElseGet(() -> "Valor por defecto"); //Devuelve el valor si existe, si no, devuelve el valor por defecto.
+String valor = optional.orElseThrow(() -> new Exception());   //Devuelve el valor si existe, si no, lanza una excepción.
+String valor = optional.get();                                //Devuelve el valor si existe, si no, lanza una excepción.
 ```
 <br><br><br>
 
