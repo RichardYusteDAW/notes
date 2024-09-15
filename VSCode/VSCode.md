@@ -84,6 +84,10 @@ cat extensions.txt | xargs -L 1 code --install-extension
 |------------------------------------|------------------------------|
 |  **EMMET WRAP**                    |  **EMMET WRAP**              |
 |  div.class>p>span                  |  `Ctrl + Shift + P` -> wrap  |
+|------------------------------------|------------------------------|
+|  **MAVEN**                         |  **MAVEN**                   |
+|  Sincronizar proyecto Maven        |  `Mayús + Alt + U`           |
+|  Importar librerías Maven          |  `Mayús + Alt + O`           |
 
 <br><br><br>
 
