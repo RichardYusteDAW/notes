@@ -644,23 +644,23 @@ Supplier<T>     //NO acepta argumentos -> devuelve un resultado.
 List<String> lista = Arrays.asList("uno", "dos", "tres", "cuatro", "cinco");
 
 // Intermedios:
-Stream<String> listaFiltrada = lista.stream().filter(s -> s.length() > 3);       //Filter:    Filtra los elementos de la lista.
-Stream<String> listaOrdenada = lista.stream().sorted();                          //Sorted:    Ordena los elementos de la lista.
-Stream<String> listaMapeada = lista.stream().map(s -> s.toUpperCase());          //Map:       Transforma los elementos de la lista.
-Stream<String> listaLimitada = lista.stream().limit(2);                          //Limit:     Limita el número de elementos de la lista.
-Stream<String> listaSaltada = lista.stream().skip(2);                            //Skip:      Salta los primeros elementos de la lista.
+Stream<String> listaFiltrada = lista.stream().filter(s -> s.length() > 3);   //Filter:    Filtra los elementos de la lista.
+Stream<String> listaOrdenada = lista.stream().sorted();                      //Sorted:    Ordena los elementos de la lista.
+Stream<String> listaMapeada = lista.stream().map(s -> s.toUpperCase());      //Map:       Transforma los elementos de la lista.
+Stream<String> listaLimitada = lista.stream().limit(2);                      //Limit:     Limita el número de elementos de la lista.
+Stream<String> listaSaltada = lista.stream().skip(2);                        //Skip:      Salta los primeros elementos de la lista.
 
 // Terminales:
-lista.stream().forEach(s -> System.out.println(s));                            //ForEach:   Ejecuta una acción para cada elemento de la lista.
-List<String> listaFinal = lista.stream().toList();                             //ToList:    Convierte la lista en una lista. 
-String[] array = lista.stream().toArray(String[]::new);                        //ToArray:   Convierte la lista en un array.
-long  cantidad = lista.stream().count();                                       //Count:     Devuelve el número de elementos de la lista.
-Optional<String> listaReducida = lista.stream().reduce((s1, s2) -> s1 + s2);   //Reduce:    Reduce los elementos de la lista a un solo valor.
-Optional<String> primero = lista.stream().findFirst();                         //FindFirst: Devuelve el primer elemento de la lista.
-Optional<String> ultimo = lista.stream().findAny();                            //FindAny:   Devuelve cualquier elemento de la lista.
-boolean existe = lista.stream().anyMatch(s -> s.startsWith("c"));              //AnyMatch:  Devuelve true si algún elemento cumple la condición.
-boolean todos = lista.stream().allMatch(s -> s.length() > 3);                  //AllMatch:  Devuelve true si todos los elementos cumplen la condición.
-boolean ninguno = lista.stream().noneMatch(s -> s.startsWith("c"));            //NoneMatch: Devuelve true si ningún elemento cumple la condición.
+lista.stream().forEach(s -> System.out.println(s));                          //ForEach:   Ejecuta una acción para cada elemento de la lista.
+List<String> listaFinal = lista.stream().toList();                           //ToList:    Convierte la lista en una lista. 
+String[] array = lista.stream().toArray(String[]::new);                      //ToArray:   Convierte la lista en un array.
+long  cantidad = lista.stream().count();                                     //Count:     Devuelve el número de elementos de la lista.
+Optional<String> listaReducida = lista.stream().reduce((s1, s2) -> s1 + s2); //Reduce:    Reduce los elementos de la lista a un solo valor.
+Optional<String> primero = lista.stream().findFirst();                       //FindFirst: Devuelve el primer elemento de la lista.
+Optional<String> ultimo = lista.stream().findAny();                          //FindAny:   Devuelve cualquier elemento de la lista.
+boolean existe = lista.stream().anyMatch(s -> s.startsWith("c"));            //AnyMatch:  Devuelve true si algún elemento cumple la condición.
+boolean todos = lista.stream().allMatch(s -> s.length() > 3);                //AllMatch:  Devuelve true si todos los elementos cumplen la condición.
+boolean ninguno = lista.stream().noneMatch(s -> s.startsWith("c"));          //NoneMatch: Devuelve true si ningún elemento cumple la condición.
 ```
 
 ### CLASE OPTIONAL:
