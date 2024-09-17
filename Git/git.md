@@ -24,6 +24,8 @@ git --version
 
 git config --global user.name "Usuario"
 git config --global user.email "user@hotmail.com"
+git config --global http.proxy http://172.16.0.9:8080
+git config --global https.proxy http://172.16.0.9:8080
 git config --list
 
 ~/directory/.git/config         #Archivo de configuración local de tu usuario.
@@ -45,8 +47,10 @@ git status                      #Muestra el estado del repo.
 
 git add <file>                  #Añade los archivos al STAGING.
 git restore --cached <file>     #Descarta los cambios del STAGING.
+git rm --catched <file>		    #Elimina el archivo del STAGING.
 
 git commit -m "Commit inicial"  #Pasa los archivos del STAGING al REPOSITORIO.
+git commit -am "mensaje"        #Añade y hace commit en un solo paso.
 git log                         #Lista los commits.
 
 git diff                        #Muestra los cambios realizados en el WORKING DIR.
@@ -81,6 +85,12 @@ git clone "git@github.com:usuario/repositorio.git"
 		#A veces hay que añadir la clave en Windows manualmente:
 		eval $(ssh-agent -s)
 		ssh-add /c/Users/usuario/.ssh/id_rsa
+```
+### Enlazar con el repositorio remoto:
+```bash
+git remote add origin "git@github.com:usuario/repositorio.git"
+git remote -v                   #Muestra los repositorios remotos.
+git remote set-url origin "git@github.com:usuario/repositorio.git"
 ```
 ### Subir y descargar código:
 ```bash
