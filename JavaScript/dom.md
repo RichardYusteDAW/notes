@@ -25,6 +25,7 @@ window.scroll(x, y);	                    // Desplaza la ventana a una posición 
 window.scrollTo(x, y);	                    // Desplaza la ventana a una posición específica.
 window.scrollBy(x, y);	                    // Desplaza la ventana una cantidad específica.
 ```
+
 ### 1.2. Document
 ```js
 document.URL;	                            // Devuelve la URL del documento.
@@ -43,7 +44,22 @@ document.scripts;	                        // Devuelve una colección de elemento
 document.styleSheets;	                    // Devuelve una colección de hojas de estilo del documento.
 ```
 
-### 1.3. Selectores
+### 1.3. Cookies, LocalStorage y SessionStorage
+```js
+// name=value; expires=fecha; path=path; domain=dominio; secure; samesite=strict/lax/none; max-age=segundos; HttpOnly; SameSite=Strict/Lax/None;
+document.cookie = "city=Madrid; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/; max-age=3600; secure; samesite=strict";	// Establece una cookie.
+localStorage.setItem("name", "value");	 // Almacena un valor en localStorage.
+localStorage.getItem("name");	         // Obtiene un valor de localStorage.
+localStorage.removeItem("name");	     // Elimina un valor de localStorage.
+localStorage.clear();	                 // Elimina todos los valores de localStorage.
+
+sessionStorage.setItem("name", "value"); // Almacena un valor en sessionStorage.
+sessionStorage.getItem("name");	         // Obtiene un valor de sessionStorage.
+sessionStorage.removeItem("name");	     // Elimina un valor de sessionStorage.
+sessionStorage.clear();	                 // Elimina todos los valores de sessionStorage.
+```
+
+### 1.4. Selectores
 ```js
 document.getElementById("id");		        // Devuelve el elemento con el id especificado.
 document.getElementsByClassName("clase");	// Devuelve una colección de elementos con la clase especificada.
@@ -52,7 +68,7 @@ document.querySelector("selector");		    // Devuelve el primer elemento que coin
 document.querySelectorAll("selector");	    // Devuelve todos los elementos que coincidan con el selector especificado.
 ```
 
-### 1.4. Nodos
+### 1.5. Nodos
 ```js
 element.firstChild;	                        // Devuelve el primer nodo hijo de un elemento.
 element.childNodes;	                        // Devuelve una HTMLCollection con los nodos hijos de un elemento.
@@ -65,7 +81,7 @@ element.parentNode;	                        // Devuelve el nodo padre de un elem
 element.parentElement;	                    // Devuelve el nodo padre de un elemento.
 ```
 
-### 1.5. Propiedades
+### 1.6. Propiedades
 ```js
 element.checked;	                        // Devuelve true si un elemento de formulario está marcado.
 element.className;	                        // Devuelve la clase de un elemento.
@@ -196,9 +212,6 @@ onmouseout	                                // Al mover el ratón fuera del área
 onmouseover	                                // Al mover el ratón en el área de un elemento.
 onmouseup	                                // Cuando se levanta el botón del ratón tras presionarlo.
 ```
-
-
-
 <br><br><br>
 
 ## *[volver al índice](../index.md)*

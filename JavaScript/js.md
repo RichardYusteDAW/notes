@@ -155,32 +155,7 @@ console.log(mensaje); // "Eres mayor de edad."
 ---
 <br>
 
-## 5. Métodos de String
-```javascript
-let texto = "Hola, soy Ana.";
-
-texto.length;                  // Longitud del string.
-texto.charAt(2);               // Devuelve el carácter en la posición 2.
-texto.charCodeAt(3);           // Devuelve el valor Unicode del carácter en la posición 3.
-texto.concat(" Ortiz.");       // Devuelve un nuevo string concatenando " Ortiz." al final.
-texto.startsWith("Hola");      // Devuelve true si el string empieza con "Hola".
-texto.endsWith("Ana.");        // Devuelve true si el string termina con "Ana.".
-texto.includes("soy");         // Devuelve true si el string contiene "soy".
-texto.indexOf("soy");          // Devuelve la posición de la primera ocurrencia de "soy".
-texto.lastIndexOf("a");        // Devuelve la posición de la última ocurrencia de "a".
-texto.replace("Ana", "María"); // Reemplaza "Ana" por "María".
-texto.slice(5, 8);             // Devuelve el substring desde la posición 5 hasta la 8 (sin incluirla).
-texto.split(",", 5);           // Divide el string en un array de substrings, limitado a los 5 primeros elementos.
-texto.substr(5, 3);            // Devuelve 3 caracteres a partir de la posición 5.
-texto.substring(5, 8);         // Devuelve el substring desde la posición 5 hasta la 8 (sin incluirla).
-texto.toLowerCase();           // Convierte el string a minúsculas.
-texto.toUpperCase();           // Convierte el string a mayúsculas.
-texto.trim();                  // Elimina los espacios en blanco al principio y al final del string.
-```
----
-<br>
-
-## 6. Arrays
+## 5. Arrays
 ```javascript
 let articulos = ["zapatillas", "camisa", "calcetines", "chaqueta"];
 let articulos = new Array("zapatillas", "camisa", "calcetines", "chaqueta");
@@ -197,12 +172,12 @@ articulos.unshift("balón", "raqueta"); // Agrega VARIOS campos al INICIO del ar
 
 <br><br>
 
-### 6.1. Otros métodos
+### 5.1. Otros métodos
 ```javascript
 let frutas = ["manzana", "pera", "naranja", "plátano", "fresa"];
 ```
 
-#### 6.1.1. concat()
+#### 5.1.1. concat()
 - Combina dos o más arrays.
 
 ```javascript
@@ -212,7 +187,7 @@ let alimentos = frutas.concat(verduras);
 console.log(alimentos); // ["fresa", "manzana", "naranja", "pera", "plátano", "zanahoria", "calabacín", "lechuga"]
 ```
 
-#### 6.1.2. fill()
+#### 5.1.2. fill()
 - Rellena los elementos de un array con un valor estático.
 
 ```javascript
@@ -221,7 +196,7 @@ frutas.fill("uva", 2, 4); // Rellena desde el índice 2 hasta el 4 (sin incluirl
 console.log(frutas); // ["manzana", "pera", "uva", "uva", "fresa"]
 ```
 
-#### 6.1.3. includes()
+#### 5.1.3. includes()
 - Comprueba si un array contiene un elemento.
 
 ```javascript
@@ -230,7 +205,7 @@ let contienePlatano = frutas.includes("plátano");
 console.log(contienePlatano); // true
 ```
 
-#### 6.1.4. indexOf() y lastIndexOf()
+#### 5.1.4. indexOf() y lastIndexOf()
 - Devuelve el índice de la primera ocurrencia de un elemento en el array.
 
 ```javascript
@@ -241,7 +216,7 @@ console.log(indice); // 2
 // lastIndexOf() devuelve el índice de la última ocurrencia de un elemento en el array.
 ```
 
-#### 6.1.5. join()
+#### 5.1.5. join()
 - Une todos los elementos de un array en un string.
 
 ```javascript
@@ -250,7 +225,7 @@ let frutasString = frutas.join(", ");
 console.log(frutasString); // "fresa, plátano, naranja, pera, manzana"
 ```
 
-#### 6.1.6. reverse()
+#### 5.1.6. reverse()
 - Invierte el orden de los elementos de un array.
 
 ```javascript
@@ -259,7 +234,7 @@ frutas.reverse();
 console.log(frutas); // ["fresa", "plátano", "naranja", "pera", "manzana"]
 ```
 
-#### 6.1.7. slice()
+#### 5.1.7. slice()
 - Copia una parte de un array y devuelve un nuevo array.
 
 ```javascript
@@ -268,7 +243,7 @@ let frutas2 = frutas.slice(1, 3); // Desde el índice 1 hasta el 3 (sin incluirl
 console.log(frutas2); // ["pera", "naranja"]
 ```
 
-#### 6.1.8. splice()
+#### 5.1.8. splice()
 - Añade o elimina elementos de un array.
 
 ```javascript
@@ -277,7 +252,7 @@ frutas.splice(1, 3, "uva", "sandía"); // Desde el índice 1, elimina 3 elemento
 console.log(frutas); // ["manzana", "uva", "sandía", "fresa"]
 ```
 
-#### 6.1.9. split()
+#### 5.1.9. split()
 - Divide un string en un array de substrings.
 
 ```javascript
@@ -287,7 +262,7 @@ let letras = manzana.split("");
 console.log(letras); // ["m", "a", "n", "z", "a", "n", "a"]
 ```
 
-#### 6.1.10. sort()
+#### 5.1.10. sort()
 - Ordena los elementos de un array alfabéticamente.
 
 ```javascript
@@ -298,12 +273,12 @@ console.log(frutas); // ["fresa", "manzana", "naranja", "pera", "plátano"]
 
 <br><br>
 
-### 6.2. Métodos para recorrer arrays
+### 5.2. Métodos para recorrer arrays
 ```javascript
 let colores = ["rojo", "verde", "azul", "amarillo", "naranja"];
 ```
 
-#### 6.2.1. forEach()
+#### 5.2.1. forEach()
 - Ejecuta una función por cada elemento del array.
 
 ```javascript
@@ -313,7 +288,7 @@ colores.forEach((color, index) => {
 // "1. rojo", "2. verde", "3. azul", "4. amarillo", "5. naranja"
 ```
 
-#### 6.2.2. map()
+#### 5.2.2. map()
 - Crea un nuevo array con los resultados de la función aplicada a cada elemento del array.
 
 ```javascript
@@ -322,7 +297,7 @@ let coloresMayusculas = colores.map((color) => color.toUpperCase());
 console.log(coloresMayusculas); // ["ROJO", "VERDE", "AZUL", "AMARILLO", "NARANJA"]
 ```
 
-#### 6.2.3. filter()
+#### 5.2.3. filter()
 - Crea un nuevo array con los elementos que cumplen la condición.
 
 ```javascript
@@ -330,7 +305,7 @@ let coloresCortos = colores.filter((color) => color.length <= 4);
 console.log(coloresCortos); // ["rojo", "azul"]
 ```
 
-#### 6.2.4. find()
+#### 5.2.4. find()
 - Devuelve el primer elemento que cumple la condición.
 
 ```javascript
@@ -339,7 +314,7 @@ let color = colores.find((color) => color === "verde");
 console.log(color); // "verde"
 ```
 
-#### 6.2.5. reduce()
+#### 5.2.5. reduce()
 - Aplica una función acumuladora a cada elemento del array, de izquierda a derecha, para reducirlo a un único valor.
 
 ```javascript
@@ -349,7 +324,7 @@ let suma = numeros.reduce((total, num) => total + num, 0);
 console.log(suma); // 15
 ```
 
-#### 6.2.6. some()
+#### 5.2.6. some()
 Comprueba si al menos un elemento cumple la condición.
 
 ```javascript
@@ -362,7 +337,7 @@ console.log(contieneAzul); // true
 
 <br>
 
-## 7. Objetos
+## 6. Objetos
 ```javascript
 let persona = {
   nombre: "Ana",
@@ -378,7 +353,7 @@ persona["nombre"] = "María"; // Añade el campo "nombre" al objeto y si ya exis
 
 <br>
 
-## 8. Destructuring
+## 7. Destructuring
 ```javascript
 // Destructuring de arrays
 let colores = ["rojo", "verde", "azul"];
@@ -405,7 +380,7 @@ console.log(edad); // 25
 
 <br>
 
-## 9. Spread operator
+## 8. Spread operator
 Se utiliza para expandir elementos de un array u objeto en otro array u objeto.
 
 ```javascript
@@ -426,7 +401,7 @@ console.log(persona2); // { nombre: "Ana", edad: 25, ciudad: "Madrid" }
 
 <br>
 
-## 10. Rest parameter
+## 9. Rest parameter
 Permite a una función aceptar un número indefinido de argumentos como un array.
 
 ```javascript
@@ -441,7 +416,7 @@ console.log(sumar(1, 2, 3, 4, 5)); // 15
 
 <br>
 
-## 11. For...in & For...of
+## 10. For...in & For...of
 - **For...in**: Itera sobre las propiedades de un objeto.
 - **For...of**: Itera sobre los elementos de cualquier objeto iterable(array, string, map, set, etc.).
 
@@ -463,7 +438,7 @@ for (let color of colores) {
 
 <br>
 
-## 12. Arrow functions
+## 11. Arrow functions
 ```javascript
 // Función tradicional
 function sumar(a, b) {
@@ -478,7 +453,7 @@ let sumar = (a, b) => a + b;
 
 <br>
 
-## 13. Synchronous vs Asynchronous
+## 12. Synchronous vs Asynchronous
 ```javascript
 /* Synchronous: El código se ejecuta en secuencia, línea por línea,
 asegurando que cada operación se complete antes de que comience la siguiente.*/
@@ -533,7 +508,7 @@ console.log("Segundo");
 
 <br>
 
-## 14. Callbacks
+## 13. Callbacks
 - Un callback es una función que se pasa (sin paréntesis) como argumento a otra función y se ejecuta después de que ésta termine su ejecución.
 - Se utilizan para ejecutar código después de que se haya completado una tarea asíncrona.
 
@@ -554,7 +529,7 @@ saludar("Ana", age); // "Hola Ana, tienes 25 años."
 
 <br>
 
-## 15. Promesas
+## 14. Promesas
 - Una promesa es un objeto que representa la finalización o el fracaso de una operación asíncrona.
 - Se resuelve con un valor o se rechaza con un error.
 - `resolve` y `reject` son sustitutos de return y throw.
@@ -595,7 +570,7 @@ Promise.all([promesa1, promesa2])
 
 <br>
 
-## 16. Async/await
+## 15. Async/await
 - `async` declara una función asíncrona y la convierte en una promesa.
 - `await` pausa la ejecución de la función asíncrona hasta que la promesa se resuelva, pero no detiene la ejecución del hilo principal.
 
@@ -618,4 +593,4 @@ obtenerDatos()
 
 <br><br><br>
 
-## _[volver al índice](../index.md)_
+## *[volver al índice](../index.md)*

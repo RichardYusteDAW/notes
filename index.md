@@ -51,6 +51,12 @@
 # 3. JAVASCRIPT: ![JavaScript](./_img/js.png)
 - [Conceptos](./JavaScript/js.md)
 - [DOM](./JavaScript/dom.md)
+
+## LIBRARIES:
+- [Date](./JavaScript/libraries/Date.md)
+- [Math](./JavaScript/libraries/Math.md)
+- [Number](./JavaScript/libraries/Number.md)
+- [String](./JavaScript/libraries/String.md)
 ---
 <br>
 
