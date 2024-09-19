@@ -2,12 +2,15 @@
 
 ## Instalar GIT:
 [https://git-scm.com/downloads](https://git-scm.com/downloads)
+
+---
 <br>
 
 ## Comprobar version:
 ```bash
 git --version
 ```
+---
 <br>
 
 ## Configuración:
@@ -33,6 +36,7 @@ git config --local user.name "Usuario"
 git config --local user.email "user@hotmail.com"
 git config --local --list
 ```
+---
 <br>
 
 
@@ -47,7 +51,8 @@ git status                      #Muestra el estado del repo.
 
 git add <file>                  #Añade los archivos al STAGING.
 git restore --cached <file>     #Descarta los cambios del STAGING.
-git rm --catched <file>		    #Elimina el archivo del STAGING.
+git rm --catched <file>		    #Elimina el archivo del INDEX y deja de seguirlo.
+git rm <file>                   #Elimina el archivo físicamente y del INDEX y deja de seguirlo.
 
 git commit -m "Commit inicial"  #Pasa los archivos del STAGING al REPOSITORIO.
 git commit -am "mensaje"        #Añade y hace commit en un solo paso.
@@ -69,35 +74,40 @@ git revert <hash>               #Revierte los cambios de un commit creando uno n
 git revert --continue           #Continua con el revert tras resolver los conflictos.
 git revert -n HEAD~3..HEAD      #Revertirá un rango de commit (desde el HEAD 3 hacia atrás) y no creará ningún commit con -n.
 ```
+---
 <br>
 
 		
 ## Repositorio remoto:
-### HTTPS (Pide user y password):
+### Clonar:
 ```bash
+# HTTPS (pide user y password):
 git clone "https://github.com/usuario/repositorio.git"
-```
-### SSH (Settings >> SSH Key (pegar clave pública)):
-```bash
+
+# SSH (Settings >> SSH Key (pegar clave pública)):
 git clone "git@github.com:usuario/repositorio.git"
 	#Si no poseees clave SSH:
 	ssh-keygen -t ed25519 -C "user@hotmail.com" -f ruta/nombre
-		#A veces hay que añadir la clave en Windows manualmente:
-		eval $(ssh-agent -s)
-		ssh-add /c/Users/usuario/.ssh/id_rsa
+
+	#A veces hay que añadir la clave en Windows manualmente:
+	eval $(ssh-agent -s)
+	ssh-add /c/Users/usuario/.ssh/id_rsa
 ```
+
 ### Enlazar con el repositorio remoto:
 ```bash
 git remote add origin "git@github.com:usuario/repositorio.git"
 git remote -v                   #Muestra los repositorios remotos.
 git remote set-url origin "git@github.com:usuario/repositorio.git"
 ```
+
 ### Subir y descargar código:
 ```bash
 git push origin main            #Subir. (con la opción -f --force fuerzas la subida).
 git pull origin main            #Descargar.
 git fetch origin main           #Obtiene los cambios del repo remoto pero no actualiza.
 ```
+---
 <br>
 
 	
@@ -127,6 +137,7 @@ git rebase --abort              #Aborta el rebase en caso de conflictos.
 
 git cherry-pick	<hash>          #Añade al siguiente commit un commit ya existente.
 ```
+---
 <br>
 
 ## Etiquetas:
@@ -146,20 +157,26 @@ git push origin --delete <$tag> #Elimina la etiqueta del remoto.
 git push origin <$tag>          #Publica una etiqueta en el remoto.
 git push --tags                 #Publica todas las etiquetas en el remoto.
 ```
+---
 <br>
 
 
 ## Stash:
 ```bash
 git stash                       #Guarda el working directory o el staging area en el stash.
+git stash --include-untracked   #Guarda los archivos no seguidos.
+git stash --all                 #Guarda todos los archivos (seguidos, no seguidos y los ignorados).
 git stash push -m "mensaje"     #Guarda los cambios y les asigna un mensaje descriptivo.
 git stash list                  #Muestra todos los stash (stash@{0},stash@{1},stash@{2})
 git stash show <index>          #Muestra los cambios guardados. Con -p muestra todos los detalles.
 git stash apply	<index>         #Recupera los cambios.
+git stash apply --index         #Recupera los cambios y los mantiene en el staging area.
 git stash pop <index>           #Recupera los cambios y los elimina del stash.
+git stash pop --index           #Recupera los cambios y los mantiene en el staging area.
 git stash drop <index>          #Elimina el stash.
 git stash clear                 #Elimina todas las entradas del stash.
 ```
+---
 <br>
 
 
@@ -170,6 +187,7 @@ git reflog                      #Lista todos los reflogs
 	git reflog expire --expire=now --all
 	git gc --prune=now
 ```
+---
 <br><br><br>
 
 ## *[volver al índice](../index.md)*
