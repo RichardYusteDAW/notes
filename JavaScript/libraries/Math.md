@@ -47,4 +47,4 @@ Math.atan2(1, 1);     // Arco tangente de y/x (0.7853981633974483).
 ```
 <br><br><br>
 
-## *[volver al índice](../../index.md)*
+## *[volver al índice](../../README.md)*

@@ -38,4 +38,4 @@ Conectar a la base de datos desde MongoDB Compass:
 ---
 <br><br><br>
 
-## *[volver al índice](../../index.md)*
+## *[volver al índice](../../README.md)*

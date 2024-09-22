@@ -56,4 +56,4 @@ rl.moveCursor(1, 1);                             // Mueve el cursor una posició
 ---
 <br><br><br>
 
-## *[volver al índice](../../index.md)*
+## *[volver al índice](../../README.md)*

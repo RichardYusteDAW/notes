@@ -214,4 +214,4 @@ onmouseup	                                // Cuando se levanta el botón del rat
 ```
 <br><br><br>
 
-## *[volver al índice](../index.md)*
+## *[volver al índice](../README.md)*

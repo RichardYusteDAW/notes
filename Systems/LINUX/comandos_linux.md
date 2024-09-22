@@ -599,4 +599,4 @@ Se utilizan para guardar información del sistema y del usuario.
 - **USER**: Nombre del usuario.
 <br><br><br>
 
-## *[volver al índice](../../index.md)*
+## *[volver al índice](../../README.md)*

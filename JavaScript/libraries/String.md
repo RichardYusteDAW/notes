@@ -24,4 +24,4 @@ text.trim();                  // Elimina los espacios en blanco al principio y a
 ```
 <br><br><br>
 
-## *[volver al índice](../../index.md)*
+## *[volver al índice](../../README.md)*

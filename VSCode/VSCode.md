@@ -91,4 +91,4 @@ cat extensions.txt | xargs -L 1 code --install-extension
 
 <br><br><br>
 
-## *[volver al índice](../index.md)*
+## *[volver al índice](../README.md)*

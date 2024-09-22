@@ -4,15 +4,12 @@ code F:\DAW\projects\wallacoin-node\
 
 #Chrome tabs:
 $url1 = "https://chatgpt.com/"
-$url2 = "https://github.com/RichardYusteDAW/notes/blob/master/index.md"
-$url3 = "http://localhost:8080/"
+$url2 = "http://localhost:8080/"
+$url3 = "https://github.com/RichardYusteDAW/notes"
+$file = "F:\DAW\projects\wallacoin\design\2.mockUp\MockUp2.pdf"
 
 # Open Chrome with URLs:
-Start-Process "chrome.exe" "$url1 $url2 $url3"
-
-# Open Wallacoin Mockup in Chrome:
-Start-Process "chrome.exe" "file:F:\DAW\projects\wallacoin\design\2.mockUp\MockUp2.pdf"
-
+Start-Process "chrome.exe" "$url1 $url2 $url3 $file"
 
 # Open Wallacoin directory:
 Invoke-Item "F:\DAW\projects\wallacoin-node"

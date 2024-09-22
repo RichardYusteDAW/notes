@@ -42,4 +42,4 @@ jobs:                              # jobs: Trabajos que se ejecutarán
 ***Solo se verá el workflow si se ha realizado un push o un pull request en la rama main.*
 <br><br><br>
 
-## *[volver al índice](../index.md)*
+## *[volver al índice](../README.md)*

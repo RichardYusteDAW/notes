@@ -47,4 +47,4 @@ MongoDB es una base de datos NoSQL que almacena los datos en documentos JSON.
 ---
 <br><br><br>
 
-## *[volver al índice](../../index.md)*
+## *[volver al índice](../../README.md)*

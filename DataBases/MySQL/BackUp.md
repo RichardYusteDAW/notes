@@ -48,4 +48,4 @@ copy/paste                                             #Copiar y pegar el conten
 Se puede apreciar en la imagen de ambas la pestalla `Data Import/Restore` o `Import` respectivamente.
 <br><br><br>
 
-## *[volver al índice](../../index.md)*
+## *[volver al índice](../../README.md)*

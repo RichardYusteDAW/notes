@@ -147,4 +147,4 @@ My Computer -> Right click -> Properties -> Advanced system settings
 ```
 <br><br><br>
 
-## *[volver al índice](../index.md)*
+## *[volver al índice](../README.md)*

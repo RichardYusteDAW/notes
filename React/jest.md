@@ -255,13 +255,38 @@ test('Should return an error', async () => {
 });
 ```
 
+### 7.7. Con mocks
+- `jest.fn()`: Crea una función simulada.
+- `mockResolvedValue(value)`: Establece el valor de retorno de la función simulada.
+- `mockRejectedValue(value)`: Establece el valor de error de la función simulada.
+- `mockImplementation(value)`: Establece la implementación de la función simulada.
+- `mockImplementationOnce(value)`: Establece la implementación de la función simulada una vez.
+- `toHaveBeenCalledTimes(value)`: Verifica cuántas veces se ha llamado la función simulada.
+- `toHaveBeenCalledWith(value)`: Verifica si la función simulada se ha llamado con un valor.
+- `toHaveReturnedWith(value)`: Verifica si la función simulada ha devuelto un valor.
+- `toHaveReturnedTimes(value)`: Verifica cuántas veces ha devuelto un valor la función simulada.
+- `toHaveLastReturnedWith(value)`: Verifica si la función simulada ha devuelto un valor la última vez.
+- `toHaveNthReturnedWith(value)`: Verifica si la función simulada ha devuelto un valor en la posición n.
+- `mockClear()`: Limpia la función simulada.
+- `mockReset()`: Restablece la función simulada.
+- `mockRestore()`: Restaura la función simulada.
+- `mockReturnValue(value)`: Establece el valor de retorno de la función simulada.
+- `mockReturnValueOnce(value)`: Establece el valor de retorno de la función simulada una vez.
 
+```javascript
+test('Should return user by id', async () => {
+  // Arrange
+  const expectedUser = { id: 1, name: "Richard" };
+  const getUserById = jest.fn().mockResolvedValue(expectedUser);
 
+  // Act
+  const resultUser = await getUserById(expectedUser.id);
 
-
-
-
-
+  // Assert
+  expect(resultUser).toEqual(expectedUser);
+  expect(getUserById).toHaveBeenCalledTimes(1);
+});
+```
 <br><br><br>
 
-## *[volver al índice](../index.md)*
+## *[volver al índice](../README.md)*

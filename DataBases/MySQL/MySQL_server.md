@@ -82,4 +82,4 @@ Porque queremos:
 - **Linux**: `sudo rm /etc/init.d/mysql_2`
 <br><br><br>
 
-## *[volver al índice](../../index.md)*
+## *[volver al índice](../../README.md)*

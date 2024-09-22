@@ -23,4 +23,4 @@ parseInt("123");           // Convierte un string a entero.
 ```
 <br><br><br>
 
-## *[volver al índice](../../index.md)*
+## *[volver al índice](../../README.md)*

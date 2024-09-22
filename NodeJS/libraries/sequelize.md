@@ -192,4 +192,4 @@ await User.destroy({ where: { id: 1 } });                          // Delete a u
 ```
 <br><br><br>
 
-## *[volver al índice](../../index.md)*
+## *[volver al índice](../../README.md)*

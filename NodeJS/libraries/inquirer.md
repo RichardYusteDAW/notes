@@ -140,4 +140,4 @@ Las respuestas se almacenan en un objeto con el nombre de la variable que le dim
 ---
 <br><br><br>
 
-## *[volver al índice](../../index.md)*
+## *[volver al índice](../../README.md)*
