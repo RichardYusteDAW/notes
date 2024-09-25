@@ -16,6 +16,7 @@
 - MySQL Server: [MySQL Server](./DataBases/MySQL/MySQL_server.md)
 - Copias de seguridad lógicas (Scripts): [BackUp](./DataBases/MySQL/BackUp.md)
 - Tipos de fichero: [FileTypes](./DataBases/MySQL/fileTypes.pdf)
+- Dark Theme: *[code_editor.xml](./DataBases/MySQL/code_editor.xml)*
 
 ## 2.2. MongoDB: ![MongoDB](./_img/mongo.png)
 - [MongoDB](./DataBases/mongoDB/mongoDB.md)

@@ -177,7 +177,16 @@ articulos.unshift("balón", "raqueta"); // Agrega VARIOS campos al INICIO del ar
 let frutas = ["manzana", "pera", "naranja", "plátano", "fresa"];
 ```
 
-#### 5.1.1. concat()
+#### 5.1.1. from()
+- Crea un nuevo array a partir de un objeto iterable.
+
+```javascript
+let frutasArray = Array.from("frutas");
+
+console.log(frutasArray); // ["f", "r", "u", "t", "a", "s"]
+```
+
+#### 5.1.2. concat()
 - Combina dos o más arrays.
 
 ```javascript
@@ -187,7 +196,7 @@ let alimentos = frutas.concat(verduras);
 console.log(alimentos); // ["fresa", "manzana", "naranja", "pera", "plátano", "zanahoria", "calabacín", "lechuga"]
 ```
 
-#### 5.1.2. fill()
+#### 5.1.3. fill()
 - Rellena los elementos de un array con un valor estático.
 
 ```javascript
@@ -196,7 +205,7 @@ frutas.fill("uva", 2, 4); // Rellena desde el índice 2 hasta el 4 (sin incluirl
 console.log(frutas); // ["manzana", "pera", "uva", "uva", "fresa"]
 ```
 
-#### 5.1.3. includes()
+#### 5.1.4. includes()
 - Comprueba si un array contiene un elemento.
 
 ```javascript
@@ -205,7 +214,7 @@ let contienePlatano = frutas.includes("plátano");
 console.log(contienePlatano); // true
 ```
 
-#### 5.1.4. indexOf() y lastIndexOf()
+#### 5.1.5. indexOf() y lastIndexOf()
 - Devuelve el índice de la primera ocurrencia de un elemento en el array.
 
 ```javascript
@@ -216,7 +225,7 @@ console.log(indice); // 2
 // lastIndexOf() devuelve el índice de la última ocurrencia de un elemento en el array.
 ```
 
-#### 5.1.5. join()
+#### 5.1.6. join()
 - Une todos los elementos de un array en un string.
 
 ```javascript
@@ -225,7 +234,7 @@ let frutasString = frutas.join(", ");
 console.log(frutasString); // "fresa, plátano, naranja, pera, manzana"
 ```
 
-#### 5.1.6. reverse()
+#### 5.1.7. reverse()
 - Invierte el orden de los elementos de un array.
 
 ```javascript
@@ -234,7 +243,7 @@ frutas.reverse();
 console.log(frutas); // ["fresa", "plátano", "naranja", "pera", "manzana"]
 ```
 
-#### 5.1.7. slice()
+#### 5.1.8. slice()
 - Copia una parte de un array y devuelve un nuevo array.
 
 ```javascript
@@ -243,7 +252,7 @@ let frutas2 = frutas.slice(1, 3); // Desde el índice 1 hasta el 3 (sin incluirl
 console.log(frutas2); // ["pera", "naranja"]
 ```
 
-#### 5.1.8. splice()
+#### 5.1.9. splice()
 - Añade o elimina elementos de un array.
 
 ```javascript
@@ -252,7 +261,7 @@ frutas.splice(1, 3, "uva", "sandía"); // Desde el índice 1, elimina 3 elemento
 console.log(frutas); // ["manzana", "uva", "sandía", "fresa"]
 ```
 
-#### 5.1.9. split()
+#### 5.1.10. split()
 - Divide un string en un array de substrings.
 
 ```javascript
@@ -262,7 +271,7 @@ let letras = manzana.split("");
 console.log(letras); // ["m", "a", "n", "z", "a", "n", "a"]
 ```
 
-#### 5.1.10. sort()
+#### 5.1.11. sort()
 - Ordena los elementos de un array alfabéticamente.
 
 ```javascript
@@ -314,7 +323,16 @@ let color = colores.find((color) => color === "verde");
 console.log(color); // "verde"
 ```
 
-#### 5.2.5. reduce()
+#### 5.2.5. findIndex()
+- Devuelve el índice del primer elemento que cumple la condición.
+
+```javascript
+let indice = colores.findIndex((color) => color === "verde");
+
+console.log(indice); // 1
+```
+
+#### 5.2.6. reduce()
 - Aplica una función acumuladora a cada elemento del array, de izquierda a derecha, para reducirlo a un único valor.
 
 ```javascript
@@ -324,7 +342,7 @@ let suma = numeros.reduce((total, num) => total + num, 0);
 console.log(suma); // 15
 ```
 
-#### 5.2.6. some()
+#### 5.2.7. some()
 Comprueba si al menos un elemento cumple la condición.
 
 ```javascript
