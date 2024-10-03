@@ -678,6 +678,32 @@ String valor = optional.orElseGet(() -> "Valor por defecto"); //Devuelve el valo
 String valor = optional.orElseThrow(() -> new Exception());   //Devuelve el valor si existe, si no, lanza una excepción.
 String valor = optional.get();                                //Devuelve el valor si existe, si no, lanza una excepción.
 ```
+<br>
+
+## 32º RECORD:
+- Es una clase inmutable que se utiliza para almacenar datos.
+- Crea un constructor, getters y métodos equals, hashCode y toString (con todos los campos).
+- No tiene setters.
+```java
+// @JsonProperty("nombre") se utiliza para cambiar el nombre de la propiedad en el JSON.
+public record Book(
+	String isbn,
+    String title,
+    BigDecimal price,
+    float discount,
+    String synopsis,
+    String cover,
+    List<String> genres,
+    String category,
+    @JsonProperty("publisher") PublisherCollection publisherCollection,
+    @JsonProperty("authors") List<AuthorCollection> authorsCollection
+) {
+	// Permite crear un constructor personalizado.
+	Book(String isbn,String title,BigDecimal price){
+		this(isbn, title, price, null, null, null, null, null, null, null);
+	}
+}
+```
 <br><br><br>
 
 ## *[volver al índice](../../README.md)*

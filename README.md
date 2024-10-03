@@ -36,6 +36,7 @@
  - [Color](./Java/classes/Color.java)
  - [Math](./Java/classes/Math.md)
  - [Random](./Java/classes/Random.md)
+ - [ResponseEntity](./Java/classes/ResponseEntity.md)
  - [String](./Java/classes/String.md)
  - [StringBuilder](./Java/classes/StringBuilder.md)
 
@@ -43,6 +44,7 @@
  - [JDBC](./Java/frameworks/JDBC.md)
  - [Lombok](./Java/frameworks/Lombok.md)
  - [Maven](./Java/frameworks/Maven.md)
+ - [MapStruct](./Java/frameworks/MapStruct.md)
  - [Spring_Boot](./Java/frameworks/Spring_Boot.md)
  - [Thymeleaf](./Java/frameworks/Thymeleaf.md)
 

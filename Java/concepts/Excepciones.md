@@ -4,13 +4,14 @@
 Las excepciones son errores que ocurren en tiempo de ejecución y que pueden ser capturados y tratados por el programador.  
 Las excepciones son objetos que se lanzan cuando ocurre un error en tiempo de ejecución.
 
+---
 <br>
 
 ## 2. Clasificación
 Las excepciones se clasifican en dos tipos:
 - **Excepciones comprobadas**: son aquellas que el compilador obliga a tratar.
 - **Excepciones no comprobadas**: son aquellas que el compilador no obliga a tratar.
-
+---
 <br>
 
 ## 3. Jerarquía de excepciones
@@ -33,6 +34,7 @@ OBJECT
          ├─ IndexOutOfBoundsException // Índice fuera de límites.
          └─ ArithmeticException       // Error aritmético, como división por cero.
 ```
+---
 <br>
 
 ## 4. Captura de excepciones
@@ -47,6 +49,7 @@ try {
     // Código que siempre se ejecuta.
 }
 ```
+---
 <br>
 
 ## 5. Métodos de la clase **Throwable**
@@ -56,7 +59,7 @@ try {
 - `printStackTrace()`: imprime la traza de la excepción.
 - `toString()`: devuelve una cadena que representa la excepción.
 - `getCause()`: devuelve la causa de la excepción.
-
+---
 <br>
 
 ## 6. Lanzamiento de excepciones
@@ -84,6 +87,7 @@ public void metodo() {
     throw new RuntimeException("Mensaje de error");
 }
 ```
+---
 <br>
 
 ## 7. Creación de excepciones personalizadas
@@ -112,6 +116,7 @@ try {
     System.out.println(e.getCodigo());
 }
 ```
+---
 <br>
 
 ## 8. Try-with-resources
@@ -125,6 +130,7 @@ try (BufferedReader br = new BufferedReader(new FileReader("archivo.txt"))) {
     // Código que se ejecuta si se lanza una excepción.
 }
 ```
+---
 <br>
 
 ## 9. Múltiples excepciones
@@ -161,6 +167,39 @@ try {
     // Código que se ejecuta si se lanza la excepción 1 o la excepción 2.
 }
 ```
+---
+<br>
+
+## 10. @ControllerAdvice
+- La anotación `@ControllerAdvice` se utiliza para manejar excepciones globales en una aplicación Spring.
+- Se puede utilizar para capturar excepciones de un controlador específico o de todos los controladores.
+```java
+@ControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    @ExceptionHandler({ MiExcepcion.class, MiExcepcion2.class })
+    @ResponseBody
+    public ErrorMessage notFoundRequest(Exception e) {
+        return new ErrorMessage(e.getMessage());
+    }
+
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    @ExceptionHandler(Exception.class)
+    @ResponseBody
+    public ErrorMessage internalServerError(Exception e) {
+        return new ErrorMessage(e.getMessage());
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MiExcepcion3.class)
+    @ResponseBody
+    public ErrorMessage badRequest(MiExcepcion3 e) {
+        return new ErrorMessage(e.getMessage());
+    }
+}
+```
+---
 <br><br><br>
 
 ## *[volver al índice](../../README.md)*
