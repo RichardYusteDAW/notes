@@ -5,7 +5,8 @@
   - Establecer la CONEXIÓN con la base de datos.
   - Ejecutar QUERIES.
   - Recuperar y procesar los resultados de las queries anteriores.
-<br><br>
+---
+<br>
 
 ## 2. Componentes de JDBC (Clases e interfaces):
 - `Driver Manager`: es una clase que gestiona la carga del driver de la base de datos y facilita la obtención de conexiones desde el driver adecuado (Abrir conexión, realizar consultas, cerrar conexión).
@@ -14,7 +15,8 @@
 - `Connection`: es una interfaz que representa la conexión con la base de datos.
 - `Statement`: es una interfaz que representa una sentencia SQL.
 - `ResultSet`: es una interfaz que representa el resultado de una consulta SQL.
-<br><br>
+---
+<br>
 
 ## 3. Dependecia de Maven
 ```xml
@@ -24,6 +26,7 @@
   <version>3.1.2</version>
 </dependency>
 ```
+---
 <br>
 
 ## 4. Fichero de propiedades
@@ -34,6 +37,7 @@ spring.datasource.username = USER
 spring.datasource.password = PASSWORD
 spring.datasource.driver-class-name = org.mariadb.jdbc.Driver
 ```
+---
 <br>
 
 ## 5. Clase para leer las propiedades
@@ -77,6 +81,7 @@ public class AppPropertiesReader {
     }
 }
 ```
+---
 <br>
 
 ## 6. DBConnection
@@ -105,6 +110,7 @@ public class DBConnection {
     }
 }
 ```
+---
 <br>
 
 ## 7. Consultas
@@ -183,9 +189,11 @@ try (Connection connection = new DBConnection().getConnection();                
     throw new RuntimeException("Error executing query");
 }
 ```
+---
 <br>
 
 ## 8. RawSQL
+- **RawSQL** es una clase que nos permite ejecutar consultas SQL sin tener que repetir el código de conexión y desconexión.
 ```java
 public class RawSQL {
 
@@ -270,6 +278,97 @@ public class RawSQL {
     }
 }
 ```
+---
+<br>
+
+## 9. JdbcTemplate
+- **JdbcTemplate** es una clase de Spring que simplifica el uso de JDBC y ayuda a evitar la repetición de código.
+- Necesitamos utilizar un mapper para convertir los resultados de las consultas en objetos.
+- Hay que añadir las siguientes dependencias de Maven:
+```xml
+<dependencies>
+    <!-- Spring Boot Starter JDBC para usar JdbcTemplate -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-jdbc</artifactId>
+    </dependency>
+
+    <!-- Opcional: Spring Boot Starter Data JPA, si también vas a usar JPA -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+
+    <!-- Base de datos de ejemplo: H2 (puedes cambiarlo por cualquier otra base de datos) -->
+    <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <scope>runtime</scope>
+    </dependency>
+</dependencies>
+```
+```java
+public class BookDaoImpl implements BookDao {
+
+    private final JdbcTemplate jdbcTemplate;
+
+    @Override
+    public List<Book> findAll() {
+        String sql = "SELECT * from books";
+        return jdbcTemplate.query(sql, new BookMapper());
+    }
+
+    @Override
+    public Book findByISBN(String ISBN) {
+        try {
+            String sql = "SELECT * FROM books WHERE isbn = ?";
+            return jdbcTemplate.queryForObject(sql, new BookMapper(), ISBN);
+
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    @Override
+    public Integer create(Book book) {
+        String sql = "INSERT INTO books (isbn, title, synopsis, price, publisher_id, category_id) VALUES (?, ?, ?, ?, ?, ?)";
+
+        return jdbcTemplate.update(sql, book.getISBN(), book.getTitle(), book.getSynopsis(), book.getPrice(), book.getPublisher().getId(), book getCategory().getId());
+    }
+
+    @Override
+    public Integer update(String ISBN, String title, String synopsis, BigDecimal price, Publisher publisher, Category category) {
+        String sql = "UPDATE books SET title = ?, synopsis = ?, price = ?, publisher_id = ?, category_id = ? WHERE isbn = ?";
+
+        return jdbcTemplate.update(sql, title, synopsis, price, publisher.getId(), category.getId(), ISBN);
+    }
+
+    @Override
+    public Boolean delete(String ISBN) {
+        String sql = "DELETE FROM books WHERE isbn = ?";
+
+        return jdbcTemplate.update(sql, ISBN) > 0;
+    }
+}
+```
+```java
+public class BookMapper implements RowMapper<Book> {
+
+    @Override
+    public Book mapRow(ResultSet rs, int rowNum) throws SQLException {
+        Book book = new Book();
+        book.setISBN(rs.getString("books.isbn"));
+        book.setTitle(rs.getString("books.title"));
+        book.setSynopsis(rs.getString("books.synopsis"));
+        book.setPrice(new BigDecimal(rs.getString("books.price")));
+        book.setPublisher(new Publisher(rs.getInt("publisher_id")));
+        book.setCategory(new Category(rs.getInt("category_id")));
+        return book;
+    }
+}
+```
+---
+
 <br><br><br>
 
 ## *[volver al índice](../../README.md)*

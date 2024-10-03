@@ -125,7 +125,7 @@ git branch -M <$rama>           # Renombra la rama, pero si existe una rama con 
 
 git checkout <$rama>            # Nos cambiamos de rama.
 git switch <$rama>              # Nos cambiamos de rama.
-git switch --detach orgin/main  # Nos cambiamos a una rama remota o a un commit concreto.
+git switch --detach origin/main # Nos cambiamos a una rama remota o a un commit concreto.
 git checkout -b <$rama>         # Crea una rama nueva y nos cambiamos a ella.
 
 git push -u origin <$rama>      # Publica la rama nueva (--set-upstream).

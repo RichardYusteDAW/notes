@@ -31,19 +31,22 @@
  - [Bean](./Java/concepts/Bean.md)
  - [Excepciones](./Java/concepts/Excepciones.md)
  - [Java](./Java/concepts/Java.md)
- - [JDBC](./Java/concepts/JDBC.md)
- - [Lombok](./Java/concepts/Lombok.md)
- - [Maven](./Java/concepts/Maven.md)
- - [Spring_Boot](./Java/concepts/Spring_Boot.md)
- - [Thymeleaf](./Java/concepts/Thymeleaf.md)
 
- ## 2.2. LIBRARIES:
- - [Math](./Java/libraries/Math.md)
- - [Random](./Java/libraries/Random.md)
- - [String](./Java/libraries/String.md)
- - [StringBuilder](./Java/libraries/StringBuilder.md)
+ ## 2.2. CLASSES:
+ - [Color](./Java/classes/Color.java)
+ - [Math](./Java/classes/Math.md)
+ - [Random](./Java/classes/Random.md)
+ - [String](./Java/classes/String.md)
+ - [StringBuilder](./Java/classes/StringBuilder.md)
 
- ## 2.3. TESTING:
+ ## 2.3. FRAMEWORKS:
+ - [JDBC](./Java/frameworks/JDBC.md)
+ - [Lombok](./Java/frameworks/Lombok.md)
+ - [Maven](./Java/frameworks/Maven.md)
+ - [Spring_Boot](./Java/frameworks/Spring_Boot.md)
+ - [Thymeleaf](./Java/frameworks/Thymeleaf.md)
+
+ ## 2.4. TESTING:
  - [Testing](./Java/testing/test.md)
  - [Mockito](./Java/testing/mockito.md)
  - [Bases de datos incrustadas](./Java/testing/embeddedDB.md)
