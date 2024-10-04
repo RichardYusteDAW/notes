@@ -55,17 +55,28 @@ $colors: (
    "azul": #0000FF
 );
 
+// For
 @for $i from 1 through 3 {
   .item-#{$i} {
     width: 2em * $i;
   }
 }
 
+// Each
 @each $name, $color in $colors {
   .background-#{$name} {
     background-color: $color;
   }
-} 
+}
+
+// While
+$i: 1;
+@while $i <= 3 {
+  .item-#{$i} {
+    width: 2em * $i;
+  }
+  $i: $i + 1;
+}
 ```
 ---
 <br>
