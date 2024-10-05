@@ -1,5 +1,6 @@
 # SASS
-SASS es un preprocesador de CSS que nos permite escribir CSS de una forma más sencilla y ordenada. SASS nos permite utilizar variables, funciones, mixins, anidamiento, entre otras cosas.
+SASS es un preprocesador de CSS que nos permite escribir CSS de una forma más sencilla y ordenada.  
+SASS nos permite utilizar variables, funciones, mixins, anidamiento, entre otras cosas.
 
 ## 1. Instalación
 ```bash
@@ -91,6 +92,14 @@ AAA {
   }
 }
 ```
+---
+<br>
+
+## 7. Webs para colores:
+- [Lorenzo](https://logongas.github.io/color-schemes-generator/)
+- [Data Viz Color Palette Generator](https://www.learnui.design/tools/data-color-picker.html#single)
+- [Palettte App](https://palettte.app/)
+- [ColorxColor:](https://colorcolor.in/)
 ---
 <br><br><br>
 

@@ -44,22 +44,14 @@ spring.datasource.driver-class-name = org.mariadb.jdbc.Driver
 ```java
 public class AppPropertiesReader {
 
-    // Atributos
-    private final Properties properties = new Properties();
-    private static AppPropertiesReader instance;
+    // Properties es una clase de Java que representa un conjunto de propiedades (clave-valor)
+    private static final Properties properties = new Properties();
     
-    // Constructor
-    private AppPropertiesReader() {
-        loadAppProperties();
-    }
-
-    // Método para cargar las propiedades
-    /* 
-        currentThread() devuelve el hilo actual
-        getContextClassLoader() devuelve el cargador de clases del hilo actual
-        getResourceAsStream() devuelve un flujo de entrada para leer el recurso
-    */
-    private void loadAppProperties() {
+    // Constructor estático
+    static {
+            // currentThread() devuelve el hilo actual
+            // getContextClassLoader() devuelve el cargador de clases del hilo actual
+            // getResourceAsStream() devuelve un flujo de entrada para leer el recurso
         try (InputStream input = Thread.currentThread().getContextClassLoader().getResourceAsStream("application.properties")) {
             properties.load(input);
         } catch (IOException e) {
@@ -68,16 +60,8 @@ public class AppPropertiesReader {
     }
 
     // Método para obtener una propiedad
-    public String getProperty(String key) {
+    public static String getProperty(String key) {
         return properties.getProperty(key);
-    }
-
-    // Método para obtener la instancia
-    public static AppPropertiesReader getInstance() {
-        if (instance == null) {
-            instance = new AppPropertiesReader();
-        }
-        return instance;
     }
 }
 ```
@@ -88,12 +72,12 @@ public class AppPropertiesReader {
 ```java
 public class DBConnection {
 
-    // Atributos
+    // Connection es una interfaz que representa la conexión con la base de datos
     private final Connection connection;
 
-    private final String URL = AppPropertiesReader.getInstance().getProperty("spring.datasource.url");
-    private final String USER = AppPropertiesReader.getInstance().getProperty("spring.datasource.username");
-    private final String PASSWORD = AppPropertiesReader.getInstance().getProperty("spring.datasource.password");
+    private final String URL = AppPropertiesReader.getProperty("spring.datasource.url");
+    private final String USER = AppPropertiesReader.getProperty("spring.datasource.username");
+    private final String PASSWORD = AppPropertiesReader.getProperty("spring.datasource.password");
 
     // Método para establecer la conexión
     public DBConnection() {
@@ -352,6 +336,7 @@ public class BookDaoImpl implements BookDao {
 }
 ```
 ```java
+// RowMapper es una interfaz que mapea una fila de un ResultSet a un objeto
 public class BookMapper implements RowMapper<Book> {
 
     @Override

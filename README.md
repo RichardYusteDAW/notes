@@ -71,12 +71,16 @@
 - [HTML](./LLM/HTML/html.md)
 - STYLES: 
   - CSS:
+    - [BEM](./LLM/STYLES/CSS/bem.md)
     - [CSS](./LLM/STYLES/CSS/css.md)
     - [FlexBox](./LLM/STYLES/CSS/flex.md)
     - [Grid](./LLM/STYLES/CSS/grid.md)
     - [Centrar Div](./LLM/STYLES/CSS/centrarDiv.md)
+    - [*normalize.css*](./LLM/STYLES/CSS/normalize.css)
   - [BOOTSTRAP](./LLM/STYLES/BOOTSTRAP/bootstrap.md)
-  - [SASS](./LLM/STYLES/SASS/sass.md)
+  - SASS:
+    - [*template*](./LLM/STYLES/SASS/_template)
+    - [SASS](./LLM/STYLES/SASS/sass.md)
 ---
 <br>
 
