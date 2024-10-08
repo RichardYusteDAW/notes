@@ -687,7 +687,7 @@ String valor = optional.get();                                //Devuelve el valo
 ```java
 // @JsonProperty("nombre") se utiliza para cambiar el nombre de la propiedad en el JSON.
 public record Book(
-	String isbn,
+    String isbn,
     String title,
     BigDecimal price,
     float discount,
@@ -698,10 +698,10 @@ public record Book(
     @JsonProperty("publisher") PublisherCollection publisherCollection,
     @JsonProperty("authors") List<AuthorCollection> authorsCollection
 ) {
-	// Permite crear un constructor personalizado.
-	Book(String isbn,String title,BigDecimal price){
-		this(isbn, title, price, null, null, null, null, null, null, null);
-	}
+    // Permite crear un constructor personalizado.
+    Book(String isbn,String title,BigDecimal price){
+        this(isbn, title, price, null, null, null, null, null, null, null);
+    }
 }
 ```
 <br><br><br>
