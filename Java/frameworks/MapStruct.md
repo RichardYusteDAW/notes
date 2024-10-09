@@ -1,77 +1,72 @@
 # MapStruct
 
-## 1. ¿Qué es MapStruct?
+## 1. ¿Qué es MapStruct? 🗺️
 Es una biblioteca Java que simplifica la implementación de mapeos entre beans Java. Permite generar automáticamente código de mapeo entre beans Java basado en anotaciones.
 
 ---
 <br>
 
-## 2. Dependencia Maven:
-### 2.1. Dependencia de MapStruct:
+## 2. Dependencia Maven: 📦
 ```xml
-<properties>
-    <org.mapstruct.version>1.6.2</org.mapstruct.version>
-</properties>
+<!-- Lombok MapStruct Binding is used to generate MapStruct mappers for Lombok beans -->
+ <dependencies>
+	<!-- Lombok is used to reduce boilerplate code -->
+	<dependency>
+		<groupId>org.projectlombok</groupId>
+		<artifactId>lombok</artifactId>
+		<version>1.18.34</version>
+	</dependency>
 
-<dependencies>
-    <dependency>
-        <groupId>org.mapstruct</groupId>
-        <artifactId>mapstruct</artifactId>
-        <version>${org.mapstruct.version}</version>
-    </dependency>
+	<!-- MapStruct is a mapper generator for Java bean mappings -->
+	<dependency>
+		<groupId>org.mapstruct</groupId>
+		<artifactId>mapstruct</artifactId>
+		<version>1.6.2</version>
+	</dependency>
+
+	<!-- Lombok MapStruct Binding is used to generate MapStruct mappers for Lombok beans -->
+	<dependency>
+		<groupId>org.projectlombok</groupId>
+		<artifactId>lombok-mapstruct-binding</artifactId>
+		<version>0.2.0</version>
+	</dependency>
 </dependencies>
 
 <build>
-    <plugins>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.8.1</version>
-            <configuration>
-                <source>1.8</source> <!-- depending on your project -->
-                <target>1.8</target> <!-- depending on your project -->
-                <annotationProcessorPaths>
-                    <path>
-                        <groupId>org.mapstruct</groupId>
-                        <artifactId>mapstruct-processor</artifactId>
-                        <version>${org.mapstruct.version}</version>
-                    </path>
-                    <!-- other annotation processors -->
-                </annotationProcessorPaths>
-            </configuration>
-        </plugin>
-    </plugins>
+	<plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.8.1</version>
+			<configuration>
+				<source>21</source>
+				<target>21</target>
+				<annotationProcessorPaths>
+					<path>
+						<groupId>org.projectlombok</groupId>
+						<artifactId>lombok</artifactId>
+						<version>1.18.34</version>
+					</path>
+					<path>
+						<groupId>org.projectlombok</groupId>
+						<artifactId>lombok-mapstruct-binding</artifactId>
+						<version>0.2.0</version>
+					</path>
+					<path>
+						<groupId>org.mapstruct</groupId>
+						<artifactId>mapstruct-processor</artifactId>
+						<version>1.6.2</version>
+					</path>
+				</annotationProcessorPaths>
+			</configuration>
+		</plugin>
+	</plugins>
 </build>
-```
-### 2.2. Dependencia de Lombok (opcional):
-```xml
-<properties>
-    <org.mapstruct.version>1.6.2</org.mapstruct.version>
-    <lombok-mapstruck-bindings.version>0.2.0</lombok-mapstruck-bindings.version>    
-</properties>
- 
-<annotationProcessorPaths>
-    <path>
-       <groupId>org.mapstruct</groupId>
-           <artifactId>mapstruct-processor</artifactId>
-           <version>${org.mapstruct.version}</version>
-    </path>
-    <path>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok</artifactId>
-        <version>${lombok.version}</version>
-    </path>
-    <path>
-        <groupId>org.projectlombok</groupId>
-        <artifactId>lombok-mapstruct-binding</artifactId>
-        <version>${lombok-mapstruck-bindings.version}</version>
-    </path>
-</annotationProcessorPaths>
 ```
 ---
 <br>
 
-## 3. Uso de MapStruct:
+## 3. Uso de MapStruct: 🛠️
 ### 3.1. Crear un mapper:
 - `@Mapper`: Anotación que indica que la interfaz es un mapper.
 - `@Mapping`: Anotación que indica cómo se mapean los atributos.

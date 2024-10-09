@@ -48,15 +48,15 @@ document.styleSheets;	                    // Devuelve una colección de hojas de
 ```js
 // name=value; expires=fecha; path=path; domain=dominio; secure; samesite=strict/lax/none; max-age=segundos; HttpOnly; SameSite=Strict/Lax/None;
 document.cookie = "city=Madrid; expires=Thu, 18 Dec 2023 12:00:00 UTC; path=/; max-age=3600; secure; samesite=strict";	// Establece una cookie.
-localStorage.setItem("name", "value");	 // Almacena un valor en localStorage.
-localStorage.getItem("name");	         // Obtiene un valor de localStorage.
-localStorage.removeItem("name");	     // Elimina un valor de localStorage.
-localStorage.clear();	                 // Elimina todos los valores de localStorage.
+localStorage.setItem("name", "value");	    // Almacena un valor en localStorage.
+localStorage.getItem("name");	            // Obtiene un valor de localStorage.
+localStorage.removeItem("name");	        // Elimina un valor de localStorage.
+localStorage.clear();	                    // Elimina todos los valores de localStorage.
 
-sessionStorage.setItem("name", "value"); // Almacena un valor en sessionStorage.
-sessionStorage.getItem("name");	         // Obtiene un valor de sessionStorage.
-sessionStorage.removeItem("name");	     // Elimina un valor de sessionStorage.
-sessionStorage.clear();	                 // Elimina todos los valores de sessionStorage.
+sessionStorage.setItem("name", "value");    // Almacena un valor en sessionStorage.
+sessionStorage.getItem("name");	            // Obtiene un valor de sessionStorage.
+sessionStorage.removeItem("name");	        // Elimina un valor de sessionStorage.
+sessionStorage.clear();	                    // Elimina todos los valores de sessionStorage.
 ```
 
 ### 1.4. Selectores
@@ -144,7 +144,6 @@ element.scrollIntoView();	                // Desplaza la ventana para que un ele
 <br>
 
 ## 3. Creación de elementos del DOM 🛠️
-### 3.1. Creación
 ```js
 element.cloneNode(true);	                // Clona un elemento y sus nodos hijos.
 document.createElement("etiqueta");	        // Crea un nuevo elemento con el nombre de la etiqueta especificada.
@@ -174,44 +173,66 @@ element.addEventListener("click", function, false);
 <br>
 
 ## 5. Eventos 🎉
-### 5.1. Eventos de ventana:
+### 5.1. Tipos
 ```js
+// De ventana:
 onload		                                // Se dispara cuando un recurso y sus recursos dependientes han terminado de cargar.
 onunload	                                // Se lanza al cargar otro documento o página web.
-```
+onresize                                    // Se dispara cuando se cambia el tamaño de la ventana.
+onerror                                     // Se dispara cuando se produce un error.
+onscroll                                    // Se dispara cuando se desplaza la barra de desplazamiento.
 
-### 5.2. Eventos de formularios:
-```js
+// De formularios:
 onblur		                                // Cuando un elemento pierde el foco.
 onchange	                                // Se ejecuta cuando el valor de un elemento de formulario cambia.
 onfocus		                                // Cuando un elemento obtiene el foco.
 onreset		                                // Al resetear un formulario.
 onselect	                                // Al seleccionar un elemento.
 onsubmit	                                // Al enviar un formulario.
-```
 
-### 5.3. Eventos de imágenes:
-```js
+// De imágenes:
 onabort		                                // Se produce al interrumpirse la carga de una imagen.
-```
 
-### 5.4. Eventos de teclado:
-```js
+// De teclado:
 onkeydown	                                // Cuando se presiona una tecla.
 onkeypress	                                // Al pulsar una tecla correspondiente a un carácter.
 onkeyup		                                // Cuando se levanta una tecla tras pulsarla.
-```
 
-### 5.5. Eventos del ratón:
-```js
+// De ratón:
 onclick		                                // Al hacer clic en un elemento.
 ondblclick	                                // Cuando se hace doble clic en un elemento.
+contextmenu	                                // Al hacer clic con el botón derecho del ratón.
 onmousedown	                                // Al pulsar un botón del ratón.
-onmousemove	                                // Al mover el ratón dentro del área que ocupa el elemento.
-onmouseout	                                // Al mover el ratón fuera del área del elemento.
-onmouseover	                                // Al mover el ratón en el área de un elemento.
 onmouseup	                                // Cuando se levanta el botón del ratón tras presionarlo.
+onmousemove	                                // Al mover el ratón dentro del área que ocupa el elemento.
+onmouseover	                                // Al mover el ratón en el área de un elemento.
+onmouseout	                                // Al mover el ratón fuera del área del elemento.
 ```
+
+
+### 5.2. Propiedades de eventos
+```js
+event.altKey;	                            // Devuelve true si la tecla Alt está presionada.
+event.ctrlKey;	                            // Devuelve true si la tecla Ctrl está presionada.
+event.shiftKey;	                            // Devuelve true si la tecla Shift está presionada.
+event.metaKey;	                            // Devuelve true si la tecla Meta está presionada.
+event.type;	                                // Devuelve el tipo de evento.
+event.target;	                            // Devuelve el elemento que disparó el evento.
+event.preventDefault();	                    // Cancela la acción predeterminada del evento.
+event.stopPropagation();	                // Detiene la propagación del evento (bubbling o capturing).
+event.clientX;	                            // Devuelve la posición horizontal del puntero del ratón.
+event.clientY;	                            // Devuelve la posición vertical del puntero del ratón.
+```
+
+### 5.3. Personalizados
+```js
+// Creación:
+var event = new CustomEvent("nombre", {detail: {key: "value", key2: "value2"}});
+
+// Disparo:
+element.dispatchEvent(event);
+```
+---
 <br><br><br>
 
 ## *[volver al índice](../README.md)*
