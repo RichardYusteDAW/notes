@@ -667,16 +667,18 @@ boolean ninguno = lista.stream().noneMatch(s -> s.startsWith("c"));          //N
 - Es un contenedor que puede o no contener un valor.
 - Métodos:
 ```java
-Optional<String> optional = Optional.of("Hola");              //Crea un Optional con un valor.
-Optional<String> optional = Optional.ofNullable(null);        //Crea un Optional con un valor que puede ser nulo.
-Optional<String> optional = Optional.empty();                 //Crea un Optional vacío.
+Optional<String> optionalConValor = Optional.of("Hola");          //Crea un Optional con un valor.
+Optional<String> optionalNullable = Optional.ofNullable(null);    //Crea un Optional con un valor que puede ser nulo.
+Optional<String> optionalVacio = Optional.empty();                //Crea un Optional vacío.
 
-boolean presente = optional.isPresent();                      //Devuelve true si el valor está presente.
-optional.ifPresent(s -> System.out.println(s));               //Ejecuta una acción si el valor está presente.
-String valor = optional.orElse("Valor por defecto");          //Devuelve el valor si existe, si no, devuelve el valor por defecto.
-String valor = optional.orElseGet(() -> "Valor por defecto"); //Devuelve el valor si existe, si no, devuelve el valor por defecto.
-String valor = optional.orElseThrow(() -> new Exception());   //Devuelve el valor si existe, si no, lanza una excepción.
-String valor = optional.get();                                //Devuelve el valor si existe, si no, lanza una excepción.
+boolean presente = optionalConValor.isPresent();                  //Devuelve true si el valor está presente.
+optionalConValor.ifPresent(s -> System.out.println(s));           //Ejecuta una acción si el valor está presente.
+String valor = optionalVacio.orElse("Valor por defecto");         //Devuelve el valor si existe; si no, devuelve el valor por defecto.
+String valor = optional.orElseGet(() -> getValue());              //Devuelve el valor si existe; si no, devuelve el valor devuelto por la función.
+
+String valor = optionalConValor.get();                            //Devuelve el valor si existe; si no, lanza una excepción NoSuchElementException.
+String valor = optionalConValor.orElseThrow();                    //Devuelve el valor si existe; si no, lanza una excepción NoSuchElementException.
+String valor = optionalVacio.orElseThrow(() -> new Exception());  //Devuelve el valor si existe; si no, lanza una excepción.
 ```
 <br>
 
