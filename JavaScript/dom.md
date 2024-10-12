@@ -103,6 +103,7 @@ element.value;	                            // Devuelve el valor de un elemento d
 ---
 <br>
 
+
 ## 2. Modificación de elementos del DOM 📝
 ### 2.1. Atributos
 ```js
@@ -121,7 +122,7 @@ element.classList.contains("clase");	    // Devuelve true si un elemento tiene u
 
 ### 2.3. Contenido
 ```js
-element.innerHTML = "texto";	            // Establece el contenido HTML de un elemento.
+element.innerHTML = "<p>texto</p>";	        // Establece el contenido HTML de un elemento.
 element.textContent = "texto";	            // Establece el contenido de texto de un elemento.
 ```
 
@@ -133,27 +134,54 @@ element.style.propiedad = "valor";	        // Establece un estilo CSS de un elem
 ### 2.5. Otros
 ```js
 element.focus();	                        // Establece el foco en un elemento.
+element.select();	                        // Selecciona el contenido de un elemento.
 element.blur();	                            // Quita el foco de un elemento.
-element.remove();	                        // Elimina un elemento del DOM.
-element.removeChild(nodo);	                // Elimina un nodo hijo de un elemento.
-element.replaceWith(nuevoElemento);	        // Reemplaza un elemento por otro.
-element.replaceChild(nuevoNodo, nodo);	    // Reemplaza un nodo hijo de un elemento por otro.
+element.click();	                        // Simula un clic en un elemento.
 element.scrollIntoView();	                // Desplaza la ventana para que un elemento sea visible.
 ```
 ---
 <br>
 
+
 ## 3. Creación de elementos del DOM 🛠️
 ```js
-element.cloneNode(true);	                // Clona un elemento y sus nodos hijos.
-document.createElement("etiqueta");	        // Crea un nuevo elemento con el nombre de la etiqueta especificada.
-document.createTextNode("texto");	        // Crea un nuevo nodo de texto con el texto especificado.
+// Creación:
+let element = document.createElement("etiqueta");	// Crea un nuevo elemento con el nombre de la etiqueta especificada.
+let element2 = element.cloneNode(true);	            // Clona un elemento y sus nodos hijos.
 
-element.appendChild(nodo);	                // Añade un nodo al final de la lista de nodos hijos de un elemento.
-element.insertBefore(nodo1, nodo2);	        // Inserta el nodo1 como hijo antes del nodo2.
+// Añadir atributos:
+element.createTextNode("texto");	                // Crea un nuevo nodo de texto con el texto especificado.
+element.setAttribute("atributo", "valor");	        // Establece el valor de un atributo de un elemento.
+element.id = "id";	                                // Establece el id de un elemento.
+element.className = "clase";	                    // Establece la clase de un elemento.
+element.href = "url";	                            // Establece la URL de un enlace de un elemento.
+element.src = "url";	                            // Establece la URL de la imagen de un elemento.
+
+// Añadir estilos:
+element.style.color = "red";	                    // Establece un estilo CSS de un elemento.
+element.style.backgroundColor = "blue";	            // Establece un estilo CSS de un elemento.
+
+// Añadir clases:
+element.classList.add("clase");	                    // Añade una clase a un elemento.
+
+// Añadir eventos:
+element.addEventListener("event", function);	    // Añade un evento a un elemento.
+
+// Añadir el nuevo elemento al DOM:
+element.appendChild(nodo);	                        // Añade un nodo al final de la lista de nodos hijos de un elemento.
+element.insertBefore(nodo1, nodo2);	                // Inserta el nodo1 como hijo antes del nodo2.
+
+// Eliminar el nuevo elemento del DOM:
+element.remove();	                                // Elimina un elemento del DOM.
+element.removeChild(nodo);	                        // Elimina un nodo hijo de un elemento.
+
+// Reemplazar un elemento por otro:
+element.replaceWith(nuevoElemento);	                // Reemplaza un elemento por otro.
+element.replaceChild(nuevoNodo, nodo);	            // Reemplaza un nodo hijo de un elemento por otro.
 ```
 ---
 <br>
+
 
 ## 4. Listeners 👂
 - Propagación de eventos:
@@ -171,6 +199,7 @@ element.addEventListener("click", function, false);
 ```
 ---
 <br>
+
 
 ## 5. Eventos 🎉
 ### 5.1. Tipos
@@ -209,7 +238,6 @@ onmouseover	                                // Al mover el ratón en el área de
 onmouseout	                                // Al mover el ratón fuera del área del elemento.
 ```
 
-
 ### 5.2. Propiedades de eventos
 ```js
 event.altKey;	                            // Devuelve true si la tecla Alt está presionada.
@@ -224,7 +252,18 @@ event.clientX;	                            // Devuelve la posición horizontal d
 event.clientY;	                            // Devuelve la posición vertical del puntero del ratón.
 ```
 
-### 5.3. Personalizados
+### 5.3. Propiedades de target
+```js
+event.target.id;	                        // Devuelve el id del elemento que disparó el evento.
+event.target.className;	                    // Devuelve la clase del elemento que disparó el evento.
+event.target.tagName;	                    // Devuelve el nombre de la etiqueta del elemento que disparó el evento.
+event.target.innerHTML;	                    // Devuelve el contenido HTML del elemento que disparó el evento.
+event.target.value;	                        // Devuelve el valor del elemento que disparó el evento.
+event.target.textContent;	                // Devuelve el contenido de texto del elemento que disparó el evento.
+event.target.elements;	                    // Devuelve una colección con todos los elementos de un formulario.
+```
+
+### 5.4. Personalizados
 ```js
 // Creación:
 var event = new CustomEvent("nombre", {detail: {key: "value", key2: "value2"}});
