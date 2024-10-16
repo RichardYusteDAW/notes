@@ -34,6 +34,7 @@
 
  ## 2.2. CLASSES:
  - [Color](./Java/classes/Color.java)
+ - [LocaleConfig](./Java/classes/LocaleConfig.md)
  - [Math](./Java/classes/Math.md)
  - [Random](./Java/classes/Random.md)
  - [ResponseEntity](./Java/classes/ResponseEntity.md)

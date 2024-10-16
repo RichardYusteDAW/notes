@@ -10,11 +10,11 @@
 ```javascript
 var x = 1;
 if (true) {
-  var x = 2; // Esta es la misma variable x, redeclarada.
+  var x = 2;      // Esta es la misma variable x, redeclarada.
   // x = 2;       // Esta es la misma variable x, reasignada.
   console.log(x); // 2
 }
-console.log(x); // 2
+console.log(x);   // 2
 ```
 
 `let`
@@ -26,12 +26,12 @@ console.log(x); // 2
 ```javascript
 let x = 1;
 if (true) {
-  let x = 2; // Esta es una nueva variable x, solo accesible dentro del bloque.
+  let x = 2;      // Esta es una nueva variable x, solo accesible dentro del bloque.
   // x = 2;       // Esta es la misma variable x, reasignada.
   console.log(x); // 2
 }
-// let x = 3;       // Error: Identifier 'x' has already been declared.
-console.log(x); // 1
+// let x = 3;     // Error: Identifier 'x' has already been declared.
+console.log(x);   // 1
 ```
 
 `const`
@@ -43,12 +43,12 @@ console.log(x); // 1
 ```javascript
 const x = 1;
 if (true) {
-  const x = 2; // Esta es una nueva variable x, solo accesible dentro del bloque.
+  const x = 2;    // Esta es una nueva variable x, solo accesible dentro del bloque.
   // x = 2;       // Error: Assignment to constant variable.
   console.log(x); // 2
 }
-// const x = 3;     // Error: Identifier 'x' has already been declared.
-console.log(x); // 1
+// const x = 3;   // Error: Identifier 'x' has already been declared.
+console.log(x);   // 1
 ```
 
 ---
@@ -160,13 +160,13 @@ console.log(mensaje); // "Eres mayor de edad."
 let articulos = ["zapatillas", "camisa", "calcetines", "chaqueta"];
 let articulos = new Array("zapatillas", "camisa", "calcetines", "chaqueta");
 
-articulos.length; // Tamaño del array.
-articulos[1]; // Segundo campo del array.
-articulos.push("balón"); // Agrega un campo al FINAL del array.
-articulos.pop(); // Elimina el ÚLTIMO campo del array.
-articulos.push("balón", "raqueta"); // Agrega VARIOS campos al FINAL del array.
-articulos.unshift("balón"); // Agrega un campo al INICIO del array.
-articulos.shift(); // Elimina el PRIMER campo del array.
+articulos.length;                      // Tamaño del array.
+articulos[1];                          // Segundo campo del array.
+articulos.push("balón");               // Agrega un campo al FINAL del array.
+articulos.pop();                       // Elimina el ÚLTIMO campo del array.
+articulos.push("balón", "raqueta");    // Agrega VARIOS campos al FINAL del array.
+articulos.unshift("balón");            // Agrega un campo al INICIO del array.
+articulos.shift();                     // Elimina el PRIMER campo del array.
 articulos.unshift("balón", "raqueta"); // Agrega VARIOS campos al INICIO del array.
 ```
 
@@ -202,7 +202,7 @@ console.log(alimentos); // ["fresa", "manzana", "naranja", "pera", "plátano", "
 ```javascript
 frutas.fill("uva", 2, 4); // Rellena desde el índice 2 hasta el 4 (sin incluirlo) con "uva".
 
-console.log(frutas); // ["manzana", "pera", "uva", "uva", "fresa"]
+console.log(frutas);      // ["manzana", "pera", "uva", "uva", "fresa"]
 ```
 
 #### 5.1.4. includes()
@@ -249,7 +249,7 @@ console.log(frutas); // ["fresa", "plátano", "naranja", "pera", "manzana"]
 ```javascript
 let frutas2 = frutas.slice(1, 3); // Desde el índice 1 hasta el 3 (sin incluirlo).
 
-console.log(frutas2); // ["pera", "naranja"]
+console.log(frutas2);             // ["pera", "naranja"]
 ```
 
 #### 5.1.9. splice()
@@ -363,7 +363,7 @@ let persona = {
   ciudad: "Madrid",
 };
 
-persona.nombre = "María"; // Añade el campo "nombre" al objeto y si ya existe lo sobreescribe.
+persona.nombre = "María";    // Añade el campo "nombre" al objeto y si ya existe lo sobreescribe.
 persona["nombre"] = "María"; // Añade el campo "nombre" al objeto y si ya existe lo sobreescribe.
 ```
 
@@ -380,9 +380,9 @@ let colores = ["rojo", "verde", "azul"];
 //let azul = colores[2];
 let [rojo, verde, azul] = colores;
 
-console.log(rojo); // "rojo"
-console.log(verde); // "verde"
-console.log(azul); // "azul"
+console.log(rojo);   // "rojo"
+console.log(verde);  // "verde"
+console.log(azul);   // "azul"
 
 // Destructuring de objetos
 let persona = { nombre: "Ana", edad: 25 };
@@ -391,7 +391,7 @@ let persona = { nombre: "Ana", edad: 25 };
 let { nombre, edad } = persona;
 
 console.log(nombre); // "Ana"
-console.log(edad); // 25
+console.log(edad);   // 25
 ```
 
 ---

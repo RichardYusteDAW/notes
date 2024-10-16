@@ -146,38 +146,38 @@ element.scrollIntoView();	                // Desplaza la ventana para que un ele
 ## 3. Creación de elementos del DOM 🛠️
 ```js
 // Creación:
-let element = document.createElement("etiqueta");	// Crea un nuevo elemento con el nombre de la etiqueta especificada.
-let element2 = element.cloneNode(true);	            // Clona un elemento y sus nodos hijos.
+let element = document.createElement("etiqueta"); // Crea un nuevo elemento con el nombre de la etiqueta especificada.
+let element2 = element.cloneNode(true);	          // Clona un elemento y sus nodos hijos.
 
 // Añadir atributos:
-element.createTextNode("texto");	                // Crea un nuevo nodo de texto con el texto especificado.
-element.setAttribute("atributo", "valor");	        // Establece el valor de un atributo de un elemento.
-element.id = "id";	                                // Establece el id de un elemento.
-element.className = "clase";	                    // Establece la clase de un elemento.
-element.href = "url";	                            // Establece la URL de un enlace de un elemento.
-element.src = "url";	                            // Establece la URL de la imagen de un elemento.
+element.createTextNode("texto");	              // Crea un nuevo nodo de texto con el texto especificado.
+element.setAttribute("atributo", "valor");	      // Establece el valor de un atributo de un elemento.
+element.id = "id";	                              // Establece el id de un elemento.
+element.className = "clase";	                  // Establece la clase de un elemento.
+element.href = "url";	                          // Establece la URL de un enlace de un elemento.
+element.src = "url";	                          // Establece la URL de la imagen de un elemento.
 
 // Añadir estilos:
-element.style.color = "red";	                    // Establece un estilo CSS de un elemento.
-element.style.backgroundColor = "blue";	            // Establece un estilo CSS de un elemento.
+element.style.color = "red";	                  // Establece un estilo CSS de un elemento.
+element.style.backgroundColor = "blue";	          // Establece un estilo CSS de un elemento.
 
 // Añadir clases:
-element.classList.add("clase");	                    // Añade una clase a un elemento.
+element.classList.add("clase");	                  // Añade una clase a un elemento.
 
 // Añadir eventos:
-element.addEventListener("event", function);	    // Añade un evento a un elemento.
+element.addEventListener("event", function);	  // Añade un evento a un elemento.
 
 // Añadir el nuevo elemento al DOM:
-element.appendChild(nodo);	                        // Añade un nodo al final de la lista de nodos hijos de un elemento.
-element.insertBefore(nodo1, nodo2);	                // Inserta el nodo1 como hijo antes del nodo2.
+element.appendChild(nodo);	                      // Añade un nodo al final de la lista de nodos hijos de un elemento.
+element.insertBefore(nodo1, nodo2);	              // Inserta el nodo1 como hijo antes del nodo2.
 
 // Eliminar el nuevo elemento del DOM:
-element.remove();	                                // Elimina un elemento del DOM.
-element.removeChild(nodo);	                        // Elimina un nodo hijo de un elemento.
+element.remove();	                              // Elimina un elemento del DOM.
+element.removeChild(nodo);	                      // Elimina un nodo hijo de un elemento.
 
 // Reemplazar un elemento por otro:
-element.replaceWith(nuevoElemento);	                // Reemplaza un elemento por otro.
-element.replaceChild(nuevoNodo, nodo);	            // Reemplaza un nodo hijo de un elemento por otro.
+element.replaceWith(nuevoElemento);	              // Reemplaza un elemento por otro.
+element.replaceChild(nuevoNodo, nodo);	          // Reemplaza un nodo hijo de un elemento por otro.
 ```
 ---
 <br>
@@ -205,62 +205,62 @@ element.addEventListener("click", function, false);
 ### 5.1. Tipos
 ```js
 // De ventana:
-onload		                                // Se dispara cuando un recurso y sus recursos dependientes han terminado de cargar.
-onunload	                                // Se lanza al cargar otro documento o página web.
-onresize                                    // Se dispara cuando se cambia el tamaño de la ventana.
-onerror                                     // Se dispara cuando se produce un error.
-onscroll                                    // Se dispara cuando se desplaza la barra de desplazamiento.
+onload		               // Se dispara cuando un recurso y sus recursos dependientes han terminado de cargar.
+onunload	               // Se lanza al cargar otro documento o página web.
+onresize                   // Se dispara cuando se cambia el tamaño de la ventana.
+onerror                    // Se dispara cuando se produce un error.
+onscroll                   // Se dispara cuando se desplaza la barra de desplazamiento.
 
 // De formularios:
-onblur		                                // Cuando un elemento pierde el foco.
-onchange	                                // Se ejecuta cuando el valor de un elemento de formulario cambia.
-onfocus		                                // Cuando un elemento obtiene el foco.
-onreset		                                // Al resetear un formulario.
-onselect	                                // Al seleccionar un elemento.
-onsubmit	                                // Al enviar un formulario.
+onblur		               // Cuando un elemento pierde el foco.
+onchange	               // Se ejecuta cuando el valor de un elemento de formulario cambia.
+onfocus		               // Cuando un elemento obtiene el foco.
+onreset		               // Al resetear un formulario.
+onselect	               // Al seleccionar un elemento.
+onsubmit	               // Al enviar un formulario.
 
 // De imágenes:
-onabort		                                // Se produce al interrumpirse la carga de una imagen.
+onabort		               // Se produce al interrumpirse la carga de una imagen.
 
 // De teclado:
-onkeydown	                                // Cuando se presiona una tecla.
-onkeypress	                                // Al pulsar una tecla correspondiente a un carácter.
-onkeyup		                                // Cuando se levanta una tecla tras pulsarla.
+onkeydown	               // Cuando se presiona una tecla.
+onkeypress	               // Al pulsar una tecla correspondiente a un carácter.
+onkeyup		               // Cuando se levanta una tecla tras pulsarla.
 
 // De ratón:
-onclick		                                // Al hacer clic en un elemento.
-ondblclick	                                // Cuando se hace doble clic en un elemento.
-contextmenu	                                // Al hacer clic con el botón derecho del ratón.
-onmousedown	                                // Al pulsar un botón del ratón.
-onmouseup	                                // Cuando se levanta el botón del ratón tras presionarlo.
-onmousemove	                                // Al mover el ratón dentro del área que ocupa el elemento.
-onmouseover	                                // Al mover el ratón en el área de un elemento.
-onmouseout	                                // Al mover el ratón fuera del área del elemento.
+onclick		               // Al hacer clic en un elemento.
+ondblclick	               // Cuando se hace doble clic en un elemento.
+contextmenu	               // Al hacer clic con el botón derecho del ratón.
+onmousedown	               // Al pulsar un botón del ratón.
+onmouseup	               // Cuando se levanta el botón del ratón tras presionarlo.
+onmousemove	               // Al mover el ratón dentro del área que ocupa el elemento.
+onmouseover	               // Al mover el ratón en el área de un elemento.
+onmouseout	               // Al mover el ratón fuera del área del elemento.
 ```
 
 ### 5.2. Propiedades de eventos
 ```js
-event.altKey;	                            // Devuelve true si la tecla Alt está presionada.
-event.ctrlKey;	                            // Devuelve true si la tecla Ctrl está presionada.
-event.shiftKey;	                            // Devuelve true si la tecla Shift está presionada.
-event.metaKey;	                            // Devuelve true si la tecla Meta está presionada.
-event.type;	                                // Devuelve el tipo de evento.
-event.target;	                            // Devuelve el elemento que disparó el evento.
-event.preventDefault();	                    // Cancela la acción predeterminada del evento.
-event.stopPropagation();	                // Detiene la propagación del evento (bubbling o capturing).
-event.clientX;	                            // Devuelve la posición horizontal del puntero del ratón.
-event.clientY;	                            // Devuelve la posición vertical del puntero del ratón.
+event.altKey;	           // Devuelve true si la tecla Alt está presionada.
+event.ctrlKey;	           // Devuelve true si la tecla Ctrl está presionada.
+event.shiftKey;	           // Devuelve true si la tecla Shift está presionada.
+event.metaKey;	           // Devuelve true si la tecla Meta está presionada.
+event.type;	               // Devuelve el tipo de evento.
+event.target;	           // Devuelve el elemento que disparó el evento.
+event.preventDefault();	   // Cancela la acción predeterminada del evento.
+event.stopPropagation();   // Detiene la propagación del evento (bubbling o capturing).
+event.clientX;	           // Devuelve la posición horizontal del puntero del ratón.
+event.clientY;	           // Devuelve la posición vertical del puntero del ratón.
 ```
 
 ### 5.3. Propiedades de target
 ```js
-event.target.id;	                        // Devuelve el id del elemento que disparó el evento.
-event.target.className;	                    // Devuelve la clase del elemento que disparó el evento.
-event.target.tagName;	                    // Devuelve el nombre de la etiqueta del elemento que disparó el evento.
-event.target.innerHTML;	                    // Devuelve el contenido HTML del elemento que disparó el evento.
-event.target.value;	                        // Devuelve el valor del elemento que disparó el evento.
-event.target.textContent;	                // Devuelve el contenido de texto del elemento que disparó el evento.
-event.target.elements;	                    // Devuelve una colección con todos los elementos de un formulario.
+event.target.id;	       // Devuelve el id del elemento que disparó el evento.
+event.target.className;	   // Devuelve la clase del elemento que disparó el evento.
+event.target.tagName;	   // Devuelve el nombre de la etiqueta del elemento que disparó el evento.
+event.target.innerHTML;	   // Devuelve el contenido HTML del elemento que disparó el evento.
+event.target.value;	       // Devuelve el valor del elemento que disparó el evento.
+event.target.textContent;  // Devuelve el contenido de texto del elemento que disparó el evento.
+event.target.elements;	   // Devuelve una colección con todos los elementos de un formulario.
 ```
 
 ### 5.4. Personalizados

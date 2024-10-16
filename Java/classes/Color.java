@@ -7,15 +7,15 @@ public class Color {
     private static final String BLUE = "\u001B[34m";
 
     // Methods
-    public static String red(String text) {
-        return RED + text + RESET;
+    public static void red(String text) {
+        System.out.println(RED + text + RESET);
     }
 
-    public static String green(String text) {
-        return GREEN + text + RESET;
+    public static void green(String text) {
+        System.out.println(GREEN + text + RESET);
     }
 
-    public static String blue(String text) {
-        return BLUE + text + RESET;
+    public static void blue(String text) {
+        System.out.println(BLUE + text + RESET);
     }
 }
