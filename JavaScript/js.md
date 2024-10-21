@@ -423,11 +423,11 @@ console.log(persona2); // { nombre: "Ana", edad: 25, ciudad: "Madrid" }
 Permite a una función aceptar un número indefinido de argumentos como un array.
 
 ```javascript
-function sumar(...numeros) {
+function sumar(a, b, ...numeros) {
   return numeros.reduce((total, num) => total + num, 0);
 }
 
-console.log(sumar(1, 2, 3, 4, 5)); // 15
+console.log(sumar(1, 2, 3, 4, 5)); // 12
 ```
 
 ---
