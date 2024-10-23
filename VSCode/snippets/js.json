@@ -1,0 +1,11 @@
+{
+    "Fat Arrow Function": {
+        "prefix": "fat",
+        "body": [
+            "($1) => {",
+            "\t$2",
+            "}"
+        ],
+        "description": "Create a fat arrow function"
+    }
+}
