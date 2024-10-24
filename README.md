@@ -33,13 +33,16 @@
  - [Java](./Java/concepts/Java.md)
 
  ## 2.2. CLASSES:
- - [Color](./Java/classes/Color.java)
  - [LocaleConfig](./Java/classes/LocaleConfig.md)
  - [Math](./Java/classes/Math.md)
  - [Random](./Java/classes/Random.md)
  - [ResponseEntity](./Java/classes/ResponseEntity.md)
  - [String](./Java/classes/String.md)
  - [StringBuilder](./Java/classes/StringBuilder.md)
+ - Custom:
+   - [Color](./Java/classes/custom/Color.java)
+   - [Paginator](./Java/classes/custom/Paginator.java)
+   
 
  ## 2.3. FRAMEWORKS:
  - [JDBC](./Java/frameworks/JDBC.md)

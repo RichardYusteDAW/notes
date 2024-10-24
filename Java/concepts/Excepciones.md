@@ -177,25 +177,50 @@ try {
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+    /*
+    Si se lanza una excepción de tipo MiExcepcion o MiExcepcion2, se devuelve:
+      - Código de estado HTTP 404 (NOT_FOUND).
+      - Objeto ErrorMessage en formato JSON.
+    */
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler({ MiExcepcion.class, MiExcepcion2.class })
     @ResponseBody
     public ErrorMessage notFoundRequest(Exception e) {
-        return new ErrorMessage(e.getMessage());
+        return new ErrorMessage(e);
     }
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public ErrorMessage internalServerError(Exception e) {
-        return new ErrorMessage(e.getMessage());
+        return new ErrorMessage(e);
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MiExcepcion3.class)
     @ResponseBody
     public ErrorMessage badRequest(MiExcepcion3 e) {
-        return new ErrorMessage(e.getMessage());
+        return new ErrorMessage(e);
+    }
+}
+```
+```java
+public class ErrorMessage {
+
+    private final String error;
+    private final String message;
+
+    public ErrorMessage(Exception exception) {
+        this.error = exception.getClass().getSimpleName();
+        this.message = exception.getMessage();
+    }
+
+    public String getError(){
+        return error;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }
 ```
