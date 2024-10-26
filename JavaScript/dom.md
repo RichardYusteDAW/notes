@@ -240,27 +240,27 @@ onmouseout                 // Al mover el ratón fuera del área del elemento.
 
 ### 5.2. Propiedades de eventos
 ```js
-event.altKey;              // Devuelve true si la tecla Alt está presionada.
-event.ctrlKey;             // Devuelve true si la tecla Ctrl está presionada.
-event.shiftKey;            // Devuelve true si la tecla Shift está presionada.
-event.metaKey;             // Devuelve true si la tecla Meta está presionada.
-event.type;                // Devuelve el tipo de evento.
-event.target;              // Devuelve el elemento que disparó el evento.
 event.preventDefault();    // Cancela la acción predeterminada del evento.
 event.stopPropagation();   // Detiene la propagación del evento (bubbling o capturing).
+event.altKey;              // Devuelve true si la tecla Alt está presionada.
 event.clientX;             // Devuelve la posición horizontal del puntero del ratón.
 event.clientY;             // Devuelve la posición vertical del puntero del ratón.
+event.ctrlKey;             // Devuelve true si la tecla Ctrl está presionada.
+event.metaKey;             // Devuelve true si la tecla Meta está presionada.
+event.shiftKey;            // Devuelve true si la tecla Shift está presionada.
+event.target;              // Devuelve el elemento que disparó el evento.
+event.type;                // Devuelve el tipo de evento.
 ```
 
 ### 5.3. Propiedades de target
 ```js
-event.target.id;           // Devuelve el id del elemento que disparó el evento.
 event.target.className;    // Devuelve la clase del elemento que disparó el evento.
-event.target.tagName;      // Devuelve el nombre de la etiqueta del elemento que disparó el evento.
-event.target.innerHTML;    // Devuelve el contenido HTML del elemento que disparó el evento.
-event.target.value;        // Devuelve el valor del elemento que disparó el evento.
-event.target.textContent;  // Devuelve el contenido de texto del elemento que disparó el evento.
 event.target.elements;     // Devuelve una colección con todos los elementos de un formulario.
+event.target.id;           // Devuelve el id del elemento que disparó el evento.
+event.target.innerHTML;    // Devuelve el contenido HTML del elemento que disparó el evento.
+event.target.tagName;      // Devuelve el nombre de la etiqueta del elemento que disparó el evento.
+event.target.textContent;  // Devuelve el contenido de texto del elemento que disparó el evento.
+event.target.value;        // Devuelve el valor del elemento que disparó el evento.
 ```
 
 ### 5.4. Personalizados
@@ -272,6 +272,152 @@ var event = new CustomEvent("nombre", {detail: {key: "value", key2: "value2"}});
 element.dispatchEvent(event);
 ```
 ---
+<br>
+
+
+## 6. Formularios 📝
+### 6.1. Elementos
+```html
+<form>                                <!-- Formulario -->
+    <fieldset>                        <!-- Grupo de campos -->
+        <legend></legend>             <!-- Leyenda -->
+        <label for=""></label>        <!-- Etiqueta -->
+        <input type="text">           <!-- Campo de texto -->
+        <input type="password">       <!-- Campo de contraseña -->
+        <input type="email">          <!-- Campo de correo electrónico -->
+        <input type="number">         <!-- Campo de número -->
+        <input type="checkbox">       <!-- Casilla de verificación -->
+        <input type="radio">          <!-- Botón de radio -->
+        <input type="file">           <!-- Campo de archivo -->
+        <input type="hidden">         <!-- Campo oculto -->
+        <input type="image">          <!-- Imagen -->
+        <input type="color">          <!-- Selector de color -->
+        <input type="date">           <!-- Selector de fecha -->
+        <input type="datetime-local"> <!-- Selector de fecha y hora -->
+        <input type="month">          <!-- Selector de mes -->
+        <input type="range">          <!-- Selector de rango -->
+        <input type="search">         <!-- Campo de búsqueda -->
+        <input type="tel">            <!-- Campo de teléfono -->
+        <input type="time">           <!-- Selector de hora -->
+        <input type="url">            <!-- Campo de URL -->
+        <input type="week">           <!-- Selector de semana -->
+        <textarea></textarea>         <!-- Área de texto -->
+        <select>                      <!-- Lista desplegable -->
+            <option></option>         <!-- Opción de lista desplegable -->
+        </select>            
+    </fieldset>       
+        
+    <input type="reset">              <!-- Botón de reset -->
+    <input type="submit">             <!-- Botón de envío -->
+    <input type="button">             <!-- Botón -->
+    <button></button>                 <!-- Botón -->
+</form>
+```
+
+### 6.2. Propiedades
+```js
+// Form:
+element.form;                         // Devuelve el formulario al que pertenece un elemento.
+element.form.elements;                // Devuelve una colección con todos los elementos de un formulario.
+element.form.submit();                // Envía un formulario.
+element.form.reset();                 // Resetea un formulario.
+element.form.checkValidity();         // Comprueba si los campos de un formulario son válidos.
+element.form.reportValidity();        // Muestra un mensaje de error si los campos de un formulario no son válidos.
+
+// Input:
+element.accept;                       // Devuelve los tipos de archivo aceptados por un campo de archivo.
+element.autocomplete;                 // Devuelve el estado de autocompletado de un campo de formulario.
+element.autofocus;                    // Devuelve true si un campo de formulario tiene el foco.
+element.checked;                      // Devuelve true si un campo de formulario está marcado.
+element.defaultValue;                 // Devuelve el valor predeterminado de un campo de formulario.
+element.disabled;                     // Devuelve true si un campo de formulario está deshabilitado.
+element.files;                        // Devuelve los archivos seleccionados por un campo de archivo.
+element.labels;                       // Devuelve una colección de etiquetas asociadas a un campo de formulario.
+element.list;                         // Devuelve la lista de opciones asociada a un campo de texto.
+element.max;                          // Devuelve el valor máximo de un campo de formulario.
+element.maxLength;                    // Devuelve la longitud máxima de un campo de formulario.
+element.min;                          // Devuelve el valor mínimo de un campo de formulario.
+element.minLength;                    // Devuelve la longitud mínima de un campo de formulario.
+element.multiple;                     // Devuelve true si un campo de formulario permite múltiples selecciones.
+element.name;                         // Devuelve el nombre de un campo de formulario.
+element.pattern;                      // Devuelve la expresión regular de validación de un campo de formulario.
+element.placeholder;                  // Devuelve el texto de marcador de posición de un campo de formulario.
+element.readOnly;                     // Devuelve true si un campo de formulario es de solo lectura.
+element.required;                     // Devuelve true si un campo de formulario es obligatorio.
+element.size;                         // Devuelve el tamaño de un campo de formulario.
+element.step;                         // Devuelve el incremento de un campo de formulario.
+element.type;                         // Devuelve el tipo de un campo de formulario.
+element.value;                        // Devuelve el valor de un campo de formulario.
+element.stepDown();                   // Disminuye el valor de un campo de número.
+element.stepUp();                     // Aumenta el valor de un campo de número.
+
+// Select:
+element.options;                      // Devuelve una colección con las opciones de un campo de lista desplegable.
+element.selectedIndex;                // Devuelve el índice de la opción seleccionada de un campo de lista desplegable.
+element.selectedOptions;              // Devuelve una colección con las opciones seleccionadas de un campo de lista desplegable.
+element.add(new Option("texto", "valor"));  // Añade una opción a un campo de lista desplegable.
+element.remove(index);                // Elimina una opción de un campo de lista desplegable.
+
+// Option:
+element.text;                         // Devuelve el texto de una opción.
+element.value;                        // Devuelve el valor de una opción.
+element.selected;                     // Devuelve true si una opción está seleccionada.
+
+// Textarea:
+element.cols;                         // Devuelve el número de columnas de un área de texto.
+element.rows;                         // Devuelve el número de filas de un área de texto.
+
+// Button:
+element.formAction;                   // Devuelve la URL de acción de un botón de envío.
+element.formEnctype;                  // Devuelve el tipo de codificación de un botón de envío.
+element.formMethod;                   // Devuelve el método de envío de un botón de envío.
+element.formNoValidate;               // Devuelve true si un botón de envío no valida un formulario.
+element.formTarget;                   // Devuelve el destino de un botón de envío.
+element.type;                         // Devuelve el tipo de un botón.
+element.name;                         // Devuelve el nombre de un botón.
+element.value;                        // Devuelve el valor de un botón.
+element.disabled;                     // Devuelve true si un botón está deshabilitado.
+
+```
+
+### 6.3. Eventos
+```js
+element.onblur;                       // Se dispara cuando un campo de formulario pierde el foco.
+element.onchange;                     // Se dispara cuando el valor de un campo de formulario cambia y se pierde el foco.
+element.onclick;                      // Se dispara cuando se hace clic en un campo de formulario.
+element.onfocus;                      // Se dispara cuando un campo de formulario obtiene el foco.
+element.oninput;                      // Se dispara cuando el valor de un campo de formulario cambia.
+element.onkeydown;                    // Se dispara cuando se presiona una tecla en un campo de formulario.
+element.onkeypress;                   // Se dispara cuando se pulsa una tecla en un campo de formulario.
+element.onkeyup;                      // Se dispara cuando se levanta una tecla en un campo de formulario.
+element.onreset;                      // Se dispara cuando se resetea un formulario.
+element.onselect;                     // Se dispara cuando se selecciona un campo de formulario.
+element.onsubmit;                     // Se dispara cuando se envía un formulario.
+```
+
+### 6.4. Validación (Expresiones regulares)
+- `^`: Inicio de la cadena.
+- `$`: Fin de la cadena.
+- `.`: Cualquier carácter.
+- `*`: Cero o más veces.
+- `+`: Una o más veces.
+- `?`: Cero o una vez.
+- `\d`: Dígitos.
+- `\D`: No dígitos.
+- `\w`: Caracteres alfanuméricos.
+- `\W`: No caracteres alfanuméricos.
+- `\s`: Espacios en blanco.
+- `\S`: No espacios en blanco.
+- `[]`: Lista de caracteres.
+- `[^]`: Lista de caracteres negada.
+- `|`: OR.
+- `()`: Agrupación.
+- `x{n}`: Exactamente n veces.
+- `x{n,}`: Al menos n veces.
+- `x{n,m}`: Entre n y m veces.
+
+---
+
 <br><br><br>
 
 ## *[volver al índice](../README.md)*
