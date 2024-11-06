@@ -272,12 +272,30 @@ console.log(letras); // ["m", "a", "n", "z", "a", "n", "a"]
 ```
 
 #### 5.1.11. sort()
-- Ordena los elementos de un array alfabéticamente.
+- Ordena los elementos de un array.
 
 ```javascript
-frutas.sort();
-
+// Ordena alfabéticamente.
+frutas.sort((a,b)=>{
+  if(a<b) return -1;
+  if(a>b) return 1;
+  return 0;
+})
+frutas.sort(); // Manera abreviada de ordenar alfabéticamente.
 console.log(frutas); // ["fresa", "manzana", "naranja", "pera", "plátano"]
+
+// Ordena alfabéticamente en orden inverso.
+frutas.sort((a, b) => b.localeCompare(a));
+console.log(frutas); // ["plátano", "pera", "naranja", "manzana", "fresa"]
+
+// Ordena numéricamente.
+let numeros = [3, 5, 2, 4, 1];
+numeros.sort((a, b) => a - b);
+console.log(numeros); // [1, 2, 3, 4, 5]
+
+// Ordena numéricamente en orden inverso.
+numeros.sort((a, b) => b - a);
+console.log(numeros); // [5, 4, 3, 2, 1]
 ```
 
 <br><br>

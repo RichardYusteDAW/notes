@@ -46,7 +46,7 @@ Define un tamaño mínimo y máximo para una fila o columna de la cuadrícula.
 grid-template-columns: repeat(3, minmax(100px, 1fr)); /* 3 columnas de mínimo 100px y máximo 1fr */
 ```
 - auto-fill y auto-fit:  
-Auto-fill: **Rellena** el espacio con el tamaño mínimo. Puede haber columnas vacías. 
+Auto-fill: **Rellena** el espacio con el tamaño mínimo. Puede haber columnas vacías.  
 Auto-fit: **Ajusta** el tamaño de las columnas al espacio disponible. Nunca habrá columnas vacías.
 ```css
 grid-template-columns: repeat(
