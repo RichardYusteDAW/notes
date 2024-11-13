@@ -62,6 +62,9 @@
 # 3. JAVASCRIPT: ![JavaScript](./_img/js.png)
 - [Conceptos](./JavaScript/js.md)
 - [DOM](./JavaScript/dom.md)
+- [JsonServer](./JavaScript/jsonServer.md)
+- [Postman](./JavaScript/postman.md)
+- [XMLHttpRequest](./JavaScript/XMLHttpRequest.md)
 
 ## LIBRARIES:
 - [Date](./JavaScript/libraries/Date.md)
