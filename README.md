@@ -1,6 +1,7 @@
 # 1. GIT: ![Git](./_img/git.png)
 - [git](./Git/git.md)
 - [gitFlow](./Git/gitFlow.md)
+- [lorenzoFlow](./Git/lorenzoFlow.md)
 - [gitHub Actions](./Git/gitHubActions.md)
 ---
 <br>
