@@ -18,7 +18,7 @@ xhr.send([body]);
 // 5º Recibir respuesta
 xhr.onload = () => {
     if (xhr.status == 200) {
-        console.log(`Estaod: ${xhr.status}`);
+        console.log(`Estado: ${xhr.status}`);
         console.log(`Respuesta: ${xhr.response}`);
     } else {
         console.log(`Error: ${xhr.status}`);

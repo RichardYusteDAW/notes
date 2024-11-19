@@ -66,6 +66,7 @@
 - [JsonServer](./JavaScript/jsonServer.md)
 - [Postman](./JavaScript/postman.md)
 - [XMLHttpRequest](./JavaScript/XMLHttpRequest.md)
+- [Fetch](./JavaScript/fetch.md)
 
 ## LIBRARIES:
 - [Date](./JavaScript/libraries/Date.md)
