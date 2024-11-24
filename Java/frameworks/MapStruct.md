@@ -67,6 +67,10 @@ Es una biblioteca Java que simplifica la implementación de mapeos entre beans J
 <br>
 
 ## 3. Uso de MapStruct: 🛠️
+- Utiliza los getters y setters para mapear los atributos. 
+- Si no existen los getters y setters busca los atributos PÚBLICOS.
+- Si la clase target tiene más atributos que la clase source, MapStruct mapeará esos atributos con valores por defecto (null, 0, false).
+
 ### 3.1. Crear un mapper:
 - `@Mapper`: Anotación que indica que la interfaz es un mapper.
 - `@Mapping`: Anotación que indica cómo se mapean los atributos.
