@@ -102,7 +102,23 @@ AAA {
 ---
 <br>
 
-## 7. Mixins
+## 7. Funciones
+- Las funciones devuelven un valor.
+```scss
+@function getBorderSize($size) {
+  @return 10px * $size;
+}
+
+// Uso
+.c-button {
+  border: getBorderSize(2) solid #00FF00;
+}
+```
+---
+<br>
+
+## 8. Mixins
+- Los son funciones diseñadas para devolver código CSS.
 ```scss
 @mixin box-shadow($shadow...) {
   -webkit-box-shadow: $shadow;
@@ -113,20 +129,6 @@ AAA {
 // Uso
 .c-button {
   @include box-shadow(2px 10px 24px #FF0000);
-}
-```
----
-<br>
-
-## 8. Funciones
-```scss
-@function getBorderSize($size) {
-  @return 10px * $size;
-}
-
-// Uso
-.c-button {
-  border: getBorderSize(2) solid #00FF00;
 }
 ```
 ---
@@ -148,20 +150,28 @@ $color: 'red';
 <br>
 
 ## 10. Listas
+- Las listas son colecciones ordenadas de valores.
+- `index($list, $value)`: Devuelve el índice de un valor en una lista.
+- `nth($list, $n)`: Devuelve el valor en la posición n de una lista.
+- `length($list)`: Devuelve la longitud de una lista.
 ```scss
 $colors: #FF0000 #00FF00 #0000FF;
 $colors2: #FF0000, #00FF00, #0000FF;
 $colors3: (#FF0000, #00FF00, #0000FF);
 
 // Uso
-$index: 2;
-$valor: nth($colors, $index); // #00FF00
-$length: length($colors);     // 3
+$index: index($colors, #00FF00); // 2
+$valor: nth($colors, $index);    // #00FF00
+$length: length($colors);        // 3
 ```
 ---
 <br>
 
 ## 11. Mapas
+- Los mapas son listas de pares clave-valor.
+- `map-get($map, $key)`: Obtiene el valor de una clave.
+- `map-keys($map)`: Devuelve una lista con las claves.
+- `map-values($map)`: Devuelve una lista con los valores.
 ```scss
 $colors: (
   "rojo": #FF0000, 
