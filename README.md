@@ -29,8 +29,9 @@
 # 2. JAVA: ![Java](./_img/java.png)
 - Template: *[Template](./Java/_template)*
  ## 2.1. CONCEPTS:
+ - [Annotations](./Java/concepts/Annotations.md)
  - [Bean](./Java/concepts/Bean.md)
- - [Excepciones](./Java/concepts/Excepciones.md)
+ - [Exceptions](./Java/concepts/Exceptions.md)
  - [Java](./Java/concepts/Java.md)
 
  ## 2.2. CLASSES:
