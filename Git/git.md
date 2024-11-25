@@ -226,7 +226,7 @@ git reflog                      # Lista todos los reflogs
 git log                         # Muestra el historial de commits.
 git log --oneline               # Muestra el historial de commits en una sola línea.
 git log --graph                 # Muestra el historial de commits en forma de grafo.
-git log --no-pager              # Muestra el historial de commits sin paginar.
+git --no-pager log              # Muestra el historial de commits sin paginar.
 git log --pretty=oneline        # Muestra el historial de commits en una sola línea.
 git log --pretty=format:"%h %s" # Muestra el historial de commits con el formato indicado.
 git log --pretty=tformat:"%h %s" --date=format:"%d/%m/%Y" # Muestra el historial de commits con el formato indicado.
