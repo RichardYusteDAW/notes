@@ -62,18 +62,59 @@
 <br>
 
 # 3. JAVASCRIPT: ![JavaScript](./_img/js.png)
-- [Conceptos](./JavaScript/js.md)
-- [DOM](./JavaScript/dom.md)
-- [JsonServer](./JavaScript/jsonServer.md)
-- [Postman](./JavaScript/postman.md)
-- [XMLHttpRequest](./JavaScript/XMLHttpRequest.md)
-- [Fetch](./JavaScript/fetch.md)
+## 3.1. CONCEPTS:
+- [JavaScript](./JavaScript/concepts/js.md)
+- [DOM](./JavaScript/concepts/dom.md)
 
-## LIBRARIES:
+## 3.2. LIBRARIES:
 - [Date](./JavaScript/libraries/Date.md)
 - [Math](./JavaScript/libraries/Math.md)
 - [Number](./JavaScript/libraries/Number.md)
 - [String](./JavaScript/libraries/String.md)
+- [XMLHttpRequest](./JavaScript/libraries/XMLHttpRequest.md)
+- [Fetch](./JavaScript/libraries/fetch.md)
+
+## 3.3. TOOLS:
+- [JsonServer](./JavaScript/tools/jsonServer.md)
+- [Postman](./JavaScript/tools/postman.md)
+
+## 3.4. FRAMEWORKS:
+#### 3.4.1 NODEJS: ![NodeJS](./_img/node.png)
+- Template: *[Template](./JavaScript/frameworks/NodeJS/_template)*
+
+#### 3.4.1.1. CONCEPTS:
+- [NodeJS](./JavaScript/frameworks/NodeJS/node.md)
+- [Learnyounode](./JavaScript/frameworks/NodeJS/learnyounode.md)
+- [Code Status](./JavaScript/frameworks/NodeJS/codeStatus.png)
+
+#### 3.4.1.2. LIBRARIES:
+- [BCryptjs](./JavaScript/frameworks/NodeJS/libraries/bcryptjs.md)
+- [Colors](./JavaScript/frameworks/NodeJS/libraries/colors.md)
+- [DotEnv](./JavaScript/frameworks/NodeJS/libraries/dotenv.md)
+- [FileSystem](./JavaScript/frameworks/NodeJS/libraries/fileSystem.md)
+- [Inquirer](./JavaScript/frameworks/NodeJS/libraries/inquirer.md)
+- [JasonWebToken](./JavaScript/frameworks/NodeJS/libraries/jwt.md)
+- [MySQL2](./JavaScript/frameworks/NodeJS/libraries/mysql2.md)
+- [Mongoose](./JavaScript/frameworks/NodeJS/libraries/mongoose.md)
+- [ReadLine](./JavaScript/frameworks/NodeJS/libraries/readline.md)
+- [Sequelize](./JavaScript/frameworks/NodeJS/libraries/sequelize.md)
+- [Yargs](./JavaScript/frameworks/NodeJS/libraries/yargs.md)
+- Express:
+  - [Express](./JavaScript/frameworks/NodeJS/libraries/express/express.md)
+  - [Express-validator](./JavaScript/frameworks/NodeJS/libraries/express/express-validator.md)
+  - [Cors](./JavaScript/frameworks/NodeJS/libraries/express/cors.md)
+  - [Handlebars](./JavaScript/frameworks/NodeJS/libraries/express/handlebars.md)
+  - [Router](./JavaScript/frameworks/NodeJS/libraries/express/router.md)
+  - [Session](./JavaScript/frameworks/NodeJS/libraries/express/express-session.md)
+  - [Socket.io](./JavaScript/frameworks/NodeJS/libraries/express/socket-io.md)
+
+#### 3.4.2. REACT: ![React](./_img/react.png)
+- [React](./React/react.md)
+- [Jest](./React/jest.md)
+- [Testing Library](./React/testingLibrary.md)
+
+#### 3.4.3. ANGULAR: ![Angular](./_img/angular.png)
+- [Angular](./JavaScript/frameworks/Angular/angular.md)
 ---
 <br>
 
@@ -94,45 +135,7 @@
 ---
 <br>
 
-# 6. NODEJS: ![NodeJS](./_img/node.png)
-- Template: *[Template](./NodeJS/_template)*
-
-## 6.1. CONCEPTS:
-- [NodeJS](./NodeJS/node.md)
-- [Learnyounode](./NodeJS/learnyounode.md)
-- [Code Status](./NodeJS/codeStatus.png)
-
-## 6.2. LIBRARIES:
-- [BCryptjs](./NodeJS/libraries/bcryptjs.md)
-- [Colors](./NodeJS/libraries/colors.md)
-- [DotEnv](./NodeJS/libraries/dotenv.md)
-- [FileSystem](./NodeJS/libraries/fileSystem.md)
-- [Inquirer](./NodeJS/libraries/inquirer.md)
-- [JasonWebToken](./NodeJS/libraries/jwt.md)
-- [MySQL2](./NodeJS/libraries/mysql2.md)
-- [Mongoose](./NodeJS/libraries/mongoose.md)
-- [ReadLine](./NodeJS/libraries/readline.md)
-- [Sequelize](./NodeJS/libraries/sequelize.md)
-- [Yargs](./NodeJS/libraries/yargs.md)
-- Express:
-  - [Express](./NodeJS/libraries/express/express.md)
-  - [Express-validator](./NodeJS/libraries/express/express-validator.md)
-  - [Cors](./NodeJS/libraries/express/cors.md)
-  - [Handlebars](./NodeJS/libraries/express/handlebars.md)
-  - [Router](./NodeJS/libraries/express/router.md)
-  - [Session](./NodeJS/libraries/express/express-session.md)
-  - [Socket.io](./NodeJS/libraries/express/socket-io.md)
----
-<br>
-
-# 7. REACT: ![React](./_img/react.png)
-- [React](./React/react.md)
-- [Jest](./React/jest.md)
-- [Testing Library](./React/testingLibrary.md)
----
-<br>
-
-# 8. SYSTEMS: ![Systems](./_img/systems.png)
+# 5. SYSTEMS: ![Systems](./_img/systems.png)
 - [AWS](./Systems/aws.md)
 - [Windows Server](./Systems/winServer.md)
 - [Ubuntu Server](./Systems/ubuntuServer.md)
@@ -143,12 +146,12 @@
 ---
 <br>
 
- # 9. UML:
+ # 6. UML:
  - [UML](./UML/uml.md)
 ---
 <br>
 
-# 10. VSCode: ![VSCode](./_img/vsc.png)
+# 7. VSCode: ![VSCode](./_img/vsc.png)
 - [VSCode](./VSCode/VSCode.md)
 - [Extensions](./VSCode/extensions.txt)
 - [Settings](./VSCode/settings.json)

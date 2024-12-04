@@ -14,6 +14,8 @@ UPDATE nombre_tabla SET columna1 = valor1, columna2 = valor2, ... WHERE condicio
 <br>
 
 ## ELIMINAR DATOS EN UNA TABLA
+- `DELETE FROM nombre_tabla` eliminaría todos los registros de la tabla. (Esta opción está deshabilitada por defecto en MySQL).
+- `SET SQL_SAFE_UPDATES = 0` habilitaría dicha opción.
 ```sql
 DELETE FROM nombre_tabla WHERE condicion;
 ```
