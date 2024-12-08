@@ -72,7 +72,7 @@
 - [Number](./JavaScript/libraries/Number.md)
 - [String](./JavaScript/libraries/String.md)
 - [XMLHttpRequest](./JavaScript/libraries/XMLHttpRequest.md)
-- [Fetch](./JavaScript/libraries/fetch.md)
+- [Fetch](./JavaScript/libraries/Fetch.md)
 
 ## 3.3. TOOLS:
 - [JsonServer](./JavaScript/tools/jsonServer.md)
