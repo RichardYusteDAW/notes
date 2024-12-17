@@ -28,6 +28,7 @@ ng e2e                    # Ejecuta las pruebas end-to-end
 
 ng generate module <nombre-modulo>         # Crea un nuevo módulo (ng g m mymodule)
 ng generate component <nombre-componente>  # Crea un nuevo componente (ng g c mycomponent)
+ng generate interface <nombre-interfaz>    # Crea una nueva interfaz (ng g i myinterface)
 ```
 - Preguntas durante la creación de un nuevo proyecto:
   - 1ª. ¿Te gustaría habilitar la **autocompletación**?
@@ -146,20 +147,15 @@ Ciclo de vida de un componente:
 <br>
 
 
-## 8. Directivas 📏
-- Son instrucciones en el DOM que cambian la apariencia o el comportamiento de un elemento.
-- Se pueden crear directivas personalizadas.
-- Se utilizan en el HTML con el prefijo `*`.
-```html
-<p *ngIf="condition">Texto</p>  <!-- Directiva estructural -->
-<p [ngStyle]="{color: 'red'}">Texto</p>  <!-- Directiva de atributo -->
-```
----
-<br>
-
-## 9. Data binding 📊
+## 8. Data binding 📊
 - Es la sincronización de datos entre el modelo y la vista.
 ```typescript
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet, FormsModule], // Importar el módulo FormsModule para poder usar ngModel.
+  templateUrl: './app.component.html'
+  styleUrl: './app.component.css'
+})
 export class AppComponent {
   title = 'myproject';
   url = 'https://example.com';
@@ -173,10 +169,40 @@ export class AppComponent {
 <p>{{ title }}</p>                             <!-- Interpolación -->
 <img [src]="url">                              <!-- Property binding -->
 <button (click)="handler()">Click me</button>  <!-- Event binding -->
-<input [(ngModel)]="name">                     <!-- Two-way binding -->
+<input [(ngModel)]="name">                     <!-- Two-way binding (Requiere importar FormsModule) -->
 ```
 ---
+<br>
 
+
+## 9. Directivas 📏
+- Son instrucciones en el DOM que cambian la apariencia o el comportamiento de un elemento.
+- Se pueden crear directivas personalizadas.
+- Se utilizan en el HTML con el prefijo `*`.
+```html
+<p *ngIf="condition">Texto</p>                 <!-- Directiva estructural -->
+<p [ngStyle]="{color: 'red'}">Texto</p>        <!-- Directiva de atributo -->
+```
+---
+<br>
+
+## 10. Instalar Bootstrap 📦
+```bash
+npm install bootstrap jquery @popperjs/core
+```
+- Añadir las rutas de los archivos CSS y JS en el archivo `angular.json`.
+```json
+"styles": [
+  "node_modules/bootstrap/dist/css/bootstrap.min.css",
+  "src/styles.css"
+],
+"sripts": [
+  "node_modules/jquery/dist/jquery.min.js",
+  "node_modules/@popperjs/core/dist/umd/popper.min.js",
+  "node_modules/bootstrap/dist/js/bootstrap.min.js"
+]
+```
+---
 <br><br><br>
 
 ## *[volver al índice](../../../README.md)*
