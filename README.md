@@ -136,13 +136,7 @@
 <br>
 
 # 5. SYSTEMS: ![Systems](./_img/systems.png)
-- [AWS](./Systems/aws.md)
-- [Windows Server](./Systems/winServer.md)
-- [Ubuntu Server](./Systems/ubuntuServer.md)
-- Linux:
-  - [Árbol de directorios](./Systems/LINUX/arbol_directorios.jpg)
-  - [Comandos](./Systems/LINUX/Comandos_linux.md)
-- [ngrok](./Systems/ngrok.md)
+- [Systems](https://github.com/RichardYusteDAW/asir/blob/master/README.md)
 ---
 <br>
 
