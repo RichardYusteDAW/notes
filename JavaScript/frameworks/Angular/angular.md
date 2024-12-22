@@ -16,7 +16,7 @@ npm install -g @angular/cli
 <br>
 
 
-## 3. Comandos ng 📦
+## 3. Comandos ng 🖥️
 ```bash
 ng --version              # Muestra la versión de Angular CLI
 ng new <nombre-proyecto>  # Crea un nuevo proyecto
@@ -29,6 +29,7 @@ ng e2e                    # Ejecuta las pruebas end-to-end
 ng generate module <nombre-modulo>         # Crea un nuevo módulo (ng g m mymodule)
 ng generate component <nombre-componente>  # Crea un nuevo componente (ng g c mycomponent)
 ng generate interface <nombre-interfaz>    # Crea una nueva interfaz (ng g i myinterface)
+ng generate service <nombre-servicio>      # Crea un nuevo servicio (ng g s myservice)
 ```
 - Preguntas durante la creación de un nuevo proyecto:
   - 1ª. ¿Te gustaría habilitar la **autocompletación**?
@@ -85,9 +86,9 @@ ng generate interface <nombre-interfaz>    # Crea una nueva interfaz (ng g i myi
   "start": "ng serve",
   "build": "ng build",
   "watch": "ng build --watch --configuration development",
-  "lint": "ng lint",
-  "test": "ng test",
-  "e2e": "ng e2e"
+   "lint": "ng lint",
+   "test": "ng test",
+    "e2e": "ng e2e"
 }
 ```
 ---
@@ -180,13 +181,60 @@ export class AppComponent {
 - Se pueden crear directivas personalizadas.
 - Se utilizan en el HTML con el prefijo `*`.
 ```html
-<p *ngIf="condition">Texto</p>                 <!-- Directiva estructural -->
-<p [ngStyle]="{color: 'red'}">Texto</p>        <!-- Directiva de atributo -->
+<!-- *ngIf -->
+<p *ngIf="isLogged; else noLogged">El usuario está logueado</p>
+<ng-template #noLogged>
+  <p>El usuario no está logueado</p>
+</ng-template>
+
+<!-- @if -->
+@if(isLogged) {
+  <p>El usuario está logueado</p>
+} @else {
+  <p>El usuario no está logueado</p>
+}
+
+<!-- *ngSwitch -->
+<div [ngSwitch]="color">
+  <p *ngSwitchCase="'red'">El color es rojo</p>
+  <p *ngSwitchCase="'blue'">El color es azul</p>
+  <p *ngSwitchDefault>El color es otro</p>
+</div>
+
+<!-- @switch -->
+@switch(color) {
+  @case('red') {
+    <p>El color es rojo</p>
+  }
+  @case('blue') {
+    <p>El color es azul</p>
+  }
+  @default {
+    <p>El color es otro</p>
+  }
+}
+
+<!-- *ngFor -->
+<ul>
+  <ng-container *ngFor="item of items">
+    <li>{{ item.name }}</li>
+  </ng-container>
+</ul>
+
+<!-- @for -->
+<ul>
+  @for(item of items) {
+    <li>{{ item.name }}</li>
+  }
+  @empty {
+    <li>No hay elementos</li>
+  }
+</ul>
 ```
 ---
 <br>
 
-## 10. Instalar Bootstrap 📦
+## 10. Instalar Bootstrap 🎨
 ```bash
 npm install bootstrap jquery @popperjs/core
 ```
@@ -196,11 +244,118 @@ npm install bootstrap jquery @popperjs/core
   "node_modules/bootstrap/dist/css/bootstrap.min.css",
   "src/styles.css"
 ],
-"sripts": [
+"scripts": [
   "node_modules/jquery/dist/jquery.min.js",
   "node_modules/@popperjs/core/dist/umd/popper.min.js",
   "node_modules/bootstrap/dist/js/bootstrap.min.js"
 ]
+```
+---
+<br>
+
+
+## 11. Comunicación entre componentes 📡
+### 11.1. De padre a hijo (@Input)
+```typescript
+// PADRE
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-father',
+  templateUrl: './father.component.html'
+})
+export class FatherComponent {
+  title = 'myproject';
+}
+```
+```typescript
+// HIJO
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  templateUrl: './child.component.html'
+})
+export class ChildComponent {
+  @Input() title: string;
+}
+```
+```html
+<!-- PADRE -->
+<app-child [title]="title"></app-child>
+
+<!-- HIJO -->
+<p>{{ title }}</p>
+```
+
+### 11.2. De hijo al padre (@Output)
+```typescript
+// PADRE
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-father',
+  templateUrl: './father.component.html'
+})
+export class FatherComponent {
+  title = 'myproject';
+  saludarDesdeElPadre(saludo: string) {
+    console.log(saludo);
+  }
+}
+```
+```typescript
+// HIJO
+import { Component, Output, EventEmitter } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  templateUrl: './child.component.html'
+})
+export class ChildComponent {
+  @Output() eventoSaludo = new EventEmitter<string>();
+  saludarDesdeElHijo() {
+    this.eventoSaludo.emit('Hola desde el hijo');
+  }
+}
+```
+```html
+<!-- PADRE -->
+<app-child (eventoSaludo)="saludarDesdeElPadre($event)"></app-child>
+
+<!-- HIJO -->
+<button (click)="saludarDesdeElHijo()">Saludar</button>
+```
+
+### 11.3. Desde cualquier componente (Servicios)
+- `@Injectable`: Se utiliza para inyectar un servicio en un componente.
+```typescript
+// SERVICIO
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DataService {
+  data = 'Hola desde el servicio';
+}
+```
+```typescript
+// COMPONENTE
+import { Component } from '@angular/core';
+import { DataService } from './data.service';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html'
+})
+export class AppComponent {
+  constructor(private dataService: DataService) {}
+
+  ngOnInit() {
+    console.log(this.dataService.data);
+  }
+}
 ```
 ---
 <br><br><br>
