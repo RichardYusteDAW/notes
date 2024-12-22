@@ -1,6 +1,6 @@
 # JDBC
 
-## 1. Definición
+## 1. Definición 📚
 - **JDBC (Java Database Connectivity)** es una API que nos permite realizar 3 tareas fundamentales:
   - Establecer la CONEXIÓN con la base de datos.
   - Ejecutar QUERIES.
@@ -8,7 +8,7 @@
 ---
 <br>
 
-## 2. Componentes de JDBC (Clases e interfaces):
+## 2. Componentes de JDBC (Clases e interfaces): 🧩
 - `Driver Manager`: es una clase que gestiona la carga del driver de la base de datos y facilita la obtención de conexiones desde el driver adecuado (Abrir conexión, realizar consultas, cerrar conexión).
 - `DataSource`: es una interfaz que representa una fuente de datos (Tenemos un pool de conexiones y podemos pedir una conexión de ese pool que esté disponible).
 - `Driver`: es una interfaz que se implementa para conectarse a una base de datos.
@@ -18,7 +18,7 @@
 ---
 <br>
 
-## 3. Dependecia de Maven
+## 3. Dependecia de Maven 📦
 ```xml
 <dependency>
   <groupId>org.mariadb.jdbc</groupId>
@@ -29,7 +29,7 @@
 ---
 <br>
 
-## 4. Fichero de propiedades
+## 4. Fichero de propiedades 📄
 `resources/application.properties`
 ```properties
 spring.datasource.url = jdbc:mariadb://localhost:3306/DB_NAME
@@ -40,7 +40,7 @@ spring.datasource.driver-class-name = org.mariadb.jdbc.Driver
 ---
 <br>
 
-## 5. Clase para leer las propiedades
+## 5. Clase para leer las propiedades 📝
 ```java
 public class AppPropertiesReader {
 
@@ -68,7 +68,7 @@ public class AppPropertiesReader {
 ---
 <br>
 
-## 6. DBConnection
+## 6. DBConnection 🔌
 ```java
 public class DBConnection {
 
@@ -97,17 +97,17 @@ public class DBConnection {
 ---
 <br>
 
-## 7. Consultas
+## 7. Consultas 🔍
 - **Statement**: para ejecutar sentencias SQL simples sin parámetros.
 - **PreparedStatement**: para ejecutar sentencias SQL con parámetros.
 - **CallableStatement**: para ejecutar procedimientos almacenados con parámetros de entrada y salida.
 
-### 7.1 Métodos
+### 7.1 Métodos 🧮
 - **execute()**: para ejecutar cualquier tipo de sentencia SQL. Devuelve TRUE si el primer resultado es un objeto ResultSet.
 - **executeQuery()**: para ejecutar sentencias SELECT. Devuelve un objeto ResultSet.
 - **executeUpdate()**: para ejecutar sentencias INSERT, UPDATE o DELETE. Devuelve el número de filas afectadas.
 
-#### 7.1.2 Statement
+#### 7.1.2 Statement 
 ```java
 String sql = "SELECT * FROM movies";
 try (Connection connection = new DBConnection().getConnection(); // Abrimos la conexión
@@ -147,7 +147,7 @@ try (Connection connection = new DBConnection().getConnection();               /
 }
 ```
 
-### 7.2 Parámetros en las consultas
+### 7.2 Parámetros en las consultas 🛠
 ```java
 String sql = """
     INSERT INTO person (id, name, height, image, description, last_update, birth_date) 
@@ -176,7 +176,7 @@ try (Connection connection = new DBConnection().getConnection();                
 ---
 <br>
 
-## 8. RawSQL
+## 8. RawSQL 
 - **RawSQL** es una clase que nos permite ejecutar consultas SQL sin tener que repetir el código de conexión y desconexión.
 ```java
 public class RawSQL {
@@ -265,7 +265,7 @@ public class RawSQL {
 ---
 <br>
 
-## 9. JdbcTemplate
+## 9. JdbcTemplate 📋
 - **JdbcTemplate** es una clase de Spring que simplifica el uso de JDBC y ayuda a evitar la repetición de código.
 - Necesitamos utilizar un mapper para convertir los resultados de las consultas en objetos.
 - Hay que añadir las siguientes dependencias de Maven:

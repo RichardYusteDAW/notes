@@ -48,6 +48,7 @@
 
  ## 2.3. FRAMEWORKS:
  - [JDBC](./Java/frameworks/JDBC.md)
+ - [JPA](./Java/frameworks/JPA.md)
  - [Lombok](./Java/frameworks/Lombok.md)
  - [Maven](./Java/frameworks/Maven.md)
  - [MapStruct](./Java/frameworks/MapStruct.md)
