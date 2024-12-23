@@ -80,15 +80,23 @@
 - [Postman](./JavaScript/tools/postman.md)
 
 ## 3.4. FRAMEWORKS:
-#### 3.4.1 NODEJS: ![NodeJS](./_img/node.png)
+### 3.4.1. ANGULAR: ![Angular](./_img/angular.png)
+- [Angular](./JavaScript/frameworks/Angular/angular.md)
+
+### 3.4.2. REACT: ![React](./_img/react.png)
+- [React](./React/react.md)
+- [Jest](./React/jest.md)
+- [Testing Library](./React/testingLibrary.md)
+
+### 3.4.3 NODEJS: ![NodeJS](./_img/node.png)
 - Template: *[Template](./JavaScript/frameworks/NodeJS/_template)*
 
-#### 3.4.1.1. CONCEPTS:
+#### 3.4.3.1. CONCEPTS:
 - [NodeJS](./JavaScript/frameworks/NodeJS/node.md)
 - [Learnyounode](./JavaScript/frameworks/NodeJS/learnyounode.md)
 - [Code Status](./JavaScript/frameworks/NodeJS/codeStatus.png)
 
-#### 3.4.1.2. LIBRARIES:
+#### 3.4.3.2. LIBRARIES:
 - [BCryptjs](./JavaScript/frameworks/NodeJS/libraries/bcryptjs.md)
 - [Colors](./JavaScript/frameworks/NodeJS/libraries/colors.md)
 - [DotEnv](./JavaScript/frameworks/NodeJS/libraries/dotenv.md)
@@ -109,13 +117,7 @@
   - [Session](./JavaScript/frameworks/NodeJS/libraries/express/express-session.md)
   - [Socket.io](./JavaScript/frameworks/NodeJS/libraries/express/socket-io.md)
 
-#### 3.4.2. REACT: ![React](./_img/react.png)
-- [React](./React/react.md)
-- [Jest](./React/jest.md)
-- [Testing Library](./React/testingLibrary.md)
 
-#### 3.4.3. ANGULAR: ![Angular](./_img/angular.png)
-- [Angular](./JavaScript/frameworks/Angular/angular.md)
 ---
 <br>
 
