@@ -177,9 +177,26 @@ export class AppComponent {
 
 
 ## 9. Directivas 📏
-- Son instrucciones en el DOM que cambian la apariencia o el comportamiento de un elemento.
-- Se pueden crear directivas personalizadas.
-- Se utilizan en el HTML con el prefijo `*`.
+### 9.1. Directivas de atributo
+- Son instrucciones en el DOM que cambian el comportamiento de un elemento (ngClass, ngStyle, ngModel).
+  - `ngClass`: Añade o elimina clases de un elemento ([ngClass]="{class-name: condition}").
+  - `ngStyle`: Añade o elimina estilos de un elemento ([ngStyle]="{style: condition ? value-if-true : value-if-false}").
+  - `ngModel`: Enlaza el valor de un input con una propiedad del componente ([(ngModel)]="property").
+```html
+<!-- ngClass -->
+<p [ngClass]="{ 'text-danger': isError, 'text-success': !isError }">Texto</p>
+
+<!-- ngStyle -->
+<p [ngStyle]="{ 'color': isError ? 'red' : 'green' }">Texto</p>
+
+<!-- ngModel -->
+<input [(ngModel)]="name">
+```
+
+### 9.2. Directivas estructurales
+- Son instrucciones en el DOM que cambian la estructura del DOM (if, else, switch, for).
+- `ng-template`: Es una directiva estructural que se utiliza para definir un bloque de código que se puede reutilizar. Por defecto no se renderiza en el DOM.
+- `ng-container`: Es una directiva estructural que se utiliza para agrupar elementos sin añadir un elemento adicional al DOM.
 ```html
 <!-- *ngIf -->
 <p *ngIf="isLogged; else noLogged">El usuario está logueado</p>
@@ -223,7 +240,7 @@ export class AppComponent {
 
 <!-- @for -->
 <ul>
-  @for(item of items) {
+  @for(item of items; track item.id) {
     <li>{{ item.name }}</li>
   }
   @empty {
@@ -265,7 +282,7 @@ import { Component } from '@angular/core';
   templateUrl: './father.component.html'
 })
 export class FatherComponent {
-  title = 'myproject';
+  titleFather = 'myproject';
 }
 ```
 ```typescript
@@ -277,15 +294,15 @@ import { Component, Input } from '@angular/core';
   templateUrl: './child.component.html'
 })
 export class ChildComponent {
-  @Input() title: string;
+  @Input() titleFromFather: string;
 }
 ```
 ```html
 <!-- PADRE -->
-<app-child [title]="title"></app-child>
+<app-child [titleFromFather]="titleFather"></app-child>
 
 <!-- HIJO -->
-<p>{{ title }}</p>
+<p>{{ titleFromFather }}</p>
 ```
 
 ### 11.2. De hijo al padre (@Output)
