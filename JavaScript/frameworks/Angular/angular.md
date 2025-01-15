@@ -344,7 +344,8 @@ export class ChildComponent {
 <button (click)="saludarDesdeElHijo()">Saludar</button>
 ```
 
-### 11.3. Desde cualquier componente (Servicios)
+### 11.3. Desde cualquier componente 
+#### 11.3.1. Servicios
 - `@Injectable`: Se utiliza para inyectar un servicio en un componente.
 ```typescript
 // SERVICIO
@@ -373,6 +374,107 @@ export class AppComponent {
     console.log(this.dataService.data);
   }
 }
+```
+<br>
+
+#### 11.3.2. Observables (RxJS)
+- El patrón Observer es una forma de comunicación entre componentes en Angular:
+  - El Subject emite los valores.
+  - El Observable actúa como intermediario entre el Subject y los Observers, emitiendo los valores de forma segura.
+  - Los Observers reciben los valores emitidos por el Observable.
+
+![Observer](../../../_img/observer.png)
+
+- Definiciones:
+  - `Observable`: Clase de RxJS que permite trabajar con flujos de datos asíncronos o basados en eventos.
+  - `Subject`: Es un tipo de Observable que también actúa como Observer. Permite emitir valores a múltiples observadores.
+  - `BehaviorSubject`: Variante de Subject que almacena el último valor emitido y lo proporciona a nuevos suscriptores.
+- Métodos:
+  - Métodos de Emisión:
+     - `next(value: T)`: Emite un valor a los suscriptores.
+     - `error(error: Error)`: Emite un error y termina la secuencia.
+     - `complete()`: Finaliza la secuencia de emisiones desde el observable.
+  - Métodos de Suscripción:
+      - `subscribe({next, error, complete}): Subscription`: Suscribe un observador a un observable y devuelve un objeto de tipo **Subscription**.
+      - `unsubscribe()`: Cancela la suscripción desde el observador.
+  - Métodos de Transformación, Combinación y Filtrado:
+      - `pipe(operators)`: Aplica operadores a un observable (map, filter, reduce, scan, switchMap, mergeMap, concatMap, catchError).
+
+```typescript
+// SERVICIO
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class MsgService {
+
+  private message = new BehaviorSubject<string>('Hola desde el servicio'); // Valor inicial
+  message$ = this.message.asObservable();                                  // Observable
+
+  setMessage(text: string) {
+    if (text === '') {
+      this.message.error('Error: El mensaje no puede estar vacío');        // Emite un error y cancela el observable
+    }else{
+      this.message.next(text);
+    }
+  }
+
+  complete() {
+    this.message.complete();
+  }
+}
+```
+```typescript
+// COMPONENTE
+import { Component } from '@angular/core';
+import { MsgService } from './msg.service';
+import { Subscription } from 'rxjs';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html'
+})
+
+export class AppComponent {
+
+ private subscription: Subscription;
+
+ constructor(private msgService: MsgService) {}
+
+  ngOnInit() {
+    this.subscription = this.msgService.message$.subscribe({
+      next: (msg) => console.log(msg),
+      error: (err) => console.log(err),
+      complete: () => console.log('Completado')
+    });
+  }
+
+  changeMessage() {
+    this.msgService.setMessage('Hola desde el componente');
+  }
+
+  finalize() {
+    this.msgService.complete();
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+}
+```
+```html
+<!-- HMTL -->
+<button (click)="changeMessage()">Cambiar mensaje</button>
+<button (click)="finalize()">Finalizar</button>
+```
+```bash
+# CONSOLA
+Hola desde el servicio
+Hola desde el componente
+Completado
 ```
 ---
 <br><br><br>
