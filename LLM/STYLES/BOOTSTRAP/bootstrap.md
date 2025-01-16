@@ -93,24 +93,24 @@ Para estructurar la información en una tabla de tres columnas, con una columna 
 
 # 7. Modelo de la caja
 ### 7.1. Margen y padding
-- `m-10:` Margin 10 en todas las direcciones.
-- `mt0:` Margin top 0.
-- `mb1:` Margin bottom 1.
-- `ml2:` Margin left 2.
-- `mr3:` Margin right 3.
-- `p-10:` Padding 10 en todas las direcciones.
-- `pt0:` Padding top 0.
-- `pb1:` Padding bottom 1.
-- `pl2:` Padding left 2.
-- `pr3:` Padding right 3.
+- `m-5:` Margin 5 en todas las direcciones.
+- `mt-0:` Margin top 0.
+- `mb-1:` Margin bottom 1.
+- `ms-2:` Margin left 2.
+- `me-3:` Margin right 3.
+- `p-4:` Padding 4 en todas las direcciones.
+- `pt-0:` Padding top 0.
+- `pb-1:` Padding bottom 1.
+- `ps-2:` Padding left 2.
+- `pe-3:` Padding right 3.
 
 ### 7.2. Bordes
 - `border:` Borde de 1px sólido en todas las direcciones.
 - `border-0:` Sin borde.
 - `border-top:` Borde superior de 1px sólido.
 - `border-bottom:` Borde inferior de 1px sólido.
-- `border-left:` Borde izquierdo de 1px sólido.
-- `border-right:` Borde derecho de 1px sólido.
+- `border-start:` Borde izquierdo de 1px sólido.
+- `border-end:` Borde derecho de 1px sólido.
 - `border-primary:` Borde de color primario.
 
 ### 7.3. Radios
@@ -141,14 +141,13 @@ Para estructurar la información en una tabla de tres columnas, con una columna 
 - `invisible:` Invisible.
 
 ### 7.7. Opacidad
-- `opacity-0:` Opacidad 0.
-- `opacity-25:` Opacidad 0.25.
+- `opacity-0:` Opacidad 0%.
+- `opacity-25:` Opacidad 25%.
+- `opacity-50:` Opacidad 50%.
+- `opacity-75:` Opacidad 75%.
+- `opacity-100:` Opacidad 100%.
 
-### 7.8. Z-index
-- `z-index-0:` Z-index 0.
-- `z-index-1:` Z-index 1.
-
-### 7.9. Cursor
+### 7.8. Cursor
 - `cursor-pointer:` Cursor de tipo puntero.
 - `cursor-not-allowed:` Cursor de tipo no permitido.
 ---
