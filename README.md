@@ -54,6 +54,7 @@
  - [MapStruct](./Java/frameworks/MapStruct.md)
  - [Spring (Spring_MVC & Spring_Boot)](./Java/frameworks/Spring.md)
  - [Thymeleaf](./Java/frameworks/Thymeleaf.md)
+ - [Validation](./Java/frameworks/Validation.md)
 
  ## 2.4. TESTING:
  - [Testing](./Java/testing/test.md)
