@@ -131,6 +131,7 @@
     - [FlexBox](./LLM/STYLES/CSS/flex.md)
     - [Grid](./LLM/STYLES/CSS/grid.md)
     - [Centrar Div](./LLM/STYLES/CSS/centrarDiv.md)
+    - [Responsive](./LLM/STYLES/CSS/responsive.md)
     - [*normalize.css*](./LLM/STYLES/CSS/normalize.css)
   - [BOOTSTRAP](./LLM/STYLES/BOOTSTRAP/bootstrap.md)
   - SASS:
