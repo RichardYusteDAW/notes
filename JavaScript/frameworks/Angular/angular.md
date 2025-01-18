@@ -16,7 +16,27 @@ npm install -g @angular/cli
 <br>
 
 
-## 3. Comandos ng 🖥️
+## 3. Instalar Bootstrap 🎨
+```bash
+npm install bootstrap jquery @popperjs/core
+```
+- Añadir las rutas de los archivos CSS y JS en el archivo `angular.json`.
+```json
+"styles": [
+  "node_modules/bootstrap/dist/css/bootstrap.min.css",
+  "src/styles.css"
+],
+"scripts": [
+  "node_modules/jquery/dist/jquery.min.js",
+  "node_modules/@popperjs/core/dist/umd/popper.min.js",
+  "node_modules/bootstrap/dist/js/bootstrap.min.js"
+]
+```
+---
+<br>
+
+
+## 4. Comandos ng 🖥️
 ```bash
 ng --version              # Muestra la versión de Angular CLI
 ng new <nombre-proyecto>  # Crea un nuevo proyecto
@@ -40,7 +60,7 @@ ng generate service <nombre-servicio>      # Crea un nuevo servicio (ng g s myse
 <br>
 
 
-## 4. Estructura 🏗️
+## 5. Estructura 🏗️
 ```java
 /ANGULAR-PROJECT
 └─ /.vscode  -- -- -- -- -- -- -- -- -- -- -- - // Configuraciones para Visual Studio Code.
@@ -80,7 +100,7 @@ ng generate service <nombre-servicio>      # Crea un nuevo servicio (ng g s myse
 <br>
 
 
-## 5. Scripts en package.json 📜
+## 6. Scripts en package.json 📜
 ```json
 "scripts": {
   "start": "ng serve",
@@ -95,7 +115,7 @@ ng generate service <nombre-servicio>      # Crea un nuevo servicio (ng g s myse
 <br>
 
 
-## 6. Módulos 📦
+## 7. Módulos 📦
 - Es una clase con el decorador `@NgModule`.
 - Se utilizaba en versiones anteriores a la 17 para definir los elementos del proyecto (componentes, directivas, pipes, servicios, etc.).
 - Se creaba automáticamente el archivo `app.module.ts` al crear un nuevo proyecto.
@@ -116,7 +136,7 @@ export class AppModule { }
 <br>
 
 
-## 7. Componentes 🧩
+## 8. Componentes 🧩
 - Es una clase con el decorador `@Component`.
 - Se utiliza para definir la lógica de la vista.
 - Se crea automáticamente el archivo `app.component.ts` al crear un nuevo proyecto.
@@ -148,7 +168,7 @@ Ciclo de vida de un componente:
 <br>
 
 
-## 8. Data binding 📊
+## 9. Data binding 📊
 - Es la sincronización de datos entre el modelo y la vista.
 ```typescript
 @Component({
@@ -176,8 +196,8 @@ export class AppComponent {
 <br>
 
 
-## 9. Directivas 📏
-### 9.1. Directivas de atributo
+## 10. Directivas 📏
+### 10.1. Directivas de atributo
 - Son instrucciones en el DOM que cambian el comportamiento de un elemento (ngClass, ngStyle, ngModel).
   - `ngClass`: Añade o elimina clases de un elemento ([ngClass]="{class-name: condition}").
   - `ngStyle`: Añade o elimina estilos de un elemento ([ngStyle]="{style: condition ? value-if-true : value-if-false}").
@@ -193,7 +213,7 @@ export class AppComponent {
 <input [(ngModel)]="name">
 ```
 
-### 9.2. Directivas estructurales
+### 10.2. Directivas estructurales
 - Son instrucciones en el DOM que cambian la estructura del DOM (if, else, switch, for).
 - `ng-template`: Es una directiva estructural que se utiliza para definir un bloque de código que se puede reutilizar. Por defecto no se renderiza en el DOM.
 - `ng-container`: Es una directiva estructural que se utiliza para agrupar elementos sin añadir un elemento adicional al DOM.
@@ -247,25 +267,6 @@ export class AppComponent {
     <li>No hay elementos</li>
   }
 </ul>
-```
----
-<br>
-
-## 10. Instalar Bootstrap 🎨
-```bash
-npm install bootstrap jquery @popperjs/core
-```
-- Añadir las rutas de los archivos CSS y JS en el archivo `angular.json`.
-```json
-"styles": [
-  "node_modules/bootstrap/dist/css/bootstrap.min.css",
-  "src/styles.css"
-],
-"scripts": [
-  "node_modules/jquery/dist/jquery.min.js",
-  "node_modules/@popperjs/core/dist/umd/popper.min.js",
-  "node_modules/bootstrap/dist/js/bootstrap.min.js"
-]
 ```
 ---
 <br>
@@ -377,6 +378,7 @@ export class AppComponent {
 ```
 <br>
 
+
 #### 11.3.2. Observables (RxJS)
 - El patrón Observer es una forma de comunicación entre componentes en Angular:
   - El Subject emite los valores.
@@ -477,6 +479,123 @@ Hola desde el componente
 Completado
 ```
 ---
+<br>
+
+
+## 12. Routing 🚦
+### 12.1. Routes
+- `Routes`: Es un array de objetos que definen las rutas de la aplicación.
+```typescript
+// app.routes.ts
+import { Routes } from '@angular/router';
+import { HomeComponent } from './home.component';
+import { ArticlesComponent } from './articles.component';
+import { ArticleComponent } from './article.component';
+import { ErrorComponent } from './error.component';
+
+export const routes: Routes = [
+  { path: '', component: HomeComponent },               // Ruta raíz
+  { path: 'articles', component: ArticlesComponent },   // Ruta sin parámetro
+  { path: 'article/:id', component: ArticleComponent }, // Ruta con parámetro
+  { path: '**', component: ErrorComponent }             // Ruta por defecto
+];
+```
+```html
+<router-outlet></router-outlet>
+```
+<br>
+
+### 12.2. RouterLink
+- `RouterLink`: Es una directiva que se utiliza para navegar entre rutas.
+```typescript	
+// app.component.ts
+import { Component } from '@angular/core';
+import { RouterOutlet, RouterLink } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet, RouterLink],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
+})
+```
+```html
+<a [routerLink]="['/']">Inicio</a>                      <!-- Ruta raíz ('/')-->
+<a [routerLink]="['/articles']">Artículos</a>           <!-- Ruta sin parámetro ('/articles')-->
+<a [routerLink]="['/article', 1]">Artículo 1</a>        <!-- Ruta con parámetro ('/article/1')-->
+
+<!-- Ruta con parámetro de consulta ('/article?name=Iphone') -->
+<a [routerLink]="['/article']" [queryParams]="{ name: 'Iphone' }">Link</a>
+```
+<br>
+
+### 12.3. Router
+- `Router`: Es un servicio que proporciona métodos para navegar entre rutas.
+```typescript
+// app.component.ts
+import { Component } from '@angular/core';
+import { RouterOutlet, Router } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
+})
+export class AppComponent {
+  constructor(private router: Router) {}
+
+  navigateToArticles() {
+    this.router.navigate(['/articles']);
+  }
+
+  navigateToArticle(id: number) {
+    this.router.navigate(['/article', id]);
+  }
+
+  navigateToArticle2() {
+    this.router.navigate(['/article/2']);
+  }
+
+  navigateToArticleQuery(name: string) {
+    this.router.navigate(['/article'], { queryParams: { name } });
+  }
+
+  navigatetoIphone() {
+    this.router.navigate(['/article'], { queryParams: { name: 'Iphone' } });
+  }
+}
+```
+```html
+<!-- app.component.html -->
+<button (click)="navigateToArticles()">Ir a Artículos</button>
+<button (click)="navigateToArticle(1)">Ir a Artículo 1</button>
+<button (click)="navigateToArticle2()">Ir a Artículo 2</button>
+<button (click)="navigateToArticleQuery('Iphone')">Ir a Artículo</button>
+<button (click)="navigateToIphone()">Ir a Iphone</button>
+```
+<br>
+
+### 12.4. ActivatedRoute
+- `ActivatedRoute`: Es un servicio que proporciona información sobre la ruta activa.
+```typescript
+// app.component.ts
+import { Component } from '@angular/core';
+import { RouterOutlet, ActivatedRoute } from '@angular/router';
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
+})
+export class AppComponent {
+  constructor(private myroute: ActivatedRoute) {
+    this.myroute.params.subscribe(params => console.log(params["id"]));
+    this.myroute.queryParams.subscribe(params => console.log(params["name"]));
+  }
+}
+```
 <br><br><br>
 
 ## *[volver al índice](../../../README.md)*
