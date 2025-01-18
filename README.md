@@ -126,13 +126,15 @@
 - [HTML](./LLM/HTML/html.md)
 - STYLES: 
   - CSS:
-    - [BEM](./LLM/STYLES/CSS/bem.md)
     - [CSS](./LLM/STYLES/CSS/css.md)
+    - [Centrar Div](./LLM/STYLES/CSS/centrarDiv.md)
     - [FlexBox](./LLM/STYLES/CSS/flex.md)
     - [Grid](./LLM/STYLES/CSS/grid.md)
-    - [Centrar Div](./LLM/STYLES/CSS/centrarDiv.md)
+    - [BEM](./LLM/STYLES/CSS/bem.md)
     - [Responsive](./LLM/STYLES/CSS/responsive.md)
-    - [*normalize.css*](./LLM/STYLES/CSS/normalize.css)
+    - Reset:
+      - [*normalize.css*](./LLM/STYLES/CSS/reset/normalize.css)
+      - [*reset.css*](./LLM/STYLES/CSS/reset/reset.css)
   - [BOOTSTRAP](./LLM/STYLES/BOOTSTRAP/bootstrap.md)
   - SASS:
     - [*template*](./LLM/STYLES/SASS/_template)

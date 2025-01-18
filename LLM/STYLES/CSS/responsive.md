@@ -55,18 +55,141 @@
 
 
 ## 4. Calcular tamaño de pantalla 📏
-$$ \text{pendiente} = \frac{\left(\text{MAXvalue} - \text{MINvalue}\right)}{\left(\text{Wupper} - \text{Wlower}\right)} \times 100 $$
-$$ \text{coeficiente} = \text{MINvalue} - \left(\frac{\text{pendiente}}{100} \times \text{Wlower}\right) $$
+$$ \text{pendiente} = \frac{\left(\text{MAXvalue} - \text{MINvalue}\right)}{\left(\text{Wupper} - \text{Wlower}\right)} * 100 $$
+$$ \text{coeficiente} = \text{MINvalue} - \left(\frac{\text{pendiente}}{100} * \text{Wlower}\right) $$
 
 ![calcular tamaño de pantalla](./img/clamp.png)
 
-$$ \text{MAXvalue} = \text{coeficiente} + \left(\frac{\text{pendiente}}{100} \times \text{Wupper}\right) $$
-$$ \text{MINvalue} = \text{coeficiente} + \left(\frac{\text{pendiente}}{100} \times \text{Wlower}\right) $$
+$$ \text{MAXvalue} = \left(\frac{\text{pendiente}}{100} * \text{Wupper}\right) + \text{coeficiente} $$
+$$ \text{MINvalue} = \left(\frac{\text{pendiente}}{100} * \text{Wlower}\right) + \text{coeficiente} $$
 
-$$ \text{Wupper} = \frac{100}{\text{pendiente}} \times \left(\text{MAXvalue} - \text{coeficiente}\right) $$
-$$ \text{Wlower} = \frac{100}{\text{pendiente}} \times \left(\text{MINvalue} - \text{coeficiente}\right) $$
+$$ \text{Wupper} = \frac{\text{MAXvalue} - \text{coeficiente}}{\text{pendiente}/100} $$
+$$ \text{Wlower} = \frac{\text{MINvalue} - \text{coeficiente}}{\text{pendiente}/100} $$
 
 ---
+<br>
+
+## 5. Imágenes 🖼️
+- Usaremos diferentes imágenes dependiendo de:
+  - Ancho o alto del dispositivo.
+  - Pixel-ratio del dispositivo.
+  - Tipos soportados por el navegador.
+
+Ejemplo dependiendo del ancho:
+- `media`: condición que debe cumplir el dispositivo para mostrar la imagen.
+- `srcset`: conjunto de imágenes que se pueden mostrar.
+```html
+<picture>
+  <source media="(min-width: 650px)" srcset="big_img.jpg">
+  <source media="(min-width: 465px)" srcset="medium_img.jpg">
+  <img src="small_img.jpg" alt="Small image">
+</picture>
+```
+---
+<br>
+
+## 6. Media Queries 📱
+| Tipo       | Interno                                                                                                    | Externo |
+|------------|------------------------------------------------------------------------------------------------------------|---------|
+| Fluido     | El propio componente decide cómo se hace responsivo.<br>Lo hace de forma fluida al tamaño del dispositivo. | El que usa el componente decide cómo se hace responsivo. <br>Lo hace de forma fluida al tamaño del dispositivo. |
+| Escalonado | El propio componente decide cómo se hace responsivo.<br>Lo hace solo para diversos tamaños de pantalla.    | El que usa el componente decide cómo se hace responsivo.<br>Lo hace solo para diversos tamaños de pantalla.    |
+
+```css
+/* Interno */
+.c-titulo {
+    font-size: 40px;
+}
+ 
+@media (min-width: 576px) {
+    .c-titulo {
+        font-size: 50px;
+    }
+}
+  
+@media (min-width: 768px) {
+    .c-titulo {
+        font-size: 55px;
+    }
+}
+  
+@media (min-width: 992px) {
+    .c-titulo {
+        font-size: 70px;
+    }
+}
+```
+```html
+<p class="c-titulo">Título</p>
+```
+```css
+/* Externo */
+.g--font-size-1 {
+    font-size: 40px;
+}
+.g--font-size-2 {
+    font-size: 50px;
+}
+.g--font-size-3 {
+    font-size: 55px;
+}
+.g--font-size-4 {
+    font-size: 70px;
+}
+  
+@media (min-width: 576px) {
+    .g--font-size-1\@tablet {
+        font-size: 40px;
+    }
+    .g--font-size-2\@tablet {
+        font-size: 50px;
+    }
+    .g--font-size-3\@tablet {
+        font-size: 55px;
+    }
+    .g--font-size-4\@tablet {
+        font-size: 70px;
+    }
+}
+  
+@media (min-width: 768px) {
+    .g--font-size-1\@desktop {
+        font-size: 40px;
+    }
+    .g--font-size-2\@desktop {
+        font-size: 50px;
+    }
+    .g--font-size-3\@desktop {
+        font-size: 55px;
+    }
+    .g--font-size-4\@desktop {
+        font-size: 70px;
+    }
+}
+  
+@media (min-width: 992px) {
+    .g--font-size-1\@fulldesktop {
+        font-size: 40px;
+    }
+    .g--font-size-2\@fulldesktop {
+        font-size: 50px;
+    }
+    .g--font-size-3\@fulldesktop {
+        font-size: 55px;
+    }
+    .g--font-size-4\@fulldesktop {
+        font-size: 70px;
+    }
+}
+```
+```html
+<p class="g--font-size-1 g--font-size-1@tablet g--font-size-1@desktop g--font-size-1@fulldesktop">Título</p>
+```
+---
+<br>
+
+
+
+
 <br><br><br>
 
 ## *[volver al índice](../../../README.md)*
