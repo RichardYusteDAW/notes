@@ -488,14 +488,16 @@ body {
         transform: scale(1);                 /*Rotate(grados)*/
         transform: rotate(0deg);             /*Scale(factor)*/
         transform: translate(0, 0);          /*Translate(x, y)*/
-        transform: skewX(0deg);              /*SkewX(grados)*/
-        transform: skewY(0deg);              /*SkewY(grados)*/
+        transform: skew(30deg, 30deg);       /*Skew(gradosX, gradosY)*/
     }
     50% { 
-        transform: scale(1.5); 
-        transform: rotate(180deg);
-        transform: translate(50px, 50px);
-        transform: skew(30deg, 30deg);       /*Skew(gradosX, gradosY)*/
+        transform: scaleX(1.5);              /*ScaleX(factor)*/
+        transform: scaleY(1.5);              /*ScaleY(factor)*/ 
+        transform: rotate(180deg);           /*Rotate(grados)*/
+        transform: translateX(50px);         /*TranslateX(px)*/
+        transform: translateY(50px);         /*TranslateY(px)*/
+        transform: skewX(30deg);             /*SkewX(grados)*/
+        transform: skewY(30deg);             /*SkewY(grados)*/
 
         /*Se puede hacer en una sola línea*/
         transform: scale(1.5) rotate(180deg) translate(50px, 50px) skew(30deg, 30deg);
@@ -529,6 +531,9 @@ div {
     animation-direction: alternate;          /* Dirección de la animación (normal | reverse | alternate | alternate-reverse) */
     animation-fill-mode: forwards;           /* Estado final de la animación (none | forwards | backwards | both) */
     animation-play-state: running;           /* Estado de la animación (running | paused) */
+
+    /*Se puede hacer en una sola línea*/
+    animation: withTransform 4s ease-in-out 2s infinite alternate forwards running;
 }
 ```
 <br><br><br>
