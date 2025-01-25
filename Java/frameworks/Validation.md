@@ -54,12 +54,14 @@ Spring Boot Starter Validation es una dependencia de Spring Boot que proporciona
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
+// La interfaz 'ConstraintValidator' recibe 2 parámetros: la ANOTACIÓN personalizada y el TIPO de dato a validar.
 public class YearValidator implements ConstraintValidator<ValidYear, Integer> {
     @Override
     public void initialize(ValidYear constraintAnnotation) {
         ConstraintValidator.super.initialize(constraintAnnotation); // (Opcional) Llamada al método de la superclase por si tuviera lógica de inicialización.
     }
 
+    // isValid recibe 2 parámetros: el valor a validar y el contexto de validación.
     @Override
     public boolean isValid(Integer year, ConstraintValidatorContext context) {
         return (year == null || (year >= 1850 && year <= 9999));
@@ -116,7 +118,7 @@ public class Director {
     @Size(min = 10, max = 1000, message = "La biografía debe tener entre 10 y 1000 caracteres")
     private String biography;
 
-    // anotación personalizada.
+    // anotación personalizada (Si la validación evalúa varios campos se debe colocar sobre la clase).
     @ValidYear
     private Integer birthYear;
 }
