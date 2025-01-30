@@ -33,7 +33,9 @@ Se define el código CSS en un archivo externo.
     <p>Un párrafo de texto.</p>
 </body>
 ```
-<br>
+---
+<br><br>
+
 
 ## 2. Selectores
 ### A. Selectores simples:
@@ -130,7 +132,9 @@ a[class*="exter"] { color: blue; }
 
 /***before, after y selection llevan: {content: “”}*/
 ```
-<br>
+---
+<br><br>
+
 
 ## 3. Unidades
 ### A. Relativas:
@@ -155,7 +159,9 @@ mm    /*milímetros*/
 pt    /*1 punto (0.35mm)*/
 pc    /*1 pica (4.23mm)*/
 ```
-<br>
+---
+<br><br>
+
 
 ## 4. Tamaño
 ```css
@@ -169,7 +175,9 @@ div{
     min-height: 200px; /*Altura mínima*/
 }
 ```
-<br>
+---
+<br><br>
+
 
 ## 5. Bordes
 ```css
@@ -202,7 +210,10 @@ div{
 }
 ```
 ![border-style](./img/border-style.png)
-<br>
+
+---
+<br><br>
+
 
 ## 6. Margen y relleno
 ```css
@@ -220,23 +231,35 @@ div{
     padding-right: .5em;
 }
 ```
-<br>
+---
+<br><br>
+
 
 ## 7. Fondos
 ```css
 div{
     background: #222d2d url(./graphics/colorstrip.gif) repeat-x 0 0; /*background-color background-image background-repeat background-attachment background-position*/
     
-    background-color: #F5F5F5;                   /*color de fondo*/
+    background-color: #F5F5F5;                 /*color de fondo*/
     background-image: url("imagenes/fondo.png"); /*imagen de fondo*/
     background-repeat: repeat-x;                 /*repite en horizontal*/
     background-repeat: repeat-y;                 /*repite en vertical*/
+    background-attachment: scroll;               /*se desplaza o se queda fija (scroll | fixed)*/
     background-position: left top;               /*posición de la imagen de fondo (left | center | right) (top | center | bottom)*/
-    background-attachment: scroll;               /*se desplaza*/
-    background-attachment: fixed;                /*fija*/
+
+    background-size: cover;                      /*Ajusta la imagen de fondo para cubrir todo el contenedor evitando que haya espacios en blanco*/
+    background-size: contain;                    /*Ajusta la imagen de fondo para que quepa en el contenedor sin recortarla ni distorsionarla*/
+    background-size: 100px 100px;                /*Ancho y alto de la imagen de fondo*/
+
+    background-origin: padding-box;              /*Desde donde se empieza a pintar el fondo (border-box | padding-box | content-box)*/
+    background-clip: padding-box;                /*Hasta donde se pinta el fondo (border-box | padding-box | content-box)*/
+    background-clip: text;                       /*Solo se pinta el fondo en el texto*/
+    background-blend-mode: multiply;             /*Mezcla la imagen de fondo con el color de fondo (normal | multiply | screen | overlay | darken | lighten | color-dodge | color-burn | hard-light | soft-light | difference | exclusion | hue | saturation | color | luminosity)*/
 }
 ```
-<br>
+---
+<br><br>
+
 
 ## 8. Tipografía
 ```css
@@ -249,7 +272,10 @@ div{
 }
 ```
 ![font-size](./img/font-size.png)
-<br>
+
+---
+<br><br>
+
 
 ## 9. Colores
 ```css
@@ -261,7 +287,10 @@ div{
 }
 ```
 ![colours](./img/colours.png)
-<br>
+
+---
+<br><br>
+
 
 ## 10. Texto
 ```css
@@ -283,7 +312,10 @@ div{
 }
 ``` 
 ![vertical-align](./img/vertical-align.png)
-<br>
+
+---
+<br><br>
+
 
 ## 11. Listas
 ```css
@@ -294,7 +326,10 @@ div{
 }
 ```
 ![list-style-type](./img/list-style-type.png)
-<br>
+
+---
+<br><br>
+
 
 ## 12. Posicionamiento
 `static`: El elemento se posicionan según el flujo normal del documento (Valor por defecto).  
@@ -321,7 +356,9 @@ div{
     z-index: auto;      /*Orden tridimensional (auto | <número>)*/
 }
 ```
-<br>
+---
+<br><br>
+
 
 ### - Display:
 
@@ -362,6 +399,7 @@ div{
 #### G. table:
 - Hace que el elemento se comporte como una tabla de HTML.
 - Los elementos hijos se comportan como celdas de tabla.
+---
 <br><br>
 
 
@@ -383,7 +421,9 @@ div{
     font-weight: normal; /* o 400 */
 }
 ```
-<br>
+---
+<br><br>
+
 
 ## 14. Resposive Web Design
 Lo primero es utilizar una etiqueta HTML5 para que el navegador sepa que el sitio web es responsive.
@@ -424,7 +464,9 @@ Operadores lógicos:
     }
 }
 ```
-<br>
+---
+<br><br>
+
 
 ## 15. Variables
 ### A. Globales:
@@ -455,9 +497,45 @@ body {
     padding: var(--espaciado);
 }
 ```
-<br>
+---
+<br><br>
 
-## 16. Animaciones
+
+## 16. Transiciones
+- Cuando el usuario pasa el ratón por encima de él esta transición:
+    - Cambia el color de fondo de azul a rojo.
+    - La duración de la transición es de 2 segundos.
+    - La función de temporización es ease-in (empieza lento y acelera).
+    - La transición se retrasa 3 segundos antes de comenzar.
+```css
+div {
+    background-color: blue;
+    
+    transition-property: background-color;  /* Propiedad a animar */
+    transition-duration: 2s;                /* Duración de la transición */
+    transition-timing-function: ease-in;    /* Función de temporización */
+    transition-delay: 3s;                   /* Retraso antes de iniciar la transición */
+    
+    /*Se puede hacer en una sola línea*/
+    transition: background-color 2s ease-in 0s, color 1s linear 3s;
+}
+
+div:hover{
+     background-color: red;
+}
+```
+---
+<br><br>
+
+
+## 17. Animaciones
+- La animación a diferencia de la transición permite:
+  - Especificar el número de repeticiones.
+  - Definir la dirección de la animación.
+  - Establecer el estado final de la animación (si termina en el útlimo fotograma o vuelve al primero).
+  - Pausar y reanudar la animación.
+
+
 ### A. From-To:
 ```css
 @keyframes fromTo { 
@@ -507,20 +585,7 @@ body {
     }
 }
 ```
-### D. Transition:
-```css
-div {
-    transition-property: background-color;  /* Propiedad a animar */
-    transition-duration: 2s;                /* Duración de la transición */
-    transition-timing-function: ease-in;    /* Función de temporización */
-    transition-delay: 0s;                   /* Retraso antes de iniciar la transición */
-    
-    /*Se puede hacer en una sola línea*/
-    transition: background-color 2s ease-in 0s, color 1s linear 0s;
-}
-```
-
-### E. Uso:
+### D. Uso:
 ```css
 div {
     animation-name: withTransform;           /* Nombre de la animación */
