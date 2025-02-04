@@ -50,10 +50,11 @@ ng generate module <nombre-modulo>         # Crea un nuevo módulo (ng g m mymod
 ng generate component <nombre-componente>  # Crea un nuevo componente (ng g c mycomponent)
 ng generate interface <nombre-interfaz>    # Crea una nueva interfaz (ng g i myinterface)
 ng generate service <nombre-servicio>      # Crea un nuevo servicio (ng g s myservice)
+ng generate guard <nombre-guardia>         # Crea una nueva guardia (ng g g myguard)
 ```
 - Preguntas durante la creación de un nuevo proyecto:
   - 1ª. ¿Te gustaría habilitar la **autocompletación**?
-  - 2ª. ¿Te gustaría compartir datos de uso **pseudónimos** sobre este proyecto con el equipo de Angular en Google bajo la Política de Privacidad de Google_
+  - 2ª. ¿Te gustaría compartir datos de uso **pseudónimos** sobre este proyecto con el equipo de Angular en Google bajo la Política de Privacidad de Google?
   - 3ª. ¿Qué formato de **hoja de estilos** te gustaría usar? (CSS, SCSS, SASS, LESS, Stylus).
   - 4ª. ¿Quieres habilitar el **renderizado** del lado del servidor (SSR) y la generación de sitios estáticos (SSG/Prerendering)?
 ---
@@ -484,7 +485,7 @@ Completado
 
 ## 12. Routing 🚦
 ### 12.1. Routes
-- `Routes`: Es un array de objetos que definen las rutas de la aplicación.
+- `Routes`: Es un array de objetos que definen las rutas de la aplicación (Las rutas no llevan "/" al principio).
 ```typescript
 // app.routes.ts
 import { Routes } from '@angular/router';
@@ -501,6 +502,7 @@ export const routes: Routes = [
 ];
 ```
 ```html
+<!-- app.component.html -->
 <router-outlet></router-outlet>
 ```
 <br>
@@ -520,6 +522,7 @@ import { RouterOutlet, RouterLink } from '@angular/router';
 })
 ```
 ```html
+<!-- app.component.html -->
 <a [routerLink]="['/']">Inicio</a>                      <!-- Ruta raíz ('/')-->
 <a [routerLink]="['/articles']">Artículos</a>           <!-- Ruta sin parámetro ('/articles')-->
 <a [routerLink]="['/article', 1]">Artículo 1</a>        <!-- Ruta con parámetro ('/article/1')-->
@@ -593,6 +596,200 @@ export class AppComponent {
   constructor(private myroute: ActivatedRoute) {
     this.myroute.params.subscribe(params => console.log(params["id"]));
     this.myroute.queryParams.subscribe(params => console.log(params["name"]));
+  }
+}
+```
+<br>
+
+### 12.5. Guards
+- `Guards`: Son servicios que se utilizan para proteger las rutas de la aplicación.
+  - `CanActivate`: Antes de cargar los componentes de una ruta.
+  - `CanActivateChild`: Antes de cargar las rutas hijas.
+  - `CanDeactivate`: Antes de salir de una ruta.
+  - `CanMatch`: Antes de cargar cualquier ruta.
+
+- `CanActivateFn`: Es una función que devuelve un booleano.
+  - `route`: Es un objeto que contiene información sobre la ruta.
+    - `url`: Array de segmentos de la URL (['articles', '1']).
+    - `params`: Parámetros de la ruta ({ id: 1 }).
+    - `queryParams`: Parámetros de consulta ({ name: 'Iphone' }).
+    - `fragment`: Fragmento de la URL (Lo que viene después de #).
+    - `data`: Datos estáticos de la ruta ({ title: 'Artículo 1' }).
+    - `outlet`: Nombre del router-outlet (primary).
+    - `routeConfig`: Configuración de la ruta.
+    - `parent`: Ruta padre.
+    - `firstChild`: Primera ruta hija.
+    - `children`: Array de rutas hijas.
+  - `state`: Es un objeto que contiene información sobre el estado actual de la navegación.
+    - `url`: URL actual.
+    - `root`: Ruta raíz.
+    - `firstChild`: Primera ruta hija.
+    - `children`: Array de rutas hijas.
+```typescript
+// mi-guardia.guard.ts
+import { CanActivateFn } from '@angular/router';
+import { inject } from '@angular/core';
+import { Router } from '@angular/router';
+
+export const miGuardia: CanActivateFn = (route, state) => {
+  if (route.params.id === 1 && state.url === '/articles') {
+    return true;
+  } else {
+    inject(Router).navigate(['/']);
+    return false;
+  }
+};
+```
+```typescript
+// app.routes.ts
+import { Routes } from '@angular/router';
+import { HomeComponent } from './home.component';
+import { ArticlesComponent } from './articles.component';
+
+export const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'articles', component: ArticlesComponent, canActivate: [miGuardia] }
+];
+```
+---
+<br>
+
+
+## 13. HTTP Client 🌐
+- `HttpClient`: Es un servicio que se utiliza para realizar peticiones HTTP.
+- `provideHttpClient`: Es una función que se utiliza para proporcionar el servicio HttpClient y se importa en el archivo de configuración.
+```typescript
+// app.config.ts
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { provideRouter } from '@angular/router';
+
+import { routes } from './app.routes';
+import { provideHttpClient } from '@angular/common/http';
+
+export const appConfig: ApplicationConfig = {
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideHttpClient()]
+};
+```
+
+```typescript
+// SERVICIO
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class BookService {
+
+  url: string = 'https://api.example.com/books';
+
+  constructor(private http: HttpClient) {}
+
+  findAll(): Observable<Book[]> {
+    return this.http
+      .get<Book[]>(this.url)
+      .pipe(retry(3), catchError(this.handleError));
+  }
+
+  findById(id: number): Observable<Book> {
+    return this.http
+      .get<Book>(`${this.url}/${id}`)
+      .pipe(retry(3), catchError(this.handleError));
+  }
+
+  create(book: Book): Observable<Book> {
+    return this.http
+      .post<Book>(this.url, book)
+      .pipe(retry(3), catchError(this.handleError));
+  }
+
+  update(id: number, book: Book): Observable<Book> {
+    return this.http
+      .put<Book>(`${this.url}/${id}`, book)
+      .pipe(retry(3), catchError(this.handleError));
+  }
+
+  delete(id: number): Observable<Book> {
+    return this.http
+      .delete<Book>(`${this.url}/${id}`)
+      .pipe(retry(3), catchError(this.handleError));
+  }
+
+  // Gestión de errores
+  private handleError(errorResponse: HttpErrorResponse) {
+    if (errorResponse.error instanceof ErrorEvent) {
+      // Cliente o errores de red
+      return throwError(() => new Error(`Error del cliente: ${errorResponse.error.message}`));
+    } else {
+      // Errores de HTTP o del servidor
+      return throwError(() => new Error(`Error del servidor: ${this.getServerErrorMessage(errorResponse)}`));
+    }
+  };
+
+  private getServerErrorMessage(errorResponse: HttpErrorResponse): string {
+    switch (errorResponse.status) {
+      case 400: return 'Solicitud incorrecta (Bad Request)';
+      case 401: return 'No autorizado (Unauthorized)';
+      case 403: return 'Prohibido (Forbidden)';
+      case 404: return 'No encontrado (Not Found)';
+      case 500: return 'Error interno del servidor (Internal Server Error)';
+      case 502: return 'Bad Gateway';
+      default: return errorResponse.status;
+    }
+  };
+}
+```
+```typescript
+// COMPONENTE
+import { Component } from '@angular/core';
+import { BookService } from './book.service';
+
+@Component({
+  selector: 'app-books',
+  templateUrl: './books.component.html'
+})
+
+export class AppComponent {
+
+  books: Book[] = [];
+
+  constructor(private bookService: BookService) {}
+
+  ngOnInit() {
+    this.loadBooks();
+  }
+
+  loadBooks(){
+    this.bookService.findAll().subscribe({
+      next: data => this.books = data,
+      error: err => console.log(err),
+      complete: () => console.log('Completado')
+    });
+  }
+
+  createBook(book: Book) {
+    this.bookService.create(book).subscribe({
+      next: data => this.loadBooks(),
+      error: err => console.log(err),
+      complete: () => console.log('Completado')
+    });
+  }
+
+  updateBook(id: number, book: Book) {
+    this.bookService.update(id, book).subscribe({
+      next: data => this.loadBooks(),
+      error: err => console.log(err),
+      complete: () => console.log('Completado')
+    });
+  }
+
+  deleteBook(id: number) {
+    this.bookService.delete(id).subscribe({
+      next: data => this.loadBooks(),
+      error: err => console.log(err),
+      complete: () => console.log('Completado')
+    });
   }
 }
 ```
