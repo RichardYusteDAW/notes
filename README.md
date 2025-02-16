@@ -1,4 +1,4 @@
-# 1. GIT: ![Git](./_img/git.png)
+# 1. GIT ![Git](./_img/git.png)
 - [git](./Git/git.md)
 - [gitFlow](./Git/gitFlow.md)
 - [lorenzoFlow](./Git/lorenzoFlow.md)
@@ -7,7 +7,7 @@
 <br>
 
 # 2. DataBases: ![DataBases](./_img/db.png)
-## 2.1. MySQL: ![MySQL](./_img/mysql.png)
+## 2.1. MySQL ![MySQL](./_img/mysql.png)
 - SQL(Structured Query Language):
   - [DDL](./DataBases/MySQL/DDL.md): Data Definition Language
   - [DML](./DataBases/MySQL/DML.md): Data Manipulation Language
@@ -19,7 +19,7 @@
 - Tipos de fichero: [FileTypes](./DataBases/MySQL/fileTypes.pdf)
 - Dark Theme: *[code_editor.xml](./DataBases/MySQL/code_editor.xml)*
 
-## 2.2. MongoDB: ![MongoDB](./_img/mongo.png)
+## 2.2. MongoDB ![MongoDB](./_img/mongo.png)
 - [MongoDB](./DataBases/mongoDB/mongoDB.md)
 - [Mongo Atlas y Mongo Compass](./DataBases/mongoDB/mongoAtlas+Compass.md)
 
@@ -28,13 +28,13 @@
 
 # 2. JAVA: ![Java](./_img/java.png)
 - Template: *[Template](./Java/_template)*
- ## 2.1. CONCEPTS:
+ ## 2.1. CONCEPTS
  - [Annotations](./Java/concepts/Annotations.md)
  - [Bean](./Java/concepts/Bean.md)
  - [Exceptions](./Java/concepts/Exceptions.md)
  - [Java](./Java/concepts/Java.md)
 
- ## 2.2. CLASSES:
+ ## 2.2. CLASSES
  - [LocaleConfig](./Java/classes/LocaleConfig.md)
  - [Math](./Java/classes/Math.md)
  - [Random](./Java/classes/Random.md)
@@ -46,7 +46,7 @@
    - [Paginator](./Java/classes/custom/Paginator.java)
    
 
- ## 2.3. FRAMEWORKS:
+ ## 2.3. FRAMEWORKS
  - [JDBC](./Java/frameworks/JDBC.md)
  - [JPA](./Java/frameworks/JPA.md)
  - [Lombok](./Java/frameworks/Lombok.md)
@@ -56,7 +56,7 @@
  - [Thymeleaf](./Java/frameworks/Thymeleaf.md)
  - [Validation](./Java/frameworks/Validation.md)
 
- ## 2.4. TESTING:
+ ## 2.4. TESTING
  - [Testing](./Java/testing/test.md)
  - [Mockito](./Java/testing/mockito.md)
  - [Bases de datos incrustadas](./Java/testing/embeddedDB.md)
@@ -64,11 +64,11 @@
 <br>
 
 # 3. JAVASCRIPT: ![JavaScript](./_img/js.png)
-## 3.1. CONCEPTS:
+## 3.1. CONCEPTS
 - [JavaScript](./JavaScript/concepts/js.md)
 - [DOM](./JavaScript/concepts/dom.md)
 
-## 3.2. LIBRARIES:
+## 3.2. LIBRARIES
 - [Date](./JavaScript/libraries/Date.md)
 - [Math](./JavaScript/libraries/Math.md)
 - [Number](./JavaScript/libraries/Number.md)
@@ -76,28 +76,28 @@
 - [XMLHttpRequest](./JavaScript/libraries/XMLHttpRequest.md)
 - [Fetch](./JavaScript/libraries/Fetch.md)
 
-## 3.3. TOOLS:
+## 3.3. TOOLS
 - [JsonServer](./JavaScript/tools/jsonServer.md)
 - [Postman](./JavaScript/tools/postman.md)
 
 ## 3.4. FRAMEWORKS:
-### 3.4.1. ANGULAR: ![Angular](./_img/angular.png)
+### 3.4.1. ANGULAR ![Angular](./_img/angular.png)
 - [Angular](./JavaScript/frameworks/Angular/angular.md)
 
-### 3.4.2. REACT: ![React](./_img/react.png)
+### 3.4.2. REACT ![React](./_img/react.png)
 - [React](./React/react.md)
 - [Jest](./React/jest.md)
 - [Testing Library](./React/testingLibrary.md)
 
-### 3.4.3 NODEJS: ![NodeJS](./_img/node.png)
+### 3.4.3 NODEJS ![NodeJS](./_img/node.png)
 - Template: *[Template](./JavaScript/frameworks/NodeJS/_template)*
 
-#### 3.4.3.1. CONCEPTS:
+#### 3.4.3.1. CONCEPTS
 - [NodeJS](./JavaScript/frameworks/NodeJS/node.md)
 - [Learnyounode](./JavaScript/frameworks/NodeJS/learnyounode.md)
 - [Code Status](./JavaScript/frameworks/NodeJS/codeStatus.png)
 
-#### 3.4.3.2. LIBRARIES:
+#### 3.4.3.2. LIBRARIES
 - [BCryptjs](./JavaScript/frameworks/NodeJS/libraries/bcryptjs.md)
 - [Colors](./JavaScript/frameworks/NodeJS/libraries/colors.md)
 - [DotEnv](./JavaScript/frameworks/NodeJS/libraries/dotenv.md)
@@ -123,36 +123,38 @@
 <br>
 
 # 4. LLM: ![LLM](./_img/llm.png)
+## 4.1. HTML
 - [HTML](./LLM/HTML/html.md)
-- STYLES: 
-  - CSS:
-    - [CSS](./LLM/STYLES/CSS/css.md)
-    - [Centrar Div](./LLM/STYLES/CSS/centrarDiv.md)
-    - [FlexBox](./LLM/STYLES/CSS/flex.md)
-    - [Grid](./LLM/STYLES/CSS/grid.md)
-    - [BEM](./LLM/STYLES/CSS/bem.md)
-    - [Responsive](./LLM/STYLES/CSS/responsive.md)
-    - Reset:
-      - [*normalize.css*](./LLM/STYLES/CSS/reset/normalize.css)
-      - [*reset.css*](./LLM/STYLES/CSS/reset/reset.css)
-  - [BOOTSTRAP](./LLM/STYLES/BOOTSTRAP/bootstrap.md)
-  - SASS:
-    - [*template*](./LLM/STYLES/SASS/_template)
-    - [SASS](./LLM/STYLES/SASS/sass.md)
+
+## 4.2. STYLES 
+- CSS:
+  - [CSS](./LLM/STYLES/CSS/css.md)
+  - [Centrar Div](./LLM/STYLES/CSS/centrarDiv.md)
+  - [FlexBox](./LLM/STYLES/CSS/flex.md)
+  - [Grid](./LLM/STYLES/CSS/grid.md)
+  - [BEM](./LLM/STYLES/CSS/bem.md)
+  - [Responsive](./LLM/STYLES/CSS/responsive.md)
+  - Reset:
+    - [*normalize.css*](./LLM/STYLES/CSS/reset/normalize.css)
+    - [*reset.css*](./LLM/STYLES/CSS/reset/reset.css)
+- [BOOTSTRAP](./LLM/STYLES/BOOTSTRAP/bootstrap.md)
+- SASS:
+  - [*template*](./LLM/STYLES/SASS/_template)
+  - [SASS](./LLM/STYLES/SASS/sass.md)
 ---
 <br>
 
-# 5. SYSTEMS: ![Systems](./_img/systems.png)
+# 5. SYSTEMS ![Systems](./_img/systems.png)
 - [Systems](https://github.com/RichardYusteDAW/asir/blob/master/README.md)
 ---
 <br>
 
- # 6. UML:
+ # 6. UML
  - [UML](./UML/uml.md)
 ---
 <br>
 
-# 7. VSCode: ![VSCode](./_img/vsc.png)
+# 7. VSCode ![VSCode](./_img/vsc.png)
 - [VSCode](./VSCode/VSCode.md)
 - [Extensions](./VSCode/extensions.txt)
 - [Settings](./VSCode/settings.json)
