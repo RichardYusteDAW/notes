@@ -9,6 +9,7 @@
 ---
 <br>
 
+
 ## 2. Características 📋
 - **Asíncrono**: No espera a que una operación se complete para continuar con la siguiente.
 - **Orientado a eventos**: Se basa en eventos, lo que permite que el servidor pueda responder a una petición sin bloquear el hilo de ejecución.
@@ -16,14 +17,14 @@
 ---
 <br>
 
+
 ## 3. NPM 📦
 - Node Package Manager es el gestor de paquetes de Node.js y permite instalar, actualizar y eliminar paquetes.
 
-### 3.1. Comandos
 ```bash
 npm -v                            # Muestra la versión de npm
 
-npm init                          # Inicializa un proyecto de Node.js
+npm init                          # Inicializa un proyecto de Node.js y crea el archivo package.json
 npm init -y                       # Inicializa un proyecto de Node.js con valores por defecto
 
 npm install                       # Instala todas las dependencias del proyecto
@@ -43,7 +44,47 @@ npm show <package> version        # Muestra la versión de un paquete
 ---
 <br>
 
-## 4. Importar módulos 📥
+
+## 4. package.json 📦
+- Es un archivo que contiene la información del proyecto y las dependencias que necesita.
+- Se puede crear con el comando `npm init`.
+```json
+{
+  "name": "nombre",                                      // Nombre del proyecto
+  "version": "1.0.0",                                    // Versión del proyecto
+  "description": "Descripción del proyecto",             // Descripción del proyecto
+  "main": "index.js",                                    // Archivo principal desde el que se ejecuta el proyecto
+  "type": "module",                                      // Tipo de módulo (CommonJS, ES6)
+  "scripts": {                                           // Scripts que se pueden ejecutar (npm run <script> excepto start, test, stop y restart)
+    "start": "node index.js",                            // npm start == node index.js
+    "test": "jest --watchAll",                           // npm test == jest --watchAll
+    "build": "webpack --config webpack.config.js"        // npm run build == webpack --config webpack.config.js
+  },
+  "repository": {                                        // Repositorio del proyecto
+    "type": "git",                                       // Tipo de repositorio
+    "url": "git+https://github.com/usuario/proyecto.git" // URL del repositorio
+  },
+  "keywords": [],                                        // Palabras clave que se utilizan para buscar el proyecto en npm
+  "author": "Autor",                                     // Persona que ha creado el proyecto
+  "license": "MIT",                                      // Licencia del proyecto (MIT, GPL, Apache, etc.)
+  "bugs": {                                              // URL para informar de errores
+    "url": "https://github.com/usuario/proyecto/issues"  // URL de errores del proyecto
+  },
+  "homepage": "https://proyecto.com",                    // URL de la página principal del proyecto
+  "dependencies": {                                      // Programas que necesita el proyecto para funcionar
+    "express": "^4.19.2"
+  },
+  "devDependencies": {                                   // Programas que necesita el proyecto para desarrollar pero no en producción
+    "nodemon": "^2.0.7"
+  }
+}
+```
+---
+<br>
+
+
+## 5. Importar y exportar módulos 📥
+### 5.1. Importar módulos
 - Importar un módulo de Node:
   ```javascript
   const fs = require('fs');
@@ -64,10 +105,8 @@ npm show <package> version        # Muestra la versión de un paquete
   const { funcion1, funcion2 } = require('./path/modulo');
   import { funcion1, funcion2 } from './path/modulo'; // New way (ES6)
   ```
-  ---
-  <br>
 
-## 5. Exportar módulos 📤
+### 5.2. Exportar módulos 📤
 - Exportar un módulo:
   ```javascript
   module.exports = modulo;
@@ -84,9 +123,9 @@ npm show <package> version        # Muestra la versión de un paquete
   export { modulo1, modulo2 }; // New way (ES6)
   ```
 
-### 5.1. Exportar con index.js
-#### 5.1.1. Crear archivo index.js
+### 5.3. Exportar e importar con archivo index.js (archivo de barril)
 ```javascript
+// index.js
 const modulo1 = require('../path/modulo1'); // This module exports funcion1 and funcion2
 const modulo2 = require('../path/modulo2'); // This module exports funcion3
 const modulo3 = require('../path/modulo3'); // This module exports funcion4 and funcion5
@@ -94,13 +133,14 @@ const modulo3 = require('../path/modulo3'); // This module exports funcion4 and 
 module.exports = { ...modulo1, ...modulo2, ...modulo3 };
 ```
 
-#### 5.1.2. Importar módulos
 ```javascript
-const { funcion1, funcion2, funcion3, funcion4, funcion5 } = require('../path'); // Old way
-import { funcion1, funcion2, funcion3, funcion4, funcion5 } from '../path';      // New way (ES6)
+// app.js
+const { funcion1, funcion2, funcion3, funcion4, funcion5 } = require('../path/index'); // Old way
+import { funcion1, funcion2, funcion3, funcion4, funcion5 } from '../path/index'; // New way (ES6)
 ```
 ---
 <br>
+
 
 ## 6. TypeScript 📝
 - TypeScript es un superconjunto de JavaScript que añade tipado estático y objetos basados en clases.
@@ -174,7 +214,7 @@ let a: [string, number] = ['Hola', 5];    // Tupla
 let a: void = undefined;                  // No tiene tipo
 let a: null = null;                       // Null
 let a: undefined = undefined;             // Undefined
-let a: never = undefined;                 // Nunca ocurre
+let a: never = undefined;                 // Se usa para funcionas que nunca devuelven nada
 let a: Application = new Application();   // Clase
 ```
 ---
