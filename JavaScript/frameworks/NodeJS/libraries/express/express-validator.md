@@ -102,9 +102,11 @@ const middleware = [
 
 ## 6. Middlewares 📝
 ### 6.1. Personalizados
+- `value`: Valor del campo (field).
+- `context`: Objeto que incluye req, location, path y otros campos.
 ```javascript
-check('body field', 'error message').custom((value, { req }) => {
-    if (value !== req.body.field) {
+check('body field', 'error message').custom((value, context) => {
+    if (value !== context.req.body.field) {
         throw new Error('Error message');
     }
     return true;
