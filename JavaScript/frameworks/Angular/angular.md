@@ -793,6 +793,39 @@ export class AppComponent {
   }
 }
 ```
+---
+<br>
+
+
+## 14. DOM 🌳
+- `Renderer2`: Es un servicio que ofrece métodos para manipular elementos del DOM de manera segura, evitando ataques XSS.
+- `ElementRef`: Es una clase que se utiliza para acceder a un elemento del DOM.
+- `ViewChild`: Es un decorador que se utiliza para acceder a un elemento del DOM.
+```html
+<!-- HTML -->
+<button (click)="changeColor()">Cambiar color</button>
+<p #myElement>Este texto cambiará de color</p>
+```
+```typescript
+// COMPONENTE
+import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html'
+})
+export class AppComponent {
+
+  @ViewChild('myElement') myElement: ElementRef;
+
+  constructor(private renderer: Renderer2) {}
+
+  changeColor() {
+    this.renderer.setStyle(this.myElement.nativeElement, 'color', 'red');
+  }
+}
+```
+---
 <br><br><br>
 
 ## *[volver al índice](../../../README.md)*
