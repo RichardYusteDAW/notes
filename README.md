@@ -82,7 +82,11 @@
 
 ## 3.4. FRAMEWORKS:
 ### 3.4.1. ANGULAR ![Angular](./_img/angular.png)
+#### 3.4.1.1. CONCEPTS
 - [Angular](./JavaScript/frameworks/Angular/angular.md)
+
+#### 3.4.1.2. LIBRARIES
+- [jsQR](./JavaScript/frameworks/Angular/libraries/jsQR.md)
 
 ### 3.4.2. REACT ![React](./_img/react.png)
 - [React](./React/react.md)
