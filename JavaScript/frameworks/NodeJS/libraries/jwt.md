@@ -5,7 +5,7 @@ Es un estándar abierto basado en JSON propuesto por IETF para la creación de t
   - **Carga útil (Payload)**: Objeto JSON que contiene la información que se desea transmitir.
   - **Firma (Signature)**: Es el resultado del hasheo de la concatenación del encabezado y la carga útil con una clave secreta, asegurando que el contenido no ha sido modificado.
 
-![jwt](../../_img/jwt.jpg)
+![jwt](../../../../_img/jwt.jpg)
 ```javascript
 signature = HMACSHA256(base64UrlEncode(header) + "." + base64UrlEncode(payload), secret)
 ```
@@ -53,11 +53,21 @@ const token = jwt.sign(payload, secret, options);
 <br>
 
 ## 5. Enviar Token al Cliente 📤
+- `httpOnly`:
+  - **true**: No se puede acceder al token desde el navegador.
+  - **false**: Se puede acceder al token desde el navegador.
+- `secure`:
+  - **true**: Solo se envía el token si la conexión es segura (https).
+  - **false**: Se envía el token aunque la conexión no sea segura (http).
+- `sameSite`:
+  - **Strict**: Solo se envía el token si la petición desde el mismo dominio.
+  - **Lax**: Se envía el token si la petición es desde el mismo dominio pero solo si es una petición GET.
+  - **None**: Se envía el token siempre.
 ```javascript
 const options = {
-    httpOnly: true,     // No se puede acceder al token desde el navegador
-    secure: false,      // Solo se envía el token si la conexión es segura (https)
-    sameSite: 'Strict', // No se envía el token si la petición es desde otro sitio
+    httpOnly: true,
+    secure: false,
+    sameSite: 'Strict',
 };
 res.cookie('token-name', token, options);
 ```
