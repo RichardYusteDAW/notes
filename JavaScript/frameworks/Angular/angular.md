@@ -567,6 +567,15 @@ export class AppComponent {
   navigatetoIphone() {
     this.router.navigate(['/article'], { queryParams: { name: 'Iphone' } });
   }
+
+  // Si queremos mandar datos a la ruta utilizamos el objeto state
+  navigateToArticle(id: number) {
+    this.router.navigate(['/article', id], { state: { title: 'Artículo 1' } });
+  }
+
+  // Para recibir los datos en la ruta utilizamos el objeto state.
+  this.router.getCurrentNavigation().extras.state.title;
+  history.state.title; // Se puede acceder desde la API nativa del navegador pero esos datos siempre perduran en el historial.
 }
 ```
 ```html
