@@ -1,37 +1,60 @@
 {
+    // Extensión Database Client que permite conectarse a bases de datos SQL
+    "database-client.autoSync": true, // Sincronizar automáticamente los archivos de configuración
+    // Editor de código
     "editor.formatOnSave": true, // Formatear el código al guardar
+    "[sql]": {
+        "editor.formatOnSave": false // Desactivar el formateo automático para archivos SQL
+    },
     "editor.inlineSuggest.showToolbar": "onHover", // Mostrar la barra de sugerencias en el hover
     "editor.linkedEditing": true, // Habilitar la edición vinculada
     "editor.minimap.enabled": false, // Desactivar el minimapa
+    // Los archivos
     "files.autoGuessEncoding": true, // Adivinar la codificación de los archivos
     "files.autoSave": "onWindowChange", // Guardar los archivos al cambiar de ventana
+    // Git
     "git.autofetch": true, // Realizar un fetch automático al abrir un repositorio
     "git.openRepositoryInParentFolders": "always", // Abrir el repositorio en la carpeta padre
     "git-graph.referenceLabels.alignment": "Branches (on the left) & Tags (on the right)", // Alinear las etiquetas de referencia
-    "github.copilot.editor.enableAutoCompletions": true,
-    "github.copilot.enable": {
+    //GitHub Copilot
+    "github.copilot.editor.enableAutoCompletions": true, // Habilitar las autocompletaciones
+    "github.copilot.enable": { // Habilitar GitHub Copilot para los siguientes lenguajes
         "*": true,
         "plaintext": true,
         "markdown": true,
         "scminput": false
-    }, // Habilitar GitHub Copilot
+    },
+    // Lenguajes de programación
     "java.format.comments.enabled": false, // Desactivar el formateo de comentarios
+    "javascript.updateImportsOnFileMove.enabled": "always", // Actualizar las importaciones al mover un archivo
+    "typescript.updateImportsOnFileMove.enabled": "always", // Actualizar las importaciones al mover un archivo
+    // Live Server (permite visualizar los cambios en tiempo real)
     "liveServer.settings.donotShowInfoMsg": true, // No mostrar mensajes de información
     "liveServer.settings.donotVerifyTags": true, // No verificar las etiquetas
-    "terminal.integrated.defaultProfile.windows": "Git Bash", // Perfil por defecto de la terminal
-    "workbench.settings.applyToAllProfiles": [
-        "java.project.encoding"
-    ], // Aplicar la configuración a todos los perfiles en Java
-    "workbench.tree.enableStickyScroll": true, // Activar el scroll pegajoso
-    "[sql]": {
-        "editor.formatOnSave": false
-    }, // Desactivar el formateo automático para archivos SQL
+    // Telemetría es la recopilación de datos de uso para mejorar el producto
     "redhat.telemetry.enabled": true, // Habilitar la telemetría de Red Hat
+    // Seguridad
     "security.workspace.trust.untrustedFiles": "open", // Abrir los archivos no confiables
-    "workbench.editorAssociations": {
-        "*.jar": "default"
-    }, // Asociar los archivos JAR al editor por defecto
-    "workbench.iconTheme": "vscode-great-icons", // Tema de iconos
+    // Terminal
+    "terminal.integrated.defaultProfile.windows": "Git Bash", // Perfil por defecto de la terminal
+    "terminal.integrated.suggest.enabled": true, // Habilitar las sugerencias
+    "terminal.integrated.suggest.quickSuggestions": { // Configuración de sugerencias rápidas
+        "commands": "on",
+        "arguments": "on",
+        "unknown": "off"
+    },
+    // Interfaz de usuario
     "workbench.colorTheme": "Monokai Night", // Tema de color
-    "workbench.editor.enablePreview": false // Desactivar la vista previa
+    "workbench.editorAssociations": {
+        "*.jar": "default" // Asociar los archivos JAR al editor por defecto
+    },
+    "workbench.editor.enablePreview": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features" // Formateador por defecto para JavaScript
+    },
+    "workbench.iconTheme": "vscode-icons", // Tema de color
+    "workbench.settings.applyToAllProfiles": [ // Aplicar la configuración a todos los perfiles en Java
+        "java.project.encoding"
+    ],
+    "workbench.tree.enableStickyScroll": true // Activar el scroll pegajoso
 }
