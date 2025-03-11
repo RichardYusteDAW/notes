@@ -2,10 +2,9 @@
 
 ## 1. Diferencia entre var, let y const
 `var`
-
-- Alcance: Function scope (o global si se declara fuera de una función).
-- Declaración: Sí
-- Reasignación: Sí
+- **Alcance**: Function scope (o global si se declara fuera de una función).
+- **Declaración**: Sí
+- **Reasignación**: Sí
 
 ```javascript
 var x = 1;
@@ -18,10 +17,9 @@ console.log(x);   // 2
 ```
 
 `let`
-
-- Alcance: Block scope.
-- Declaración: Sí, pero no puede ser redeclarada en el mismo bloque.
-- Reasignación: Sí
+- **Alcance**: Block scope.
+- **Declaración**: Sí, pero no puede ser redeclarada en el mismo bloque.
+- **Reasignación**: Sí
 
 ```javascript
 let x = 1;
@@ -35,10 +33,9 @@ console.log(x);   // 1
 ```
 
 `const`
-
-- Alcance: Block scope.
-- Declaración: Sí, pero no puede ser redeclarada en el mismo bloque.
-- Reasignación: No
+- **Alcance**: Block scope.
+- **Declaración**: Sí, pero no puede ser redeclarada en el mismo bloque.
+- **Reasignación**: No
 
 ```javascript
 const x = 1;
@@ -141,7 +138,7 @@ let multiLinea = `
 | Operator | Description                       | Example                          |
 |----------|-----------------------------------|----------------------------------|
 | &&       | Returns true if boths are true    | true && false = false            |
-| ||       | Returns true if one is true       | true \|\| false = true           |
+| ||       | Returns true if one is true       | true || false = true             |
 | !        | Returns true if it is false       | !true = false                    |
 ```
 
@@ -152,8 +149,18 @@ let mensaje = edad >= 18 ? "Eres mayor de edad." : "Eres menor de edad.";
 
 console.log(mensaje); // "Eres mayor de edad."
 ```
+
+### 4.7. Operador de fusión nula
+- Devuelve el operando de la izquierda cuando no es `null` ni `undefined`.
+```javascript
+let nombre = null;
+let nombreCompleto = nombre ?? "Desconocido";
+
+console.log(nombreCompleto); // "Desconocido"
+```
 ---
 <br>
+
 
 ## 5. Set y Map
 ### 5.1. Set

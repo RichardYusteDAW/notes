@@ -273,8 +273,36 @@ export class AppComponent {
 <br>
 
 
-## 11. Comunicación entre componentes 📡
-### 11.1. De padre a hijo (@Input)
+## 11. Operators 🧮
+### 11.1. Operador ! Non-null assertion operator (Operador de afirmación de no nulidad)
+- Se utiliza para indicar a TypeScript que una expresión no será nula o indefinida.
+```typescript
+let name: string | null = null;
+console.log(name!.length);        // No se produce un error de compilación.
+```
+
+### 11.2. Operador ? Optional chaining (Encadenamiento opcional)
+- Se utiliza para acceder a propiedades de un objeto sin tener que comprobar si el objeto es nulo o indefinido.
+```typescript
+interface User {
+  name: string;
+  address?: {                   // Propiedad opcional.
+    city: string;               // Si address no existe, address será undefined y city también.
+  };
+}
+```	
+```typescript
+let user1 = { name: 'John', age: { city: 'New York' } };
+let user2 = { name: 'John' };
+console.log(user.address?.city);  // New York
+console.log(user2.address?.city); // undefined
+```
+---
+<br>
+
+
+## 12. Comunicación entre componentes 📡
+### 12.1. De padre a hijo (@Input)
 ```typescript
 // PADRE
 import { Component } from '@angular/core';
@@ -307,7 +335,7 @@ export class ChildComponent {
 <p>{{ titleFromFather }}</p>
 ```
 
-### 11.2. De hijo al padre (@Output)
+### 12.2. De hijo al padre (@Output)
 ```typescript
 // PADRE
 import { Component } from '@angular/core';
@@ -346,8 +374,8 @@ export class ChildComponent {
 <button (click)="saludarDesdeElHijo()">Saludar</button>
 ```
 
-### 11.3. Desde cualquier componente 
-#### 11.3.1. Servicios
+### 12.3. Desde cualquier componente 
+#### 12.3.1. Servicios
 - `@Injectable`: Se utiliza para inyectar un servicio en un componente.
 ```typescript
 // SERVICIO
@@ -380,7 +408,7 @@ export class AppComponent {
 <br>
 
 
-#### 11.3.2. Observables (RxJS)
+#### 12.3.2. Observables (RxJS)
 - El patrón Observer es una forma de comunicación entre componentes en Angular:
   - El Subject emite los valores.
   - El Observable actúa como intermediario entre el Subject y los Observers, emitiendo los valores de forma segura.
@@ -483,8 +511,8 @@ Completado
 <br>
 
 
-## 12. Routing 🚦
-### 12.1. Routes
+## 13. Routing 🚦
+### 13.1. Routes
 - `Routes`: Es un array de objetos que definen las rutas de la aplicación (Las rutas no llevan "/" al principio).
 ```typescript
 // app.routes.ts
@@ -507,7 +535,7 @@ export const routes: Routes = [
 ```
 <br>
 
-### 12.2. RouterLink
+### 13.2. RouterLink
 - `RouterLink`: Es una directiva que se utiliza para navegar entre rutas.
 ```typescript	
 // app.component.ts
@@ -532,7 +560,7 @@ import { RouterOutlet, RouterLink } from '@angular/router';
 ```
 <br>
 
-### 12.3. Router
+### 13.3. Router
 - `Router`: Es un servicio que proporciona métodos para navegar entre rutas.
 ```typescript
 // app.component.ts
@@ -588,7 +616,7 @@ export class AppComponent {
 ```
 <br>
 
-### 12.4. ActivatedRoute
+### 13.4. ActivatedRoute
 - `ActivatedRoute`: Es un servicio que proporciona información sobre la ruta activa.
 ```typescript
 // app.component.ts
@@ -610,7 +638,7 @@ export class AppComponent {
 ```
 <br>
 
-### 12.5. Guards
+### 13.5. Guards
 - `Guards`: Son servicios que se utilizan para proteger las rutas de la aplicación.
   - `CanActivate`: Antes de cargar los componentes de una ruta.
   - `CanActivateChild`: Antes de cargar las rutas hijas.
@@ -664,7 +692,7 @@ export const routes: Routes = [
 <br>
 
 
-## 13. HTTP Client 🌐
+## 14. HTTP Client 🌐
 - `HttpClient`: Es un servicio que se utiliza para realizar peticiones HTTP.
 - `provideHttpClient`: Es una función que se utiliza para proporcionar el servicio HttpClient y se importa en el archivo de configuración.
 ```typescript
@@ -806,7 +834,7 @@ export class AppComponent {
 <br>
 
 
-## 14. DOM 🌳
+## 15. DOM 🌳
 - `Renderer2`: Es un servicio que ofrece métodos para manipular elementos del DOM de manera segura, evitando ataques XSS.
 - `ElementRef`: Es una clase que se utiliza para acceder a un elemento del DOM.
 - `ViewChild`: Es un decorador que se utiliza para acceder a un elemento del DOM.
