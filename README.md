@@ -104,6 +104,7 @@
 #### 3.4.3.2. LIBRARIES
 - [BCryptjs](./JavaScript/frameworks/NodeJS/libraries/bcryptjs.md)
 - [Colors](./JavaScript/frameworks/NodeJS/libraries/colors.md)
+- [CORS](./JavaScript/frameworks/NodeJS/libraries/cors.md)
 - [DotEnv](./JavaScript/frameworks/NodeJS/libraries/dotenv.md)
 - [FileSystem](./JavaScript/frameworks/NodeJS/libraries/fileSystem.md)
 - [Inquirer](./JavaScript/frameworks/NodeJS/libraries/inquirer.md)
