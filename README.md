@@ -89,9 +89,9 @@
 - [jsQR](./JavaScript/frameworks/Angular/libraries/jsQR.md)
 
 ### 3.4.2. REACT ![React](./_img/react.png)
-- [React](./React/react.md)
-- [Jest](./React/jest.md)
-- [Testing Library](./React/testingLibrary.md)
+- [React](./JavaScript/frameworks/React/react.md)
+- [Jest](./JavaScript/frameworks/React/jest.md)
+- [Testing Library](./JavaScript/frameworks/React/testingLibrary.md)
 
 ### 3.4.3 NODEJS ![NodeJS](./_img/node.png)
 - Template: *[Template](./JavaScript/frameworks/NodeJS/_template)*
