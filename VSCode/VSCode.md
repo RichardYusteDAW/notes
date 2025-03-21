@@ -6,14 +6,22 @@
 ```
 code --list-extensions > extensions.txt
 ```
-### 1.2. Instalar
+### 1.2. UTF-8 sin BOM
+- Con PowerShell:
+```powershell
+Get-Content extensions.txt | Set-Content -Encoding utf8 extensions.txt
+```
+- Con Bash:
+```bash
+dos2unix extensions.txt
+```
+### 1.3. Instalar
 - Con PowerShell:
 ```powershell
 cat extensions.txt | % { code --install-extension $_ }
 # Forma larga:
 # Get-Content extensions.txt | ForEach-Object { code --install-extension $_ }
 ```
-
 - Con Bash:
 ```bash
 cat extensions.txt | xargs -L 1 code --install-extension

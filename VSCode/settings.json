@@ -11,14 +11,12 @@
     "editor.minimap.enabled": false, // Desactivar el minimapa
     // Los archivos
     "files.autoGuessEncoding": true, // Adivinar la codificación de los archivos
-    "files.autoSave": "onWindowChange", // Guardar los archivos al cambiar de ventana
+    "files.autoSave": "onFocusChange", // Guardar los archivos al cambiar de foco
     // Git
     "git.autofetch": true, // Realizar un fetch automático al abrir un repositorio
     "git.openRepositoryInParentFolders": "always", // Abrir el repositorio en la carpeta padre
-    "git-graph.referenceLabels.alignment": "Branches (on the left) & Tags (on the right)", // Alinear las etiquetas de referencia
-    //GitHub Copilot
-    "github.copilot.editor.enableAutoCompletions": true, // Habilitar las autocompletaciones
-    "github.copilot.enable": { // Habilitar GitHub Copilot para los siguientes lenguajes
+    "git-graph.referenceLabels.alignment": "Branches (on the left) & Tags (on the right)", // Habilitar las autocompletaciones
+    "github.copilot.enable": {
         "*": true,
         "plaintext": true,
         "markdown": true,
@@ -37,12 +35,6 @@
     "security.workspace.trust.untrustedFiles": "open", // Abrir los archivos no confiables
     // Terminal
     "terminal.integrated.defaultProfile.windows": "Git Bash", // Perfil por defecto de la terminal
-    "terminal.integrated.suggest.enabled": true, // Habilitar las sugerencias
-    "terminal.integrated.suggest.quickSuggestions": { // Configuración de sugerencias rápidas
-        "commands": "on",
-        "arguments": "on",
-        "unknown": "off"
-    },
     // Interfaz de usuario
     "workbench.colorTheme": "Monokai Night", // Tema de color
     "workbench.editorAssociations": {
