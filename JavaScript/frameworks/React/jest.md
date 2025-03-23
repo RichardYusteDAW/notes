@@ -257,21 +257,21 @@ test('Should return an error', async () => {
 
 ### 7.7. Con mocks
 - `jest.fn()`: Crea una función simulada.
-- `mockResolvedValue(value)`: Establece el valor de retorno de la función simulada.
-- `mockRejectedValue(value)`: Establece el valor de error de la función simulada.
-- `mockImplementation(value)`: Establece la implementación de la función simulada.
-- `mockImplementationOnce(value)`: Establece la implementación de la función simulada una vez.
+- `mockResolvedValue(value)`: Establece el valor de retorno de la función simulada (promesa).
+- `mockRejectedValue(value)`: Establece el valor de error de la función simulada (promesa).
+- `mockImplementation(value)`: Establece la implementación de la función simulada (callback).
+- `mockImplementationOnce(value)`: Establece la implementación de la función simulada una vez (callback).
 - `toHaveBeenCalledTimes(value)`: Verifica cuántas veces se ha llamado la función simulada.
 - `toHaveBeenCalledWith(value)`: Verifica si la función simulada se ha llamado con un valor.
-- `toHaveReturnedWith(value)`: Verifica si la función simulada ha devuelto un valor.
-- `toHaveReturnedTimes(value)`: Verifica cuántas veces ha devuelto un valor la función simulada.
-- `toHaveLastReturnedWith(value)`: Verifica si la función simulada ha devuelto un valor la última vez.
-- `toHaveNthReturnedWith(value)`: Verifica si la función simulada ha devuelto un valor en la posición n.
-- `mockClear()`: Limpia la función simulada.
-- `mockReset()`: Restablece la función simulada.
-- `mockRestore()`: Restaura la función simulada.
-- `mockReturnValue(value)`: Establece el valor de retorno de la función simulada.
-- `mockReturnValueOnce(value)`: Establece el valor de retorno de la función simulada una vez.
+- `toHaveReturnedWith(value)`: Verifica si la función simulada ha devuelto un valor (promesa).
+- `toHaveReturnedTimes(value)`: Verifica cuántas veces ha devuelto un valor la función simulada (promesa).
+- `toHaveLastReturnedWith(value)`: Verifica si la función simulada ha devuelto un valor la última vez (promesa).
+- `toHaveNthReturnedWith(value)`: Verifica si la función simulada ha devuelto un valor en la posición n (promesa).
+- `mockClear()`: Limpia la función simulada (resetea).
+- `mockReset()`: Restablece la función simulada a su estado original.
+- `mockRestore()`: Restaura la función simulada (restablece y elimina).
+- `mockReturnValue(value)`: Establece el valor de retorno de la función simulada (callback).
+- `mockReturnValueOnce(value)`: Establece el valor de retorno de la función simulada una vez (callback).
 
 ```javascript
 test('Should return user by id', async () => {
