@@ -127,11 +127,16 @@
 ---
 <br>
 
-# 4. LLM: ![LLM](./_img/llm.png)
-## 4.1. HTML
+# 4. TYPESCRIPT: ![TypeScript](./_img/ts.png)
+- [TypeScript](./TypeScript/ts.md)
+---
+<br>
+
+# 5. LLM: ![LLM](./_img/llm.png)
+## 5.1. HTML
 - [HTML](./LLM/HTML/html.md)
 
-## 4.2. STYLES 
+## 5.2. STYLES 
 - CSS:
   - [CSS](./LLM/STYLES/CSS/css.md)
   - [Centrar Div](./LLM/STYLES/CSS/centrarDiv.md)
@@ -149,17 +154,17 @@
 ---
 <br>
 
-# 5. SYSTEMS ![Systems](./_img/systems.png)
+# 6. SYSTEMS ![Systems](./_img/systems.png)
 - [Systems](https://github.com/RichardYusteDAW/asir/blob/master/README.md)
 ---
 <br>
 
- # 6. UML
+ # 7. UML
  - [UML](./UML/uml.md)
 ---
 <br>
 
-# 7. VSCode ![VSCode](./_img/vsc.png)
+# 8. VSCode ![VSCode](./_img/vsc.png)
 - [VSCode](./VSCode/VSCode.md)
 - [Extensions](./VSCode/extensions.txt)
 - [Settings](./VSCode/settings.json)
