@@ -282,6 +282,24 @@ type PowerUser = Omit<User, 'type'> & Omit<Admin, 'type'> & { type: 'powerUser' 
 ## 9. Módulos 📦
 Permite organizar el código en archivos separados.
 ```typescript
+// archivo1.ts
+export const PI = 3.14;
+export function sumar(a: number, b: number): number {
+    return a + b;
+}
+export class Persona {
+    constructor(public nombre: string, public edad: number) {}
+}
+
+// archivo2.ts
+import { PI, sumar, Persona } from './archivo1';
+
+const resultado = sumar(10, 20);
+const persona = new Persona('Juan', 30);
+```
+
+Si las importaciones no tinenen tipo puedes declararlos tu mismo en un archivo `.d.ts` (declaración de módulos).
+```typescript
 // archivo1.d.ts
 declare module 'archivo1' {
     const PI: number;
@@ -291,11 +309,22 @@ declare module 'archivo1' {
 
 // archivo2.ts
 import 'path/archivo1';
-import otroNombre from 'archivo1'; // Se puede importar con otro nombre
 
 console.log(PI);
 saludar();
 let persona: Persona = { nombre: 'Juan', edad: 30 };
+```
+
+Si las importaciones no están en la misma ruta hay que indicarlo en el typeRoots (tsconfig.json):
+```json
+{
+  "compilerOptions": {
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/declarations"
+    ]
+  }
+}
 ```
 <br><br><br>
 
