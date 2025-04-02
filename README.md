@@ -154,17 +154,22 @@
 ---
 <br>
 
-# 6. SYSTEMS ![Systems](./_img/systems.png)
+# 6. SOLID ![SOLID](./_img/solid.png)
+- [SOLID](./SOLID/solid.md)
+---
+<br>
+
+# 7. SYSTEMS ![Systems](./_img/systems.png)
 - [Systems](https://github.com/RichardYusteDAW/asir/blob/master/README.md)
 ---
 <br>
 
- # 7. UML
+ # 8. UML
  - [UML](./UML/uml.md)
 ---
 <br>
 
-# 8. VSCode ![VSCode](./_img/vsc.png)
+# 9. VSCode ![VSCode](./_img/vsc.png)
 - [VSCode](./VSCode/VSCode.md)
 - [Extensions](./VSCode/extensions.txt)
 - [Settings](./VSCode/settings.json)
