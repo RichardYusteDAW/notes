@@ -88,6 +88,9 @@
 #### 3.4.1.2. LIBRARIES
 - [jsQR](./JavaScript/frameworks/Angular/libraries/jsQR.md)
 
+#### 3.4.1.3. TESTING
+- [Angular Testing](./JavaScript/frameworks/Angular/testing.md)
+
 ### 3.4.2. REACT ![React](./_img/react.png)
 - [React](./JavaScript/frameworks/React/react.md)
 - [Jest](./JavaScript/frameworks/React/jest.md)
