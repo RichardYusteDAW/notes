@@ -87,6 +87,9 @@ describe('MyComponent', () => {
 ```
 
 #### 2.3.2. Servicio
+- **provideHttpClient():** Proporciona el cliente HTTP real para realizar solicitudes HTTP.
+- **provideHttpClientTesting():** Proporciona el cliente HTTP de pruebas para simular solicitudes HTTP en las pruebas.
+- **HttpTestingController:** Permite simular y controlar solicitudes HTTP en las pruebas. Proporciona métodos para verificar las solicitudes y simular respuestas.
 ```javascript
 import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
@@ -127,6 +130,60 @@ describe('MyService', () => {
     });
 });
 ```
+
+#### 2.3.3. Router y RouterLink
+```javascript
+import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
+import { RouterOutlet, Router, provideRouter } from '@angular/router';
+import { MyComponent } from './my-component.component';
+import { routes } from './app-routing.module';
+
+describe('MyComponent', () => {
+    let fixture: ComponentFixture<MyComponent>;
+    let router: Router;
+
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            imports: [ MyComponent, RouterOutlet ],                        // Importa el componente y el outlet del router.
+            providers: [ provideRouter(routes) ]                           // Proporciona el router y las rutas.
+        });
+
+        fixture = TestBed.createComponent(MyComponent);                    // Crea una instancia del componente.
+        router = TestBed.inject(Router);                                   // Inyecta el router.
+    });
+
+    it('should be created', () => {
+        expect(fixture.componentInstance).toBeTruthy();                    // Verifica que el componente se haya creado correctamente.                                      
+    });
+
+    it('should navigate to /home', fakeAsync(() => {
+        // Act
+        router.navigate(['/home']);                                        // Llama al método de navegación.
+        tick();                                                            // Avanza el tiempo simulado.
+        fixture.detectChanges();                                           // Detecta cambios en la vista.
+        const view = fixture.nativeElement;                                // Obtiene el DOM del componente.
+
+        // Assert
+        expect(router.url).toBe('/home');                                  // Verifica que la URL sea la esperada.
+        expect(view.textContent).toContain('Home');                        // Verifica que el contenido del DOM contenga 'Home'.
+    }));
+
+    it('should navigate to /home when a is clicked', fakeAsync(() => {
+        // Arrange
+        const link = fixture.nativeElement.querySelector('a');             // Selecciona el enlace.
+
+        // Act
+        link.click();                                                      // Simula un clic en el botón.
+        tick();                                                            // Avanza el tiempo simulado.
+        fixture.detectChanges();                                           // Detecta cambios en la vista.
+        const view = fixture.nativeElement;                                // Obtiene el DOM del componente.
+
+        // Assert
+        expect(router.url).toBe('/home');                                  // Verifica que la URL sea la esperada.
+        expect(view.textContent).toContain('Home');                        // Verifica que el contenido del DOM contenga 'Home'.
+    }));
+});
+```	
 <br><br><br>
 
 ## *[volver al índice](../../../README.md)*
