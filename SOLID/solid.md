@@ -80,6 +80,71 @@ class Penguin extends Animal {
 
 
 ### 1.4. I - Interface Segregation Principle (ISP)
+- El principio de segregación de interfaces establece que una clase no debe verse obligada a depender de interfaces que no utiliza.
+- Es mejor tener muchas interfaces específicas que una sola interfaz general con demasiadas responsabilidades.
+- Esto mejora la cohesión y reduce el acoplamiento innecesario entre clases.
+
+```java
+// Violación del ISP: interfaz con métodos no aplicables a todas las clases
+interface Printer {
+    void print(Document doc);
+    void scan(Document doc);
+    void fax(Document doc);
+}
+
+class SimplePrinter implements Printer {
+    public void print(Document doc) {
+        // Imprimir documento
+    }
+
+    public void scan(Document doc) {
+        // No aplica para esta impresora
+        throw new UnsupportedOperationException();
+    }
+
+    public void fax(Document doc) {
+        // No aplica para esta impresora
+        throw new UnsupportedOperationException();
+    }
+}
+
+// Aplicación del ISP: interfaces separadas según funcionalidad
+interface Printable {
+    void print(Document doc);
+}
+
+interface Scannable {
+    void scan(Document doc);
+}
+
+interface Faxable {
+    void fax(Document doc);
+}
+
+class BasicPrinter implements Printable {
+    public void print(Document doc) {
+        // Imprimir documento
+    }
+}
+
+class AdvancedPrinter implements Printable, Scannable, Faxable {
+    public void print(Document doc) {
+        // Imprimir
+    }
+
+    public void scan(Document doc) {
+        // Escanear
+    }
+
+    public void fax(Document doc) {
+        // Enviar fax
+    }
+}
+```
+---
+<br>
+
+
 ### 1.5. D - Dependency Inversion Principle (DIP)
 
 <br><br><br>
