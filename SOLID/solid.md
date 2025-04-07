@@ -107,7 +107,8 @@ class SimplePrinter implements Printer {
         throw new UnsupportedOperationException();
     }
 }
-
+```
+```java
 // Aplicación del ISP: interfaces separadas según funcionalidad
 interface Printable {
     void print(Document doc);
@@ -146,6 +147,51 @@ class AdvancedPrinter implements Printable, Scannable, Faxable {
 
 
 ### 1.5. D - Dependency Inversion Principle (DIP)
+- El principio de inversión de dependencias establece que las clases de alto nivel no deben depender de clases de bajo nivel, sino de abstracciones (interfaces o clases abstractas).
+- Las abstracciones no deben depender de los detalles, sino que los detalles deben depender de las abstracciones.
+- Usa interfaces o clases abstractas para desacoplar la lógica principal de los detalles concretos.
+```java
+// Violación del DIP: el servicio depende directamente de una clase concreta
+class MySQLUserRepository {
+    public User findById(String id) {
+        // Buscar usuario en MySQL
+        return new User(id);
+    }
+}
+
+class UserService {
+    private final MySQLUserRepository repo = new MySQLUserRepository(); // ❌ Acoplamiento fuerte
+
+    public User getUser(String id) {
+        return repo.findById(id);
+    }
+}
+```
+```java
+// Aplicación del DIP: ambos módulos dependen de una abstracción
+interface UserRepository {
+    User findById(String id);
+}
+
+class MySQLUserRepository implements UserRepository {
+    public User findById(String id) {
+        // Buscar usuario en MySQL
+        return new User(id);
+    }
+}
+
+class UserService {
+    private final UserRepository repo;
+
+    public UserService(UserRepository repo) { // ✅ Inyección de la abstracción
+        this.repo = repo;
+    }
+
+    public User getUser(String id) {
+        return repo.findById(id);
+    }
+}
+```
 
 <br><br><br>
 

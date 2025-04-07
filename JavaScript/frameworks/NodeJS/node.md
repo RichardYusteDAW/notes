@@ -44,8 +44,23 @@ npm show <package> version        # Muestra la versión de un paquete
 ---
 <br>
 
+## 4. NVM (Node Version Manager) 🔄
+[Download](https://github.com/coreybutler/nvm-windows/releases)
+- Permite instalar y gestionar múltiples versiones de Node.js en el mismo sistema.
+- Permite cambiar entre versiones de Node.js fácilmente.
+```bash
+nvm install <version>             # Instala una versión de Node.js
+nvm use <version>                 # Cambia a una versión de Node.js
+nvm alias default <version>       # Establece una versión de Node.js como predeterminada
+nvm ls                            # Lista las versiones de Node.js instaladas
+nvm ls-remote                     # Lista las versiones de Node.js disponibles para instalar
+nvm uninstall <version>           # Desinstala una versión de Node.js
+```
+---
+<br>
 
-## 4. package.json 📦
+
+## 5. package.json 📦
 - Es un archivo que contiene la información del proyecto y las dependencias que necesita.
 - Se puede crear con el comando `npm init`.
 ```json
@@ -83,8 +98,8 @@ npm show <package> version        # Muestra la versión de un paquete
 <br>
 
 
-## 5. Importar y exportar módulos 📥
-### 5.1. Importar módulos
+## 6. Importar y exportar módulos 📥
+### 6.1. Importar módulos
 - Importar un módulo de Node:
   ```javascript
   const fs = require('fs');
@@ -106,7 +121,7 @@ npm show <package> version        # Muestra la versión de un paquete
   import { funcion1, funcion2 } from './path/modulo'; // New way (ES6)
   ```
 
-### 5.2. Exportar módulos 📤
+### 6.2. Exportar módulos 📤
 - Exportar un módulo:
   ```javascript
   module.exports = modulo;
@@ -123,7 +138,7 @@ npm show <package> version        # Muestra la versión de un paquete
   export { modulo1, modulo2 }; // New way (ES6)
   ```
 
-### 5.3. Exportar e importar con archivo index.js (archivo de barril)
+### 6.3. Exportar e importar con archivo index.js (archivo de barril)
 ```javascript
 // index.js
 const modulo1 = require('../path/modulo1'); // This module exports funcion1 and funcion2
@@ -142,15 +157,15 @@ import { funcion1, funcion2, funcion3, funcion4, funcion5 } from '../path/index'
 <br>
 
 
-## 6. TypeScript 📝
+## 7. TypeScript 📝
 - TypeScript es un superconjunto de JavaScript que añade tipado estático y objetos basados en clases.
 - Permite detectar errores en tiempo de compilación.
 - Se compila a JavaScript para ser ejecutado en cualquier navegador o servidor.
 
-### 6.1. Instalar TypeScript
+### 7.1. Instalar TypeScript
 ```npm install -g typescript```
 
-### 6.2. Iniciar TypeScript
+### 7.2. Iniciar TypeScript
 - Este comando crea un archivo de configuración llamado `tsconfig.json`:  
 ```tsc --init```
 ```json
@@ -169,20 +184,20 @@ import { funcion1, funcion2, funcion3, funcion4, funcion5 } from '../path/index'
 }
 ```
 
-### 6.3. Compilar TypeScript
+### 7.3. Compilar TypeScript
 - Este comando compila todos los archivos TypeScript del proyecto y crea el directorio `dist` con los archivos JavaScript:  
 ```tsc    # Con la opción --watch (tsc -w) se compila automáticamente al guardar cambios```
 
-### 6.4. Ejecutar TypeScript
+### 7.4. Ejecutar TypeScript
 ```node dist/index.js```
 
-### 6.5. Tslint
+### 7.5. Tslint
 - TSLint es una herramienta de análisis estático de código para TypeScript que ayuda a mantener un código limpio y consistente ya que detecta errores y problemas de estilo.
 
-#### 6.5.1. Instalar TSLint
+#### 7.5.1. Instalar TSLint
 ```npm install tslint --save-dev```
 
-#### 6.5.2. Iniciar TSLint
+#### 7.5.2. Iniciar TSLint
 - Este comando crea un archivo de configuración llamado `tslint.json`:  
 ```./node_modules/.bin/tslint --init```
 ```json
@@ -199,10 +214,10 @@ import { funcion1, funcion2, funcion3, funcion4, funcion5 } from '../path/index'
 }
 ```
 
-### 6.6. Instalar módulos de terceros
+### 7.6. Instalar módulos de terceros
 ```npm install @types/<package>```
 
-### 6.7. Tipado de variables
+### 7.7. Tipado de variables
 ```typescript
 let a: string = 'Hola';                   // String
 let a: number = 5;                        // Number
