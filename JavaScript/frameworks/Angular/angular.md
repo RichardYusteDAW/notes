@@ -36,7 +36,48 @@ npm install bootstrap jquery @popperjs/core
 <br>
 
 
-## 4. Comandos ng 🖥️
+## 4. Instalar extensiones para Visual Studio Code 🔌
+- `EsLint`: Herramienta de análisis de código estático para identificar errores y problemas de estilo en el código.
+- `Prettier`: Formateador de código que ayuda a mantener un estilo de código consistente.
+- `Angular Language Service`: Proporciona autocompletado, navegación y verificación de errores en el código Angular.
+
+Configuración de Prettier y EsLint en el archivo `settings.json` de Visual Studio Code:
+```json
+"editor.defaultFormatter": "esbenp.prettier-vscode",
+"[javascript]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[typescript]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"editor.formatOnSave": true
+```
+
+Configuración de EsLint en `eslint.config.js`:
+```bash
+# Instalar EsLint
+npm install –g eslint​
+
+# Crear el archivo de configuración (eslint.config.mjs para ES6)
+npx eslint --init
+
+# Realiza las siguientes preguntas:
+√ How would you like to use ESLint? · problems
+√ What type of modules does your project use? · esm
+√ Which framework does your project use? · none
+√ Does your project use TypeScript? · typescript
+√ Where does your code run? · browser
+The config that you've selected requires the following dependencies:
+
+eslint, globals, @eslint/js, typescript-eslint
+√ Would you like to install them now? · No / Yes
+√ Which package manager do you want to use? · npm
+```
+---
+<br>
+
+
+## 5. Comandos ng 🖥️
 ```bash
 ng --version              # Muestra la versión de Angular CLI
 ng new <nombre-proyecto>  # Crea un nuevo proyecto
@@ -61,7 +102,7 @@ ng generate guard <nombre-guardia>         # Crea una nueva guardia (ng g g mygu
 <br>
 
 
-## 5. Estructura 🏗️
+## 6. Estructura 🏗️
 ```java
 /ANGULAR-PROJECT
 └─ /.vscode  -- -- -- -- -- -- -- -- -- -- -- - // Configuraciones para Visual Studio Code.
@@ -101,7 +142,7 @@ ng generate guard <nombre-guardia>         # Crea una nueva guardia (ng g g mygu
 <br>
 
 
-## 6. Scripts en package.json 📜
+## 7. Scripts en package.json 📜
 ```json
 "scripts": {
   "start": "ng serve",
@@ -116,7 +157,7 @@ ng generate guard <nombre-guardia>         # Crea una nueva guardia (ng g g mygu
 <br>
 
 
-## 7. Módulos 📦
+## 8. Módulos 📦
 - Es una clase con el decorador `@NgModule`.
 - Se utilizaba en versiones anteriores a la 17 para definir los elementos del proyecto (componentes, directivas, pipes, servicios, etc.).
 - Se creaba automáticamente el archivo `app.module.ts` al crear un nuevo proyecto.
@@ -137,7 +178,7 @@ export class AppModule { }
 <br>
 
 
-## 8. Componentes 🧩
+## 9. Componentes 🧩
 - Es una clase con el decorador `@Component`.
 - Se utiliza para definir la lógica de la vista.
 - Se crea automáticamente el archivo `app.component.ts` al crear un nuevo proyecto.
@@ -169,7 +210,7 @@ Ciclo de vida de un componente:
 <br>
 
 
-## 9. Data binding 📊
+## 10. Data binding 📊
 - Es la sincronización de datos entre el modelo y la vista.
 ```typescript
 @Component({
@@ -197,8 +238,8 @@ export class AppComponent {
 <br>
 
 
-## 10. Directivas 📏
-### 10.1. Directivas de atributo
+## 11. Directivas 📏
+### 11.1. Directivas de atributo
 - Son instrucciones en el DOM que cambian el comportamiento de un elemento (ngClass, ngStyle, ngModel).
   - `ngClass`: Añade o elimina clases de un elemento ([ngClass]="{class-name: condition}").
   - `ngStyle`: Añade o elimina estilos de un elemento ([ngStyle]="{style: condition ? value-if-true : value-if-false}").
@@ -214,7 +255,7 @@ export class AppComponent {
 <input [(ngModel)]="name">
 ```
 
-### 10.2. Directivas estructurales
+### 11.2. Directivas estructurales
 - Son instrucciones en el DOM que cambian la estructura del DOM (if, else, switch, for).
 - `ng-template`: Es una directiva estructural que se utiliza para definir un bloque de código que se puede reutilizar. Por defecto no se renderiza en el DOM.
 - `ng-container`: Es una directiva estructural que se utiliza para agrupar elementos sin añadir un elemento adicional al DOM.
@@ -273,15 +314,15 @@ export class AppComponent {
 <br>
 
 
-## 11. Operators 🧮
-### 11.1. Operador ! Non-null assertion operator (Operador de afirmación de no nulidad)
+## 12. Operators 🧮
+### 12.1. Operador ! Non-null assertion operator (Operador de afirmación de no nulidad)
 - Se utiliza para indicar a TypeScript que una expresión no será nula o indefinida.
 ```typescript
 let name: string | null = null;
 console.log(name!.length);        // No se produce un error de compilación.
 ```
 
-### 11.2. Operador ? Optional chaining (Encadenamiento opcional)
+### 12.2. Operador ? Optional chaining (Encadenamiento opcional)
 - Se utiliza para acceder a propiedades de un objeto sin tener que comprobar si el objeto es nulo o indefinido.
 ```typescript
 interface User {
@@ -301,8 +342,8 @@ console.log(user2.address?.city); // undefined
 <br>
 
 
-## 12. Comunicación entre componentes 📡
-### 12.1. De padre a hijo (@Input)
+## 13. Comunicación entre componentes 📡
+### 13.1. De padre a hijo (@Input)
 ```typescript
 // PADRE
 import { Component } from '@angular/core';
@@ -335,7 +376,7 @@ export class ChildComponent {
 <p>{{ titleFromFather }}</p>
 ```
 
-### 12.2. De hijo al padre (@Output)
+### 13.2. De hijo al padre (@Output)
 ```typescript
 // PADRE
 import { Component } from '@angular/core';
@@ -374,8 +415,8 @@ export class ChildComponent {
 <button (click)="saludarDesdeElHijo()">Saludar</button>
 ```
 
-### 12.3. Desde cualquier componente 
-#### 12.3.1. Servicios
+### 13.3. Desde cualquier componente 
+#### 13.3.1. Servicios
 - `@Injectable`: Se utiliza para inyectar un servicio en un componente.
 ```typescript
 // SERVICIO
@@ -408,7 +449,7 @@ export class AppComponent {
 <br>
 
 
-#### 12.3.2. Observables (RxJS)
+#### 13.3.2. Observables (RxJS)
 - El patrón Observer es una forma de comunicación entre componentes en Angular:
   - El Subject emite los valores.
   - El Observable actúa como intermediario entre el Subject y los Observers, emitiendo los valores de forma segura.
@@ -511,8 +552,8 @@ Completado
 <br>
 
 
-## 13. Routing 🚦
-### 13.1. Routes
+## 14. Routing 🚦
+### 14.1. Routes
 - `Routes`: Es un array de objetos que definen las rutas de la aplicación (Las rutas no llevan "/" al principio).
 ```typescript
 // app.routes.ts
@@ -535,7 +576,7 @@ export const routes: Routes = [
 ```
 <br>
 
-### 13.2. RouterLink
+### 14.2. RouterLink
 - `RouterLink`: Es una directiva que se utiliza para navegar entre rutas.
 ```typescript	
 // app.component.ts
@@ -560,7 +601,7 @@ import { RouterOutlet, RouterLink } from '@angular/router';
 ```
 <br>
 
-### 13.3. Router
+### 14.3. Router
 - `Router`: Es un servicio que proporciona métodos para navegar entre rutas.
 ```typescript
 // app.component.ts
@@ -616,7 +657,7 @@ export class AppComponent {
 ```
 <br>
 
-### 13.4. ActivatedRoute
+### 14.4. ActivatedRoute
 - `ActivatedRoute`: Es un servicio que proporciona información sobre la ruta activa.
 ```typescript
 // app.component.ts
@@ -638,7 +679,7 @@ export class AppComponent {
 ```
 <br>
 
-### 13.5. Guards
+### 14.5. Guards
 - `Guards`: Son servicios que se utilizan para proteger las rutas de la aplicación.
   - `CanActivate`: Antes de cargar los componentes de una ruta.
   - `CanActivateChild`: Antes de cargar las rutas hijas.
@@ -692,7 +733,7 @@ export const routes: Routes = [
 <br>
 
 
-## 14. HTTP Client 🌐
+## 15. HTTP Client 🌐
 - `HttpClient`: Es un servicio que se utiliza para realizar peticiones HTTP.
 - `provideHttpClient`: Es una función que se utiliza para proporcionar el servicio HttpClient y se importa en el archivo de configuración.
 ```typescript
@@ -834,7 +875,7 @@ export class AppComponent {
 <br>
 
 
-## 15. DOM 🌳
+## 16. DOM 🌳
 - `Renderer2`: Es un servicio que ofrece métodos para manipular elementos del DOM de manera segura, evitando ataques XSS.
 - `ElementRef`: Es una clase que se utiliza para acceder a un elemento del DOM.
 - `ViewChild`: Es un decorador que se utiliza para acceder a un elemento del DOM.
