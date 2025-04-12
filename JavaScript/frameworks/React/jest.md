@@ -159,13 +159,12 @@ test('Should return types', () => {
 test('Should return objects', () => {
   // Arrange
   const expectedPerson = { name: "Richard", age: 25 };
-
   // Act
-  const resultPerson = { name: "Richard", age: 25 };
+  const resultPerson = { name: "Richard", age: 25, country: "Spain" };
 
   // Assert
-  expect(resultPerson).toEqual(expectedPerson);
-  expect(resultPerson).toMatchObject(expectedPerson);
+  expect(resultPerson).toEqual(expectedPerson);        // Falla porque no tienen el mismo contenido.
+  expect(resultPerson).toMatchObject(expectedPerson);  // Pasa porque solo compara las propiedades que tiene el objeto esperado.
 });
 ```
 
@@ -179,9 +178,9 @@ test('Should return arrays', () => {
   const resultColors = ["red", "green", "blue"];
 
   // Assert
-  expect(resultColors).toEqual(expectedColors);
-  expect(resultColors).toContain("red");
-  expect(resultColors).toHaveLength(3);
+  expect(resultColors).toEqual(expectedColors);        // Pasa porque compara el contenido de los arreglos.
+  expect(resultColors).toContain("red");               // Pasa porque contiene el valor "red".
+  expect(resultColors).toHaveLength(3);                // Pasa porque tiene una longitud de 3.
 });
 ```
 
@@ -195,8 +194,8 @@ test('Should return functions', () => {
   const result = () => "Hello World";
 
   // Assert
-  expect(result).toEqual(callback);
-  expect(result).toBeInstanceOf(Function);
+  expect(result).toEqual(callback);                    // Pasa porque compara la referencia de la función.
+  expect(result).toBeInstanceOf(Function);             // Pasa porque es una instancia de Function.
 });
 ```
 
@@ -210,8 +209,8 @@ test('Should return user by id', (done) => {
   getUserById(expectedUser.id).
   then(resultUser => {
     // Assert
-    expect(resultUser).toEqual(expectedUser);
-    done();
+    expect(resultUser).toEqual(expectedUser);          // Pasa porque compara el contenido de los objetos.
+    done();                                            // Llama a done() para indicar que la prueba ha terminado.
   });
 });
 
@@ -223,8 +222,8 @@ test('Should return an error', (done) => {
   getUserById(2).
   catch(error => {
     // Assert
-    expect(error).toBe(expectedError);
-    done();
+    expect(error).toBe(expectedError);                 // Pasa porque lanza ese error.
+    done();                                            // Llama a done() para indicar que la prueba ha terminado.
   });
 });
 ```
@@ -236,10 +235,10 @@ test('Should return user by id', async () => {
   const expectedUser = { id: 1, name: "Richard" };
 
   // Act
-  const resultUser = await getUserById(expectedUser.id);
+  const resultUser = await getUserById(expectedUser.id); 
 
   // Assert
-  expect(resultUser).toEqual(expectedUser);
+  expect(resultUser).toEqual(expectedUser);            // Pasa porque compara el contenido de los objetos.
 });
 
 test('Should return an error', async () => {
@@ -250,8 +249,8 @@ test('Should return an error', async () => {
   const resultUser = await getUserById(2);
   
   // Assert
-  expect(resultUser).toBe(expectedError);
-  //expect(resultUser).rejects.toThrow(expectedError);
+  expect(resultUser).toBe(expectedError);              // Pasa si el error se lanza directamente.
+  //expect(resultUser).rejects.toThrow(expectedError); // Pasa si el error se lanza como una promesa.
 });
 ```
 
@@ -285,6 +284,89 @@ test('Should return user by id', async () => {
   // Assert
   expect(resultUser).toEqual(expectedUser);
   expect(getUserById).toHaveBeenCalledTimes(1);
+});
+```
+---
+<br>
+
+## 8. Testing con Arquitectura 🏗️
+### 8.1. Testing en Controlador
+- Si se usan contenedores jest te permiter crear una carpeta `__mocks__` dentro de la carpeta del contenedor:
+```javascript
+// back/01-common/container/__mocks__/UserIoC.js
+const mockUserService = {
+    create: jest.fn(),
+    findById: jest.fn(),
+    update: jest.fn(),
+    delete: jest.fn()
+};
+
+export const getUserService = jest.fn(() => mockUserService);
+```
+
+```javascript
+// Importaciones
+import { getUserService } from "../../../../back/01-common/container/UserIoC.js";
+import JWTService from "../../../../back/03-domain/service/JWTService.js";
+
+/******************* MOCKS *******************/
+jest.mock("../../../../back/01-common/container/UserIoC.js");
+jest.mock("../../../../back/03-domain/service/JWTService.js");
+
+describe("Testing UserContoller", async() => {
+
+    /******************* SET UP *******************/
+    const userService = getUserService();
+    const jwtService = new JWTService();
+
+    /******************* TESTS *******************/
+    test("Should throw error if user not found", async () => {
+        // Arrange
+        const req = { 
+          user: { getId: jest.fn().mockReturnValue("userId") },
+          body: { id: 1 },
+          params: { id: 1 }
+        };
+        const res = { 
+          status: jest.fn().mockReturnThis(),
+          json: jest.fn() 
+        };
+        const status = 404;
+        const json = { error: "User not found" };
+
+        userService.getUserById.mockResolvedValue(null);
+
+        // Act
+        await userController.getUserById(req, res);
+
+        // Assert
+        expect(res.status).toHaveBeenCalledWith(status);
+        expect(res.json).toHaveBeenCalledWith(json);
+    });
+
+    test("Should return user by id", async () => {
+        // Arrange
+        const req = { 
+          user: { getId: jest.fn().mockReturnValue("userId") },
+          body: { id: 1 },
+          params: { id: 1 }
+        };
+        const res = { 
+          status: jest.fn().mockReturnThis(),
+          json: jest.fn() 
+        };
+        const status = 200;
+        const json = { id: 1, name: "Richard" };
+
+        userService.getUserById.mockResolvedValue(json);
+
+        // Act
+        await userController.getUserById(req, res);
+
+        // Assert
+        expect(res.status).toHaveBeenCalledWith(status);
+        expect(res.json).toHaveBeenCalledWith(json);
+    });
 });
 ```
 <br><br><br>
