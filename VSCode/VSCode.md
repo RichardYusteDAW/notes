@@ -70,6 +70,9 @@ cat extensions.txt | xargs -L 1 code --install-extension
 |  Abrir/Cerrar paleta de comandos   |  `Ctrl + Shift + P`          |
 |  Buscar en archivos                |  `Ctrl + P`                  |
 |  Puntero múltiple                  |  `Ctrl + Alt + Arriba/Abajo` |
+|  Collapse code                     |  `Ctrl + K + 0`              |
+|  Expand code                       |  `Ctrl + K + J`              |
+|  Expandir solo el externo          |  `Ctrl + K + 1`              |
 |------------------------------------|------------------------------|
 |  **SELECTOR**                      |  **SELECTOR**                |
 |  Selección múltiple                |  `Alt + Click`               |
