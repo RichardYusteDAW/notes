@@ -150,8 +150,8 @@ module.exports = { ...modulo1, ...modulo2, ...modulo3 };
 
 ```javascript
 // app.js
-const { funcion1, funcion2, funcion3, funcion4, funcion5 } = require('../path/index'); // Old way
-import { funcion1, funcion2, funcion3, funcion4, funcion5 } from '../path/index'; // New way (ES6)
+const { funcion1, funcion2, funcion3, funcion4, funcion5 } = require('../path/index'); // Old way.
+import { funcion1, funcion2, funcion3, funcion4, funcion5 } from '../path/index'; // New way (ES6).
 ```
 ---
 <br>
@@ -160,62 +160,80 @@ import { funcion1, funcion2, funcion3, funcion4, funcion5 } from '../path/index'
 ## 7. TypeScript 📝
 - TypeScript es un superconjunto de JavaScript que añade tipado estático y objetos basados en clases.
 - Permite detectar errores en tiempo de compilación.
-- Se compila a JavaScript para ser ejecutado en cualquier navegador o servidor.
+- Se transpila a JavaScript para ser ejecutado en cualquier navegador o servidor.
 
 ### 7.1. Instalar TypeScript
-```npm install -g typescript```
+```bash
+npm install typescript --save-dev  # Instala TypeScript como dependencia de desarrollo.
+npm install @types/node --save-dev # Tipos de Node.js para TypeScript (ayuda a TypeScript a entender el código de Node.js).
+npm install ts-node --save-dev     # Permite ejecutar TypeScript directamente sin compilarlo a JavaScript.
+```
 
 ### 7.2. Iniciar TypeScript
-- Este comando crea un archivo de configuración llamado `tsconfig.json`:  
-```tsc --init```
+- Este comando `tsc --init` crea un archivo de configuración llamado `tsconfig.json`: 
 ```json
 {
   "compilerOptions": {
-    "target": "es6",                          // Versión de ECMAScript
-    "module": "commonjs",                     // Sistema de módulos.
-    "SourceMap": true,                        // Genera archivos .map para depurar TypeScript
-    "outDir": "./dist",                       // Directorio de salida de los archivos compilados
-    "strict": true,                           // Habilita todas las opciones de comprobación de TypeScript
-    "moduleResolution": "node",               // Resolución de módulos
-    "esModuleInterop": true,                  // Habilita interoperabilidad entre CommonJS y ES6
-    "skipLibCheck": true,                     // Evita la comprobación de librerías
-    "forceConsistentCasingInFileNames": true  // Obliga a que los nombres de archivo tengan la misma capitalización 
+    "target": "es6",                          // Versión de ECMAScript.
+    "module": "commonjs",                     // Sistema de módulos usado en Node.js por defecto.
+    "sourceMap": true,                        // Genera archivos .map para depurar TypeScript.
+    "outDir": "./dist",                       // Directorio de salida de los archivos compilados.
+    "strict": true,                           // Habilita todas las opciones de comprobación de TypeScript.
+    "moduleResolution": "node",               // Resolución de módulos.
+    "esModuleInterop": true,                  // Habilita interoperabilidad entre CommonJS y ES6.
+    "skipLibCheck": true,                     // Evita la comprobación de librerías.
+    "forceConsistentCasingInFileNames": true  // Obliga a usar la misma capitalización en los nombres de archivos.
   }
 }
 ```
 
 ### 7.3. Compilar TypeScript
-- Este comando compila todos los archivos TypeScript del proyecto y crea el directorio `dist` con los archivos JavaScript:  
-```tsc    # Con la opción --watch (tsc -w) se compila automáticamente al guardar cambios```
+- Este comando `tsc` transpila todos los archivos TypeScript del proyecto y crea el directorio `dist` con los archivos JavaScript.
 
 ### 7.4. Ejecutar TypeScript
-```node dist/index.js```
+```bash
+tsc --watch        # Con la opción --watch (tsc -w) se compila automáticamente al guardar cambios.
+node dist/index.js # Ejecuta el archivo JavaScript compilado.
 
-### 7.5. Tslint
-- TSLint es una herramienta de análisis estático de código para TypeScript que ayuda a mantener un código limpio y consistente ya que detecta errores y problemas de estilo.
+ts-node index.ts   # Ejecuta el archivo TypeScript directamente sin compilarlo a JavaScript.
+```
 
-#### 7.5.1. Instalar TSLint
-```npm install tslint --save-dev```
+### 7.5. ESLint
+- ESLint es una herramienta de análisis de código estático para identificar y reportar errores o patrones problemáticos en el código JavaScript o TypeScript.
+```bash
+npm install eslint --save-dev                           # Instala ESLint como dependencia de desarrollo.
+npm install @typescript-eslint/parser --save-dev        # Permite que ESLint entienda TypeScript.
+npm install @typescript-eslint/eslint-plugin --save-dev # Añade reglas específicas para TypeScript.
 
-#### 7.5.2. Iniciar TSLint
-- Este comando crea un archivo de configuración llamado `tslint.json`:  
-```./node_modules/.bin/tslint --init```
+npx eslint src/**/*.ts                                  # Analiza todos los archivos TypeScript en la carpeta src.
+npx eslint src/**/*.ts --fix                            # Analiza y corrige automáticamente los errores.
+```
 ```json
+// .eslintrc.json
 {
-  "defaultSeverity": "error", // Nivel de severidad por defecto
+  "parser": "@typescript-eslint/parser",
   "extends": [
-      "tslint:recommended"    // Reglas recomendadas por TSLint
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
-  "jsRules": {},              // Reglas para archivos JavaScript
-  "rules": {
-      "no-console": false     // Deshabilita la regla no-console para que no muestre errores por usar console.log
+  "plugins": ["@typescript-eslint"],
+  "env": {
+    "node": true,
+    "es2020": true
   },
-  "rulesDirectory": []        // Directorio de reglas personalizadas
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off",
+    "no-console": "warn"
+  }
 }
 ```
 
 ### 7.6. Instalar módulos de terceros
-```npm install @types/<package>```
+`npm install @types/<package>`
 
 ### 7.7. Tipado de variables
 ```typescript
