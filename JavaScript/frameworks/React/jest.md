@@ -7,20 +7,20 @@ Es un framework de pruebas para JavaScript creado por Facebook. Se enfoca en la 
 <br>
 
 ## 2. Instalación 📦
-- Con npm: `npm install --save-dev jest`
-- Con yarn: `yarn add --dev jest`
+```bash
+npm install --save-dev jest # Con npm
+yarn add --dev jest         # Con yarn
+```
 
-### 2.1. @types/jest
-- Es un paquete que contiene las definiciones de tipos de TypeScript para Jest y ayuda a que TypeScript reconozca las funciones y métodos de Jest.
-  - Con npm: `npm install --save-dev @types/jest`
-  - Con yarn: `yarn add --dev @types/jest`
-
-### 2.2. babel-jest, @babel/core, @babel/preset-env
-- `babel-jest`: Permite utilizar Babel con Jest.
-- `@babel/core`: Núcleo de Babel.
-- `@babel/preset-env`: Conjunto de plugins de Babel para compilar JavaScript moderno a JavaScript compatible con versiones anteriores.
-  - Con npm: `npm install --save-dev babel-jest @babel/core @babel/preset-env`
-  - Con yarn: `yarn add --dev babel-jest @babel/core @babel/preset-env`
+### 2.1. Babel
+- Babel es un transpilador de JavaScript que permite utilizar las últimas características del lenguaje en navegadores más antiguos, convertiendo el código moderno de JavaScript en una versión compatible con versiones anteriores.
+```bash
+# babel-jest: Permite utilizar Babel con Jest.
+# @babel/core: Núcleo de Babel.
+# @babel/preset-env: Conjunto de plugins de Babel para compilar JavaScript moderno a JavaScript compatible con versiones anteriores.
+npm install --save-dev babel-jest @babel/core @babel/preset-env # Con npm
+yarn add --dev babel-jest @babel/core @babel/preset-env         # Con yarn
+```
 ```json
 // babel.config.json
 module.exports = {
@@ -28,6 +28,29 @@ module.exports = {
         [ '@babel/preset-env', { targets: { esmodules: true } } ]
     ],
 };
+```
+---
+<br>
+
+### 2.2. TypeScript
+- TypeScript es un superconjunto de JavaScript que agrega tipado estático y otras características avanzadas al lenguaje.
+```bash
+npm install --save-dev typescript # Con npm
+yarn add --dev typescript         # Con yarn
+```
+
+#### 2.2.1. `@types/jest`
+- Es un paquete que contiene las definiciones de tipos de TypeScript para Jest y ayuda a que TypeScript reconozca las funciones y métodos de Jest.
+```bash
+npm install --save-dev @types/jest # Con npm
+yarn add --dev @types/jest         # Con yarn
+```
+
+#### 2.2.2. `ts-jest`
+- Es un preprocesador de TypeScript para Jest que permite ejecutar pruebas escritas en TypeScript sin necesidad de compilar el código a JavaScript primero.
+```bash
+npm install --save-dev ts-jest # Con npm
+yarn add --dev ts-jest         # Con yarn
 ```
 ---
 <br>
@@ -48,6 +71,7 @@ module.exports = {
 ```
 ---
 <br>
+
 
 ## 4. Configuración 🛠️
 Para configurar Jest, se debe crear un archivo llamado `jest.config.js` en la raíz del proyecto:
@@ -105,31 +129,34 @@ describe('Test in <Component>', () => {
 <br>
 
 ## 6. Métodos de prueba 🧪
-- `toBe(value)`: Compara si el valor es igual.
-- `toBeCloseTo(value, precision)`: Compara si el valor es cercano a.
-- `toBeDefined()`: Compara si el valor está definido.
-- `toBeFalsy()`: Compara si el valor es falso.
-- `toBeGreaterThan(value)`: Compara si el valor es mayor que.
-- `toBeGreaterThanOrEqual(value)`: Compara si el valor es mayor o igual que.
-- `toBeLessThan(value)`: Compara si el valor es menor que.
-- `toBeLessThanOrEqual(value)`: Compara si el valor es menor o igual que.
-- `toBeNull()`: Compara si el valor es nulo.
-- `toBeTruthy()`: Compara si el valor es verdadero.
-- `toBeUndefined()`: Compara si el valor es indefinido.
-- `toContain(value)`: Compara si el valor contiene.
-- `toEqual(value)`: Compara si el valor es igual.
-- `toHaveBeenCalled()`: Verifica si el valor fue llamado.
-- `toHaveBeenLastCalledWith(value)`: Compara si el valor fue llamado con.
-- `toHaveLength(value)`: Compara si el valor tiene una longitud.
-- `toHaveReturnedWith(value)`: Compara si el valor ha devuelto.
-- `toMatch(regexp)`: Compara si el valor coincide con una expresión regular.
-- `toMatchInlineSnapshot()`: Compara si el valor coincide con una instantánea.
-- `toMatchInlineSnapshot(snapshot)`: Compara si el valor coincide con una instantánea.
-- `toMatchSnapshot()`: Compara si el valor coincide con una instantánea.
-- `toThrow(error)`: Compara si el valor lanza una excepción.
-- `toThrowErrorMatchingInlineSnapshot()`: Compara si el valor lanza una excepción.
-- `toThrowErrorMatchingInlineSnapshot(snapshot)`: Compara si el valor lanza una excepción.
-- `toThrowErrorMatchingSnapshot()`: Compara si el valor lanza una excepción.
+| Métodos de prueba                           | Descripción                                                                                        |
+|---------------------------------------------|----------------------------------------------------------------------------------------------------|
+|toBe(value)                                  | Compara si el valor es igual (misma referencia en memoria)                                         |
+|toBeCloseTo(value, precision)                | Compara si el valor es cercano a.                                                                  |
+|toBeDefined()                                | Compara si el valor está definido.                                                                 |
+|toBeFalsy()                                  | Compara si el valor es falso.                                                                      |
+|toBeGreaterThan(value)                       | Compara si el valor es mayor que.                                                                  |
+|toBeGreaterThanOrEqual(value)                | Compara si el valor es mayor o igual que.                                                          |
+|toBeLessThan(value)                          | Compara si el valor es menor que.                                                                  |
+|toBeLessThanOrEqual(value)                   | Compara si el valor es menor o igual que.                                                          |
+|toBeNull()                                   | Compara si el valor es nulo.                                                                       |
+|toBeTruthy()                                 | Compara si el valor es verdadero.                                                                  |
+|toBeUndefined()                              | Compara si el valor es indefinido.                                                                 |
+|toContain(value)                             | Compara si el valor contiene.                                                                      |
+|toEqual(value)                               | Compara si el valor es igual. (que b tenga el mismo contenido que a)                               |
+|toStrictEqual(value)                         | Compara si el valor es estrictamente igual. (que b tenga el mismo contenido que a y el mismo tipo) |
+|toHaveBeenCalled()                           | Verifica si el valor fue llamado.                                                                  |
+|toHaveBeenLastCalledWith(value)              | Compara si el valor fue llamado con.                                                               |
+|toHaveLength(value)                          | Compara si el valor tiene una longitud.                                                            |
+|toHaveReturnedWith(value)                    | Compara si el valor ha devuelto.                                                                   |
+|toMatch(regexp)                              | Compara si el valor coincide con una expresión regular.                                            |
+|toMatchInlineSnapshot()                      | Compara si el valor coincide con una instantánea.                                                  |
+|toMatchInlineSnapshot(snapshot)              | Compara si el valor coincide con una instantánea.                                                  |
+|toMatchSnapshot()                            | Compara si el valor coincide con una instantánea.                                                  |
+|toThrow(error)                               | Compara si el valor lanza una excepción.                                                           |
+|toThrowErrorMatchingInlineSnapshot()         | Compara si el valor lanza una excepción.                                                           |
+|toThrowErrorMatchingInlineSnapshot(snapshot) | Compara si el valor lanza una excepción.                                                           |
+|toThrowErrorMatchingSnapshot()               | Compara si el valor lanza una excepción.                                                           |
 ---
 <br>
 
