@@ -187,6 +187,11 @@ Ejemplo dependiendo del ancho:
 ---
 <br>
 
+## 7. Web Design Responsive 🌐
+[1linelayouts](https://1linelayouts.glitch.me/)
+
+---
+<br>
 
 
 
