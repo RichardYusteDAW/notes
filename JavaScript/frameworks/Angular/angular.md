@@ -356,15 +356,130 @@ export class AppComponent {
 <br>
 
 
-## 13. Operators 🧮
-### 13.1. Operador ! Non-null assertion operator (Operador de afirmación de no nulidad)
+## 13. Formularios 📝
+### 13.1. Template-driven forms
+- Se utilizan para crear formularios simples y rápidos.
+  - `ngForm`: Es una directiva que Angular aplica automáticamente a formularios y permite manejar el estado y las validaciones.
+  - `ngSubmit`: Es un evento que se dispara al enviar el formulario (`<form>`).
+  - `ngModel`: Es una directiva que enlaza datos de forma bidireccional (`two-way binding`) entre un campo del formulario y una propiedad del componente.
+
+
+Propiedades del ngForm:
+
+| Propiedad      | Tipo                          | Descripción                                                             |
+|----------------|-------------------------------|-------------------------------------------------------------------------|
+| `value`        | `{ [key: string]: any }`      | Valores actuales del formulario (por clave `name` de cada campo).       |
+| `valid`        | `boolean`                     | `true` si **todos** los controles son válidos.                          |
+| `invalid`      | `boolean`                     | `true` si **algún** control es inválido.                                |
+| `touched`      | `boolean`                     | `true` si **algún** campo fue tocado (perdió el foco al menos una vez). |
+| `untouched`    | `boolean`                     | `true` si **ningún** campo fue tocado.                                  |
+| `dirty`        | `boolean`                     | `true` si **algún** valor fue modificado.                               |
+| `pristine`     | `boolean`                     | `true` si **ningún** valor fue modificado.                              |
+| `controls`     | `{ [key: string]: NgModel }`  | Controles individuales del formulario (por `name`).                     |
+| `form`         | `FormGroup`                   | Instancia interna del `FormGroup` (rara vez se usa en template-driven). |
+
+```html
+<form #userForm="ngForm" (ngSubmit)="sendUserInfo()">
+
+  <!-- Crea el vínculo directamente con la propiedad 'name' -->
+  <input name="name" [(ngModel)]="name" #nameRef="ngModel" placeholder="Nombre" required />
+  <div *ngIf="nameRef.invalid && nameRef.touched">El nombre es requerido</div>
+
+  <!-- Valida a través de userForm.controls sin referencia local -->
+  <input name="age" type="number" ngModel placeholder="Edad" required />
+  <div *ngIf="userForm.controls['age']?.errors && userForm.controls['age']?.touched">La edad es requerida</div>
+
+  <!-- Botón submit desactivado si el formulario no es válido -->
+  <button type="submit" [disabled]="userForm.invalid">Enviar</button>
+
+</form>
+```
+```typescript
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet, FormsModule],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
+})
+
+export class AppComponent {
+  name: string = '';
+  age: number = 0;
+
+  sendUserInfo() {
+    console.log('Datos enviados:', this.name, this.age);
+  }
+}
+```
+
+### 13.2. Reactive forms
+- Se utilizan para crear formularios complejos y personalizados.
+  - `FormGroup`: Representa un grupo de controles de formulario.
+  - `FormControl`: Representa un control individual en un formulario.
+
+```html
+<form [formGroup]="userForm" (ngSubmit)="sendUserInfo()">
+
+  <!-- Campo nombre vinculado a userForm.controls.name -->
+  <input formControlName="name" placeholder="Nombre" />
+  <div *ngIf="userForm.get('name').invalid && userForm.get('name').touched">El nombre es requerido</div>
+
+  <!-- Campo edad vinculado a userForm.controls.age -->
+  <input formControlName="age" type="number" placeholder="Edad" />
+  <div *ngIf="userForm.get('age').invalid && userForm.get('age').touched">La edad es requerida</div>
+
+  <!-- Botón submit desactivado si el formulario no es válido -->
+  <button type="submit" [disabled]="userForm.invalid">Enviar</button>
+
+</form>
+```
+```typescript
+import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { RouterOutlet } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet, ReactiveFormsModule],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
+})
+export class AppComponent {
+
+  userForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) {
+    this.userForm = new FormGroup({
+      name: new FormControl('', [Validators.required]),
+      age: new FormControl('', [Validators.required, Validators.min(18)])
+    });
+  }
+
+  sendUserInfo() {
+    if (this.userForm.valid) {
+      console.log('Datos enviados:', this.userForm.value);
+    } else {
+      console.log('Formulario inválido');
+    }
+  }
+}
+```
+---
+<br>
+  
+
+## 14. Operators 🧮
+### 14.1. Operador ! Non-null assertion operator (Operador de afirmación de no nulidad)
 - Se utiliza para indicar a TypeScript que una expresión no será nula o indefinida.
 ```typescript
 let name: string | null = null;
 console.log(name!.length);        // No se produce un error de compilación.
 ```
 
-### 13.2. Operador ? Optional chaining (Encadenamiento opcional)
+### 14.2. Operador ? Optional chaining (Encadenamiento opcional)
 - Se utiliza para acceder a propiedades de un objeto sin tener que comprobar si el objeto es nulo o indefinido.
 ```typescript
 interface User {
@@ -384,8 +499,8 @@ console.log(user2.address?.city); // undefined
 <br>
 
 
-## 14. Comunicación entre componentes 📡
-### 14.1. De padre a hijo (@Input)
+## 15. Comunicación entre componentes 📡
+### 15.1. De padre a hijo (@Input)
 ```typescript
 // PADRE
 import { Component } from '@angular/core';
@@ -418,7 +533,7 @@ export class ChildComponent {
 <p>{{ titleFromFather }}</p>
 ```
 
-### 14.2. De hijo al padre (@Output)
+### 15.2. De hijo al padre (@Output)
 ```typescript
 // PADRE
 import { Component } from '@angular/core';
@@ -457,7 +572,7 @@ export class ChildComponent {
 <button (click)="saludarDesdeElHijo()">Saludar</button>
 ```
 
-### 14.3. Desde cualquier componente 
+### 15.3. Desde cualquier componente 
 #### 14.3.1. Servicios
 - `@Injectable`: Se utiliza para inyectar un servicio en un componente.
 ```typescript
@@ -594,8 +709,8 @@ Completado
 <br>
 
 
-## 15. Routing 🚦
-### 15.1. Routes
+## 16. Routing 🚦
+### 16.1. Routes
 - `Routes`: Es un array de objetos que definen las rutas de la aplicación (Las rutas no llevan "/" al principio).
 ```typescript
 // app.routes.ts
@@ -618,7 +733,7 @@ export const routes: Routes = [
 ```
 <br>
 
-### 15.2. RouterLink
+### 16.2. RouterLink
 - `RouterLink`: Es una directiva que se utiliza para navegar entre rutas.
 ```typescript	
 // app.component.ts
@@ -643,7 +758,7 @@ import { RouterOutlet, RouterLink } from '@angular/router';
 ```
 <br>
 
-### 15.3. Router
+### 16.3. Router
 - `Router`: Es un servicio que proporciona métodos para navegar entre rutas.
 ```typescript
 // app.component.ts
@@ -699,7 +814,7 @@ export class AppComponent {
 ```
 <br>
 
-### 15.4. ActivatedRoute
+### 16.4. ActivatedRoute
 - `ActivatedRoute`: Es un servicio que proporciona información sobre la ruta activa.
 ```typescript
 // app.component.ts
@@ -721,7 +836,7 @@ export class AppComponent {
 ```
 <br>
 
-### 15.5. Guards
+### 16.5. Guards
 - `Guards`: Son servicios que se utilizan para proteger las rutas de la aplicación.
   - `CanActivate`: Antes de cargar los componentes de una ruta.
   - `CanActivateChild`: Antes de cargar las rutas hijas.
@@ -775,7 +890,7 @@ export const routes: Routes = [
 <br>
 
 
-## 16. HTTP Client 🌐
+## 17. HTTP Client 🌐
 - `HttpClient`: Es un servicio que se utiliza para realizar peticiones HTTP.
 - `provideHttpClient`: Es una función que se utiliza para proporcionar el servicio HttpClient y se importa en el archivo de configuración.
 ```typescript
@@ -917,7 +1032,7 @@ export class AppComponent {
 <br>
 
 
-## 17. DOM 🌳
+## 18. DOM 🌳
 - `Renderer2`: Es un servicio que ofrece métodos para manipular elementos del DOM de manera segura, evitando ataques XSS.
 - `ElementRef`: Es una clase que se utiliza para acceder a un elemento del DOM.
 - `ViewChild`: Es un decorador que se utiliza para acceder a un elemento del DOM.
