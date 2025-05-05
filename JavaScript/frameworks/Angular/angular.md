@@ -359,39 +359,47 @@ export class AppComponent {
 ## 13. Formularios 📝
 ### 13.1. Template-driven forms
 - Se utilizan para crear formularios simples y rápidos.
-  - `ngForm`: Es una directiva que Angular aplica automáticamente a formularios y permite manejar el estado y las validaciones.
-  - `ngSubmit`: Es un evento que se dispara al enviar el formulario (`<form>`).
-  - `ngModel`: Es una directiva que enlaza datos de forma bidireccional (`two-way binding`) entre un campo del formulario y una propiedad del componente.
+- Se gestiona la lógica a través del template HTML.
+  - `ngForm`: Directiva que Angular aplica automáticamente a cualquier `<form>`. Permite manejar el estado y las validaciones del formulario.
+  - `ngSubmit`:
+    - Intercepta el evento submit nativo del navegador.
+    - Evita la recarga de página automáticamente.
+    - Marca el formulario como enviado (form.submitted = true), lo cual permite mostrar errores sólo al intentar enviar.
+    - Ejecuta tu método onSubmit() con el objeto NgForm como argumento.
+  - `ngModel`:
+    - Registra el campo en el formulario (`NgForm`) automáticamente, siempre que tenga un atributo `name`.
+    - Permite que Angular gestione su validación (`required`, `minlength`, etc.).
+    - Hace que esté disponible dentro de form.value bajo la clave definida en `name`.
 
 
 Propiedades del ngForm:
 
 | Propiedad      | Tipo                          | Descripción                                                             |
 |----------------|-------------------------------|-------------------------------------------------------------------------|
+| `form`         | `FormGroup`                   | Instancia interna del `FormGroup` (rara vez se usa en template-driven). |
 | `value`        | `{ [key: string]: any }`      | Valores actuales del formulario (por clave `name` de cada campo).       |
+| `controls`     | `{ [key: string]: NgModel }`  | Controles individuales del formulario (por `name`).                     |
 | `valid`        | `boolean`                     | `true` si **todos** los controles son válidos.                          |
 | `invalid`      | `boolean`                     | `true` si **algún** control es inválido.                                |
 | `touched`      | `boolean`                     | `true` si **algún** campo fue tocado (perdió el foco al menos una vez). |
 | `untouched`    | `boolean`                     | `true` si **ningún** campo fue tocado.                                  |
 | `dirty`        | `boolean`                     | `true` si **algún** valor fue modificado.                               |
 | `pristine`     | `boolean`                     | `true` si **ningún** valor fue modificado.                              |
-| `controls`     | `{ [key: string]: NgModel }`  | Controles individuales del formulario (por `name`).                     |
-| `form`         | `FormGroup`                   | Instancia interna del `FormGroup` (rara vez se usa en template-driven). |
+| `disabled`     | `boolean`                     | `true` si el formulario está deshabilitado.                             |
+| `enabled`      | `boolean`                     | `true` si el formulario está habilitado.                                |
+| `submitted`    | `boolean`                     | `true` si el formulario fue enviado.                                    |
+| `pending`      | `boolean`                     | `true` si el formulario está en proceso de envío.                       |
 
 ```html
 <form #userForm="ngForm" (ngSubmit)="sendUserInfo()">
-
-  <!-- Crea el vínculo directamente con la propiedad 'name' -->
-  <input name="name" [(ngModel)]="name" #nameRef="ngModel" placeholder="Nombre" required />
-  <div *ngIf="nameRef.invalid && nameRef.touched">El nombre es requerido</div>
-
-  <!-- Valida a través de userForm.controls sin referencia local -->
+  <input name="name" type="text" ngModel placeholder="Nombre" required />
+  <small *ngIf="userForm.controls['name']?.errors && userForm.controls['name']?.touched">El nombre es requerido</small>
+  
   <input name="age" type="number" ngModel placeholder="Edad" required />
-  <div *ngIf="userForm.controls['age']?.errors && userForm.controls['age']?.touched">La edad es requerida</div>
+  <small *ngIf="userForm.controls['age']?.errors && userForm.controls['age']?.touched">La edad es requerida</small>
 
   <!-- Botón submit desactivado si el formulario no es válido -->
   <button type="submit" [disabled]="userForm.invalid">Enviar</button>
-
 </form>
 ```
 ```typescript
@@ -405,65 +413,73 @@ import { NgForm } from '@angular/forms';
 })
 
 export class AppComponent {
-  name: string = '';
-  age: number = 0;
+  formValue = null;
 
-  sendUserInfo() {
-    console.log('Datos enviados:', this.name, this.age);
+  sendUserInfo(userForm: NgForm) {
+    this.formValue = userForm.value;
   }
 }
 ```
 
 ### 13.2. Reactive forms
 - Se utilizan para crear formularios complejos y personalizados.
-  - `FormGroup`: Representa un grupo de controles de formulario.
-  - `FormControl`: Representa un control individual en un formulario.
+- Se gestiona la lógica a través del componente TypeScript.
+  - `FormBuilder`:
+    - Servicio que permite crear FormGroup y FormControl de forma más concisa.
+    - Se inyecta en el constructor y se usa como this.formBuilder.group({...}).
+  - `FormGroup`:
+    - Representa un grupo de controles (FormControl) asociados.
+    - Se usa para manejar el estado y validación de todo el formulario.
+    - Accesible como una propiedad del componente (this.userForm).
+  - `FormControl`:
+    - Representa un único campo de formulario.
+    - Tiene propiedades como value, valid, touched, dirty, etc.
+    - Se define normalmente al construir un FormGroup.
+  - `Validators`:
+    - Conjunto de funciones de validación: required, min, max, email, etc.
+    - Se pasan como segundo parámetro en el array del FormControl.
 
 ```html
 <form [formGroup]="userForm" (ngSubmit)="sendUserInfo()">
+  <input type="text" formControlName="name" placeholder="Nombre" />
+  <small *ngIf="validateField('name')">El nombre es obligatorio</small>
 
-  <!-- Campo nombre vinculado a userForm.controls.name -->
-  <input formControlName="name" placeholder="Nombre" />
-  <div *ngIf="userForm.get('name').invalid && userForm.get('name').touched">El nombre es requerido</div>
+  <input type="number" formControlName="age" placeholder="Edad" />
+  <small *ngIf="validateField('age')">Edad obligatoria y debe estar entre 18 y 120</small>
 
-  <!-- Campo edad vinculado a userForm.controls.age -->
-  <input formControlName="age" type="number" placeholder="Edad" />
-  <div *ngIf="userForm.get('age').invalid && userForm.get('age').touched">La edad es requerida</div>
-
-  <!-- Botón submit desactivado si el formulario no es válido -->
   <button type="submit" [disabled]="userForm.invalid">Enviar</button>
-
 </form>
 ```
 ```typescript
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-root',
-  imports: [RouterOutlet, ReactiveFormsModule],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  selector: 'app-reactive',
+  templateUrl: './reactive.component.html',
+  styleUrls: ['./reactive.component.scss']
 })
-export class AppComponent {
+export class ReactiveComponent {
+  /*---- FormBuilder instancia los FormGroup y FormControl automáticamente. ----
+  userForm = new FormGroup({
+      name: new FormControl(null, Validators.required),
+      age: new FormControl(null, [Validators.required, Validators.min(18), Validators.max(120)])
+  });*/
+  userForm: FormGroup = this.formBuilder.group({
+    name: [null, Validators.required],
+    age: [null, [Validators.required, Validators.min(18), Validators.max(120)]]
+  });
 
-  userForm: FormGroup;
+  formValue: any;
 
-  constructor(private formBuilder: FormBuilder) {
-    this.userForm = new FormGroup({
-      name: new FormControl('', [Validators.required]),
-      age: new FormControl('', [Validators.required, Validators.min(18)])
-    });
-  }
+  constructor(private formBuilder: FormBuilder) {}
 
   sendUserInfo() {
-    if (this.userForm.valid) {
-      console.log('Datos enviados:', this.userForm.value);
-    } else {
-      console.log('Formulario inválido');
-    }
+    this.formValue = this.userForm.value;
+  }
+
+  validateField(field: string): boolean {
+    return this.userForm.controls[field].invalid && this.userForm.controls[field].touched;
   }
 }
 ```
