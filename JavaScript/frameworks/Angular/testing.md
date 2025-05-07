@@ -51,7 +51,8 @@ describe('MyComponent', () => {
         myServiceMock = jasmine.createSpyObj('MyService', ['getData']);  // Crea un mock del servicio.
 
         TestBed.configureTestingModule({                                 // Configuración del módulo de pruebas.
-            imports: [MyComponent],                                      // Importa el componente.
+            declarations: [MyComponent],                                 // Declara el componente.
+            imports: [MyModule],                                         // Importa el módulo (Si el módulo contiene el componente no es necesario declarar dicho componente).
             providers: [{ provide: MyService, useValue: myServiceMock }] // Proporciona el mock del servicio.
         });
 
