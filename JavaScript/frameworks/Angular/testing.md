@@ -31,9 +31,15 @@ describe('Nombre del conjunto de pruebas', function() {
 ```
 
 ### 2.3. Mocks
-- **TestBed:** Es un módulo de pruebas que permite configurar el entorno de pruebas. Te permite crear instancias de componentes, servicios, pipes, etc., tal como si Angular los estuviera usando en tiempo real, pero en un entorno controlado de test.
-- **configureTestingModule():** Método que configura el módulo de pruebas. Aquí se declaran los componentes, servicios y otros módulos que se van a utilizar en las pruebas.
 - **ComponentFixture:** Es una clase que representa una instancia de un componente y su DOM asociado. Permite interactuar con el componente y su vista.
+- **TestBed:** Es un módulo de pruebas que permite configurar el entorno de pruebas. Te permite crear instancias de componentes, servicios, pipes, etc., tal como si Angular los estuviera usando en tiempo real, pero en un entorno controlado de test.
+  - **configureTestingModule():** Método que configura el módulo de pruebas. Aquí se declaran los componentes, servicios y otros módulos que se van a utilizar en las pruebas.
+    - **declarations:** Se utiliza para declarar los componentes que se van a probar.
+    - **imports:** Se utiliza para importar otros módulos que se van a utilizar en las pruebas.
+    - **providers:** Se utiliza para proporcionar servicios que se van a utilizar en las pruebas.
+  - **createComponent():** Método que crea una instancia del componente a probar. Devuelve un objeto de tipo `ComponentFixture`.
+  - **inject():** Método que inyecta un servicio en el entorno de pruebas. Permite acceder a la instancia del servicio.
+- **jasmine.SpyObj:** Es una función que crea un objeto espía (spy) para un servicio. Permite simular el comportamiento de un servicio y verificar si se han llamado ciertos métodos.
 
 #### 2.3.1. Componente
 ```javascript
@@ -46,6 +52,7 @@ describe('MyComponent', () => {
     let component: MyComponent;                   // Componente a probar.
     let fixture: ComponentFixture<MyComponent>;   // Fixture es una instancia del componente que contiene tanto el DOM como el .ts
     let myServiceMock: jasmine.SpyObj<MyService>; // Mock del servicio.
+    let view: HTMLElement;                        // Variable para almacenar el DOM del componente.
 
     beforeEach(() => {
         myServiceMock = jasmine.createSpyObj('MyService', ['getData']);  // Crea un mock del servicio.
@@ -58,19 +65,36 @@ describe('MyComponent', () => {
 
         fixture = TestBed.createComponent(MyComponent);                  // Crea una instancia del componente.
         component = fixture.componentInstance;                           // Asigna la instancia del componente.
+        fixture.detectChanges();                                         // Detecta cambios en la vista del componente.
+        view = fixture.nativeElement;                                    // Asigna el DOM del componente.
     });
 
-    it('should call getData on init', () => {
+    it('should subscribe to data observable', () => {
+        // Arrange
+        const mockData = [{ id: 1, name: 'Test' }];                      // Datos simulados.
+        const productData = new BehaviorSubject(mockData);               // Crea un observable simulado.
+        myServiceMock.productData$ = productData.asObservable();         // Asigna el observable al mock del servicio.
+        productData.next(mockData);                                      // Simula la emisión de datos.
+
+        // Act
+        component.subscribeToData();                                     // Llama al método que se va a probar.
+
+        // Assert
+        expect(component.data).toEqual(mockData);                        // Verifica que los datos sean los esperados.
+    });
+
+    it('should call getData', () => {
         // Arrange
         myServiceMock.getData.and.returnValue(of([]));                   // Simula la respuesta del servicio.
 
         // Act
-        component.ngOnInit();                                            // Llama al método ngOnInit.
+        component.getData();                                             // Llama al método getData.
 
         // Assert
         expect(myServiceMock.getData).toHaveBeenCalled();                // Verifica que se haya llamado al método.
     });
 
+    
     it('should render data in the template', () => {
         // Arrange
         const mockData = [{ id: 1, name: 'Test' }];                      // Datos simulados.
@@ -78,8 +102,7 @@ describe('MyComponent', () => {
 
         // Act
         fixture.detectChanges();                                         // Detecta cambios en la vista del componente.
-        const compiled = fixture.nativeElement;                          // Obtiene el DOM del componente.
-        const listItem = compiled.querySelector('li');                   // Selecciona el elemento de la lista.
+        const listItem = view.querySelector('li');                       // Selecciona el elemento de la lista.
 
         // Assert
         expect(listItem.textContent).toContain('Test');                  // Verifica que se muestre el dato en el DOM.
@@ -88,8 +111,31 @@ describe('MyComponent', () => {
 ```
 
 #### 2.3.2. Servicio
-- **provideHttpClient():** Proporciona el cliente HTTP real para realizar solicitudes HTTP.
-- **provideHttpClientTesting():** Proporciona el cliente HTTP de pruebas para simular solicitudes HTTP en las pruebas.
+- **HttpClient:** Es el cliente HTTP de Angular que se utiliza para realizar solicitudes HTTP.
+- **HttpClientModule:** Es el módulo que proporciona el cliente HTTP real para realizar solicitudes HTTP.
+- **HttpClientTestingModule:** Es un módulo de pruebas que proporciona un cliente HTTP simulado para realizar pruebas sin realizar solicitudes reales.
+```javascript
+// Para Angular 15 o inferior
+import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { MyService } from './my.service';
+
+describe('MyService', () => {
+    let service: MyService;
+    let mockHttpClient: HttpTestingController;
+
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            imports: [ HttpClientTestingModule ],                          // Importa el módulo de pruebas HTTP.
+        });
+        service = TestBed.inject(MyService);                               // Inyecta el servicio.
+        mockHttpClient = TestBed.inject(HttpTestingController);            // Inyecta el controlador de pruebas HTTP.
+    });
+});
+```
+
+- **provideHttpClient():** Registra el HttpClient en el sistema de inyección de dependencias, usando la nueva API de proveedores basada en funciones (standalone API).
+- **provideHttpClientTesting():** Registra un cliente HTTP simulado, que intercepta y permite controlar las peticiones HTTP con HttpTestingController.
 - **HttpTestingController:** Permite simular y controlar solicitudes HTTP en las pruebas. Proporciona métodos para verificar las solicitudes y simular respuestas.
 ```javascript
 import { TestBed } from '@angular/core/testing';
