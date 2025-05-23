@@ -230,7 +230,122 @@ describe('MyComponent', () => {
         expect(view.textContent).toContain('Home');                        // Verifica que el contenido del DOM contenga 'Home'.
     }));
 });
-```	
+```
+
+#### 2.3.4. Eventos
+```javascript
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MyComponent } from './my-component.component';
+
+describe('MyComponent', () => {
+    let fixture: ComponentFixture<MyComponent>;
+    let component: MyComponent;
+    let view: HTMLElement;
+
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            imports: [ MyComponent ]                                       // Importa el componente.
+        });
+
+        fixture = TestBed.createComponent(MyComponent);                    // Crea una instancia del componente.
+        component = fixture.componentInstance;                             // Asigna la instancia del componente.
+        fixture.detectChanges();                                           // Detecta cambios en la vista.
+        view = fixture.nativeElement;                                      // Obtiene el DOM del componente.
+    });
+
+    it('should call onClick when button is clicked', () => {
+        // Arrange
+        const onClickSpy = spyOn(component, 'onClick');                    // Espía el método onClick.
+        const button = view.querySelector('button');                       // Selecciona el botón.
+
+        // Act
+        const event = new MouseEvent('click');                             // Crea un nuevo evento de clic.
+        button.dispatchEvent(event);                                       // Dispara el evento de clic.
+        //button.click();                                                  // Simula un clic en el botón directamente.
+
+        // Assert
+        expect(onClickSpy).toHaveBeenCalled();                             // Verifica que se haya llamado al método onClick.
+    });
+
+    it('should call onInput when input value changes', () => {
+        // Arrange
+        const onInputSpy = spyOn(component, 'onInput');                    // Espía el método onInput.
+        const input = view.querySelector('input');                         // Selecciona el input.
+
+        // Act
+        const event = new Event('input');                                  // Crea un nuevo evento de entrada.
+        input.dispatchEvent(event);                                        // Dispara el evento de entrada.
+
+        // Assert
+        expect(onInputSpy).toHaveBeenCalled();                             // Verifica que se haya llamado al método onInput.
+    });
+});
+```
+| Tipo de evento         | Evento      | Constructor recomendado                      | Uso típico                                     |
+|------------------------|-------------|----------------------------------------------|------------------------------------------------|
+| Teclado                | `keydown`   | `new KeyboardEvent('keydown',{key:'Enter'})` | Pulsación de tecla hacia abajo                 |
+|                        | `keyup`     | `new KeyboardEvent('keyup',{key:'Escape'})`  | Soltar una tecla                               |
+|                        | `keypress`  | `new KeyboardEvent('keypress',{key:'a'})`    | Pulsación continua (obsoleto en algunos casos) |
+| Ratón                  | `click`     | `new MouseEvent('click')`                    | Clic de ratón                                  |
+|                        | `dblclick`  | `new MouseEvent('dblclick')`                 | Doble clic                                     |
+|                        | `mousedown` | `new MouseEvent('mousedown')`                | Botón del ratón presionado                     |
+|                        | `mouseup`   | `new MouseEvent('mouseup')`                  | Botón del ratón liberado                       |
+|                        | `mousemove` | `new MouseEvent('mousemove')`                | Movimiento del ratón                           |
+| Formularios            | `input`     | `new Event('input')`                         | Entrada de texto o cambio en un input          |
+|                        | `change`    | `new Event('change')`                        | Cambio de valor en un campo                    |
+|                        | `submit`    | `new Event('submit')`                        | Envío de formulario                            |
+| Enfoque/blur           | `focus`     | `new FocusEvent('focus')`                    | Cuando un elemento recibe el foco              |
+|                        | `blur`      | `new FocusEvent('blur')`                     | Cuando un elemento pierde el foco              |
+| Eventos personalizados | `custom`    | `new CustomEvent('nombre',{detail:datos})`   | Para eventos definidos por el usuario          |
+---
+<br>
+
+
+### 2.4. Métodos de Jasmine
+| Categoría                 | Método / Matcher                   | Explicación                                                                               |
+| ------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------- |
+| **Control de asincronía** | `fakeAsync(fn)`                    | Ejecuta una función en una zona fake para simular asincronía sin esperas reales.          |
+|                           | `tick(ms)`                         | Avanza el tiempo simulado en milisegundos dentro de `fakeAsync`.                          |
+|                           | `flush()`                          | Ejecuta todos los temporizadores pendientes (setTimeout, setInterval, etc).               |
+|                           | `flushMicrotasks()`                | Ejecuta todas las tareas pendientes en la cola de microtareas (promesas, observables).    |
+|                           | `waitForAsync(fn)`                 | Ejecuta pruebas asincrónicas reales pero espera a que se completen antes de continuar.    |
+|                           | `async(fn)`                        | Obsoleto en Angular. Reemplazado por `waitForAsync`.                                      |
+|                           | `done()`                           | Callback manual que indica cuándo ha terminado una prueba asincrónica.                    |
+| ------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------- |
+| **Espías**                | `spyOn(obj, 'method')`             | Crea un espía en un método de un objeto. Permite espiar llamadas, modificar retorno, etc. |
+|                           | `createSpy()`                      | Crea una función espía sin implementación original.                                       |
+|                           | `createSpyObj('Nombre', ['met1'])` | Crea un objeto espía con varios métodos simulados.                                        |
+| ------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------- |
+| **Comportamiento**        | `and.callFake(fn)`                 | Sustituye el método espiado por una función personalizada.                                |
+|                           | `and.returnValue(valor)`           | Hace que el método espiado devuelva un valor fijo.                                        |
+|                           | `and.returnValues(...valores)`     | Devuelve valores diferentes en llamadas sucesivas.                                        |
+|                           | `and.callThrough()`                | Ejecuta el método original además de espiar.                                              |
+|                           | `and.throwError('mensaje')`        | Lanza un error simulado cuando se llama al método.                                        |
+| ------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------- |
+| **Verificación**          | `toHaveBeenCalled()`               | Verifica que se haya llamado al método espía.                                             |
+|                           | `toHaveBeenCalledWith(...)`        | Verifica que se haya llamado con determinados argumentos.                                 |
+|                           | `toHaveBeenCalledTimes(n)`         | Verifica que se haya llamado un número exacto de veces.                                   |
+| ------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------- |
+| **Igualdad básica**       | `toBe(valor)`                      | Compara por igualdad estricta (`===`).                                                    |
+|                           | `toEqual(valor)`                   | Compara estructura de objetos o arrays (valor profundo).                                  |
+| ------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------- |
+| **Comparaciones**         | `toBeGreaterThan(n)`               | Verifica que sea mayor que `n`.                                                           |
+|                           | `toBeLessThan(n)`                  | Verifica que sea menor que `n`.                                                           |
+|                           | `toBeCloseTo(valor, decimales?)`   | Verifica que esté cerca de un valor con cierto número de decimales.                       |
+| ------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------- |
+| **Strings/arrays**        | `toContain(valor)`                 | Verifica que una cadena o array contiene un valor.                                        |
+|                           | `toMatch(regex)`                   | Verifica que una cadena cumple una expresión regular.                                     |
+| ------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------- |
+| **Booleanos**             | `toBeTruthy()`                     | Verifica que el valor sea considerado verdadero (`!!valor === true`).                     |
+|                           | `toBeFalsy()`                      | Verifica que el valor sea considerado falso (`!!valor === false`).                        |
+|                           | `toBeDefined()`                    | Verifica que la variable esté definida.                                                   |
+|                           | `toBeUndefined()`                  | Verifica que la variable esté sin definir.                                                |
+| ------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------- |
+| **Errores y excepciones** | `toThrow()`                        | Verifica que una función lanza una excepción.                                             |
+|                           | `toThrowError('mensaje')`          | Verifica que lanza un error con un mensaje específico.                                    |
+| ------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------- |
+| **Otros**                 | `toBeNaN()`                        | Verifica que el valor es `NaN`.                                                           |
+|                           | `not.toEqual(...)`                 | Nega cualquier matcher (`not` invierte el resultado esperado).                            |
 <br><br><br>
 
 ## *[volver al índice](../../../README.md)*
