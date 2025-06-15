@@ -103,6 +103,7 @@
 - [NodeJS](./JavaScript/frameworks/NodeJS/node.md)
 - [Learnyounode](./JavaScript/frameworks/NodeJS/learnyounode.md)
 - [Code Status](./JavaScript/frameworks/NodeJS/codeStatus.png)
+- [Server Sent Events (SEE)](./JavaScript/frameworks/NodeJS/sse.md)
 
 #### 3.4.3.2. LIBRARIES
 - [BCryptjs](./JavaScript/frameworks/NodeJS/libraries/bcryptjs.md)
