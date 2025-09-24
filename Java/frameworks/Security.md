@@ -145,6 +145,23 @@ public class SecurityConfig {
 
         return authProvider;
     }
+
+    // CORS se encarga de gestionar las políticas de seguridad entre dominios
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowedOrigins(List.of("http://localhost:4200"));                                    // Origenes permitidos
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD"));          // Métodos permitidos
+        config.setAllowedHeaders(List.of("Authorization","Content-Type","Accept","X-Requested-With")); // Headers permitidos
+        config.setExposedHeaders(List.of("WWW-Authenticate","Authorization","Location"));              // Headers expuestos al cliente
+        config.setAllowCredentials(true);                                                              // Permitir credenciales (cookies, auth headers, etc.)
+        config.setMaxAge(3600L);                                                                       // Tiempo de vida de la configuración en segundos (1 hora)
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/api/**", config);                                           // Aplicar configuración a estas rutas
+
+        return source;
+    }
 }
 ```
 ```java
