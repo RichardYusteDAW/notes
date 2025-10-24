@@ -724,6 +724,85 @@ Completado
 ---
 <br>
 
+#### 14.3.3. Signals
+- `Signal`: Es una nueva forma de manejar el estado en Angular, introducida en **Angular 16**.
+- Permite crear y gestionar **estados reactivos** de manera más sencilla y eficiente.
+- Los signals pueden ser 
+  - `writable` (escribibles): Se crean con la función `signal(initialValue)`.
+  - `readonly` (solo lectura): Se crean con la función `computed(getter)` y solo pueden ser leídos.
+
+```html
+<!-- signal.component.html -->
+
+<h1 class="text-success text-center">Contador1 (va de uno en uno) {{ contador1() }}</h1>
+<h1 class="text-danger text-center">Contador2 (va de dos en dos) {{ contador2() }}</h1>
+<h1 class="text-warning text-center">Contador3 (solo lectura de contador1) {{ contador3() }}</h1>
+<h1 class="text-info text-center">Contador4 (valor derivado: contador3 * 2) {{ contador4() }}</h1>
+<h1 class="text-secondary text-center">Contador5 (valor derivado: contador3 * 2) {{ contador5() }}</h1>
+
+<button class="btn btn-primary" (click)="incrementar()">Incrementar</button>
+<button class="btn btn-primary ms-2" (click)="decrementar()">Decrementar</button>
+<button class="btn btn-primary ms-2" (click)="resetear()">Resetear</button>
+```
+
+```typescript
+// signal.component.ts
+
+import { Component, computed, effect, linkedSignal, signal } from '@angular/core';
+
+@Component({
+  selector: 'app-signal',
+  imports: [],
+  templateUrl: './signal.component.html',
+  styleUrl: './signal.component.css'
+})
+
+export class SignalComponent {
+  readonly contador1 = signal(0);                                // readonly solo evita que contador sea reasignado --> contador1≠signal(1)
+  readonly contador2 = signal(0);                                // signal() --------> devuelve un WritableSignal
+  readonly contador3 = this.contador1.asReadonly();              // asReadonly() ----> devuelve un ReadonlySignal
+  readonly contador4 = computed(() => this.contador3() * 2);     // computed() ------> devuelve un ReadonlySignal
+  readonly contador5 = linkedSignal(() => this.contador3() * 2); // linkedSignal() --> devuelve un WritableSignal (es igual que computed())
+
+  constructor() {
+    // Crear un efecto secundario que actualiza contador2 cuando cambia contador1
+    effect(() => {
+      this.contador2.set(this.contador1() * 2);
+    });
+  }
+
+  incrementar() {
+    this.contador1.update(value => value + 1);
+    this.contador5.update(value => value + 1);
+
+    /* 
+    Error: No se puede modificar un ReadonlySignal 
+      this.contador3.update(value => value + 1);
+      this.contador4.update(value => value + 1);
+    */
+  }
+
+  decrementar() {
+    this.contador1.update(value => value - 1);
+    this.contador5.update(value => value - 1);
+  }
+
+  resetear() {
+    this.contador1.set(0); // Cambia el valor de un WritableSignal
+    this.contador2.set(0);
+    this.contador5.set(0);
+
+    /* 
+    Error: No se puede modificar un ReadonlySignal 
+      this.contador3.set(0);
+      this.contador4.set(0);
+    */
+  }
+}
+```
+---
+<br>
+
 
 ## 16. Routing 🚦
 ### 16.1. Routes
