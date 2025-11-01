@@ -24,6 +24,7 @@ git --version
 	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset)%C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''%C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
 	lg  = !"git lg1"
 	lga = !"git lg --all"
+	amend = commit -a --amend --no-edit
 
 git config --global user.name "Usuario"
 git config --global user.email "user@hotmail.com"
