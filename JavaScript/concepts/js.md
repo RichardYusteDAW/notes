@@ -47,10 +47,8 @@ if (true) {
 // const x = 3;   // Error: Identifier 'x' has already been declared.
 console.log(x);   // 1
 ```
-
 ---
-
-<br>
+<br><br>
 
 ## 2. Template literals
 ```javascript
@@ -62,10 +60,8 @@ let multiLinea = `
   ${nombre}!
 `; // "Hola,\nAna!"
 ```
-
 ---
-
-<br>
+<br><br>
 
 ## 3. Comentarios
 ```javascript
@@ -78,10 +74,8 @@ let multiLinea = `
   líneas
 */
 ```
-
 ---
-
-<br>
+<br><br>
 
 ## 4. Operadores
 ### 4.1. Aritméticos
@@ -159,7 +153,7 @@ let nombreCompleto = nombre ?? "Desconocido";
 console.log(nombreCompleto); // "Desconocido"
 ```
 ---
-<br>
+<br><br>
 
 
 ## 5. Set y Map
@@ -191,7 +185,7 @@ persona.values();                // Devuelve un iterador con los valores.
 persona.entries();               // Devuelve un iterador con los pares clave-valor.
 ```
 ---
-<br>
+<br><br>
 
 ## 6. Arrays
 ```javascript
@@ -207,8 +201,7 @@ articulos.unshift("balón");            // Agrega un campo al INICIO del array.
 articulos.shift();                     // Elimina el PRIMER campo del array.
 articulos.unshift("balón", "raqueta"); // Agrega VARIOS campos al INICIO del array.
 ```
-
-<br><br>
+<br>
 
 ### 6.1. Otros métodos
 ```javascript
@@ -406,10 +399,8 @@ let contieneAzul = colores.some((color) => color === "azul");
 
 console.log(contieneAzul); // true
 ```
-
 ---
-
-<br>
+<br><br>
 
 ## 7. Objetos
 ```javascript
@@ -422,10 +413,101 @@ let persona = {
 persona.nombre = "María";    // Añade el campo "nombre" al objeto y si ya existe lo sobreescribe.
 persona["nombre"] = "María"; // Añade el campo "nombre" al objeto y si ya existe lo sobreescribe.
 ```
-
----
-
 <br>
+
+### 7.1. Métodos Object
+#### 7.1.1. Object.keys()
+- Devuelve un array con los nombres de las propiedades de un objeto.
+
+```javascript
+let persona = { nombre: "Ana", edad: 25 };
+let propiedades = Object.keys(persona);
+
+console.log(propiedades); // ["nombre", "edad"]
+```
+
+#### 7.1.2. Object.values()
+- Devuelve un array con los valores de las propiedades de un objeto.
+
+```javascript
+let persona = { nombre: "Ana", edad: 25 };
+let valores = Object.values(persona);
+
+console.log(valores); // ["Ana", 25]
+```
+
+#### 7.1.3. Object.entries()
+- Devuelve un array con los pares [clave, valor] de las propiedades de un objeto.
+
+```javascript
+let persona = { nombre: "Ana", edad: 25 };
+let entradas = Object.entries(persona);
+
+console.log(entradas); // [["nombre", "Ana"], ["edad", 25]]
+```
+
+#### 7.1.4. Object.fromEntries()
+- Crea un objeto a partir de un array de pares [clave, valor].
+
+```javascript
+let entradas = [["nombre", "Ana"], ["edad", 25]];
+let persona = Object.fromEntries(entradas);
+
+console.log(persona); // { nombre: "Ana", edad: 25 }
+```
+
+#### 7.1.5. Object.assign()
+- Se utiliza para copiar los valores de todas las propiedades de uno o más objetos a un objeto destino.
+
+```javascript
+let persona = { nombre: "Ana", edad: 25 };
+let direccion = { ciudad: "Madrid", pais: "España" };
+let personaCompleta = Object.assign({}, persona, direccion);
+
+console.log(personaCompleta); // { nombre: "Ana", edad: 25, ciudad: "Madrid", pais: "España" }
+```
+
+#### 7.1.6. Object.hasOwn()
+- Comprueba si un objeto tiene una propiedad específica como propiedad directa (no heredada).
+
+```javascript
+let persona = { nombre: "Ana", edad: 25 };
+console.log(Object.hasOwn(persona, "nombre")); // true
+console.log(Object.hasOwn(persona, "ciudad")); // false
+```
+
+#### 7.1.7. Object.freeze()
+- Se utiliza para congelar un objeto, evitando que se puedan modificar sus propiedades.
+
+```javascript
+let persona = { nombre: "Ana", edad: 25 };
+Object.freeze(persona);
+persona.nombre = "María"; // No tendrá efecto
+console.log(persona.nombre); // "Ana"
+```
+
+#### 7.1.8. Object.seal()
+- Se utiliza para sellar un objeto, evitando que se puedan añadir o eliminar propiedades, pero permitiendo modificar las existentes.
+
+```javascript
+let persona = { nombre: "Ana", edad: 25 };
+Object.seal(persona);
+persona.nombre = "María"; // Sí tendrá efecto
+persona.ciudad = "Madrid"; // No tendrá efecto
+console.log(persona.nombre); // "María"
+console.log(persona.ciudad); // undefined
+```
+
+#### 7.1.9. Object.is()
+- Comprueba si dos valores son el mismo valor.
+
+```javascript
+console.log(Object.is(25, 25)); // true
+console.log(Object.is("Ana", "ana")); // false
+```
+---
+<br><br>
+
 
 ## 8. Destructuring
 ```javascript
@@ -449,10 +531,8 @@ let { nombre, edad } = persona;
 console.log(nombre); // "Ana"
 console.log(edad);   // 25
 ```
-
 ---
-
-<br>
+<br><br>
 
 ## 9. Spread operator
 Se utiliza para expandir elementos de un array u objeto en otro array u objeto.
@@ -470,10 +550,8 @@ let persona2 = { ...persona, ciudad: "Madrid" };
 
 console.log(persona2); // { nombre: "Ana", edad: 25, ciudad: "Madrid" }
 ```
-
 ---
-
-<br>
+<br><br>
 
 ## 10. Rest parameter
 Permite a una función aceptar un número indefinido de argumentos como un array.
@@ -485,10 +563,8 @@ function sumar(a, b, ...numeros) {
 
 console.log(sumar(1, 2, 3, 4, 5)); // 12
 ```
-
 ---
-
-<br>
+<br><br>
 
 ## 11. For...in & For...of
 - **For...in**: Itera sobre las propiedades de un objeto.
@@ -507,10 +583,8 @@ for (let color of colores) {
   console.log(color);
 }
 ```
-
 ---
-
-<br>
+<br><br>
 
 ## 12. Arrow functions
 ```javascript
@@ -522,10 +596,8 @@ function sumar(a, b) {
 // Arrow function
 let sumar = (a, b) => a + b;
 ```
-
 ---
-
-<br>
+<br><br>
 
 ## 13. Synchronous vs Asynchronous
 ```javascript
@@ -579,8 +651,7 @@ console.log("Segundo");
 ![Event Loop](./img/eventLoop.png)
 
 ---
-
-<br>
+<br><br>
 
 ## 14. Callbacks
 - Un callback es una función que se pasa (sin paréntesis) como argumento a otra función y se ejecuta después de que ésta termine su ejecución.
@@ -598,10 +669,8 @@ function age(birthYear, currentYear) {
 
 saludar("Ana", age); // "Hola Ana, tienes 25 años."
 ```
-
 ---
-
-<br>
+<br><br>
 
 ## 15. Promesas
 - Una promesa es un objeto que representa la finalización o el fracaso de una operación asíncrona.
@@ -639,10 +708,8 @@ Promise.all([promesa1, promesa2])
   .then((resultados) => console.log(resultados))
   .catch((error) => console.error(error));
 ```
-
 ---
-
-<br>
+<br><br>
 
 ## 16. Async/await
 - `async` declara una función asíncrona y la convierte en una promesa.
@@ -664,7 +731,6 @@ obtenerDatos()
   .then((json) => console.log("Datos obtenidos.", json))
   .catch((error) => console.error(error));
 ```
-
 <br><br><br>
 
 ## *[volver al índice](../../README.md)*

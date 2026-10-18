@@ -3,10 +3,10 @@
 ## 1. ¿Qué es SOP? 🤔
 - Same Origin Policy (SOP) es una medida de seguridad implementada en los navegadores web que restringe cómo un documento o script de un origen puede interactuar con recursos de otro origen.
 - Esto significa que, por defecto, **un script en una página web solo puede hacer peticiones a su propio dominio**.
-- Un "origen" se define por:
+- Un "origen" se define por: `http(s)://dominio:puerto` --> Ejemplo: `https://mi-dominio.com:443`
   - El esquema (http, https)
-  - El dominio
-  - El puerto.
+  - El dominio (mi-dominio.com)
+  - El puerto. (80, 443, etc.)
 ---
 <br>
 
@@ -19,8 +19,8 @@
   - DNS Rebinding
 
 ### 2.1 Exfiltración de datos 📤
-- Un atacante puede crear un sitio web malicioso que intente acceder a datos sensibles de otro sitio web donde el usuario ha iniciado sesión.
-![exfiltration](./img/exfiltration.png)
+- Un atacante puede crear un sitio web malicioso que intente acceder a datos sensibles de otro sitio web donde el usuario ha iniciado sesión.  
+![exfiltration](../img/exfiltration.png)
 ```html
 <script>
     (async () => {
@@ -34,7 +34,7 @@
 
 ### 2.2 Cross-Site Request Forgery (CSRF) 🔄
 - Un atacante puede engañar a un usuario para que realice una acción no deseada en un sitio web donde está autenticado.
-![csrf](./img/csrf.png)
+![csrf](../img/csrf.png)
 
 - Esto se logra a través de un formulario oculto o una petición AJAX que se envía automáticamente.
 ```html
@@ -48,7 +48,7 @@
 ### 2.3 Cross-Site Scripting (XSS) 💉
 - Un atacante puede inyectar scripts maliciosos en una página web que son ejecutados por otros usuarios.
 - Esto puede permitir al atacante robar información sensible, como cookies de sesión.
-![xss](./img/xss.png)
+![xss](../img/xss.png)
 ```html
 <!-- 
     Abrir en el navegador el siguiente enlace: 
@@ -69,7 +69,7 @@
 ### 2.4 DNS Rebinding 🌐
 - Un atacante puede manipular la resolución de DNS para hacer que un dominio malicioso apunte a una dirección IP interna.
 - Esto puede permitir al atacante acceder a servicios internos que no están expuestos públicamente.
-![dns-rebinding](./img/dns-rebinding.png)
+![dns-rebinding](../img/dns-rebinding.png)
 
 ---
 <br>
@@ -189,4 +189,4 @@ app.use(cors({
 ---
 <br><br><br>
 
-## *[volver al índice](../../../../README.md)*
+## *[volver al índice](../../../../../README.md)*

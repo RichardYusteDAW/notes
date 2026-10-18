@@ -109,7 +109,6 @@
 - [BCryptjs](./JavaScript/frameworks/NodeJS/libraries/bcryptjs.md)
 - [Cheerio](./JavaScript/frameworks/NodeJS/libraries/cheerio.md)
 - [Colors](./JavaScript/frameworks/NodeJS/libraries/colors.md)
-- [CORS](./JavaScript/frameworks/NodeJS/libraries/cors.md)
 - [DotEnv](./JavaScript/frameworks/NodeJS/libraries/dotenv.md)
 - [FileSystem](./JavaScript/frameworks/NodeJS/libraries/fileSystem.md)
 - [Inquirer](./JavaScript/frameworks/NodeJS/libraries/inquirer.md)
@@ -122,13 +121,11 @@
 - Express:
   - [Express](./JavaScript/frameworks/NodeJS/libraries/express/express.md)
   - [Express-validator](./JavaScript/frameworks/NodeJS/libraries/express/express-validator.md)
-  - [Cors](./JavaScript/frameworks/NodeJS/libraries/express/cors.md)
+  - [CORS](./JavaScript/frameworks/NodeJS/libraries/express/cors.md)
   - [Handlebars](./JavaScript/frameworks/NodeJS/libraries/express/handlebars.md)
   - [Router](./JavaScript/frameworks/NodeJS/libraries/express/router.md)
   - [Session](./JavaScript/frameworks/NodeJS/libraries/express/express-session.md)
   - [Socket.io](./JavaScript/frameworks/NodeJS/libraries/express/socket-io.md)
-
-
 ---
 <br>
 
